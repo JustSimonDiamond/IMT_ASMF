@@ -37,6 +37,8 @@ with obj_mario
     visible = 0
     disablecontrols = 1
 }
+
+blend_star = c_white;
 </string>
           </argument>
         </arguments>
@@ -198,20 +200,21 @@ else
           <argument>
             <kind>1</kind>
             <string>///Draw Mario
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-
-    //Make Mario flash
-    if obj_mario.isflashing = 1
-        shader_set(sha_invert)
-
     //Draw Mario
-    draw_sprite_ext(spr_mario_pull,global.powerup,round(x),y,obj_mario.direct,1,0,c_white,obj_mario.image_alpha)
+    draw_sprite_ext(spr_mario_pull,global.powerup,round(x),y,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
 
-    //Reset flashing
-    if obj_mario.isflashing = 1
-        shader_reset()
-
+    //Draw Mario (Super Star)
+    if(instance_exists(obj_invincibility))
+    {
+        repeat(2)
+        {
+            draw_set_blend_mode(bm_add);
+            draw_sprite_ext(sprite_index,image_index,round(x),round(y),obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha);
+            draw_set_blend_mode(bm_normal);
+        };
+    };
 }
 </string>
           </argument>

@@ -28,7 +28,14 @@
             <string>///Warp to a new area using a note block
 
 //Use the jump sprite
-sprite_index = scr_mariojump()
+if global.player = 0
+{
+ sprite_index = scr_mariojump();
+}
+else if global.player = 1
+{
+ sprite_index = scr_luigijump();
+}
 
 //Do not animate
 image_speed = 0
@@ -64,19 +71,37 @@ alarm[0] = 1
           <argument>
             <kind>1</kind>
             <string>///Use the holding sprite if appropriate
-
-//Carrying overhead
-if holding = 1
+if global.player = 0
 {
-    sprite_index = scr_mariocarry()
-    image_index = 2
+    //Carrying overhead
+    if holding = 1
+    {
+        sprite_index = scr_mariocarry()
+        image_index = 2
+    }
+
+    //Holding on front
+    else if holding = 2
+    {
+        sprite_index = scr_mariohold()
+        image_index = 2
+    }
 }
-
-//Holding on front
-else if holding = 2
+else if global.player = 1
 {
-    sprite_index = scr_mariohold()
-    image_index = 2
+    //Carrying overhead
+    if holding = 1
+    {
+        sprite_index = scr_luigicarry()
+        image_index = 2
+    }
+
+    //Holding on front
+    else if holding = 2
+    {
+        sprite_index = scr_luigihold()
+        image_index = 2
+    }
 }
 </string>
           </argument>

@@ -42,7 +42,7 @@ alarm[1] = 2
 //Menu text
 menu[0] = "Jugar"
 menu[1] = "Ajustes"
-menu[2] = "Cambiar Usuario"
+menu[2] = "Salir"
 </string>
           </argument>
         </arguments>
@@ -140,7 +140,7 @@ if fade != 0
     **  use of the "Hello Mario Engine" somewhere
     **  else. Thank you. -Hello Fangaming
     */
-    draw_text(2,2,"IMT ASMF VERSION 0.4 DEVELOPER 4")
+    draw_text(2,2,"IMT ASMF VERSION 0.4 DEVELOPER 5")
 
 }
 
@@ -258,10 +258,13 @@ if menu_choice = 0
     room_goto(rm_saves)
 }
 else if menu_choice = 1
-    audio_play_sound(snd_wrong,0,0)
-    
+{
+    instance_create(x,y,obj_settings)
+}
 else if menu_choice = 2
-    audio_play_sound(snd_wrong,0,0)
+{
+    game_end()
+}
 </string>
           </argument>
         </arguments>

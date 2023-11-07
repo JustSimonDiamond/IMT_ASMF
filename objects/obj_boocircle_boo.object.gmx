@@ -72,9 +72,9 @@ x = xstart+cos(trig)*72
 y = ystart+sin(trig)*72
 
 //Face Mario
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-    if obj_mario.x &gt; x+8
+    if obj_playerparent.x &gt; x+8
         direct = 1
     else
         direct = -1

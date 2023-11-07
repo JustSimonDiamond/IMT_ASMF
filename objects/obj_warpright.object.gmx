@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Warp from the right
-if place_meeting(x+2,y,obj_mario)
+if place_meeting(x+2,y,obj_playerparent)
 {
 
     //Play a warp sound
@@ -36,7 +36,7 @@ if place_meeting(x+2,y,obj_mario)
     with instance_create(x+32,y,obj_warpmario) direction = 180
 
     //Destroy Mario
-    with obj_mario instance_destroy()
+    with obj_playerparent instance_destroy()
 
 }
 </string>

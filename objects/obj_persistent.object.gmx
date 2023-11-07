@@ -492,7 +492,7 @@ else if keyboard_check_pressed(ord('F'))
 else if keyboard_check_pressed(ord('1'))
 {
     filter = 0
-    message = "SIN FILTRO"
+    message = "TAMANO X1"
     event_user(1)
 }
 
@@ -500,7 +500,7 @@ else if keyboard_check_pressed(ord('1'))
 else if keyboard_check_pressed(ord('2'))
 {
     filter = 1
-    message = "FILTRO HQ2X"
+    message = "TAMANO X2"
     event_user(1)
 }
 
@@ -508,7 +508,7 @@ else if keyboard_check_pressed(ord('2'))
 else if keyboard_check_pressed(ord('3'))
 {
     filter = 2
-    message = "FILTRO HQ4X"
+    message = "TAMANO X4"
     event_user(1)
 }
 
@@ -516,12 +516,70 @@ else if keyboard_check_pressed(ord('3'))
 else
 {
     if alarm[3] &lt; 1
-        message = "";
+        message = "alt PRESIONADO";
     exit
 }
 
 //Reset the message
 alarm[3] = 60
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="15">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Vsync
+vsync = !vsync
+if vsync
+    message = "VSYNC ENCENDIDO"
+else
+    message = "VSYNC APAGADO"
+event_user(1)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="14">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Fullscreen
+fullscreen = !fullscreen
+if fullscreen
+    message = "PANTALLA CONMPLETA"
+else
+    message = "PROGRAMA EN VENTANA"
+event_user(1)
 </string>
           </argument>
         </arguments>
@@ -864,14 +922,14 @@ else
     //Filtering is off if the shaders fail to compile
     if not shader_is_compiled(sha_hq2x)
     or not shader_is_compiled(sha_hq4x)
-        filter = 0
+        filter = 1
 
     //Set the default to HQ4X only if the screen is big enough to fit it
     else if display_get_width() &gt;= 1536
     and display_get_height() &gt;= 864
-        filter = 0
+        filter = 2
     else
-        filter = 0
+        filter = 1
 
     //VSync is off by default
     vsync = 0
@@ -912,7 +970,7 @@ if filter = 0
 //HQ2X Filtering
 else if filter = 1
 {
-    shader_set(sha_hq2x)
+//    shader_set(sha_hq2x)
     draw_surface_stretched(application_surface,0,0,view_wview[0]*2,view_hview[0]*2)
     shader_reset()
 }
@@ -920,7 +978,7 @@ else if filter = 1
 //HQ4X Filtering
 else if filter = 2
 {
-    shader_set(sha_hq4x)
+//    shader_set(sha_hq4x)
     draw_surface_stretched(application_surface,0,0,view_wview[0]*4,view_hview[0]*4)
     shader_reset()
 }
@@ -987,7 +1045,7 @@ draw_text(view_xview[0],view_yview[0],message)
 if showfps
 {
     draw_set_halign(fa_right)
-    draw_text(view_xview[0]+view_wview[0]-2,view_yview[0]+206,"FPS: "+string(fps)+" MAX FPS: "+string(fps_real))
+    draw_text(view_xview[0]+view_wview[0]-2,view_yview[0]+206,"FPS: "+string(fps))
     draw_set_halign(fa_left)
 }
 

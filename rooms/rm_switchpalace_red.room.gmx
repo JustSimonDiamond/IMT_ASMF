@@ -386,7 +386,7 @@
     <instance objName="obj_levelmanager" x="0" y="0" name="inst_3FC10E61" locked="0" code="levelmusic = snd_palacemusic" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpleft" x="544" y="176" name="inst_9566D420" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pswitch" x="80" y="192" name="inst_3690C584" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mario" x="56" y="176" name="inst_865A0988" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="64" y="176" name="inst_C894BB55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tileset" x="32" y="144" w="16" h="16" xo="176" yo="496" id="10012812" name="tile_C5E8C3B5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

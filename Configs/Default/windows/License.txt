@@ -1,6 +1,6 @@
-Before start to play, if do you have an older version of the game, go to %localappdata%\IMT_ASMF and delete all contents
+Before start to play, if you have an older version of the game, go to %localappdata%\IMT_ASMF and delete all contents
 
-It's Mario Time: A Super Mario Fangame. it's created with Hello Mario Engne, an open source program for GameMaker: Studio 1.4
+It's Mario Time: A Super Mario Fangame. is created with Hello Mario Engne, an open source program for GameMaker: Studio 1.4
 Super Mario is a registered trademark of Nintendo.
 For more info, go to the next page:
 

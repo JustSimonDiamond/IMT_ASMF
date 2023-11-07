@@ -88,7 +88,7 @@ with collision_rectangle(bbox_left-6,bbox_top-4,bbox_right+6,bbox_bottom+4,obj_i
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

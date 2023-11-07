@@ -31,7 +31,10 @@
 image_speed = 0.15
 
 //Climbing sprite
-sprite_index = scr_marioclimb()
+if global.player = 0
+    sprite_index = scr_marioclimb()
+else if global.player = 1
+    sprite_index = scr_luigiclimb()
 
 //Start at the bottom of the level
 y = room_height
@@ -66,7 +69,7 @@ alarm[0] = 128
             <string>///Replace self with a real Mario
 
 //Make a climbing Mario
-with instance_create(x,y,obj_mario)
+with instance_create(x,y,obj_player)
 {
     gravity = 0
     state = 3

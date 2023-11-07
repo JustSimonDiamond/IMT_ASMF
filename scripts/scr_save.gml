@@ -56,8 +56,7 @@ file_text_writeln(file)
 file_text_write_string(file,base64_encode(string(global.yoshi)))
 file_text_writeln(file)
 
-//Yoshi's Color
-file_text_write_string(file,base64_encode(string(global.ycolor)))
+file_text_write_string(file,base64_encode(string(global.player)))
 file_text_writeln(file)
 
 //Inventory Items

@@ -64,7 +64,7 @@
     <instance objName="obj_levelmanager" x="0" y="0" name="inst_EBF53814" locked="0" code="levelmusic = snd_hammerbattle" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boomerangbro" x="224" y="96" name="inst_9635E9A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boomerangbro" x="272" y="160" name="inst_B0D4910F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mario" x="72" y="144" name="inst_699E5853" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="64" y="144" name="inst_3D64C765" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tileset" x="96" y="112" w="32" h="16" xo="96" yo="48" id="10012696" name="inst_13E2D16D" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

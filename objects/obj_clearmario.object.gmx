@@ -78,7 +78,6 @@ else
 
         //Add 500 to the score
         score += 500
-        global.coins += 1
 
         //Subtract 5 seconds from the time
         global.timer -= 5
@@ -99,7 +98,6 @@ else
 
     //Play the count sound
     audio_play_sound(snd_count,0,0)
-    audio_play_sound(snd_coin,0,0)
 
     //Continue counting down
     alarm[1] = 4

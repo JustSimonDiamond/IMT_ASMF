@@ -35,7 +35,7 @@
 */
 
 //Default Value:
-varmsg = "Ningun mensaje fue establecido"
+varmsg = "Ningun mensaje ha sido establecido"
 
 //Can the text be seen?
 showing = 0

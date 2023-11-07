@@ -55,12 +55,12 @@ image_speed = 0
           <argument>
             <kind>1</kind>
             <string>///Stop Mario from jumping over the flagpole.
-if collision_rectangle(bbox_left,-96,bbox_right,y,obj_mario,0,0)
+if collision_rectangle(bbox_left,-96,bbox_right,y,obj_playerparent,0,0)
 {
 
     //Stop Mario if he goes too far
-    if obj_mario.x &gt; x
-        obj_mario.x = x
+    if obj_playerparent.x &gt; x
+        obj_playerparent.x = x
 
     //Workaround to prevent sliding Mario from going over the flagpole.
     if instance_exists(obj_slider)
@@ -75,7 +75,7 @@ if collision_rectangle(bbox_left,-96,bbox_right,y,obj_mario,0,0)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -99,7 +99,17 @@ flag.vspeed = 1.5
 
 //Create the appropriate point object based on Mario's height
 if other.y &lt; y+16
-    with instance_create(x,other.y,obj_score_new) event_user(9)
+{
+ with instance_create(x,other.y,obj_score_new) event_user(9)
+ if global.player = 0
+ {
+  audio_play_sound(snd_mario_flagpoletop,0,0);
+ }
+ else if global.player = 1
+ {
+  audio_play_sound(snd_luigi_flagpoletop,0,0);
+ }
+}
 else if other.y &lt; y+32
     with instance_create(x,other.y,obj_score_new) event_user(8)
 else if other.y &lt; y+48

@@ -73,7 +73,7 @@ alarm[2] = 1
           <argument>
             <kind>1</kind>
             <string>///Allow the shell to be kicked
-if not place_meeting(x,y,obj_mario)
+if not place_meeting(x,y,obj_playerparent)
     kicked = 0
 else
     alarm[2] = 1
@@ -100,7 +100,7 @@ else
           <argument>
             <kind>1</kind>
             <string>///Hurt Mario after getting kicked
-if not place_meeting(x,y,obj_mario)
+if not place_meeting(x,y,obj_playerparent)
     harmmario = 1
 else
     alarm[1] = 1
@@ -229,7 +229,7 @@ and other.hardness &lt; 99
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -273,7 +273,7 @@ and (other.stompstyle = 0 or other.bbox_bottom &gt;= bbox_top-vspeed+5)
             kicked = 1
 
             //Go away from Mario
-            if obj_mario.x &lt; x+8
+            if obj_playerparent.x &lt; x+8
                 hspeed = 3
             else
                 hspeed = -3
@@ -282,7 +282,7 @@ and (other.stompstyle = 0 or other.bbox_bottom &gt;= bbox_top-vspeed+5)
             audio_play_sound(snd_kick,0,0)
 
             //Make Mario kick it
-            with obj_mario event_user(7)
+            with obj_playerparent event_user(7)
 
             //Animate
             image_speed = 0.15

@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>///Mario on the flagpole
 
-
 //Disable Controls
 disablecontrols = 1
 
@@ -54,8 +53,14 @@ ready = 0
 image_speed = 0
 
 //Use the goal sprite
-sprite_index = scr_mariogoal()
-
+if global.player = 0
+{
+    sprite_index = scr_mariogoal()
+}
+else if global.player = 1
+{
+    sprite_index = scr_luigigoal()
+}
 //Use small mask for small Mario
 if global.powerup = cs_small
     mask_index = spr_smallmask
@@ -145,7 +150,6 @@ else
 
         //Add 500 to the score
         score += 500
-        global.coins += 1
 
         //Subtract 5 seconds from the time
         global.timer -= 5
@@ -166,7 +170,6 @@ else
 
     //Play the count sound
     audio_play_sound(snd_count,0,0)
-    audio_play_sound(snd_coin,0,0)
 
     //Continue counting down
     alarm[2] = 4
@@ -266,7 +269,7 @@ image_speed = 0.15
 //Destroy all enemies
 with obj_enemyparent
 {
-    instance_create(x,y,obj_smoke)
+    with instance_create(x,y,obj_smoke) sprite_index = spr_disapear
     instance_destroy()
 }
 
@@ -305,15 +308,28 @@ or ready = 3
 
     //When on the ground, use walking sprite
     if gravity = 0
-        sprite_index = scr_mariowalk()
-
+    {
+        if global.player = 0
+        {
+            sprite_index = scr_mariowalk()
+        }
+        else if global.player = 1
+        {
+            sprite_index = scr_luigiwalk()
+        }
+    }
     //Otherwise
     else
     {
-
         //Use the jump sprite
-        sprite_index = scr_mariojump()
-
+        if global.player = 0
+        {
+            sprite_index = scr_mariojump()
+        }
+        else if global.player = 1
+        {
+            sprite_index = scr_luigijump()
+        }
         //Use the correct image index
         image_index = 0
 

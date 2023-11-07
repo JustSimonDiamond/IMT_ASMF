@@ -116,8 +116,8 @@ if (charge == 1) {
         if (!instance_exists(obj_invincibility)) {
             
             //Follow the player
-            if (!instance_exists(obj_mario))
-            || (obj_mario.x &lt; x) {
+            if (!instance_exists(obj_playerparent))
+            || (obj_playerparent.x &lt; x) {
             
                 hspeed -= 0.0324;
                 if (hspeed &lt; -1)
@@ -135,8 +135,8 @@ if (charge == 1) {
         else {
             
             //Un-follow the player
-            if (!instance_exists(obj_mario))
-            || (obj_mario.x &lt; x) {
+            if (!instance_exists(obj_playerparent))
+            || (obj_playerparent.x &lt; x) {
             
                 hspeed += 0.0324;
                 if (hspeed &gt; 1)
@@ -173,8 +173,8 @@ if (charge == 1) {
 }
 
 //Face towards the player
-if (!instance_exists(obj_mario))
-|| (obj_mario.x &lt; x)
+if (!instance_exists(obj_playerparent))
+|| (obj_playerparent.x &lt; x)
     xscale = -1;
 else
     xscale = 1;
@@ -183,7 +183,7 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

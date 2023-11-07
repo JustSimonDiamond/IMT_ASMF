@@ -233,7 +233,7 @@ keyboard_clear(vk_control)
 audio_play_sound(snd_enterstage,0,0)
 
 //Play Mario's voice
-audio_play_sound(snd_letsgo,0,0)
+audio_play_sound(snd_letsplay,0,0)
 
 //Stop the music
 audio_stop_sound(snd_savemusic)

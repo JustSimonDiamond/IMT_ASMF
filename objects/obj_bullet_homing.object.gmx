@@ -37,8 +37,8 @@ stomp = 0
 image_speed = 0.15
 
 //Go after Mario
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
     hspeed = -1.5
 else
     hspeed = 1.5
@@ -74,14 +74,14 @@ if outside_view()
     instance_destroy()
 
 //Chase after Mario
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-    if obj_mario.x &gt; x
+    if obj_playerparent.x &gt; x
     {
         hspeed += 0.05
         direct = 1
     }
-    if obj_mario.x &lt; x
+    if obj_playerparent.x &lt; x
     {
         hspeed += -0.05
         direct = -1

@@ -197,9 +197,9 @@ if switchon = 1
             <string>///Make the P-Meter flash
 
 //If Mario is no longer fast enough, and on the ground
-if instance_exists(obj_mario)
-and abs(obj_mario.hspeed) &lt;= 2.8
-and obj_mario.state &lt; 2
+if instance_exists(obj_playerparent)
+and abs(obj_playerparent.hspeed) &lt;= 2.8
+and obj_playerparent.state &lt; 2
 {
 
     //Stop the annoying sound
@@ -254,9 +254,9 @@ if pmeter &gt; 5
 {
 
     //If Mario is still running, keep the meter on
-    if instance_exists(obj_mario)
-    and abs(obj_mario.hspeed) &gt; 2.8
-    and obj_mario.state &lt; 2
+    if instance_exists(obj_playerparent)
+    and abs(obj_playerparent.hspeed) &gt; 2.8
+    and obj_playerparent.state &lt; 2
         alarm[8] = 100
 
     //Otherwise
@@ -300,12 +300,12 @@ if pmeter &gt; 5
             <string>///P-Meter loop
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //If Mario is running fast enough
-    if abs(obj_mario.hspeed) &gt; 2.8
-    and obj_mario.state = 1
+    if abs(obj_playerparent.hspeed) &gt; 2.8
+    and obj_playerparent.state = 1
     {
 
         //Increment the P-Meter if it is not maxed out
@@ -426,12 +426,12 @@ alarm[5] = 7
             <string>///Kill Mario
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Kill Mario
-    instance_create(obj_mario.x,obj_mario.y,obj_deadmario)
-    with obj_mario instance_destroy()
+    instance_create(obj_playerparent.x,obj_playerparent.y,obj_deadmario)
+    with obj_playerparent instance_destroy()
 
 }
 
@@ -615,10 +615,10 @@ if instance_exists(obj_autoscroll)
 }
 
 //Follow Mario if he exists
-else if instance_exists(obj_mario)
+else if instance_exists(obj_playerparent)
 {
-    x = obj_mario.x
-    y = obj_mario.y+16
+    x = obj_playerparent.x
+    y = obj_playerparent.y+16
 }
 
 //Follow goal Mario if he exists
@@ -675,24 +675,24 @@ instance_activate_region(view_xview[0]-32,view_yview[0]-32,view_wview[0]+64,view
 
 //If the barrier is enforced, and Mario exists
 if barrier = 0
-and instance_exists(obj_mario)
+and instance_exists(obj_playerparent)
 {
 
     //If space is pressed, drop the reserve item
     if keyboard_check_pressed(vk_space)
-    and obj_mario.disablecontrols = 0
+    and obj_playerparent.disablecontrols = 0
         event_user(4)
 
     //If Mario moves off the left side of the screen
-    if obj_mario.x &lt; view_xview[0]+5
+    if obj_playerparent.x &lt; view_xview[0]+5
     {
 
         //Snap Mario to the side of the screen
-        obj_mario.x = view_xview[0]+5
+        obj_playerparent.x = view_xview[0]+5
 
         //Stop Mario if he keeps trying to move off
-        if obj_mario.hspeed &lt; 0
-            obj_mario.hspeed = 0
+        if obj_playerparent.hspeed &lt; 0
+            obj_playerparent.hspeed = 0
 
         //Stop sliding Mario if he keeps trying to move off (Sneaky!)
         if instance_exists(obj_slider)
@@ -701,15 +701,15 @@ and instance_exists(obj_mario)
     }
 
     //If Mario moves off the right side of the screen
-    else if obj_mario.x &gt; view_xview[0]+view_wview[0]-5
+    else if obj_playerparent.x &gt; view_xview[0]+view_wview[0]-5
     {
 
         //Snap Mario to the side of the screen
-        obj_mario.x = view_xview[0]+view_wview[0]-5
+        obj_playerparent.x = view_xview[0]+view_wview[0]-5
 
         //Stop Mario if he keeps trying to move off
-        if obj_mario.hspeed &gt; 0
-            obj_mario.hspeed = 0
+        if obj_playerparent.hspeed &gt; 0
+            obj_playerparent.hspeed = 0
 
         //Stop sliding Mario if he keeps trying to move off (Sneaky!)
         if instance_exists(obj_slider)
@@ -727,12 +727,12 @@ if global.coins &gt; 99
     global.coins -= 100
 
     //Create the extra life on Mario if he exists
-    if instance_exists(obj_mario)
-        with instance_create(obj_mario.x-8,obj_mario.y,obj_score) event_user(7)
+    if instance_exists(obj_playerparent)
+        with instance_create(obj_playerparent.x-8,obj_playerparent.y,obj_score_new) event_user(9)
 
     //Otherwise, create the extra life on the level manager
     else
-        with instance_create(x-8,y,obj_score) event_user(7)
+        with instance_create(x-8,y,obj_score_new) event_user(9)
 
 }
 
@@ -768,12 +768,14 @@ if global.reserveitem &gt; cs_small
 {
 
     //Create the reserve item
-    with instance_create(view_xview[0]+184,view_yview[0]+8,obj_reserveitem) sprite_index = scr_constant_get_sprite(global.reserveitem)
+    with instance_create(obj_playerparent.x-8,obj_playerparent.y+8,obj_reserveitem) sprite_index = scr_constant_get_sprite(global.reserveitem)
 
     //Remove the reserve item
     global.reserveitem = cs_small
 
 }
+
+//with instance_create(view_xview[0]+184,view_yview[0]+8,obj_reserveitem) sprite_index = scr_constant_get_sprite(global.reserveitem)
 </string>
           </argument>
         </arguments>
@@ -1029,7 +1031,7 @@ if global.mariostart = 0
         event_user(0)
 
         //Create a new Mario at the desired location
-        instance_create(global.checkpoint.x+8,global.checkpoint.y+16,obj_mario)
+        instance_create(global.checkpoint.x+8,global.checkpoint.y+16,obj_player)
 
     }
 
@@ -1047,7 +1049,7 @@ if global.postchange != -1
 
     //Create the desired object at the desired location
     if global.postchange = 0
-        instance_create(global.postx,global.posty,obj_mario)
+        instance_create(global.postx,global.posty,obj_player)
     else if global.postchange = 1
         instance_create(global.postx,global.posty,obj_warpmario)
     else if global.postchange = 2
@@ -1104,11 +1106,11 @@ else if global.carrieditem != noone
     }
 
     //If Mario exists
-    if instance_exists(obj_mario)
+    if instance_exists(obj_playerparent)
     {
 
         //Make Mario hold the item appropriately
-        obj_mario.holding = global.shallihold
+        obj_playerparent.holding = global.shallihold
 
         //Reset the variable
         global.shallihold = 0
@@ -1169,7 +1171,10 @@ if global.star &gt; 0
           <argument>
             <kind>1</kind>
             <string>///Draw the HUD
-
+if instance_exists(obj_toobad)
+{
+ exit;
+}
 //Set the font
 draw_set_font(global.grdigits)
 
@@ -1180,8 +1185,24 @@ draw_set_alpha(0.7)
 draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+150,1,1,0,c_white,0.7)
 
 //Draw the lives
+if global.player = 0
+    {
+    draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
+    }
+else if global.player = 1
+    {
+    draw_sprite_ext(spr_luigihud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
+    }
+else
+    {
+    draw_sprite_ext(spr_noplayerhud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
+    }
+draw_text(view_xview[0]+40,view_yview[0]+8,string_format(lives,2,0))
+
+/*
 draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
 draw_text(view_xview[0]+40,view_yview[0]+8,string_format(lives,2,0))
+*/
 
 //Draw the score
 draw_text(view_xview[0]+275,view_yview[0]+30,string_add_zeros(score,7))

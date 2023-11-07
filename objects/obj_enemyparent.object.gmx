@@ -72,8 +72,8 @@ direct = -1
             <string>///Detect Mario, and walk towards him
 if hspeed = 0
 {
-    if not instance_exists(obj_mario)
-    or obj_mario.x &lt; x
+    if not instance_exists(obj_playerparent)
+    or obj_playerparent.x &lt; x
         hspeed = -0.5
     else
         hspeed = 0.5
@@ -149,7 +149,7 @@ and other.vspeed &lt; 0
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

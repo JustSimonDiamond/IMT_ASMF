@@ -34,8 +34,8 @@ image_speed = 0.15
 speed = 2
 
 //Select a direction to move in
-if instance_exists(obj_mario)
-    direction = point_direction(x,y,obj_mario.x,obj_mario.y)
+if instance_exists(obj_playerparent)
+    direction = point_direction(x,y,obj_playerparent.x,obj_playerparent.y)
 else
     direction = random(360)
 
@@ -72,7 +72,7 @@ if outside_view()
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

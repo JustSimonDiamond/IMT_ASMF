@@ -53,8 +53,8 @@ if position_meeting(x+8,y-8,obj_solid)
     //Otherwise, go towards Mario
     else
     {
-        if not instance_exists(obj_mario)
-        or x &gt; obj_mario.x
+        if not instance_exists(obj_playerparent)
+        or x &gt; obj_playerparent.x
             hspeed = -0.5
         else
             hspeed = 0.5
@@ -97,12 +97,15 @@ alarm[1] = 1
 
 //If this is a leaf, replace with a real leaf
 if sprite_index = spr_leaf
+{
     instance_create(xstart,ystart,obj_leaf)
-
+    exit
+}
 //If this is a tanooki leaf, replace with a real tanooki leaf
 if sprite_index = spr_tanookisuit
+{
     instance_create(xstart,ystart,obj_tanookisuit)
-
+}
 //Otherwise
 else
 {

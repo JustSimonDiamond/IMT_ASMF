@@ -21,7 +21,7 @@ switch global.powerup
     case cs_super: return spr_mario_super_jump
     case cs_carrot: return spr_mario_carrot_runjump
     case cs_ninja: return spr_mario_ninja_runjump
-    case cs_bee: return spr_mario_bee_runjump
+    case cs_bee: return spr_mario_bee_jump
     case cs_shell: return spr_mario_shell_runjump
     case cs_penguin: return spr_mario_penguin_jump
     case cs_propeller: return spr_mario_propeller_jump

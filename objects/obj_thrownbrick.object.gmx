@@ -175,7 +175,7 @@ if held = 0
 
     //Harm Mario after being released
     if harmmario = 0
-    and not place_meeting(x,y,obj_mario)
+    and not place_meeting(x,y,obj_playerparent)
         harmmario = 1
 
 }
@@ -219,7 +219,7 @@ if other.hardness &lt; 99
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -270,7 +270,7 @@ if harmmario = 1
           <argument>
             <kind>1</kind>
             <string>///Force pickup
-obj_mario.holding = 2
+obj_playerparent.holding = 2
 held = 1
 gravity = 0
 speed = 0
@@ -298,7 +298,7 @@ depth = -4
           <argument>
             <kind>1</kind>
             <string>///Throw brick
-hspeed = 3*obj_mario.direct
+hspeed = 3*obj_playerparent.direct
 
 //Slope fix
 while collision_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_bottom,obj_slopeparent,1,0)

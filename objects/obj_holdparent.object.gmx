@@ -60,7 +60,7 @@ direct = 1
             <string>///Protect Mario from the horrors of holding nothing
 if held = 1
 {
-    with obj_mario holding = 0
+    with obj_playerparent holding = 0
     with obj_warpmario holding = 0
     with obj_doormario holding = 0
 }
@@ -91,37 +91,37 @@ if held = 1
 {
 
     //If Mario exists
-    if instance_exists(obj_mario)
+    if instance_exists(obj_playerparent)
     {
 
         //Snap to position
-        x = obj_mario.x-8+10*obj_mario.direct
-        y = obj_mario.y+15
+        x = obj_playerparent.x-8+10*obj_playerparent.direct
+        y = obj_playerparent.y+15
 
         //If control is still being held
         if keyboard_check(vk_control)
         {
 
             //Make sure Mario is holding
-            obj_mario.holding = 2
+            obj_playerparent.holding = 2
 
             //Use the same facing direction
-            direct = obj_mario.direct
+            direct = obj_playerparent.direct
 
         }
 
         //Otherwise
-        else if obj_mario.disablecontrols = 0
+        else if obj_playerparent.disablecontrols = 0
         {
 
             //Play kick sound
             audio_play_sound(snd_kick,0,0)
 
             //Make Mario kick it
-            with obj_mario event_user(7)
+            with obj_playerparent event_user(7)
 
             //Stop Mario from holding it
-            obj_mario.holding = 0
+            obj_playerparent.holding = 0
 
             //Stop being held
             held = 0
@@ -281,7 +281,7 @@ and other.vspeed &lt; 0
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -352,7 +352,7 @@ if held = 0
           <argument>
             <kind>1</kind>
             <string>///Default thrown event
-hspeed = obj_mario.hspeed+1.5*obj_mario.direct
+hspeed = obj_playerparent.hspeed+1.5*obj_playerparent.direct
 
 //Move up when solids are not in the way
 if not place_meeting(x,y,obj_solid)

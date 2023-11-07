@@ -83,7 +83,7 @@ if vspeed = 0
 if lives &gt; 998
 {
     lives = 999
-    sprite_index = spr_0uppts
+    sprite_index = spr_3uppts
     audio_play_sound(snd_1up,0,0)
 }
 else
@@ -116,7 +116,7 @@ audio_play_sound(snd_3up,0,0)
 if lives &gt; 998
 {
     lives = 999
-    sprite_index = spr_0uppts
+    sprite_index = spr_1uppts
     audio_play_sound(snd_1up,0,0)
 }
 else

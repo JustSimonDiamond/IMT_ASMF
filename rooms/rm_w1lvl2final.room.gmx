@@ -53,8 +53,7 @@
   <instances>
     <instance objName="obj_levelmanager" x="0" y="0" name="inst_5D017249" locked="0" code="leveltime = 0&#xA;levelmusic = snd_music_desert&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flagpole" x="688" y="224" name="inst_7658818A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_incastle" x="864" y="384" name="inst_76E51C27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mario" x="48" y="352" name="inst_0C225F3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_incastle" x="896" y="384" name="inst_76E51C27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="0" y="16" name="inst_FE830575" locked="0" code="" scaleX="1" scaleY="24" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="16" y="400" name="inst_72F98D91" locked="0" code="" scaleX="62" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="480" y="384" name="inst_1BDBEA27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -80,6 +79,7 @@
     <instance objName="obj_coin" x="288" y="336" name="inst_C0C5B1F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_stopblock" x="0" y="0" name="inst_C6DBDCC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_course_clear" x="784" y="384" name="inst_52D0CCC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="48" y="352" name="inst_6F95A9BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnew" x="0" y="400" w="16" h="16" xo="528" yo="96" id="10022872" name="inst_47637108" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

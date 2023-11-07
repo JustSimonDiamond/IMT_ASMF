@@ -100,7 +100,7 @@ and place_meeting(x+hspeed,y+vspeed,obj_slopeparent)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

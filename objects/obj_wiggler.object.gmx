@@ -155,15 +155,15 @@ event_user(15)
           <argument>
             <kind>1</kind>
             <string>///Go after Mario
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-    if obj_mario.x &lt; x
+    if obj_playerparent.x &lt; x
     and hspeed &gt; 0
     {
         hspeed = -1
         event_user(15)
     }
-    else if obj_mario.x &gt; x
+    else if obj_playerparent.x &gt; x
     and hspeed &lt; 0
     {
         hspeed = 1
@@ -358,7 +358,7 @@ else
 {
 
     //Musical scale
-    scr_musicalscale(obj_mario.id,id,1)
+    scr_musicalscale(obj_playerparent.id,id,1)
 
     //Kill flower
     with instance_create(x-4*direct,y+16,obj_enemy_dead) sprite_index = spr_wiggler_flower

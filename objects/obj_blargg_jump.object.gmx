@@ -34,8 +34,8 @@ hardness = 2
 stomp = 2
 
 //Facing direction
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
     direct = -1
 else
     direct = 1

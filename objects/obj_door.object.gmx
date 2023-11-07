@@ -91,14 +91,14 @@ else
 
     //If the position change exists, create Mario at that position
     if mywarp
-        instance_create(mywarp.postx+8,mywarp.posty,obj_mario)
+        instance_create(mywarp.postx+8,mywarp.posty,obj_player)
 
     //Otherwise, have Mario come out the same door
     else
-        instance_create(x+8,y-16,obj_mario)
+        instance_create(x+8,y-16,obj_player)
 
     //Remember if something is being held
-    obj_mario.holding = obj_doormario.holding
+    obj_playerparent.holding = obj_doormario.holding
 
     //Notify the level manager
     with obj_levelmanager
@@ -194,8 +194,8 @@ draw_sprite(sprite_index,image_index,x,y)
             <string>///Let Mario in the door
 
 //If Mario is on the door, not jumping, and visible
-if place_meeting(x,y,obj_mario)
-and obj_mario.state != 2
+if place_meeting(x,y,obj_playerparent)
+and obj_playerparent.state != 2
 and visible = 1
 {
 
@@ -209,7 +209,7 @@ and visible = 1
     instance_create(x+8,y-16,obj_doormario)
 
     //Get rid of the real Mario
-    with obj_mario instance_destroy()
+    with obj_playerparent instance_destroy()
 
     //Mario enters the door after 55 frames
     alarm[0] = 55

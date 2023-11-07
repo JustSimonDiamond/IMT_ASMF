@@ -59,8 +59,7 @@ file_text_readln(file)
 global.yoshi = real(base64_decode(file_text_read_string(file)))
 file_text_readln(file)
 
-//Yoshi's Color
-global.ycolor = real(base64_decode(file_text_read_string(file)))
+global.player = real(base64_decode(file_text_read_string(file)))
 file_text_readln(file)
 
 //Inventory Items

@@ -70,7 +70,7 @@ event_inherited()
 
 //Hop
 if gravity = 0
-    vspeed = -4.5
+    vspeed = -4.75
 </string>
           </argument>
         </arguments>

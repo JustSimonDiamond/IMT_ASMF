@@ -118,11 +118,20 @@ vspeed = -4
 visible = 1
 
 //Choose the appropriate sprite
-if holding = 0
-    sprite_index = scr_mariorunjump()
-else
-    sprite_index = scr_mariohold()
-
+if global.player = 0
+    {
+    if holding = 0
+        sprite_index = scr_mariorunjump()
+    else
+        sprite_index = scr_mariohold()
+    }
+else if global.player = 1
+    {
+    if holding = 0
+        sprite_index = scr_luigirunjump()
+    else
+        sprite_index = scr_luigihold()
+    }
 //Do not animate
 image_speed = 0
 
@@ -168,7 +177,14 @@ vspeed = -4
 visible = 1
 
 //Choose the appropriate sprite
-sprite_index = scr_mariowarp()
+if global.player = 0
+    {
+    sprite_index = scr_mariowarp()
+    }
+else if global.player = 1
+    {
+    sprite_index = scr_luigiwarp()
+    }
 
 //Do not animate
 image_speed = 0
@@ -238,14 +254,26 @@ if cannon = 0
         image_speed = 0.15
 
         //Choose the appropriate sprite
-        if holding = 0
-            sprite_index = scr_mariowalk()
-        else
+        if global.player = 0
         {
-            sprite_index = scr_mariohold()
-            direct = -direct
+            if holding = 0
+                sprite_index = scr_mariowalk()
+            else
+            {
+                sprite_index = scr_mariohold()
+                direct = -direct
+            }
         }
-
+        else if global.player = 1
+        {
+            if holding = 0
+                sprite_index = scr_luigiwalk()
+            else
+            {
+                sprite_index = scr_luigihold()
+                direct = -direct
+            }
+        }
     }
 
     //If Mario is moving vertically
@@ -259,7 +287,14 @@ if cannon = 0
         image_index = 0
 
         //Choose the appropriate sprite
-        sprite_index = scr_mariowarp()
+        if global.player = 0
+            {
+            sprite_index = scr_mariowarp()
+            }
+        else if global.player = 1
+            {
+            sprite_index = scr_luigiwarp()
+            }
 
     }
 
@@ -623,16 +658,28 @@ y = other.posty
             <string>///Turn back into Mario
 
 //Create Mario
-with instance_create(x,y,obj_mario)
-{
+if global.player = 0
+    with instance_create(x,y,obj_mario)
+    {
 
-    //Retain speed, direction, and holding
-    vspeed = other.vspeed
-    hspeed = other.hspeed
-    direct = other.direct
-    holding = other.holding
+        //Retain speed, direction, and holding
+        vspeed = other.vspeed
+        hspeed = other.hspeed
+        direct = other.direct
+        holding = other.holding
+    
+    }
+else if global.player = 1
+    with instance_create(x,y,obj_luigi)
+    {
 
-}
+        //Retain speed, direction, and holding
+        vspeed = other.vspeed
+        hspeed = other.hspeed
+        direct = other.direct
+        holding = other.holding
+    
+    }
 
 //Destroy
 instance_destroy()
@@ -665,16 +712,19 @@ if holding != 0
 and hspeed != 0
     draw_sprite(myitem,0,x-sprite_get_width(myitem)/2+sprite_get_xoffset(myitem)+10*direct,bbox_bottom-sprite_get_height(myitem)+sprite_get_yoffset(myitem)-1)
 
-//Make Mario flash
-if isflashing = 1
-    shader_set(sha_invert)
-
 //Draw Mario
 draw_sprite_ext(sprite_index,image_index,round(x),y,direct,1,0,c_white,1)
 
-//Reset flashing
-if isflashing = 1
-    shader_reset()
+//Draw Mario (Super Star)
+if(instance_exists(obj_invincibility))
+{
+    repeat(2)
+    {
+        draw_set_blend_mode(bm_add);
+        draw_sprite_ext(sprite_index,image_index,round(x),round(y),obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha);
+        draw_set_blend_mode(bm_normal);
+    };
+};
 
 //Draw item when Mario is moving vertically
 if holding != 0

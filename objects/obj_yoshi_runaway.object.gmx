@@ -31,10 +31,10 @@
 image_speed = 0.3
 
 //Facing direction + move Mario up
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-    direct = obj_mario.direct
-    obj_mario.vspeed = -4
+    direct = obj_playerparent.direct
+    obj_playerparent.vspeed = -4
 }
 else
     direct = 1
@@ -176,7 +176,7 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

@@ -28,8 +28,14 @@
             <string>///Mario entering a door
 
 //Use the warp sprite
-sprite_index = scr_mariowarp()
-
+if global.player = 0
+{
+    sprite_index = scr_mariowarp()
+}
+else if global.player = 1
+{
+    sprite_index = scr_luigiwarp()
+}
 //What happens when the door starts closing
 alarm[0] = 27
 
@@ -41,6 +47,8 @@ myitem = noone
 
 //Whether the held item is offset
 offset = 0
+
+blend_star = c_white
 </string>
           </argument>
         </arguments>
@@ -64,7 +72,7 @@ offset = 0
           <argument>
             <kind>1</kind>
             <string>///Change the depth to behind the door
-depth = 11
+depth = 3
 </string>
           </argument>
         </arguments>
@@ -90,7 +98,7 @@ depth = 11
             <string>///Draw Mario entering a door
 
 //Draw the inside of the door if the door is closing
-if depth = 11
+if depth = 3
     draw_sprite(spr_door_inside,0,x-8,y+16)
 
 //Draw the held item if it exists
@@ -99,6 +107,16 @@ if holding != 0
 
 //Draw Mario
 draw_sprite(sprite_index,3,x,y)
+
+//Draw Mario (Super Star)
+if(instance_exists(obj_invincibility)){
+repeat(2){
+            
+    draw_set_blend_mode(bm_add);
+    draw_sprite_ext(sprite_index,image_index,round(x),round(y),direct,1,0,blend_star,image_alpha)
+    draw_set_blend_mode(bm_normal);
+};
+};
 </string>
           </argument>
         </arguments>

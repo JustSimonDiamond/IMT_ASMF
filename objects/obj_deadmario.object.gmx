@@ -26,10 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>///NOOOOOOOOOOOOOO
-
+if instance_exists(self)
+{
+    event_user(0)
+}
 //Use the death sprite
-sprite_index = scr_mariodead()
-
+if global.player = 0
+{
+    sprite_index = scr_mariodead()
+}
+else if global.player = 1
+{
+    sprite_index = scr_luigidead()
+}
 //Stop the music and time
 with obj_levelmanager
 {
@@ -47,7 +56,7 @@ global.died = 1
 alarm[0] = 60
 
 //Play the death song
-audio_play_sound(snd_deadmario,1,0)
+audio_play_sound(snd_dead,1,0)
 </string>
           </argument>
         </arguments>
@@ -72,6 +81,11 @@ audio_play_sound(snd_deadmario,1,0)
             <kind>1</kind>
             <string>///Return to the world map
 scr_return()
+if instance_exists (obj_toobad)
+    with (obj_toobad)
+        instance_destroy()
+else
+    exit
 </string>
           </argument>
         </arguments>
@@ -135,6 +149,30 @@ if vspeed &gt; 4
     vspeed = 4
     gravity = 0
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Crear texto "Too Bad"
+instance_create(0,0,obj_toobad)
 </string>
           </argument>
         </arguments>

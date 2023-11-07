@@ -102,7 +102,7 @@ if y &lt; other.y-11 and vspeed &gt; 0
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

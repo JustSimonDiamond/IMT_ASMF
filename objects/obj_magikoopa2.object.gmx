@@ -199,9 +199,9 @@ alarm[1] = 5
             <kind>1</kind>
             <string>///Face Mario
 if image_index = 0
-and instance_exists(obj_mario)
+and instance_exists(obj_playerparent)
 {
-    if obj_mario.x &gt; x
+    if obj_playerparent.x &gt; x
         direct = 1
     else
         direct = -1

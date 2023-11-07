@@ -34,7 +34,7 @@ image_speed = 0.5
 audio_play_sound(snd_spring,0,0)
 
 //Bounce Mario
-with obj_mario
+with obj_playerparent
 {
     event_user(1)
     vspeed = -5.2

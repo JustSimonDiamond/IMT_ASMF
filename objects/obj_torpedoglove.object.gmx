@@ -188,8 +188,8 @@ alarm[2] = 10
 mytorpedo = instance_create(x+16,y+16,obj_torpedoted)
 
 //Make it face Mario
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
     mytorpedo.direct = -1
 else
     mytorpedo.direct = 1

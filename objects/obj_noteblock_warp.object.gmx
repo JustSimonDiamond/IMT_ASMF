@@ -62,7 +62,7 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>///Make Mario bounce
-with obj_mario
+with obj_playerparent
 {
 
     //Make Mario bounce
@@ -77,7 +77,7 @@ with obj_mario
         audio_play_sound(snd_spring,0,0)
 
         //Create a note block warp Mario, and inherit direction and holding variables
-        with instance_create(obj_mario.x,obj_mario.y,obj_warpnoteblock)
+        with instance_create(obj_playerparent.x,obj_playerparent.y,obj_warpnoteblock)
         {
             direct = other.direct
             holding = other.holding

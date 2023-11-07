@@ -34,7 +34,7 @@ image_speed = 0.15
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -73,12 +73,11 @@ else if global.powerup &gt; cs_big
 //Get the new powerup
 global.powerup = scr_sprite_get_constant(sprite_index)
 
+//Create smoke
+instance_create(obj_playerparent.x,obj_playerparent.y+8,obj_statuesmoke)
+
 //Play powerup sound
 audio_play_sound(snd_powerup,0,0)
-
-
-//Make Mario temporarily invincible
-with other event_user(6)
 
 //Destroy
 instance_destroy()

@@ -31,7 +31,14 @@
 image_speed = 0
 
 //Jumping sprite
-sprite_index = scr_mariojump()
+if global.player = 0
+{
+    sprite_index = scr_mariojump()
+}
+else if global.player = 1
+{
+    sprite_index = scr_luigijump()
+}
 
 //Start at the bottom of the level
 y = room_height
@@ -67,7 +74,7 @@ if y &lt; ystart
 {
 
     //Create an upward moving Mario
-    with instance_create(x,y,obj_mario) vspeed = -6
+    with instance_create(x,y,obj_player) vspeed = -6
 
     //Destroy
     instance_destroy()
@@ -96,20 +103,32 @@ if y &lt; ystart
           <argument>
             <kind>1</kind>
             <string>///Check if Mario is holding or carrying something
-
-//If Mario is carrying something, use the carry sprite
-if global.shallihold = 1
-{
+if global.player = 0
+    //If Mario is carrying something, use the carry sprite
+    if global.shallihold = 1
+    {
     sprite_index = scr_mariocarry()
     image_index = 2
-}
+    }
 
-//If Mario is holding something, use the hold sprite
-else if global.shallihold = 2
-{
+    //If Mario is holding something, use the hold sprite
+    else if global.shallihold = 2
+    {
     sprite_index = scr_mariohold()
     image_index = 2
-}
+    }
+
+else if global.player = 1
+    if global.shallihold = 1
+    {
+    sprite_index = scr_luigicarry()
+    image_index = 2
+    }
+    else if global.shallihold = 2
+    {
+    sprite_index = scr_luigihold()
+    image_index = 2
+    }
 </string>
           </argument>
         </arguments>

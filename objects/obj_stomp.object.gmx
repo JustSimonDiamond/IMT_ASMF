@@ -99,7 +99,7 @@ if other.hardness &lt; 99
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Destroy
+            <string>///Destroy
 instance_destroy()
 </string>
           </argument>

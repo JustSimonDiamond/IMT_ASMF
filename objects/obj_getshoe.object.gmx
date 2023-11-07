@@ -26,16 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>///Get in the shoe
-if obj_mario.holding = 0
-and obj_mario.visible = 1
+if obj_playerparent.holding = 0
+and obj_playerparent.visible = 1
 {
 
     //Snap position
-    obj_mario.x = x+8
-    obj_mario.y = y-16
+    obj_playerparent.x = x+8
+    obj_playerparent.y = y-16
 
     //Force him to hold shoe
-    obj_mario.holding = 3
+    obj_playerparent.holding = 3
 
     //Remember the correct shoe color
     if sprite_index = spr_kuriboshoe

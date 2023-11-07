@@ -99,13 +99,13 @@ if global.carrieditem != noone
 global.yoshi = 0
 
 //Reset Mario's holding variable
-with obj_mario holding = 0
+with obj_playerparent holding = 0
 
 //Destroy tongue
 with obj_tongue instance_destroy()
 
 //If something is in its mouth, spit it out
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 and inmouth != noone
     event_user(0)
 </string>
@@ -235,40 +235,40 @@ instance_create(x,y,obj_tongue)
             <string>///Yoshi logic
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Snap to position
-    x = obj_mario.x
-    y = obj_mario.y
+    x = obj_playerparent.x
+    y = obj_playerparent.y
 
     //Force him to be invisible
-    obj_mario.visible = 0
+    obj_playerparent.visible = 0
 
     //Force him to hold Yoshi
-    obj_mario.holding = 3
+    obj_playerparent.holding = 3
 
     //Force unduck if ducking
-    if obj_mario.isduck = 1
-    and not collision_rectangle(obj_mario.bbox_left,obj_mario.bbox_top-16,obj_mario.bbox_right,obj_mario.bbox_top,obj_solid,1,0)
-        obj_mario.isduck = 0
+    if obj_playerparent.isduck = 1
+    and not collision_rectangle(obj_playerparent.bbox_left,obj_playerparent.bbox_top-16,obj_playerparent.bbox_right,obj_playerparent.bbox_top,obj_solid,1,0)
+        obj_playerparent.isduck = 0
 
     //If Yoshi is not licking anything
     if licking = 0
     {
 
         //Check whether Mario is jumping
-        if obj_mario.state = 2
+        if obj_playerparent.state = 2
             jumping = 1
         else
             jumping = 0
 
         //Use stand pose if standing
-        if obj_mario.state = 0
+        if obj_playerparent.state = 0
             image_index = 0
 
         //Animate when walking
-        else if obj_mario.state = 1
+        else if obj_playerparent.state = 1
             image_speed = 0.15
 
         //Otherwise, if the mouth is empty
@@ -276,7 +276,7 @@ if instance_exists(obj_mario)
         {
 
             //Choose a pose based on vertical speed
-            if obj_mario.vspeed &gt; 0
+            if obj_playerparent.vspeed &gt; 0
                 image_index = 1
             else
                 image_index = 0
@@ -292,7 +292,7 @@ if instance_exists(obj_mario)
     //If Yoshi is not licking and control is pressed
     if licking = 0
     and keyboard_check_pressed(vk_control)
-    and obj_mario.disablecontrols = 0
+    and obj_playerparent.disablecontrols = 0
     {
 
         //If mouth is empty, start licking
@@ -317,11 +317,11 @@ if instance_exists(obj_mario)
 
         //If Mario lands after a jump, stomp
         if stateprev = 2
-        and obj_mario.state != 2
+        and obj_playerparent.state != 2
             instance_create(x,y+16,obj_stomp)
 
         //Remember last state
-        stateprev = obj_mario.state
+        stateprev = obj_playerparent.state
 
     }
 
@@ -331,13 +331,13 @@ if instance_exists(obj_mario)
 
         //If shift is held outside water while mouth is full
         if keyboard_check(vk_shift)
-        and obj_mario.isswim = 0
+        and obj_playerparent.isswim = 0
         and inmouth != noone
         {
 
             //If not flying and moving down, start flying
             if flying = 0
-            and obj_mario.vspeed &gt; 0
+            and obj_playerparent.vspeed &gt; 0
             {
                 flying = 1
                 alarm[3] = 1
@@ -348,7 +348,7 @@ if instance_exists(obj_mario)
             {
 
                 //Move up if there is no ceiling above Mario
-                with obj_mario
+                with obj_playerparent
                 {
                     if not collision_rectangle(bbox_left,bbox_top-3,bbox_right,bbox_top,obj_solid,1,0)
                         vspeed = -2
@@ -576,12 +576,12 @@ with instance_create(x,y,obj_yoshi_abandon)
         sprite_index = spr_yoshi_walk_y
     else if global.ycolor = 3
         sprite_index = spr_yoshi_walk_b
-    if instance_exists(obj_mario)
-        direct = obj_mario.direct
+    if instance_exists(obj_playerparent)
+        direct = obj_playerparent.direct
 }
 
 //Make Mario visible and spin jumping
-with obj_mario
+with obj_playerparent
 {
     visible = 1
     stompstyle = 1
@@ -623,15 +623,15 @@ if inmouth = obj_yoshifire
     //Make Yoshi fire
     with instance_create(x,y,obj_yoshifire)
     {
-        hspeed = obj_mario.direct*3
+        hspeed = obj_playerparent.direct*3
         vspeed = -1
     }
     with instance_create(x,y,obj_yoshifire)
     {
-        hspeed = obj_mario.direct*3
+        hspeed = obj_playerparent.direct*3
         vspeed = 1
     }
-    with instance_create(x,y,obj_yoshifire) hspeed = obj_mario.direct*3
+    with instance_create(x,y,obj_yoshifire) hspeed = obj_playerparent.direct*3
 
 }
 
@@ -643,7 +643,7 @@ else
     audio_play_sound(snd_spit,0,0)
 
     //Spit out the item
-    with instance_create(x-8+obj_mario.direct*2,y+1,inmouth)
+    with instance_create(x-8+obj_playerparent.direct*2,y+1,inmouth)
     {
 
         //Use the correct sprite
@@ -652,7 +652,7 @@ else
         //Shells need to be spit in a special way
         if object_index = obj_shell
         {
-            hspeed = 3*obj_mario.direct
+            hspeed = 3*obj_playerparent.direct
             event_user(15)
         }
 
@@ -728,74 +728,35 @@ global.carriedsprite = mouthsprite
             <string>///Draw Yoshi
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Make Mario flash
-    if obj_mario.isflashing = 1
-        shader_set(sha_invert)
 
     //Draw Yoshi
-    draw_sprite_ext(sprite_index,image_index,round(x),y,obj_mario.direct,1,0,c_white,1)
+    draw_sprite_ext(sprite_index,image_index,round(x),y,obj_playerparent.direct,1,0,c_white,1)
 
     //Draw Mario
-    draw_sprite_ext(scr_marioride(),0,round(x)-5*obj_mario.direct,y-9,obj_mario.direct,1,0,c_white,obj_mario.image_alpha)
+    draw_sprite_ext(scr_marioride(),0,round(x)-5*obj_playerparent.direct,y-9,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
 
+    //Super Star
+    if(instance_exists(obj_invincibility)){
+            
+        repeat(2){
+            
+            draw_set_blend_mode(bm_add);
+            draw_sprite_ext(scr_marioride(),0,round(x)-5*obj_playerparent.direct,y-9,obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha)
+            draw_set_blend_mode(bm_normal);
+        };
+    };
     //If blue Yoshi has something in it mouth, draw a wing
     if global.ycolor = 3
     and inmouth != noone
-        draw_sprite_ext(spr_wing,flyanim,round(x)-6*obj_mario.direct,y+6,obj_mario.direct,1,0,c_white,obj_mario.image_alpha)
+        draw_sprite_ext(spr_wing,flyanim,round(x)-6*obj_playerparent.direct,y+6,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
 
     //Reset flashing
-    if obj_mario.isflashing = 1
-        shader_reset()
 
 }
-
-//If warp Mario exists
-else if instance_exists(obj_warpmario)
-{
-
-    //Make Mario flash
-    if obj_warpmario.isflashing = 1
-        shader_set(sha_invert)
-
-    //Draw Yoshi
-    draw_sprite_ext(sprite_index,image_index,round(x),y,obj_warpmario.direct,1,0,c_white,1)
-
-    //Draw Mario
-    draw_sprite_ext(scr_marioride(),0,round(x)-5*obj_warpmario.direct,y-9,obj_warpmario.direct,1,0,c_white,1)
-
-    //Reset flashing
-    if obj_warpmario.isflashing = 1
-        shader_reset()
-
-}
-
-//If note block Mario exists
-else if instance_exists(obj_warpnoteblock)
-{
-
-    //Draw Yoshi
-    draw_sprite_ext(sprite_index,image_index,round(x),y,obj_warpnoteblock.direct,1,0,c_white,1)
-
-    //Draw Mario
-    draw_sprite_ext(scr_marioride(),0,round(x)-5*obj_warpnoteblock.direct,y-9,obj_warpnoteblock.direct,1,0,c_white,1)
-
-}
-
-//If jump spawn exists
-else if instance_exists(obj_jumpspawn)
-{
-
-    //Draw Yoshi
-    draw_sprite_ext(sprite_index,image_index,round(x),y,1,1,0,c_white,1)
-
-    //Draw Mario
-    draw_sprite_ext(scr_marioride(),0,round(x)-5,y-9,1,1,0,c_white,1)
-
-}
-
 //If goal Mario exists
 else if instance_exists(obj_goalmario)
 {

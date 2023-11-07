@@ -101,12 +101,12 @@ event_inherited()
 if ready = 0
 and global.powerup != cs_small
 and global.yoshi = 0
-and instance_exists(obj_mario)
-and obj_mario.stompstyle = 1
-and obj_mario.vspeed &gt; 0
-and place_meeting(x,y-obj_mario.vspeed*2.5,obj_mario)
+and instance_exists(obj_playerparent)
+and obj_playerparent.stompstyle = 1
+and obj_playerparent.vspeed &gt; 0
+and place_meeting(x,y-obj_playerparent.vspeed*2.5,obj_playerparent)
 {
-    with obj_mario event_user(1)
+    with obj_playerparent event_user(1)
     audio_play_sound(snd_break,0,0)
     with instance_create(x+8,y,obj_shard)
     {
@@ -128,6 +128,7 @@ and place_meeting(x,y-obj_mario.vspeed*2.5,obj_mario)
         sprite_index = spr_shard_y
         direction = 135
     }
+    with instance_create(x,y,obj_score_hidden_new) event_user(0)
     instance_destroy()
 }
 </string>
@@ -159,7 +160,7 @@ if flips &gt; 0
     flips--
 
 //Otherwise, if Mario is not in the way
-else if not place_meeting(x,y,obj_mario)
+else if not place_meeting(x,y,obj_playerparent)
 {
 
     //Stop animating

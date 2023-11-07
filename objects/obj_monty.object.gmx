@@ -70,11 +70,11 @@ if hspeed != prevhspeed
     hspeed = sign(hspeed)*1.5
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Charge at Mario
-    if obj_mario.x &gt; x
+    if obj_playerparent.x &gt; x
     {
         hspeed += 0.05
         direct = 1

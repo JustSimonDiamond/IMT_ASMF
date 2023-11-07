@@ -77,8 +77,8 @@ if not instance_exists(parent)
 }
 
 //Otherwise, if Mario is low enough to be hit
-else if instance_exists(obj_mario)
-and obj_mario.y &gt; y-48
+else if instance_exists(obj_playerparent)
+and obj_playerparent.y &gt; y-48
 {
 
     //Make brick
@@ -87,7 +87,7 @@ and obj_mario.y &gt; y-48
     myblock.vspeed = -3
 
     //Choose speed and change parent's direction based on where Mario is
-    if obj_mario.x &gt; x
+    if obj_playerparent.x &gt; x
     {
         myblock.hspeed = 3
         parent.direct = 1

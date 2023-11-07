@@ -109,7 +109,7 @@ with collision_rectangle(bbox_left-6,bbox_top-4,bbox_right+6,bbox_bottom+4,obj_i
 if other.hardness = 0
 {
     audio_play_sound(snd_kick,0,0)
-    with instance_create(other.x,other.y,obj_score) event_user(0)
+    with instance_create(other.x,other.y,obj_score_new) event_user(2)
     with other event_user(0)
 }
 

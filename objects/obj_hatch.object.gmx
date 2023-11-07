@@ -160,7 +160,7 @@ image_speed = 0
 mask_index = spr_smallmask
 
 //Change position
-x+=8
+x+=16
 y-=16
 
 //Become an abandoned Yoshi

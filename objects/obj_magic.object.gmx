@@ -31,8 +31,8 @@
 image_speed = 0.3
 
 //Shoot at Mario
-if instance_exists(obj_mario)
-    move_towards_point(obj_mario.x,obj_mario.y,1)
+if instance_exists(obj_playerparent)
+    move_towards_point(obj_playerparent.x,obj_playerparent.y,1)
 else
     instance_destroy()
 </string>
@@ -65,7 +65,7 @@ if outside_view()
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>

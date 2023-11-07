@@ -192,7 +192,7 @@ if ready = 0
             <string>///Jump at Mario
 
 //Change sprite
-sprite_index = spr_larry_jump
+sprite_index = spr_ludwig_jump
 
 //Animate
 image_speed = 0.15
@@ -207,8 +207,8 @@ vspeed = -3
 y--
 
 //Jump towards Mario
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
     hspeed = -1.5
 else
     hspeed = 1.5
@@ -251,7 +251,7 @@ if hspeed != prevhspeed
 
 //Hop after landng
 if gravity = 0
-and sprite_index = spr_larry_jump
+and sprite_index = spr_ludwig_jump
 {
 
     //Move up
@@ -264,11 +264,11 @@ and sprite_index = spr_larry_jump
 
 //If the boss can charge at Mario
 if hardness = 2
-and instance_exists(obj_mario)
+and instance_exists(obj_playerparent)
 {
 
     //Charge at Mario
-    if obj_mario.x &gt; x
+    if obj_playerparent.x &gt; x
     {
         hspeed += 0.05
         direct = 1
@@ -293,7 +293,7 @@ if gravity = 0
 
     //Animate based on speed
     if sprite_index = spr_ludwig
-        image_speed = speed/3
+        image_speed = speed/6
 
     //Play stomp sound when landing
     if prevgravity != 0
@@ -325,7 +325,7 @@ if gravity = 0
             <string>///Ludwig death
 with instance_create(round(x),round(y),obj_enemy_dead)
 {
-    sprite_index = spr_larry_jump
+    sprite_index = spr_ludwig_hurt
     image_xscale = other.direct
     image_yscale = 1
     image_speed = 0.15
@@ -378,7 +378,7 @@ alarm[0] = 60
 hspeed = 0
 
 //Hurt sprite
-sprite_index = spr_larry_shell
+sprite_index = spr_ludwig_hurt
 
 //Animate
 image_speed = 0.15

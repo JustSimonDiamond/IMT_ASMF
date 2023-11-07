@@ -34,18 +34,30 @@ audio_play_sound(snd_tailspin,0,0)
 image_speed = 0.3
 
 //Use the tanooki spin sprite if Mario is in a tanooki suit
-if global.powerup = cs_tanooki
-    sprite_index = spr_mario_tanooki_attack
+if global.player = 0
+{
+    if global.powerup = cs_tanooki
+        sprite_index = spr_mario_tanooki_attack
     
-if global.powerup = cs_goldtan
-    sprite_index = spr_mario_goldtan_attack
-
+    if global.powerup = cs_goldtan
+        sprite_index = spr_mario_goldtan_attack
+}
+else if global.player = 1
+{
+    if global.powerup = cs_tanooki
+        sprite_index = spr_mario_tanooki_attack
+    
+    if global.powerup = cs_goldtan
+        sprite_index = spr_mario_goldtan_attack
+}
 //Make Mario invisible
-obj_mario.visible = 0
+obj_playerparent.visible = 0
 
 //Bump blocks that are lower
 bumper =  instance_create(x-8,y+16,obj_blockbumper)
 bumper.alarm[0] = 0
+
+blend_star = c_white;
 </string>
           </argument>
         </arguments>
@@ -69,7 +81,7 @@ bumper.alarm[0] = 0
           <argument>
             <kind>1</kind>
             <string>///Make Mario visible
-with obj_mario visible = 1
+with obj_playerparent visible = 1
 with bumper instance_destroy()
 </string>
           </argument>
@@ -94,11 +106,11 @@ with bumper instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Snap to Mario if he exists and is in the right suit
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 and (global.powerup = cs_leaf or global.powerup = cs_tanooki or global.powerup = cs_goldtan)
 {
-    x = obj_mario.x
-    y = obj_mario.y
+    x = obj_playerparent.x
+    y = obj_playerparent.y
     bumper.x = x-8
     bumper.y = y+16
 }
@@ -153,20 +165,21 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Draws Mario
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-
-    //Make Mario flash
-    if obj_mario.isflashing = 1
-        shader_set(sha_invert)
-
     //Draw Mario
-    draw_sprite_ext(sprite_index,image_index,round(x),y,obj_mario.direct,1,0,c_white,obj_mario.image_alpha)
+    draw_sprite_ext(sprite_index,image_index,round(x),y,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
 
-    //Reset flashing
-    if obj_mario.isflashing = 1
-        shader_reset()
-
+    //Draw Mario (Super Star)
+    if(instance_exists(obj_invincibility))
+    {
+        repeat(2)
+        {
+            draw_set_blend_mode(bm_add);
+            draw_sprite_ext(sprite_index,image_index,round(x),round(y),obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha);
+            draw_set_blend_mode(bm_normal);
+        };
+    };
 }
 </string>
           </argument>

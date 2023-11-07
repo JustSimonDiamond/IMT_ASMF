@@ -69,11 +69,11 @@ ready = 0;
 ready = 1;
 
 //Check where the player is and set the horizontal movement
-if (!instance_exists(obj_mario))
-|| (obj_mario.x &lt; x) {
+if (!instance_exists(obj_playerparent))
+|| (obj_playerparent.x &lt; x) {
 
-    action = "left";
-    hspeed = -0.5;
+    action = "right";
+    hspeed = 0.5;
 }
 else {
 

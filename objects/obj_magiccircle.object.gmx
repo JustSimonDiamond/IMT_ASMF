@@ -86,7 +86,7 @@ alarm[1] = 4
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -130,8 +130,8 @@ with other event_user(0)
             <string>///First magic circle
 
 //Point at Mario
-if instance_exists(obj_mario)
-    direction = point_direction(x,y,obj_mario.x,obj_mario.y)
+if instance_exists(obj_playerparent)
+    direction = point_direction(x,y,obj_playerparent.x,obj_playerparent.y)
 
 ///Make more circles
 alarm[0] = 4

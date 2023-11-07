@@ -480,36 +480,39 @@ and direction = 270
           <argument>
             <kind>1</kind>
             <string>///Draws Mario
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
-
-    //Make Mario flash
-    if obj_mario.isflashing = 1
-        shader_set(sha_invert)
 
     //Draw Mario
     if direct = 1
     {
         if direction = 90
-            draw_sprite_ext(sprite_index,image_index,round(x)-16,round(y)+16,1,1,90,c_white,obj_mario.image_alpha)
+            draw_sprite_ext(sprite_index,image_index,round(x)-16,round(y)+16,1,1,90,c_white,obj_playerparent.image_alpha)
         else if direction = 180
-            draw_sprite_ext(sprite_index,image_index,round(x),round(y)+32,1,1,180,c_white,obj_mario.image_alpha)
+            draw_sprite_ext(sprite_index,image_index,round(x),round(y)+32,1,1,180,c_white,obj_playerparent.image_alpha)
         else
-            draw_sprite_ext(sprite_index,image_index,round(x)+16,round(y)+16,1,1,270,c_white,obj_mario.image_alpha)
+            draw_sprite_ext(sprite_index,image_index,round(x)+16,round(y)+16,1,1,270,c_white,obj_playerparent.image_alpha)
     }
     else
     {
         if direction = 90
-            draw_sprite_ext(sprite_index,image_index,round(x)+16,round(y)+16,-1,1,270,c_white,obj_mario.image_alpha)
+            draw_sprite_ext(sprite_index,image_index,round(x)+16,round(y)+16,-1,1,270,c_white,obj_playerparent.image_alpha)
         else if direction = 0
-            draw_sprite_ext(sprite_index,image_index,round(x),round(y)+32,-1,1,180,c_white,obj_mario.image_alpha)
+            draw_sprite_ext(sprite_index,image_index,round(x),round(y)+32,-1,1,180,c_white,obj_playerparent.image_alpha)
         else
-            draw_sprite_ext(sprite_index,image_index,round(x)-16,round(y)+16,-1,1,90,c_white,obj_mario.image_alpha)
+            draw_sprite_ext(sprite_index,image_index,round(x)-16,round(y)+16,-1,1,90,c_white,obj_playerparent.image_alpha)
     }
-
-    //Reset flashing
-    if obj_mario.isflashing = 1
-        shader_reset()
+    
+    //Draw Mario (Super Star)
+    if(instance_exists(obj_invincibility))
+    {
+        repeat(2)
+        {
+            draw_set_blend_mode(bm_add);
+            draw_sprite_ext(sprite_index,image_index,round(x),round(y),obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha);
+            draw_set_blend_mode(bm_normal);
+        };
+    };
 
 }
 </string>

@@ -8,6 +8,9 @@
 **      Initializes all of the global variables used throughout the game.
 */
 
+//Player
+global.player = 0
+
 //Time Limit
 global.timer = 0
 
@@ -86,3 +89,5 @@ global.pipetype = 0
 //Map inventory variables
 for(var i=0; i<16; i++)
     global.inventory[i] = 0
+    
+global.mute = 0

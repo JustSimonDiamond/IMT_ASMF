@@ -34,7 +34,7 @@ image_speed = 0
 held = 1
 
 //Force Mario to hold this
-with obj_mario holding = 2
+with obj_playerparent holding = 2
 
 //Number of kills
 hitpoint = 0
@@ -99,7 +99,7 @@ while collision_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_bottom,obj_slope
 with instance_create(x,y,obj_shell)
 {
     sprite_index = other.sprite_index
-    hspeed = 3*obj_mario.direct
+    hspeed = 3*obj_playerparent.direct
     event_user(15)
 }
 

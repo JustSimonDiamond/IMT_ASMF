@@ -94,7 +94,7 @@ if ready = 1
 //Otherwise, fall if it walks off the ceiling, or if Mario is below
 else if (hspeed &gt; 0 and not position_meeting(x+2,y-4,obj_solid))
 or (hspeed &lt; 0 and not position_meeting(x-3,y-4,obj_solid))
-or (instance_exists(obj_mario) and obj_mario.x &gt; x-48 and obj_mario.x &lt; x+48 and obj_mario.y &gt; y)
+or (instance_exists(obj_playerparent) and obj_playerparent.x &gt; x-48 and obj_playerparent.x &lt; x+48 and obj_playerparent.y &gt; y)
 {
     gravity = 0.25
     hspeed = 0

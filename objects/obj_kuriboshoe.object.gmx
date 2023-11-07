@@ -53,6 +53,8 @@ else if global.ycolor = 2
     sprite_index = spr_dossunshoe
 else if global.ycolor = 3
     sprite_index = spr_jugemushoe
+    
+blend_star = c_white;
 </string>
           </argument>
         </arguments>
@@ -135,8 +137,8 @@ if flying = 1
             <string>///Manage offset values
 
 //If Mario is walking
-if instance_exists(obj_mario)
-and obj_mario.state = 1
+if instance_exists(obj_playerparent)
+and obj_playerparent.state = 1
 {
 
     //Offset values
@@ -197,33 +199,33 @@ alarm[0] = 2
             <string>///Shoe logic
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Snap to position
-    x = obj_mario.x
-    y = obj_mario.y+16
+    x = obj_playerparent.x
+    y = obj_playerparent.y+16
 
     //Force him to be invisible
-    obj_mario.visible = 0
+    obj_playerparent.visible = 0
 
     //Force him to hold shoe
-    obj_mario.holding = 3
+    obj_playerparent.holding = 3
 
     //Force him to spin jump
-    obj_mario.stompstyle = 1
+    obj_playerparent.stompstyle = 1
 
     //Force unduck if ducking
-    if obj_mario.isduck = 1
-    and not collision_rectangle(obj_mario.bbox_left,obj_mario.bbox_top-16,obj_mario.bbox_right,obj_mario.bbox_top,obj_solid,1,0)
-        obj_mario.isduck = 0
+    if obj_playerparent.isduck = 1
+    and not collision_rectangle(obj_playerparent.bbox_left,obj_playerparent.bbox_top-16,obj_playerparent.bbox_right,obj_playerparent.bbox_top,obj_solid,1,0)
+        obj_playerparent.isduck = 0
 
     //If Mario is standing, use first image index
-    if obj_mario.state = 0
+    if obj_playerparent.state = 0
         image_index = 0
 
     //If Mario is walking or jugemu shoe is flying, animate
-    else if obj_mario.state = 1
+    else if obj_playerparent.state = 1
     or (global.ycolor = 3 and flying = 1)
         image_speed = 0.15
 
@@ -237,11 +239,11 @@ if instance_exists(obj_mario)
 
         //If Mario lands after a jump, stomp
         if stateprev = 2
-        and obj_mario.state != 2
+        and obj_playerparent.state != 2
             instance_create(x,y,obj_stomp)
 
         //Remember last state
-        stateprev = obj_mario.state
+        stateprev = obj_playerparent.state
 
     }
 
@@ -251,12 +253,12 @@ if instance_exists(obj_mario)
 
         //If shift is held outside water
         if keyboard_check(vk_shift)
-        and obj_mario.isswim = 0
+        and obj_playerparent.isswim = 0
         {
 
             //If not flying and moving down, start flying
             if flying = 0
-            and obj_mario.vspeed &gt; 0
+            and obj_playerparent.vspeed &gt; 0
             {
                 flying = 1
                 alarm[1] = 1
@@ -265,7 +267,7 @@ if instance_exists(obj_mario)
             //When flying, move up if there is no ceiling above Mario
             if flying = 1
             {
-                with obj_mario
+                with obj_playerparent
                 {
                     if not collision_rectangle(bbox_left,bbox_top-3,bbox_right,bbox_top,obj_solid,1,0)
                         vspeed = -2
@@ -382,8 +384,8 @@ with instance_create(x-8,y,obj_getshoe)
         sprite_index = spr_jugemushoe
 
     //Face the same direction
-    if instance_exists(obj_mario)
-        direct = obj_mario.direct
+    if instance_exists(obj_playerparent)
+        direct = obj_playerparent.direct
 
     //Prevent the shoe from getting embed into a wall
     while collision_rectangle(bbox_right,bbox_top+4,bbox_right,bbox_bottom-4,obj_solid,1,0)
@@ -394,7 +396,7 @@ with instance_create(x-8,y,obj_getshoe)
 }
 
 //Make Mario visible and spin jumping
-with obj_mario
+with obj_playerparent
 {
     visible = 1
     stompstyle = 1
@@ -433,59 +435,28 @@ else
     yoffset = 0
 
 //If Mario exists
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Make Mario flash
-    if obj_mario.isflashing = 1
-        shader_set(sha_invert)
 
     //Draw Mario
-    draw_sprite_ext(scr_marioshoe(),0,round(x)-obj_mario.direct,y-19-offset-yoffset,obj_mario.direct,1,0,c_white,obj_mario.image_alpha)
-
+    draw_sprite_ext(scr_mariowalk(),0,round(x)-obj_playerparent.direct,y-19-offset-yoffset,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
+    //Super Star
+    if(instance_exists(obj_invincibility)){
+            
+        repeat(2){
+            
+            draw_set_blend_mode(bm_add);
+            draw_sprite_ext(scr_mariowalk(),0,round(x)-obj_playerparent.direct,y-19-offset-yoffset,obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha)
+            draw_set_blend_mode(bm_normal);
+        };
+    };
+    
     //Draw shoe
-    draw_sprite_ext(sprite_index,image_index,round(x)-8*obj_mario.direct,y-offset,obj_mario.direct,1,0,c_white,1)
+    draw_sprite_ext(sprite_index,image_index,round(x)-8*obj_playerparent.direct,y-offset,obj_playerparent.direct,1,0,c_white,1)
 
     //Reset flashing
-    if obj_mario.isflashing = 1
-        shader_reset()
-
-}
-else if instance_exists(obj_warpmario)
-{
-    //Make Mario flash
-    if obj_warpmario.isflashing = 1
-        shader_set(sha_invert)
-
-    //Draw Mario
-    draw_sprite_ext(scr_marioshoe(),0,round(x)-obj_warpmario.direct,y-19-yoffset,obj_warpmario.direct,1,0,c_white,1)
-
-    //Draw shoe
-    draw_sprite_ext(sprite_index,0,round(x)-8*obj_warpmario.direct,y,obj_warpmario.direct,1,0,c_white,1)
-
-    //Reset flashing
-    if obj_warpmario.isflashing = 1
-        shader_reset()
-
-}
-else if instance_exists(obj_warpnoteblock)
-{
-
-    //Draw Mario
-    draw_sprite_ext(scr_marioshoe(),0,round(x)-obj_warpnoteblock.direct,y-19-yoffset,obj_warpnoteblock.direct,1,0,c_white,1)
-
-    //Draw shoe
-    draw_sprite_ext(sprite_index,image_index,round(x)-8*obj_warpnoteblock.direct,y,obj_warpnoteblock.direct,1,0,c_white,1)
-
-}
-else if instance_exists(obj_jumpspawn)
-{
-
-    //Draw Mario
-    draw_sprite(scr_marioshoe(),0,x-1,y-19-yoffset)
-
-    //Draw shoe
-    draw_sprite(sprite_index,image_index,round(x)-8,y)
 
 }
 </string>

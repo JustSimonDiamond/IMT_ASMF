@@ -105,7 +105,7 @@ alarm[0] = 4
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -163,11 +163,10 @@ else
 
 }
 
+instance_create(obj_playerparent.x,obj_playerparent.y+8,obj_statuesmoke)
+
 //Play reserve item sound
 audio_play_sound(snd_retrieve,0,0)
-
-//Make Mario temporarily invincible
-with other event_user(6)
 
 //Destroy
 instance_destroy()

@@ -37,8 +37,8 @@ stomp = 0
 direct = 1
 
 //Go after Mario, and make smoke
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
 {
     hspeed = -1.5
     instance_create(x-8,y,obj_smoke)

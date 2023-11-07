@@ -52,23 +52,30 @@
   </views>
   <instances>
     <instance objName="obj_levelmanager" x="0" y="0" name="inst_5D017249" locked="0" code="leveltime = 0&#xA;levelmusic = snd_music_land&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mario" x="285" y="245" name="inst_0F0D3270" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_flagpole" x="624" y="224" name="inst_D81B039E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flagpole" x="896" y="224" name="inst_D81B039E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="240" y="256" name="inst_96A0D60F" locked="0" code="" scaleX="10" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="432" y="256" name="inst_C70D42CB" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="192" y="256" name="inst_AA0D2E11" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="208" y="304" name="inst_285A070B" locked="0" code="" scaleX="14" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="312" y="192" name="inst_D406DA9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="312" y="208" name="inst_73495232" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="312" y="208" name="inst_8C33680F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="448" y="256" name="inst_3FD8C3C8" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="448" y="336" name="inst_C2DCA3ED" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="0" y="400" name="inst_27D924EC" locked="0" code="" scaleX="75" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="624" y="384" name="inst_5F56D659" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_course_clear" x="720" y="384" name="inst_47111FE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="896" y="384" name="inst_5F56D659" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_course_clear" x="992" y="384" name="inst_47111FE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="144" y="256" name="inst_937FB867" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="144" y="336" name="inst_07735045" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_noteblock_warp" x="528" y="256" name="inst_478C9938" locked="0" code="myroom = rm_castlefinal1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikeblock" x="160" y="192" name="inst_A459D1D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikeblock" x="144" y="192" name="inst_86159AB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikeblock" x="160" y="176" name="inst_80711ED8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikesemi" x="464" y="176" name="inst_049F2EA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikesemi" x="464" y="192" name="inst_4E8BC532" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikesemi" x="480" y="192" name="inst_9ED874AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mario" x="272" y="224" name="inst_A2FE424B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_luigi" x="368" y="224" name="inst_BF94455C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_playerblock" x="96" y="336" name="inst_394EFAF9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boomboom_new" x="768" y="368" name="inst_CD6C728C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tileset" x="0" y="0" w="16" h="16" xo="832" yo="112" id="10000397" name="inst_781055CA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -255,7 +262,7 @@
     <tile bgName="bg_tilesetnewest" x="1168" y="416" w="16" h="16" xo="592" yo="592" id="10040282" name="inst_D3AF6ECB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewest" x="1184" y="416" w="16" h="16" xo="592" yo="592" id="10040283" name="inst_1D4231A8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewest" x="1104" y="416" w="16" h="16" xo="592" yo="592" id="10040284" name="inst_A001DD22" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewest" x="624" y="384" w="16" h="16" xo="1056" yo="624" id="10040285" name="inst_95599204" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnewest" x="896" y="384" w="16" h="16" xo="1056" yo="624" id="10040285" name="inst_95599204" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewest" x="192" y="272" w="16" h="16" xo="624" yo="576" id="10040289" name="inst_67356DC9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewest" x="432" y="272" w="16" h="16" xo="624" yo="576" id="10040290" name="inst_9C805F31" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewest" x="192" y="288" w="16" h="16" xo="624" yo="608" id="10040291" name="inst_1A5281C5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

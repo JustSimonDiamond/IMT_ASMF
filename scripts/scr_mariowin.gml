@@ -16,7 +16,7 @@ switch global.powerup
     case cs_tanooki: return spr_mario_tanooki_win
     case cs_ice: return spr_mario_ice_win
     case cs_super: return spr_mario_super_win
-    case cs_penguin: return spr_mario_penguin_warp
+    case cs_penguin: return spr_mario_penguin_win
     case cs_propeller: return spr_mario_propeller_win
     case cs_boomerang: return spr_mario_boomerang_win
     default: return 0
