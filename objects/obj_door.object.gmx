@@ -27,8 +27,34 @@
             <kind>1</kind>
             <string>///A door
 
+/*
+**  This item uses creation code!
+**
+**  postchange = Pick from below: (Optional)
+**      0: Mario
+**      1: Warp Mario
+**      2: Jump Spawn
+**      3: Climb Spawn
+**
+**  postx   = New x coordinate
+**  posty   = New y coordinate
+**  myroom  = Destination room (Optional)
+**
+**  locked  = Is this door locked with a key or blocked with wood?
+**      0: No lock
+**      1: Locked with key
+**      2: Blocked with wood
+*/
+
+//Default Values:
+postchange = -1;
+postx = x;
+posty = y;
+locked = 0;
+myroom = room_next(room);
+
 //Do not animate
-image_speed = 0
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -51,76 +77,30 @@ image_speed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///What happens after Mario enters the door
+            <string>///Warp to another room
 
-//Check for a warp room
-mywarp = instance_place(x,y,obj_warproom)
+//If the position needs to be changed in the new room.
+if (postchange != -1) {
 
-//If a warp room object exists
-if mywarp
-{
-
-    //With the warp room object
-    with mywarp
-    {
-
-        //If the position needs to be changed in the next room
-        if postchange != -1
-        {
-
-            //Remember what needs to be created at what coordinates
-            global.postchange = postchange
-            global.postx = postx+8
-            global.posty = posty
-
-        }
-
-        //Go to the set room
-        if (instance_number(obj_fadein) == 0)
-            with (instance_create(0,0,obj_fadein)) target = other.myroom;
-
-    }
-
+    //Remember the spawn type
+    global.postchange = postchange;
+    
+    //Remember the x spawn position.
+    global.postx = postx+8;
+    
+    //Remember the y spawn position.
+    global.posty = posty;
 }
 
-//If no warp room object is there
-else
-{
-
-    //Check for a position change
-    mywarp = instance_place(x,y,obj_postchange)
-
-    //If the position change exists, create Mario at that position
-    if mywarp
-        player_retrieve(mywarp.postx+8,mywarp.posty)
-
-    //Otherwise, have Mario come out the same door
-    else
-        player_retrieve(x+8,y-16)
-
-    //Remember if something is being held
-    obj_playerparent.holding = obj_doormario.holding
-
-    //Notify the level manager
-    with obj_levelmanager
-    {
-        barrier = 1
-        alarm[6] = 2
-    }
-
-    //Get rid of door Mario
-    with obj_doormario instance_destroy()
-
-    //Fade in the screen
-    if (instance_number(obj_fadein) == 0)
-        with (instance_create(0,0,obj_fadein)) target = room_next(room)
-}
+//Go to the assigned room.
+if (instance_number(obj_fadein) == 0)
+    with (instance_create(0,0,obj_fadein)) target = other.myroom;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -137,38 +117,73 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Let Mario in the door
+            <string>///Warp the player to another location
 
-//If Mario is on the door, not jumping, and visible
-if (keyboard_check(vk_up)
-and place_meeting(x,y,obj_playerparent)
-and obj_playerparent.state != 2
-and visible = 1)
-{
+//Do not open if locked
+if (locked != 0)
+exit;
 
-    //Play the door sound
-    audio_play_sound(snd_door,0,0)
+//If the player does exist
+if (instance_exists(obj_playerparent)) {
 
-    //Animate
-    image_speed = 0.15
-
-    //Create a door Mario
-    instance_create(x+8,y-16,obj_doormario)
-
-    //Get rid of the real Mario
-    with obj_playerparent {
+    //If the player is overlapping the door
+    var mario = collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_playerparent,0,0);
+    if (mario)
+    &amp;&amp; (mario.state &lt; 2)
+    &amp;&amp; (keyboard_check(vk_up)) {
     
-        //Recordar el objeto agarrado
-        global.shallihold = holding
+        //Play 'Door' sound
+        audio_play_sound(snd_door, 0, false);
         
-        //Y destruir
-        instance_destroy();
+        //Animate
+        image_speed = 0.15;
+        
+        //Make the player enter the door
+        instance_create(x+8,y-16,obj_doormario);
+        
+        //Destroy the player
+        with (obj_playerparent) instance_destroy();
+        
+        //Warp to the assigned room
+        alarm[0] = 55;
     }
-
-    //Mario enters the door after 55 frames
-    alarm[0] = 55
-
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Blast the wooden planks
+
+//Play 'Break' sound
+audio_play_sound(snd_break, 0, false);
+
+//Create shards
+with (instance_create(x+8,y+8,obj_shard))
+    motion_set(45, 6);
+with (instance_create(x+8,y+8,obj_shard))
+    motion_set(60, 6);
+with (instance_create(x+8,y+8,obj_shard))
+    motion_set(120, 6);
+with (instance_create(x+8,y+8,obj_shard))
+    motion_set(135, 6);
 </string>
           </argument>
         </arguments>
@@ -191,9 +206,36 @@ and visible = 1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Close the door
-image_speed = 0
-image_index = 0
+            <string>///End animation
+
+image_speed = 0;
+image_index = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If this door was opened before, unlock it.
+/*
+if (ds_map_find_value(global.doors, id) == 1)   
+    locked = 0;
 </string>
           </argument>
         </arguments>
@@ -218,12 +260,19 @@ image_index = 0
             <kind>1</kind>
             <string>///Draw the door
 
-//Draw the inside of the door when needed
-if image_index &lt; 4
-    draw_sprite(spr_door_inside,0,x,y)
+//Draw the inside part of the door if the door is opening
+if (image_index &lt; 4) then draw_sprite(spr_door_inside, 0, round(x), round(y));
 
-//Draw the door on top
-draw_sprite(sprite_index,image_index,x,y)
+//Draw the door
+draw_sprite(sprite_index,-1, round(x), round(y));
+
+//If the door is blocked with wood
+if (locked == 2) 
+    draw_sprite(spr_door, 0, round(x), round(y));
+    
+//Otherwise, if the door is locked with a key
+else if (locked == 1) 
+    draw_sprite(spr_door_locked, 0, round(x), round(y));
 </string>
           </argument>
         </arguments>

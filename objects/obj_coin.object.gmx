@@ -129,7 +129,8 @@ global.coins++
 with instance_create(x,y,obj_score_hidden_new) event_user(1)
 
 //Create sparkles
-instance_create(x+8,y-8,obj_sparkletrail)
+with (instance_create(x,y,obj_smoke))
+    sprite_index = spr_coinsparkle;
 
 //Destroy
 instance_destroy()
@@ -157,22 +158,8 @@ instance_destroy()
             <kind>1</kind>
             <string>///Agarra la moneda
 if instance_exists(obj_cursor)
-{
-    //Play the coin sound
-    audio_play_sound(snd_coin,0,0)
+    event_perform(ev_collision,obj_playerparent);
 
-    //Increment coins
-    global.coins++
-
-    //Get 100 points
-    with instance_create(x,y,obj_score_hidden_new) event_user(1)
-
-    //Create sparkles
-    instance_create(x+8,y-8,obj_sparkletrail)
-
-    //Destroy
-    instance_destroy()
-}
 </string>
           </argument>
         </arguments>

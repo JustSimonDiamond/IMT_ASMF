@@ -222,8 +222,8 @@
     <instance objName="obj_coin" x="3424" y="48" name="inst_A5C85730" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3456" y="48" name="inst_392E7485" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3488" y="48" name="inst_C66D52DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="3568" y="64" name="inst_F6329011" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="3392" y="384" name="inst_EA951CC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="3568" y="64" name="inst_F6329011" locked="0" code="postchange = 0&#xA;postx = 3392&#xA;posty = 368&#xA;myroom = room&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="3392" y="384" name="inst_EA951CC7" locked="0" code="postchange = 0&#xA;postx = 3568&#xA;posty = 48&#xA;myroom = room&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="3008" y="0" name="inst_C44E8A7B" locked="0" code="" scaleX="1" scaleY="21" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="3360" y="96" name="inst_6CA95B8B" locked="0" code="" scaleX="1" scaleY="19" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="3024" y="160" name="inst_16AEF1B7" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
@@ -295,8 +295,6 @@
     <instance objName="obj_rock" x="4000" y="304" name="inst_9465A965" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="3984" y="288" name="inst_5EDD1540" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="4000" y="288" name="inst_9F5D8E17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warproom" x="3568" y="64" name="inst_78DFA4F1" locked="0" code="postchange = 0&#xA;myroom = rm_w2lvl2sub&#xA;postx = 3392&#xA;posty = 368&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warproom" x="3392" y="384" name="inst_A6AD7A37" locked="0" code="postchange = 0&#xA;postx = 3568&#xA;posty = 48&#xA;myroom = rm_w2lvl2sub&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_shell" x="1248" y="384" name="inst_DABDFB3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

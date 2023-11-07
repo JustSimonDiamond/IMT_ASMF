@@ -2,8 +2,8 @@
 <object>
   <spriteName>spr_cursor</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
-  <depth>-99</depth>
+  <visible>-1</visible>
+  <depth>-999</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>

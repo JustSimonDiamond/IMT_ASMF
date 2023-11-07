@@ -43,6 +43,9 @@ scr_init_globals()
 //0: Inglés. 1 = Español
 global.lang = 0
 
+//Modo Debug
+global.debugmode = true;
+
 //Item that is being carried between rooms
 global.carrieditem = noone
 
@@ -800,6 +803,9 @@ alarm[1] = 1
 //Set up on screen controls
 if os_type = os_android or os_type = os_ios
     event_user(2)
+    
+if (instance_number(obj_cursor) == 0)
+    instance_create(0,0,obj_cursor);
 </string>
           </argument>
         </arguments>

@@ -81,14 +81,13 @@
     <instance objName="obj_solid" x="1744" y="320" name="inst_A619E9DB" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1792" y="240" name="inst_FEB99D2B" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1792" y="320" name="inst_F298D9A8" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="1696" y="384" name="inst_0BF89A14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="656" y="384" name="inst_23894A3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="1696" y="384" name="inst_0BF89A14" locked="0" code="myroom = rm_w1lvl2sub&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="656" y="384" name="inst_23894A3D" locked="0" code="postx = 160&#xA;posty = 368&#xA;myroom = rm_w1lvl2houses&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="1552" y="192" name="inst_46B18C05" locked="0" code="" scaleX="19" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1600" y="384" name="inst_576F034E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1680" y="384" name="inst_79264A16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1728" y="384" name="inst_A5648BE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1744" y="384" name="inst_3E3ECD3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warproom" x="1696" y="384" name="inst_14C4127C" locked="0" code="myroom = rm_w1lvl2sub&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_acecoin" x="1696" y="144" name="inst_2884D31E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="352" y="384" name="inst_FF73E321" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_galoomba" x="1760" y="384" name="inst_449A836A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -113,7 +112,6 @@
     <instance objName="obj_pcoin" x="720" y="368" name="inst_BF8C4F01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pcoin" x="688" y="368" name="inst_4EB1EAB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pcoin" x="864" y="368" name="inst_12A41742" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warproom" x="656" y="384" name="inst_606A7173" locked="0" code="postx = 160&#xA;posty = 368&#xA;myroom = rm_w1lvl2houses&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="80" y="368" name="inst_B2193940" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pcoin" x="640" y="288" name="inst_2C3DFFED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pcoin" x="704" y="272" name="inst_79DC5507" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

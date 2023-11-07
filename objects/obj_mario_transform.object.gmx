@@ -234,14 +234,14 @@ switch (sequence) {
     case (0): { 
     
         sprite_index = spr_mario_grow;
-        image_speed = 0.25;
+        image_speed = 0.2; //0.25
     } break;
     
     //Big to Small
     case (1): {
     
         sprite_index = spr_mario_shrink;
-        image_speed = 0.25;
+        image_speed = 0.2; //0.25
     } break;
     
     //Power up

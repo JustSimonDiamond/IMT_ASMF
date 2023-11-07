@@ -3,7 +3,7 @@
   <spriteName>spr_titlescreen</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-9</depth>
+  <depth>-12</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,7 +28,8 @@
             <string>///El menú de configuración
 
 //Apagar a la pantalla de inicio
-instance_deactivate_object(obj_titlescreen)
+if (instance_exists(obj_titlescreen))
+    with (obj_titlescreen) disable = true;
 
 //Desactivar al Mario del título
 if (instance_exists(obj_titlemario)) {
@@ -208,7 +209,7 @@ if menu_choice &gt; 0
           <argument>
             <kind>1</kind>
             <string>///Volver
-instance_activate_object(obj_titlescreen);
+with (obj_titlescreen) disable = false;
 if (instance_exists(obj_titlemario))
     with (obj_titlemario) disable = 0;
 instance_destroy()

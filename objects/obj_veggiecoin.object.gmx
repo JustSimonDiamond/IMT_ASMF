@@ -67,8 +67,9 @@ audio_play_sound(snd_coin,0,0)
 if y &gt; ystart
 {
     with instance_create(x,ystart,obj_score_hidden_new) event_user(1)
-    instance_create(x+8,ystart-8,obj_sparkletrail)
-    instance_destroy()
+    with (instance_create(x,y,obj_smoke))
+        sprite_index = spr_coinsparkle;
+    instance_destroy();
 }
 </string>
           </argument>

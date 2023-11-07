@@ -27,11 +27,15 @@
             <kind>1</kind>
             <string>///A flagpole! Lets Mario complete a level
 
-//Make a flag
-flag = instance_create(x+10,y+17,obj_flag)
-
 //Do not animate
 image_speed = 0
+
+//Is this pole in a castle?
+incastle = false;
+
+//Make a flag
+if (instance_number(obj_flag) == 0)
+    with (instance_create(x+10,y+17,obj_flag)) incastle = other.incastle;
 </string>
           </argument>
         </arguments>
@@ -95,20 +99,18 @@ if collision_rectangle(bbox_left,-96,bbox_right,y,obj_playerparent,0,0)
             <string>///Turn Mario into goal Mario
 
 //Make the flag move down
-flag.vspeed = 1.5
+obj_flag.vspeed = 1.5
 
 //Create the appropriate point object based on Mario's height
 if other.y &lt; y+16
 {
- with instance_create(x,other.y,obj_score_new) event_user(9)
- if global.player = 0
- {
-  audio_play_sound(snd_mario_flagpoletop,0,0);
- }
- else if global.player = 1
- {
-  audio_play_sound(snd_luigi_flagpoletop,0,0);
- }
+    with instance_create(x,other.y,obj_score_new) event_user(9)
+    if (global.player == 0) {
+        audio_play_sound(snd_mario_flagpoletop,0,0);
+    }
+    else if (global.player == 1) {
+        audio_play_sound(snd_luigi_flagpoletop,0,0);
+    }
 }
 else if other.y &lt; y+32
     with instance_create(x,other.y,obj_score_new) event_user(8)
@@ -126,7 +128,7 @@ else
     with instance_create(x,other.y,obj_score_new) event_user(2)
 
 //Create goal Mario
-instance_create(x+9,other.y,obj_goalmario)
+with (instance_create(x+9,other.y,obj_goalmario)) incastle = other.incastle;
 
 //Destroy Mario
 with other instance_destroy()

@@ -98,3 +98,29 @@ global.mapmusic = snd_mapmusic;
 
 //Muertes totales
 global.actualdeads = 0;
+
+//Nivel actual (Se usa para el manejo de las star coins)
+global.level = 0;
+
+//How many level does the game have? 
+//(Make sure is 1 number higher than the amount of levels)
+global.levelmax = cs_levels;
+
+//Initialize star coin system
+//0: Not collected
+//1: Collected, not saved
+//2: Collected, saved with checkpoint
+//3: Collected, saved with level completion. (Adds to global.sc_count)
+for (var i = 0; i < 3; i++) {
+
+    global.sc[i] = ds_map_create();
+    for (var j = 0; j < global.levelmax; j++)
+        ds_map_add(global.sc[i],j,0);
+}
+
+//Star Coins collected
+global.starcoins = 0;
+
+//Ni idea bro
+global.mapstar = 0;
+global.pwing = 0;

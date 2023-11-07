@@ -247,7 +247,7 @@
     <instance objName="obj_solid" x="3872" y="0" name="inst_13A6A899" locked="0" code="" scaleX="18" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="3872" y="96" name="inst_7670078F" locked="0" code="" scaleX="18" scaleY="13" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="4144" y="0" name="inst_72F0CBBF" locked="0" code="" scaleX="1" scaleY="25" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="4048" y="384" name="inst_182F25A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="4048" y="384" name="inst_182F25A7" locked="0" code="myroom = rm_forthello_ludwig&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_hidden" x="4128" y="336" name="inst_4AA0FC46" locked="0" code="sprout = cs_ice&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4128" y="336" name="inst_CB374BD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3904" y="368" name="inst_BE4F2DF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -255,7 +255,6 @@
     <instance objName="obj_coin" x="3968" y="368" name="inst_407876FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4000" y="368" name="inst_19935AEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="3984" y="384" name="inst_DAD5E8FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warproom" x="4048" y="384" name="inst_E4B4630C" locked="0" code="myroom = rm_forthello_ludwig&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="4016" y="32" name="inst_7197574B" locked="0" code="sprout = cs_1up&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4112" y="64" name="inst_7983CA82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4064" y="64" name="inst_9FC3218B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

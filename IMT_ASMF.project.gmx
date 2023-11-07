@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="115" name="datafiles">
-    <datafiles number="115" name="Screenshots">
-      <datafiles number="115" name="The 0,4 Development">
+  <datafiles number="116" name="datafiles">
+    <datafiles number="116" name="Screenshots">
+      <datafiles number="116" name="The 0,4 Development">
         <datafile>
           <name>AAAAAAAAAAAAA.JPG</name>
           <exists>-1</exists>
@@ -942,6 +942,25 @@
           <filename>Nueva pantalla de inicio 0.4.png</filename>
         </datafile>
       </datafiles>
+      <datafiles number="116" name="The 0,5 Development">
+        <datafile>
+          <name>Basado.JPG</name>
+          <exists>-1</exists>
+          <size>33281</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Basado.JPG</filename>
+        </datafile>
+      </datafiles>
     </datafiles>
     <datafile>
       <name>Si los juegos van lento, usa este programa.exe</name>
@@ -997,6 +1016,7 @@
       <sound>sound\snd_music_forest</sound>
       <sound>sound\snd_music_winter</sound>
       <sound>sound\snd_music_airship</sound>
+      <sound>sound\snd_music_classic_castle</sound>
       <sound>sound\snd_hammerbattle</sound>
       <sound>sound\snd_bonusmusic</sound>
       <sound>sound\snd_savemusic</sound>
@@ -1103,6 +1123,8 @@
       <sound>sound\snd_clearpipe_pop</sound>
       <sound>sound\snd_propeller_fly</sound>
       <sound>sound\snd_propeller_down</sound>
+      <sound>sound\snd_scatter</sound>
+      <sound>sound\snd_scatter2</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_blargg</sound>
@@ -1232,6 +1254,7 @@
               <sprite>sprites\spr_mario_leaf_hold</sprite>
               <sprite>sprites\spr_mario_leaf_hold_jump</sprite>
               <sprite>sprites\spr_mario_leaf_carry</sprite>
+              <sprite>sprites\spr_mario_leaf_carry_jump</sprite>
               <sprite>sprites\spr_mario_leaf_duck</sprite>
               <sprite>sprites\spr_mario_leaf_goal</sprite>
               <sprite>sprites\spr_mario_leaf_warp</sprite>
@@ -1255,6 +1278,7 @@
               <sprite>sprites\spr_mario_tanooki_hold</sprite>
               <sprite>sprites\spr_mario_tanooki_hold_jump</sprite>
               <sprite>sprites\spr_mario_tanooki_carry</sprite>
+              <sprite>sprites\spr_mario_tanooki_carry_jump</sprite>
               <sprite>sprites\spr_mario_tanooki_duck</sprite>
               <sprite>sprites\spr_mario_tanooki_goal</sprite>
               <sprite>sprites\spr_mario_tanooki_warp</sprite>
@@ -2230,6 +2254,8 @@
           <sprite>sprites\spr_3upmoon</sprite>
           <sprite>sprites\spr_acecoin</sprite>
           <sprite>sprites\spr_block_coin</sprite>
+          <sprite>sprites\spr_starcoin</sprite>
+          <sprite>sprites\spr_starcoin_get</sprite>
         </sprites>
         <sprites name="Interactive">
           <sprite>sprites\spr_pswitch</sprite>
@@ -2310,6 +2336,7 @@
         <sprites name="Goal">
           <sprite>sprites\spr_flagpole</sprite>
           <sprite>sprites\spr_flag</sprite>
+          <sprite>sprites\spr_flag_big</sprite>
           <sprite>sprites\spr_flag_secret</sprite>
           <sprite>sprites\spr_incastle</sprite>
           <sprite>sprites\spr_goal</sprite>
@@ -2342,18 +2369,21 @@
           <sprite>sprites\spr_castlesmoke</sprite>
           <sprite>sprites\spr_landsmoke</sprite>
           <sprite>sprites\spr_runsmoke</sprite>
-          <sprite>sprites\spr_splash_lava</sprite>
           <sprite>sprites\spr_spinstar</sprite>
           <sprite>sprites\spr_sparkles</sprite>
+          <sprite>sprites\spr_coinsparkle</sprite>
+          <sprite>sprites\spr_coinsparkle_b</sprite>
           <sprite>sprites\spr_bubble</sprite>
           <sprite>sprites\spr_bubble2</sprite>
           <sprite>sprites\spr_spinthump</sprite>
           <sprite>sprites\spr_shellbump</sprite>
           <sprite>sprites\spr_splash</sprite>
           <sprite>sprites\spr_lavasplash</sprite>
+          <sprite>sprites\spr_splash_lava</sprite>
           <sprite>sprites\spr_cinder</sprite>
           <sprite>sprites\spr_rain</sprite>
           <sprite>sprites\spr_note</sprite>
+          <sprite>sprites\spr_boltspark</sprite>
         </sprites>
         <sprite>sprites\spr_checkpoint</sprite>
         <sprite>sprites\spr_flag_bowser</sprite>
@@ -2535,6 +2565,7 @@
       <sprite>sprites\spr_mapspot</sprite>
       <sprite>sprites\spr_levelpanel</sprite>
       <sprite>sprites\spr_mappipe</sprite>
+      <sprite>sprites\spr_mapclearpipe</sprite>
       <sprite>sprites\spr_levelbeat</sprite>
       <sprite>sprites\spr_maplock</sprite>
       <sprite>sprites\spr_maphills</sprite>
@@ -2726,6 +2757,7 @@
           <script>scripts\scr_mariohold.gml</script>
           <script>scripts\scr_mariohold2.gml</script>
           <script>scripts\scr_mariocarry.gml</script>
+          <script>scripts\scr_mariocarry2.gml</script>
           <script>scripts\scr_marioduck.gml</script>
           <script>scripts\scr_mariogoal.gml</script>
           <script>scripts\scr_mariowarp.gml</script>
@@ -2803,6 +2835,7 @@
       <script>scripts\audio_playstop_sound.gml</script>
       <script>scripts\player_retrieve.gml</script>
       <script>scripts\draw_circle_colour_precise.gml</script>
+      <script>scripts\draw_sprite_tiled_area_ext.gml</script>
     </scripts>
     <scripts name="Random">
       <script>scripts\random_title.gml</script>
@@ -2867,7 +2900,6 @@
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_under</object>
         <object>objects\obj_brick_ghost</object>
-        <object>objects\obj_ligmaballz</object>
         <object>objects\obj_rock</object>
         <object>objects\obj_rock_forest</object>
         <object>objects\obj_rock_castle</object>
@@ -3161,6 +3193,7 @@
           <object>objects\obj_propellerblock</object>
           <object>objects\obj_3upmoon</object>
           <object>objects\obj_acecoin</object>
+          <object>objects\obj_starcoin</object>
         </objects>
         <objects name="Interactive">
           <object>objects\obj_pswitch</object>
@@ -3232,7 +3265,7 @@
           <object>objects\obj_deactivation</object>
           <object>objects\obj_warpparent</object>
         </objects>
-        <objects name="Do Not Use">
+        <objects name="Don't Use">
           <objects name="Mario">
             <objects name="Attacks">
               <object>objects\obj_spinner</object>
@@ -3423,6 +3456,7 @@
               <object>objects\obj_coinchain</object>
               <object>objects\obj_thrownbrick</object>
               <object>objects\obj_shard</object>
+              <object>objects\obj_emptyblock</object>
             </objects>
             <objects name="Platforms">
               <object>objects\obj_arrowplatform_move</object>
@@ -3523,11 +3557,13 @@
       <object>objects\obj_maphills</object>
       <object>objects\obj_mapbro</object>
       <object>objects\obj_mappipe</object>
+      <object>objects\obj_mapclearpipe</object>
       <object>objects\obj_palace_red</object>
       <object>objects\obj_palace_blue</object>
       <object>objects\obj_palace_yellow</object>
       <object>objects\obj_palace_green</object>
       <object>objects\obj_saver</object>
+      <object>objects\obj_maptilehidder</object>
       <object>objects\obj_worlditems</object>
       <object>objects\obj_mapmusicchanger</object>
     </objects>
@@ -3573,6 +3609,7 @@
         <object>objects\obj_pausemenu</object>
         <object>objects\obj_savemenu</object>
         <object>objects\obj_wannago</object>
+        <object>objects\obj_shitscreen</object>
       </objects>
       <objects name="Transitions">
         <object>objects\obj_fadein</object>
@@ -3653,6 +3690,11 @@
       </rooms>
       <rooms name="Originals 3">
         <room>rooms\rm_w3lvl1</room>
+        <room>rooms\rm_w3lvl1_s</room>
+        <room>rooms\rm_w3lvl2</room>
+        <room>rooms\rm_w3lvl3</room>
+        <room>rooms\rm_w3lvl4</room>
+        <room>rooms\rm_w3lvl5</room>
       </rooms>
       <room>rooms\rm_testroom</room>
       <rooms name="Special">
@@ -3724,7 +3766,9 @@
       <room>rooms\rm_title3</room>
     </rooms>
   </rooms>
-  <constants number="49">
+  <constants number="51">
+    <constant name="cs_levels">15</constant>
+    <constant name="cs_pwing">-30</constant>
     <constant name="cs_rotten">-29</constant>
     <constant name="cs_beanstalk">-28</constant>
     <constant name="cs_propellerblock">-27</constant>

@@ -662,8 +662,15 @@ if isduck = 0
         }
 
         //Carrying an item above his head
-        if holding = 1
-            sprite_index = scr_mariocarry()
+        if holding = 1 {
+            if (state == 2
+            &amp;&amp; (global.powerup == cs_leaf
+            || global.powerup == cs_tanooki
+            || global.powerup == cs_goldtan))
+                sprite_index = scr_mariocarry2()
+            else
+                sprite_index = scr_mariocarry()
+        }
 
         //Holding an item on front of him
         else if holding = 2

@@ -30,6 +30,9 @@
 //Disable Controls
 disablecontrols = 1
 
+//¿Sonar la canción del castillo?
+incastle = false;
+
 //Stop the music and time
 with obj_levelmanager
 {
@@ -76,8 +79,36 @@ vspeed = 1.5
 //Start walking after reaching the bottom
 alarm[0] = 130
 
+//Reproducir el sonido del castillo si se está en uno
+alarm[4] = 10
+
 //Play the flagpole sound
 audio_play_sound(snd_flagpole,0,0)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reproducir el sonido del castillo
+if (incastle)
+    audio_play_sound(snd_bossclear,1,0);
 </string>
           </argument>
         </arguments>
@@ -101,10 +132,18 @@ audio_play_sound(snd_flagpole,0,0)
           <argument>
             <kind>1</kind>
             <string>///Return to the world map after the music is done playing
-if audio_is_playing(snd_flagsong)
-    alarm[3] = 1
-else
-    scr_return()
+if (audio_is_playing(snd_flagsong)
+|| audio_is_playing(snd_bossclear))
+    alarm[0] = 1
+else {
+    if global.firstplay = 1 {
+        scr_init_globals()
+        if (instance_number(obj_fadein) == 0)
+            with instance_create(0,0,obj_fadein) target = rm_logo;
+    }
+    else
+        scr_return()
+}
     
 
 //Enable Controls
@@ -236,7 +275,8 @@ if image_alpha &gt; 0
 ready = 2
 
 //Play the flagpole music
-audio_play_sound(snd_flagsong,1,0)
+if (!incastle)
+    audio_play_sound(snd_flagsong,1,0);
 
 //Face right
 image_xscale = 1

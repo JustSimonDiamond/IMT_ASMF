@@ -202,10 +202,8 @@ if ready = 2
           <argument>
             <kind>1</kind>
             <string>///Play the world map music
-if not audio_is_playing(global.mapmusic)
-{
+if (!audio_is_playing(global.mapmusic)) 
     audio_play_sound(global.mapmusic,99,1);
-}
 </string>
           </argument>
         </arguments>
@@ -446,127 +444,112 @@ speed = 0
             <string>///Handles Mario's logic in the world map
 
 //If Mario is death skidding, and reached his location
-if ready = 2
-and round(x) = returnx
-and round(y) = returny
-{
-
-    //Stop the sound
-    //audio_stop_sound(snd_tailspin)
+if (ready == 2
+&amp;&amp; round(x) == returnx
+&amp;&amp; round(y) == returny) {
 
     //Change to the event state
-    ready = 1
+    ready = 1;
 
     //Stop moving
-    speed = 0
+    speed = 0;
 
     //Make sure his coordinates are exact
-    x =  returnx
-    y = returny
+    x =  returnx;
+    y = returny;
 
     //Set the alarm to allow Mario to move
-    alarm[1] = 60
+    alarm[1] = 60;
 
 }
 
 //If Mario is in his normal state
-else if ready = 0
-{
+else if (ready == 0) {
 
     //If he is not moving
-    if speed = 0
-    {
+    if (speed == 0) {
 
         //Get the id of the panel he is on
-        panel = collision_point(x+8,y+8,obj_panelparent,0,0)
+        panel = collision_point(x+8,y+8,obj_panelparent,0,0);
 
         //If the up key is pressed
-        if keyboard_check_pressed(vk_up)
-        {
+        if (keyboard_check_pressed(vk_up)) {
 
             //If there is no solid in the way
-            if not position_meeting(x+8,y-8,obj_solid)
-            {
+            if (!position_meeting(x+8,y-8,obj_solid)) {
 
                 //If the panel, if it exists, is not beaten or not open in the up direction, play the bump sound
-                if panel
-                and panel.beaten = 0
-                and panel.open[1] = 0
-                    audio_play_sound(snd_bump,0,0)
+                if (panel
+                &amp;&amp; panel.beaten == 0
+                &amp;&amp; panel.open[1] == 0)
+                    audio_play_sound(snd_bump,0,0);
 
                 //Otherwise, move up 32 pixels
-                else
-                {
-                    audio_play_sound(snd_move,0,0)
-                    vspeed = -2
-                    alarm[0] = 16
+                else {
+                    audio_play_sound(snd_move,0,0);
+                    vspeed = -2;
+                    alarm[0] = 16;
                 }
 
             }
 
             //Otherwise, play the bump sound
             else
-                audio_play_sound(snd_bump,0,0)
+                audio_play_sound(snd_bump,0,0);
 
         }
 
         //If the down key is pressed
-        else if keyboard_check_pressed(vk_down)
-        {
+        else if (keyboard_check_pressed(vk_down)) {
 
             //If there is no solid in the way
-            if not position_meeting(x+8,y+23,obj_solid)
-            {
+            if (!position_meeting(x+8,y+23,obj_solid)) {
 
                 //If the panel, if it exists, is not beaten or not open in the down direction, play the bump sound
-                if panel
-                and panel.beaten = 0
-                and panel.open[0] = 0
-                    audio_play_sound(snd_bump,0,0)
+                if (panel
+                &amp;&amp; panel.beaten == 0
+                &amp;&amp; panel.open[0] == 0)
+                    audio_play_sound(snd_bump,0,0);
 
                 //Otherwise, move down 32 pixels
-                else
-                {
-                    audio_play_sound(snd_move,0,0)
-                    vspeed = 2
-                    alarm[0] = 16
+                else {
+                    audio_play_sound(snd_move,0,0);
+                    vspeed = 2;
+                    alarm[0] = 16;
                 }
 
             }
 
             //Otherwise, play the bump sound
             else
-                audio_play_sound(snd_bump,0,0)
+                audio_play_sound(snd_bump,0,0);
 
         }
 
         //If the left key is pressed
-        else if keyboard_check_pressed(vk_left)
-        {
+        else if (keyboard_check_pressed(vk_left)) {
 
             //If there is no solid in the way
-            if not position_meeting(x-4,y+8,obj_solid)
-            {
+            if (!position_meeting(x-4,y+8,obj_solid)) {
 
                 //If the panel, if it exists, is not beaten or not open in the left direction, play the bump sound
-                if panel
-                and panel.beaten = 0
-                and panel.open[3] = 0
-                    audio_play_sound(snd_bump,0,0)
+                if (panel
+                &amp;&amp; panel.beaten == 0
+                &amp;&amp; panel.open[3] == 0)
+                    audio_play_sound(snd_bump,0,0);
 
                 //Otherwise, move left 32 pixels
-                else
-                {
-                    audio_play_sound(snd_move,0,0)
-                    hspeed = -2
-                    alarm[0] = 16
+                else {
+                    audio_play_sound(snd_move,0,0);
+                    hspeed = -2;
+                    alarm[0] = 16;
                 }
 
             }
 
             //Otherwise, play the bump sound
             else
-                audio_play_sound(snd_bump,0,0)
+                audio_play_sound(snd_bump,0,0);
 
         }
 
@@ -805,11 +788,11 @@ else if inventory = 1
           <argument>
             <kind>1</kind>
             <string>///Si se choca con el objeto de cambio de música
-if ready = 0
-{
+if (ready == 0) {
+
     //Si la música no es la misma que la del objeto
-    if global.mapmusic != other.mapmusic
-    {
+    if (global.mapmusic != other.mapmusic) {
+    
         //Detener la música
         audio_stop_sound(global.mapmusic);
     
@@ -845,23 +828,22 @@ if ready = 0
             <string>///Inventory retrieval script
 
 //Play the reserve item sound
-audio_play_sound(snd_retrieve,0,0)
+audio_play_sound(snd_retrieve,0,0);
 
 //Update the sprite
-if global.player = 0
-{
- sprite_index = scr_mariomap();
-}
-else if global.player = 1
-{
- sprite_index = scr_luigimap();
-}
+if (global.player == 0)
+    sprite_index = scr_mariomap();
+else if (global.player == 1)
+    sprite_index = scr_luigimap();
+
+//Create smoke
+with (instance_create(x,y,obj_smoke)) depth = -100;
 
 //Go back to the normal state
-ready = 0
+ready = 0;
 
 //Close the inventory
-inventory = 0
+inventory = 0;
 </string>
           </argument>
         </arguments>
@@ -897,24 +879,25 @@ ready = 3
 audio_stop_sound(global.mapmusic);
 
 //Play the enter level sound
-mappipe = place_meeting(x,y,obj_mappipe)
-if (!mappipe)
-{
+
+//Map pipe
+if (place_meeting(x,y,obj_mappipe))
+    audio_play_sound(snd_warp,0,0);
+    
+//Map Clear Pipe
+else if (place_meeting(x,y,obj_mapclearpipe))
+    audio_play_sound(snd_clearpipe_start,0,0);
+
+//Level Panel
+else {
+    //Enter Stage Sound
     audio_play_sound(snd_enterstage,0,0);
 
-    //Mario's voice
-    if (global.player = 0)
-    {
+    //Player's voice
+    if (global.player == 0)
         audio_play_sound(snd_letsgo,0,0);
-    }
-    else if (global.player = 1)
-    {
+    else if (global.player == 1)
         audio_play_sound(snd_luigi_letsgo,0,0);
-    }
-}
-else
-{
-    audio_play_sound(snd_warp,0,0);
 }
 </string>
           </argument>

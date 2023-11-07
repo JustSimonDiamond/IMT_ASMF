@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///The pause menu in the map
 
+//Desactivar el cursor
+with (obj_cursor) visible = false;
+
 //Take a screenshot
 back = background_create_from_surface(application_surface,0,0,640,480,0,0)
 
@@ -36,6 +39,10 @@ audio_pause_all()
 
 //Activate the persistent object
 instance_activate_object(obj_persistent)
+
+//Activar el cursor
+instance_activate_object(obj_cursor)
+with (obj_cursor) visible = true;
 
 //Play the pause sound
 audio_play_sound(snd_pause,0,0)

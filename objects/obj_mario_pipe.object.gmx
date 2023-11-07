@@ -43,7 +43,7 @@ else if (direction == 270)
 change = 0
 alarm[1] = 18
 ready = 0
-audio_play_sound(snd_clearpipe_start,0,0)
+audio_play_sound(snd_clearpipe_start, 0, false)
 hsp = 0
 vsp = 0
 
@@ -71,8 +71,7 @@ blend_star = c_white
           <argument>
             <kind>1</kind>
             <string>///Crear al jugador del otro lado
-with (player_retrieve(x+16,y)) //(instance_create((x + 16), (y), obj_player))
-{
+with (player_retrieve(x+16,y)) {
     hspeed = other.hsp
     vspeed = other.vsp
 }
@@ -370,9 +369,6 @@ if vrb
         }
     }
 }
-
-
-
 </string>
           </argument>
         </arguments>
@@ -396,7 +392,7 @@ if vrb
           <argument>
             <kind>1</kind>
             <string>///Crear un jugador del otro lado
-with (player_retrieve(bbox_left+16,bbox_top-2)) //(instance_create((bbox_left + 16), (bbox_top - 2), obj_player))
+with (player_retrieve(bbox_left+16,bbox_top-2))
 {
     hspeed = other.hsp
     vspeed = other.vsp
@@ -427,8 +423,7 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Crea a un jugador del otro lado
-with (player_retrieve(bbox_left+16,bbox_top-2)) //(instance_create((bbox_left + 16), (bbox_top-2), obj_player))
-{
+with (player_retrieve(bbox_left+16,bbox_top-2)) {
     hspeed = other.hsp
     vspeed = other.vsp
 }

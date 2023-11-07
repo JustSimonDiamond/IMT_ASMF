@@ -3,9 +3,25 @@
 
 V0.5 Release (0.5.?.?)
 
-	Añadidos
+	Añadidos 
 	
 +¡Mundo 3! 5 niveles totalmente nuevos.
+
++Si Mario está en un castillo y toca la bandera suena una canción diferente a la normal.
+
++Se agregó una pantalla de inicio con el nivel "(Hola, Simon. Introduce un nivel sin obstáculos aquí)".
+
++Se agregaron las tuberías transparentes en el WorldMap.
+
++Se agregó de manera definitiva el cursor.
+
+	Arreglos
+	
+/Nueva música en la pantalla de inicio.
+
+/Ahora cada uno de los tipos de monedas tienen su propio efecto de brillo.
+
+/Las puertas ya no trabajan con los objetos "warproom" y "postchange", ya que ahora se pueden configurar directamente desde el objeto.
 
 
 V0.4.1 Release (0.4.1.0)

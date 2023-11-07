@@ -103,7 +103,7 @@
     <instance objName="obj_block" x="928" y="352" name="inst_FEB3057C" locked="0" code="sprout = cs_beanstalk&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="928" y="144" name="inst_45752CF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="976" y="192" name="inst_98C3303C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="1536" y="384" name="inst_92B5BB1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="1536" y="384" name="inst_92B5BB1F" locked="0" code="myroom = rm_w2lvl4sub&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="1664" y="416" name="inst_913075EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="1664" y="320" name="inst_91A0C873" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="1664" y="304" name="inst_1C44741E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -132,7 +132,6 @@
     <instance objName="obj_coin" x="1488" y="368" name="inst_0EE0BCA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="1552" y="368" name="inst_58F07860" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_hidden" x="1616" y="336" name="inst_8C15D8EC" locked="0" code="sprout = cs_1up&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warproom" x="1536" y="384" name="inst_DDC89195" locked="0" code="myroom = rm_w2lvl4sub&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="1664" y="336" name="inst_45605D52" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="1664" y="400" name="inst_717EBBF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="1664" y="384" name="inst_C8C9C59F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

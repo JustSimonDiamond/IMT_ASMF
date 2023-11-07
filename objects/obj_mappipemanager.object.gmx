@@ -62,7 +62,8 @@ global.clear = 1
           <argument>
             <kind>1</kind>
             <string>///Stop the music
-with obj_levelmanager event_user(3)
+if (instance_exists(obj_levelmanager))
+    with (obj_levelmanager) event_perform(ev_alarm,3);
 </string>
           </argument>
         </arguments>
