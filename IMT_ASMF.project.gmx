@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="114" name="datafiles">
-    <datafiles number="114" name="Screenshots">
-      <datafiles number="114" name="The 0,4 Development">
+  <datafiles number="115" name="datafiles">
+    <datafiles number="115" name="Screenshots">
+      <datafiles number="115" name="The 0,4 Development">
         <datafile>
           <name>AAAAAAAAAAAAA.JPG</name>
           <exists>-1</exists>
@@ -959,6 +959,23 @@
         </Config>
       </ConfigOptions>
       <filename>Si los juegos van lento, usa este programa.exe</filename>
+    </datafile>
+    <datafile>
+      <name>changelog.txt</name>
+      <exists>-1</exists>
+      <size>3802</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>changelog.txt</filename>
     </datafile>
   </datafiles>
   <NewExtensions/>
@@ -2346,12 +2363,6 @@
         <sprite>sprites\spr_chest</sprite>
         <sprite>sprites\spr_hammerprize</sprite>
         <sprite>sprites\spr_gameover_mario</sprite>
-        <sprite>sprites\spr_roulette1</sprite>
-        <sprite>sprites\spr_roulette2</sprite>
-        <sprite>sprites\spr_roulette3</sprite>
-        <sprite>sprites\spr_cardgame_flip</sprite>
-        <sprite>sprites\spr_cardgame_cards</sprite>
-        <sprite>sprites\spr_cardgame_cursor</sprite>
         <sprite>sprites\spr_switch_red</sprite>
         <sprite>sprites\spr_switch_blue</sprite>
         <sprite>sprites\spr_switch_yellow</sprite>
@@ -2617,6 +2628,7 @@
       <sprite>sprites\usobruh</sprite>
       <sprite>sprites\nice</sprite>
       <sprite>sprites\whythefuck</sprite>
+      <sprite>sprites\manareyouokay</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -3388,6 +3400,8 @@
             <object>objects\obj_enemy_frozen</object>
             <object>objects\obj_frozenenemy_pickup</object>
             <object>objects\obj_vegenemy</object>
+            <object>objects\obj_enemy_dead_ver</object>
+            <object>objects\obj_enemy_multidead_ver</object>
             <object>objects\obj_stomped</object>
             <object>objects\obj_shell</object>
             <object>objects\obj_shell_held</object>

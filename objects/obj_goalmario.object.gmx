@@ -47,8 +47,9 @@ if instance_exists(obj_flagpole_secret)
 else
     global.clear = 1
 
-//Forget checkpoints
+//Olvidar estos valores
 global.checkpoint = noone
+global.actualdeads = 0;
 
 //Goal Mario's state
 ready = 0
@@ -495,31 +496,6 @@ and y &gt; other.y+128
 
 if global.powerup = cs_goldtan
     global.powerup = cs_leaf
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Irse al mapa
-scr_return()
-disablecontrols= 0
 </string>
           </argument>
         </arguments>

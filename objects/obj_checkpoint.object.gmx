@@ -35,7 +35,7 @@ image_speed = 0.15
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_playerparent">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,31 +53,33 @@ image_speed = 0.15
           <argument>
             <kind>1</kind>
             <string>///Lets Mario activate the checkpoint
+if (place_meeting(x,y,obj_playerparent)) {
 
-//If it still has a bowser flag
-if sprite_index = spr_flag_bowser
-{
+    //If it still has a bowser flag
+    if sprite_index = spr_flag_bowser
+    {
 
-    //Deactivate other checkpoints
-    with obj_checkpoint sprite_index = spr_flag_bowser
+        //Deactivate other checkpoints
+        with obj_checkpoint sprite_index = spr_flag_bowser
 
-    //Switch to the Mario flag
-    sprite_index = spr_flag_mario
+        //Switch to the Mario flag
+        sprite_index = spr_flag_mario
 
-    //Remember the checkpoint id and room
-    global.checkpoint = id
-    global.checkpointroom = room
+        //Play the whistle sound
+        audio_play_sound(snd_whistle,0,0)
 
-    //Play the whistle sound
-    audio_play_sound(snd_whistle,0,0)
-
-    //Give Mario a mushroom if he is small
-    if global.powerup = cs_small
-        instance_create(other.x,other.y+16,obj_mushroom)
+        //Give Mario a mushroom if he is small
+        if global.powerup = cs_small
+            global.powerup = cs_big;
         
-    //Special effects
-    instance_create(x+18,y+24,obj_spinthump)
+        //Special effects
+        instance_create(x+18,y+24,obj_spinthump)
+    
+        //Remember the checkpoint id and room
+        global.checkpoint = id;
+        global.checkpointroom = room;
 
+    }
 }
 </string>
           </argument>

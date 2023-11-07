@@ -44,6 +44,8 @@ alarm[0] = 500
 
 //Alpha blink
 alarm[1] = 400
+
+swimming = 0
 </string>
           </argument>
         </arguments>

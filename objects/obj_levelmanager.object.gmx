@@ -768,10 +768,15 @@ if global.coins &gt; 99
 
 }
 
-//AAAAAAAA
+//P-Switch
 if (audio_is_playing(snd_switchsong))
 and (switchon) == 0
     audio_stop_sound(snd_switchsong)
+
+//Lluvia
+if ((!instance_exists(obj_stormmaker))
+&amp;&amp; (audio_is_playing(snd_rain)))
+    audio_stop_sound(snd_rain)
 
 //Make the screen shake if thwomp sound plays
 if not audio_is_playing(snd_thwomp)

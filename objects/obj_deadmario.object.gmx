@@ -53,6 +53,9 @@ lives--
 //Remember the death
 global.died = 1
 
+//Aumentar el número de muertes actuales
+global.actualdeads += 1
+
 //Begin the death animation
 alarm[0] = 60
 
@@ -83,7 +86,13 @@ event_user(0)
           <argument>
             <kind>1</kind>
             <string>///Return to the world map
-scr_return()
+if (global.firstplay) == 1 {
+    scr_init_globals()
+    if (instance_number(obj_fadein) == 0)
+        with instance_create(0,0,obj_fadein) target = rm_logo;
+}
+else
+    scr_return();
 </string>
           </argument>
         </arguments>
@@ -147,30 +156,6 @@ if vspeed &gt; 4
     vspeed = 4
     gravity = 0
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Irse al mapa
-scr_return()
 </string>
           </argument>
         </arguments>

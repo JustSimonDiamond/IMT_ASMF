@@ -179,7 +179,7 @@ else
     if (instance_number(obj_curtainout) == 0) {
     
         with (instance_create(x+8,y+4,obj_curtainout)) 
-            target = global.chechpointroom;
+            target = global.checkpointroom;
     }
 }
 </string>

@@ -1,0 +1,115 @@
+[It's Mario Time: A Super Mario Fangame] Changelog
+
+
+V0.5 Release (0.5.?.?)
+
+	Añadidos
+	
++¡Mundo 3! 5 niveles totalmente nuevos.
+
+
+V0.4.1 Release (0.4.1.0)
+
+	Añadidos (Número de versión = Novedades olvidadas de esta misma)
+
++Se agregó el Tanooki Dorado (0.4.0.7)
+
++Se agregó a la Planta Pirómana (0.4.0.9)
+
++Se agregaron las monedas congeladas (0.4.0.5)
+
+	Arreglos
+	
+/Ya no puedes reventar a la pantalla de carga con el sonido "mario_letsplay".
+	
+/Cuando Mario toma un checkpoint y muere el juego ya no se crashea.
+
+/Si Mario muere en el tutorial, y se está jugando por primera vez directamente se dirige a la pantalla de logo (No crashea).
+
+/Se han eliminado texturas y sprites que no se usan ni se usarán. Próximamente se hará lo mismo con los objetos.
+
+	Pruebas
+
+#Se sigue revisando el problema que tienen los valores "holding" y "global.holding" al cambiar de room.
+
+#Está en pruebas el bloque del tanooki dorado. Por ahora, si Mario muere 5 veces o más el bloque aparece para ayudarlo.
+
+#Se está ampliando la cantidad de niveles del juego.
+
+	Easter Eggs
+	
+_¿Debería conservar esos sprites? Las votaciones ya se hicieron...
+
+_Jaja, no te creas lo que ves en el código, hermano.
+
+
+V0.4 Release Hotfix (0.4.0.9)
+
+	Añadidos
+	
++¡Mundo 2! Cuenta con 5 niveles nuevos
+
++¡Nuevos Powerups! Boomerang, Flor de Hielo, Champicóptero, Super Bola, Abeja, Pingüino y Gato
+
++Se agregó a Ludwig (Agradezco a Enmanuel13 por apoyarme con los sprites)
+
++Se agregó la animación de Course Clear al finalizar un nivel (Pirueta y Salto)
+
++Se agregaron los bloques Roca
+
++Se agregó a: Spike, Goomba Zapato, Buzzy, Spiny, Planta Piraña, Boo, Huesitos, Thwomp, Mechakoopa, Bob-omb, Hammer Bro, Fire Bro y Boomerang Bro
+
++Se agregaron diferentes tipos de muerte dependiendo de la acción actual (Normal, caída y lava)
+
++Se agregaron los textos "Too Bad" y "Time Up!" cuando el jugador muere
+
++Se agregaron las monedas apiladas (5) y las bolsas de monedas (10)
+
++Se agregó el reloj +10
+
++Se agregó el cambio de canciones en el WorldMap
+
++Se agregaron las rooms "disclaimer" y "saves" dónde se muestra lo que evidentemente deberían mostrar
+
++Se agregaron nuevos botones en la pantalla de inicio (Jugar, Ajustes y Salir)
+
++Se agregaron las transiciones de cuando Mario toma un Powerup (Grow, Shrink, Powerup, Powerdown y Transform)
+
++Ahora cuando quemas a un enemigo le salen monedas. Estas se mueven dependiendo de la dirección del jugador
+
++Se agregó el efecto estrella de UniMaker
+
++Se agregaron los Koopas de Playa (Los que aparecen al pisar un Koopa en Super Mario World)
+
++Se agregó el texto "Course Clear" cuando Mario finaliza un nivel
+
++Easter Eggs, pero... ¿En dónde?
+
+	Arreglos
+
+/Se arreglaron un chingo de texturas y sprites con respecto a la V0.3
+
+/Se modificaron y arreglaron varias animaciones en Mario
+
+/Mario ahora tiene cambios de velocidad (walkspeed, runspeed, maxrunspeed)
+
+/Se reemplazaron los bloques raros del 1-1 con púas reales
+
+/Todos los niveles tuvieron un rediseño y arreglo
+
+/Ahora, Mario del mapa cuando entra a una tubería, en vez de sonar "letsgo" y "enterstage" se escucha el sonido "warp"
+
+/La casa hongo, junto a Toad, fue arreglada y cambiada
+
+/Ahora, todos los proyectiles son objetos conectados con uno raíz, para así eliminar la acción de cuando cada uno se choca con enemigos, y hacer que
+ en el objeto raíz de los enemigos esté el script de los proyectiles (Es más facil de lo que suena) 
+
+/Nueva pantalla del título
+
+/Las hojas de poder tienen un movimiento más natural
+
+	Eliminados
+
+-En ésta versión, Yoshi no es conseguible en ninguno de los niveles originales
+
+-Ya no se pueden aplicar filtros como el HQ2X o el HQ4X

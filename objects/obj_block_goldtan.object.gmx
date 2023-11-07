@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_goldtanblock</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>1</depth>
   <persistent>0</persistent>
   <parentName>obj_blockparent</parentName>
@@ -36,8 +36,14 @@ image_speed = 0.15
 //Whether this block can be hit
 ready = 0
 
-//Create a solid
-mysolid = instance_create(x,y,obj_solid)
+//Crear un sólido
+mysolid = noone
+
+//Epa
+if (global.actualdeads) &gt;= 5
+    visible = true
+else
+    visible = false
 </string>
           </argument>
         </arguments>
@@ -64,15 +70,9 @@ mysolid = instance_create(x,y,obj_solid)
 vspeed = 0
 y = ystart
 
-//Change the contents to mushroom if a powerup is inside, and Mario is small
-if sprout &gt; cs_big
-and global.powerup = cs_small
-    sprout = cs_goldtan
-
 //Make an item come out, if there is one
-if sprout != cs_coin
-    with instance_create(x,y,obj_powerupsprout) sprite_index = scr_constant_get_sprite(other.sprout)
-
+with instance_create(x,y,obj_powerupsprout) sprite_index = scr_constant_get_sprite(other.sprout)
+    
 //Use the empty block sprite
 sprite_index = spr_qblock_empty
 </string>
@@ -80,7 +80,7 @@ sprite_index = spr_qblock_empty
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="10">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -97,9 +97,15 @@ sprite_index = spr_qblock_empty
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make a coin come out if this is a coin block
-if sprout = cs_coin
-    instance_create(x,y,obj_blockcoin)
+            <string>///Step
+
+//Create a solid
+if (visible = true 
+and (!instance_exists(mysolid)))
+    mysolid = instance_create(x,y,obj_solid);
+else if (visible = false
+&amp;&amp; instance_exists(mysolid))
+    with (mysolid) instance_destroy();
 </string>
           </argument>
         </arguments>

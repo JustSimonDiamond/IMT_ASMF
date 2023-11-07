@@ -95,3 +95,6 @@ global.pmeter = 0
 
 //WorldMap Music
 global.mapmusic = snd_mapmusic;
+
+//Muertes totales
+global.actualdeads = 0;

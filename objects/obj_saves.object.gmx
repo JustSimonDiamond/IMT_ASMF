@@ -30,6 +30,9 @@
 //The selected menu item
 menu_choice = 0
 
+//Is this shit disabled?
+disable = 0
+
 //Play music
 alarm[1] = 2
 
@@ -177,10 +180,14 @@ draw_set_alpha(1)
           <argument>
             <kind>1</kind>
             <string>///Select a lower menu item
+if (disable) == 0 {
+
 if menu_choice &lt; 2
 {
     menu_choice++
     audio_play_sound(snd_move,0,0)
+}
+
 }
 </string>
           </argument>
@@ -205,10 +212,14 @@ if menu_choice &lt; 2
           <argument>
             <kind>1</kind>
             <string>///Select a higher menu item
+if (disable) == 0 {
+
 if menu_choice &gt; 0
 {
     menu_choice--
     audio_play_sound(snd_move,0,0)
+}
+
 }
 </string>
           </argument>
@@ -233,10 +244,14 @@ if menu_choice &gt; 0
           <argument>
             <kind>1</kind>
             <string>///Go to the title screen
+if (disable) == 0 {
+
 audio_stop_all()
 if (instance_number(obj_fadein) == 0)
     with (instance_create(0,0,obj_fadein)) target = random_title()
 keyboard_clear(vk_control)
+
+}
 </string>
           </argument>
         </arguments>
@@ -260,6 +275,10 @@ keyboard_clear(vk_control)
           <argument>
             <kind>1</kind>
             <string>///Load the selected file
+if (disable) == 0 {
+
+//Disable this shit
+disable = 1;
 
 //Play the enter level sound
 audio_play_sound(snd_enterstage,0,0)
@@ -285,6 +304,8 @@ if file_exists(global.file)
 //Go to the world map
 if (instance_number(obj_curtainout) == 0)
     with (instance_create(view_wview[0]/2,view_hview[0]/2,obj_curtainout)) target = rm_worldmap
+    
+}
 </string>
           </argument>
         </arguments>
