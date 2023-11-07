@@ -28,7 +28,7 @@
             <string>///NOOOOOOOOOOOOOO
 if instance_exists(self)
 {
-    event_user(0)
+ event_user(0)
 }
 //Use the death sprite
 if global.player = 0
@@ -57,6 +57,8 @@ alarm[0] = 60
 
 //Play the death song
 audio_play_sound(snd_dead,1,0)
+
+obj_levelmanager.disablehud = 1;
 </string>
           </argument>
         </arguments>
@@ -172,7 +174,7 @@ if vspeed &gt; 4
           <argument>
             <kind>1</kind>
             <string>///Crear texto "Too Bad"
-instance_create(0,0,obj_toobad)
+instance_create(0,0,obj_toobad);
 </string>
           </argument>
         </arguments>

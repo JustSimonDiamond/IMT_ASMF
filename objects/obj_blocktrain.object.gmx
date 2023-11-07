@@ -28,7 +28,7 @@
             <string>///Make block train parts
 
 //If Mario is above
-if collision_rectangle(bbox_left,bbox_top-2,bbox_right,bbox_top+4,obj_mario,0,0)
+if collision_rectangle(bbox_left,bbox_top-2,bbox_right,bbox_top+4,obj_playerparent,0,0)
 {
 
     //Make front part

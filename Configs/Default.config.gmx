@@ -64,7 +64,7 @@
     <option_android_orient_portrait_flipped>True</option_android_orient_portrait_flipped>
     <option_android_orientation>1</option_android_orientation>
     <option_android_ouya_icon>Configs\Default\android\icons\ouyaIcon.png</option_android_ouya_icon>
-    <option_android_package_company>SDiamond</option_android_package_company>
+    <option_android_package_company>JustSimonDiamond</option_android_package_company>
     <option_android_package_domain>com</option_android_package_domain>
     <option_android_package_product>IMT_ASMF</option_android_package_product>
     <option_android_permission_flags>1</option_android_permission_flags>
@@ -222,7 +222,7 @@
     <option_changeresolution>false</option_changeresolution>
     <option_closeesc>true</option_closeesc>
     <option_colordepth>0</option_colordepth>
-    <option_display_name>It's Mario Time: Developer Edition 5</option_display_name>
+    <option_display_name>It's Mario Time: Alpha Edition</option_display_name>
     <option_displayerrors>True</option_displayerrors>
     <option_ecma>0</option_ecma>
     <option_facebook_app_display_name></option_facebook_app_display_name>
@@ -392,8 +392,8 @@
     <option_mac_appstore_outgoing_allow>0</option_mac_appstore_outgoing_allow>
     <option_mac_build_version>0</option_mac_build_version>
     <option_mac_copyright_info>Simon Diamond</option_mac_copyright_info>
-    <option_mac_create_app_store>-1</option_mac_create_app_store>
-    <option_mac_display_name>It's Mario Time</option_mac_display_name>
+    <option_mac_create_app_store>0</option_mac_create_app_store>
+    <option_mac_display_name>It's Mario Time: A Super Mario Fangame</option_mac_display_name>
     <option_mac_enable_retina>0</option_mac_enable_retina>
     <option_mac_enable_steam>0</option_mac_enable_steam>
     <option_mac_fullscreen>0</option_mac_fullscreen>
@@ -402,7 +402,7 @@
     <option_mac_major_version>1</option_mac_major_version>
     <option_mac_menu_dock>0</option_mac_menu_dock>
     <option_mac_minor_version>0</option_mac_minor_version>
-    <option_mac_output_dir>~/GameMaker-Studio/IMT_ASMF</option_mac_output_dir>
+    <option_mac_output_dir>~/JustSimonDiamond/IMT_ASMF</option_mac_output_dir>
     <option_mac_scale>-1</option_mac_scale>
     <option_mac_screenkey>-1</option_mac_screenkey>
     <option_mac_showcursor>0</option_mac_showcursor>
@@ -516,7 +516,7 @@
     <option_use_new_audio>True</option_use_new_audio>
     <option_variableerrors>False</option_variableerrors>
     <option_version>0.0.4 Dev 5</option_version>
-    <option_version_build>5</option_version_build>
+    <option_version_build>6</option_version_build>
     <option_version_company>JSCC Studios</option_version_company>
     <option_version_copyright>Simon Diamond</option_version_copyright>
     <option_version_description>A Super Mario Fangame</option_version_description>
@@ -546,7 +546,7 @@
     <option_win8_minor_version>0</option_win8_minor_version>
     <option_win8_native_certificate_location>Win8NativeRunner_TemporaryKey.pfx</option_win8_native_certificate_location>
     <option_win8_native_cpu>x86</option_win8_native_cpu>
-    <option_win8_package_display_name>It's Mario Time Installer</option_win8_package_display_name>
+    <option_win8_package_display_name>It's Mario Time</option_win8_package_display_name>
     <option_win8_package_name>IMT_ASMF</option_win8_package_name>
     <option_win8_portrait_allowed>0</option_win8_portrait_allowed>
     <option_win8_portrait_flipped_allowed>0</option_win8_portrait_flipped_allowed>
@@ -596,7 +596,7 @@
     <option_winUAP_wide_logo>Configs\Default\WindowsUAP\logos\WideLogo.scale-100.png</option_winUAP_wide_logo>
     <option_windowcolor>clBlack</option_windowcolor>
     <option_windows_alternate_sync_method>True</option_windows_alternate_sync_method>
-    <option_windows_build_version>5</option_windows_build_version>
+    <option_windows_build_version>6</option_windows_build_version>
     <option_windows_company_info>JSCC Studios</option_windows_company_info>
     <option_windows_copyright_info>Simon Diamond</option_windows_copyright_info>
     <option_windows_create_textures_on_demand>False</option_windows_create_textures_on_demand>

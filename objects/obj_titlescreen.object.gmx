@@ -140,7 +140,7 @@ if fade != 0
     **  use of the "Hello Mario Engine" somewhere
     **  else. Thank you. -Hello Fangaming
     */
-    draw_text(2,2,"IMT ASMF VERSION 0.4 DEVELOPER 5")
+    draw_text(2,2,"IMT ASMF 0.4.0.6 ALPHA 1")
 
 }
 

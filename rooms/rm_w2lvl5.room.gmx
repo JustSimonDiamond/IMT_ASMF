@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_levelmanager" x="0" y="0" name="inst_5D017249" locked="0" code="leveltime = 450&#xA;levelmusic = snd_music_castle&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelmanager" x="0" y="0" name="inst_5D017249" locked="0" code="leveltime = 250&#xA;levelmusic = snd_music_castle&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="0" y="368" name="inst_F2FDFFF0" locked="0" code="" scaleX="9" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="144" y="384" name="inst_523B6D5D" locked="0" code="" scaleX="5" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="224" y="400" name="inst_5B30548A" locked="0" code="" scaleX="16" scaleY="2" colour="4294967295" rotation="0"/>
@@ -218,10 +218,6 @@
     <instance objName="obj_rock" x="3136" y="304" name="inst_7C957AAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="3168" y="304" name="inst_BE1E5941" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="3152" y="304" name="inst_B75A7436" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="3136" y="336" name="inst_59C37814" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="3104" y="336" name="inst_143AE93E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="3200" y="336" name="inst_8D23D654" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="3168" y="336" name="inst_9E60C2E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_firebar" x="3320" y="368" name="inst_F0A60A11" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_ghost" x="3536" y="336" name="inst_35AF317E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_ghost" x="3568" y="336" name="inst_147FC15E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -234,7 +230,7 @@
     <instance objName="obj_goombrat" x="3568" y="256" name="inst_DB2B00B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="3600" y="384" name="inst_11627CEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="3536" y="384" name="inst_7F5443B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_multicoin" x="3152" y="352" name="inst_DA241C3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_multicoin" x="3104" y="352" name="inst_DA241C3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_podoboo" x="3728" y="352" name="inst_8169D1CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_lava" x="3728" y="416" name="inst_CF61242C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_lava" x="3696" y="416" name="inst_EAB56EEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -260,6 +256,17 @@
     <instance objName="obj_coin" x="4000" y="368" name="inst_19935AEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="3984" y="384" name="inst_DAD5E8FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warproom" x="4048" y="384" name="inst_E4B4630C" locked="0" code="myroom = rm_forthello_ludwig&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="4016" y="32" name="inst_7197574B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="4112" y="64" name="inst_7983CA82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="4064" y="64" name="inst_9FC3218B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="3920" y="64" name="inst_0A6D68DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="3968" y="64" name="inst_72C2F9A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_acecoin" x="4016" y="64" name="inst_DEDA6F06" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_acecoin" x="1312" y="368" name="inst_168689C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_acecoin" x="2776" y="192" name="inst_585EFA86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_clock" x="3136" y="336" name="inst_79E4164B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_clock" x="3168" y="336" name="inst_01591AE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_multicoin" x="3200" y="352" name="inst_DF85ED8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnewer" x="16" y="336" w="16" h="16" xo="64" yo="384" id="10024164" name="inst_92F8C5EA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

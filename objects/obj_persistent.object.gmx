@@ -91,6 +91,8 @@ keyboard_set_map(ord('Z'),vk_shift)
 //Make the x key do everything the control key does
 keyboard_set_map(ord('X'),vk_control)
 
+keyboard_set_map(ord('C'),vk_tab)
+
 //Handle gamepad support
 gamepad = gamepad_is_connected(0)
 
@@ -667,6 +669,8 @@ mobile_keys[6] = virtual_key_add(350*s,2*s,32*s,32*s,vk_enter)
 
 //Inventory
 mobile_keys[7] = virtual_key_add(2*s,2*s,32*s,32*s,vk_space)
+
+//mobile_keys[8] = virtual_key_add(2*s,2*s,32*s,32*s,vk_tab)
 </string>
           </argument>
         </arguments>
@@ -1045,7 +1049,7 @@ draw_text(view_xview[0],view_yview[0],message)
 if showfps
 {
     draw_set_halign(fa_right)
-    draw_text(view_xview[0]+view_wview[0]-2,view_yview[0]+206,"FPS: "+string(fps))
+    draw_text(view_xview[0]+view_wview[0]-2,view_yview[0]+206,""+string(fps))
     draw_set_halign(fa_left)
 }
 

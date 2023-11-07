@@ -107,7 +107,7 @@
     <instance objName="obj_galoomba_parachute" x="2000" y="240" name="inst_8B0C7FFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_galoomba_parachute" x="2048" y="240" name="inst_7890875D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_banzaibill" x="2080" y="336" name="inst_DFE46854" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_diacannon" x="2224" y="352" name="inst_512D8EAE" locked="0" code="image_index = 0&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_diacannon" x="2192" y="384" name="inst_512D8EAE" locked="0" code="image_index = 0&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="560" y="320" name="inst_17E2FC2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="1360" y="384" name="inst_DC34B7F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_buzzybeetle" x="2528" y="384" name="inst_D87D13CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

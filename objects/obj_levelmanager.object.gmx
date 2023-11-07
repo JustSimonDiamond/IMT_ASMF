@@ -71,6 +71,8 @@ pmeter = 0
 //P-Meter slowdown
 slowdown = 0
 
+disablehud = 0;
+
 //Enable P-Meter
 alarm[7] = 15
 </string>
@@ -428,11 +430,15 @@ alarm[5] = 7
 //If Mario exists
 if instance_exists(obj_playerparent)
 {
-
     //Kill Mario
     instance_create(obj_playerparent.x,obj_playerparent.y,obj_deadmario)
     with obj_playerparent instance_destroy()
+}
 
+if instance_exists(obj_toobad)
+{
+    instance_create(0,0,obj_timeup)
+    with obj_toobad instance_destroy()
 }
 
 //Otherwise, delay the inevitable
@@ -520,7 +526,7 @@ if global.timer &gt; 0
     //Kill Mario at 0 seconds
     else if global.timer = 1
         alarm[4] = 61
-
+    
 }
 </string>
           </argument>
@@ -936,7 +942,7 @@ if switchon = 0
           <argument>
             <kind>1</kind>
             <string>///Destroy all player objects
-with obj_mario instance_destroy()
+with obj_playerparent instance_destroy()
 with obj_warpmario instance_destroy()
 with obj_jumpspawn instance_destroy()
 with obj_vinespawn instance_destroy()
@@ -1171,7 +1177,26 @@ if global.star &gt; 0
           <argument>
             <kind>1</kind>
             <string>///Draw the HUD
-if instance_exists(obj_toobad)
+if disablehud = 2
+{
+ draw_set_alpha(0.7)
+ draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+175,1,1,0,c_white,0.7)
+ if global.reserveitem = cs_fire
+ or global.reserveitem = cs_ice
+ or global.reserveitem = cs_boomerang
+ or global.reserveitem = cs_super
+ or global.reserveitem = cs_hammer
+ {
+  draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
+ }
+ else if global.reserveitem != cs_small
+ {
+  draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
+ }
+ draw_set_alpha(1)
+ exit;
+}
+if disablehud = 1
 {
  exit;
 }
@@ -1182,27 +1207,22 @@ draw_set_font(global.grdigits)
 draw_set_alpha(0.7)
 
 //Draw the HUD bar
-draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+150,1,1,0,c_white,0.7)
+draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+175,1,1,0,c_white,0.7)
 
 //Draw the lives
 if global.player = 0
-    {
-    draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
-    }
+{
+ draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7);
+}
 else if global.player = 1
-    {
-    draw_sprite_ext(spr_luigihud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
-    }
+{
+ draw_sprite_ext(spr_luigihud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7);
+}
 else
-    {
-    draw_sprite_ext(spr_noplayerhud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
-    }
+{
+ draw_sprite_ext(spr_noplayerhud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7);
+}
 draw_text(view_xview[0]+40,view_yview[0]+8,string_format(lives,2,0))
-
-/*
-draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7)
-draw_text(view_xview[0]+40,view_yview[0]+8,string_format(lives,2,0))
-*/
 
 //Draw the score
 draw_text(view_xview[0]+275,view_yview[0]+30,string_add_zeros(score,7))
@@ -1217,17 +1237,25 @@ draw_sprite_ext(spr_timehud,0,view_xview[0]+310,view_yview[0]+12,1,1,0,c_white,0
 draw_text(view_xview[0]+330,view_yview[0]+10,string_add_zeros(global.timer,3))
 
 //Draw the P-Meter
-draw_sprite_ext(spr_pmeter,pmeter,view_xview[0]+16,view_yview[0]+204,1,1,0,c_white,0.7)
-
+if global.powerup = cs_leaf
+or global.powerup = cs_tanooki
+or global.powerup = cs_goldtan
+{
+ draw_sprite_ext(spr_pmeter,pmeter,view_xview[0]+16,view_yview[0]+204,1,1,0,c_white,0.7);
+}
 //Draw the reserve items
 if global.reserveitem = cs_fire
 or global.reserveitem = cs_ice
 or global.reserveitem = cs_boomerang
 or global.reserveitem = cs_super
 or global.reserveitem = cs_hammer
-    draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+156,1,1,0,c_white,0.7)
+{
+ draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
+}
 else if global.reserveitem != cs_small
-    draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+156,1,1,0,c_white,0.7)
+{
+ draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
+}
 
 //Reset the draw alpha
 draw_set_alpha(1)

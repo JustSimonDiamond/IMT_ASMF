@@ -30,7 +30,7 @@ global.mariostart = 0
 global.clear = 0
 
 //Powerup
-global.powerup = cs_big
+global.powerup = cs_small
 
 //Reserve Item
 global.reserveitem = cs_small

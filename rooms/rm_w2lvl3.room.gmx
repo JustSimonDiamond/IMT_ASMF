@@ -135,7 +135,7 @@
     <instance objName="obj_coin" x="1504" y="320" name="inst_02654FCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="1552" y="320" name="inst_C30DC135" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_hidden" x="1232" y="96" name="inst_FF67F3D3" locked="0" code="sprout = cs_1up&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hammerbro" x="1968" y="288" name="inst_81795F0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hammerbro" x="1984" y="288" name="inst_81795F0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hammerbro" x="2048" y="288" name="inst_0A29AE08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick" x="1952" y="320" name="inst_D0C5A51C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick" x="1984" y="320" name="inst_1BF1F6EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

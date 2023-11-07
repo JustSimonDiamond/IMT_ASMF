@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>///Yoshi is being ridden
 
+blend_star = c_white
+
 //On Yoshi
 global.yoshi = 1
 
@@ -269,8 +271,10 @@ if instance_exists(obj_playerparent)
 
         //Animate when walking
         else if obj_playerparent.state = 1
-            image_speed = 0.15
-
+        {
+            image_speed = 0.2;
+        }
+        
         //Otherwise, if the mouth is empty
         else if inmouth = noone
         {
@@ -399,8 +403,9 @@ else if instance_exists(obj_goalmario)
 
     //Animate when walking
     else
-        image_speed = 0.15
-
+    {
+        image_speed = 0.15;
+    }
     //Depth
     depth = -5
 
@@ -426,8 +431,9 @@ else if instance_exists(obj_warpmario)
 
     //Animate when walking
     else
-        image_speed = 0.15
-
+    {
+        image_speed = 0.15;
+    }
     //Stay invisible in pipes
     if obj_warpmario.speed = 3
         visible = 0
@@ -730,9 +736,6 @@ global.carriedsprite = mouthsprite
 //If Mario exists
 if instance_exists(obj_playerparent)
 {
-
-    //Make Mario flash
-
     //Draw Yoshi
     draw_sprite_ext(sprite_index,image_index,round(x),y,obj_playerparent.direct,1,0,c_white,1)
 
@@ -753,8 +756,6 @@ if instance_exists(obj_playerparent)
     if global.ycolor = 3
     and inmouth != noone
         draw_sprite_ext(spr_wing,flyanim,round(x)-6*obj_playerparent.direct,y+6,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
-
-    //Reset flashing
 
 }
 //If goal Mario exists

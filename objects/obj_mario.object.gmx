@@ -443,6 +443,12 @@ if isduck = 0
         if state = 2
         and stompstyle = 0
         {
+            if global.powerup = cs_leaf
+                sprite_index = spr_mario_leaf_fall;
+            else if global.powerup = cs_tanooki
+                sprite_index = spr_mario_tanooki_fall;
+            else if global.powerup = cs_goldtan
+                sprite_index = spr_mario_goldtan_fall;
             if wiggle &gt; 1
                 wiggle--
             if wiggle &gt; 12
@@ -607,23 +613,13 @@ if isduck = 0
 
                 //Floating Animation
                 if global.powerup = cs_carrot
+                or global.powerup = cs_bee
                 {
                     if isfloating = 1
                         image_speed = 0.15
                     else
                         image_index = 0
                 }
-                else if global.powerup = cs_bee
-                {
-                    if isfloating = 1
-                    {
-                        sprite_index = spr_mario_bee_runjump
-                        image_speed = 0.15
-                    }
-                    else
-                        image_index = 0
-                }
-
                 //Squirrel Mario floating
                 if global.powerup = cs_squirrel
                 and (squirrelpropel = 1 or (vspeed &gt; 0 and keyboard_check(vk_shift)))
@@ -661,9 +657,21 @@ if isduck = 0
 
                 //Run only when P-Meter is full
                 else if obj_levelmanager.pmeter &lt; 6
+                {
                     sprite_index = scr_mariojump()
+                    if vspeed &gt; 0
+                        image_index = 1
+                    else
+                        image_index = 0
+                }
                 else
+                {
                     sprite_index = scr_mariorunjump()
+                    if vspeed &gt; 0
+                        image_index = 1
+                    else
+                        image_index = 0
+                }
 
             }
 

@@ -67,7 +67,7 @@
     <instance objName="obj_down" x="352" y="96" name="inst_2B08E22D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpbottom" x="32" y="64" name="inst_361277F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpbottom" x="320" y="128" name="inst_8EBB2ACC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelmanager" x="0" y="0" name="inst_39C3A9ED" locked="0" code="levelmusic = snd_music_under" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelmanager" x="0" y="0" name="inst_39C3A9ED" locked="0" code="levelmusic = snd_music_under&#xA;disablehud = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpmario" x="48" y="32" name="inst_38850EE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
@@ -279,15 +279,15 @@
     <tile bgName="bg_tilesetnew" x="16" y="16" w="16" h="16" xo="480" yo="16" id="10021857" name="inst_3A144E9E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="16" y="128" w="16" h="16" xo="480" yo="32" id="10021858" name="inst_6A012921" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="128" y="160" w="16" h="16" xo="480" yo="32" id="10021859" name="inst_72937478" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="32" y="96" w="16" h="16" xo="64" yo="384" id="10024172" name="inst_97BF9C8B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="48" y="96" w="16" h="16" xo="80" yo="384" id="10024173" name="inst_3DF1E58A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="32" y="112" w="16" h="16" xo="64" yo="400" id="10024174" name="inst_8D0C57B9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="48" y="112" w="16" h="16" xo="80" yo="400" id="10024175" name="inst_EC2B783B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnewer" x="64" y="96" w="16" h="16" xo="64" yo="384" id="10024172" name="inst_97BF9C8B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnewer" x="80" y="96" w="16" h="16" xo="80" yo="384" id="10024173" name="inst_3DF1E58A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnewer" x="64" y="112" w="16" h="16" xo="64" yo="400" id="10024174" name="inst_8D0C57B9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnewer" x="80" y="112" w="16" h="16" xo="80" yo="400" id="10024175" name="inst_EC2B783B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilepipes" x="32" y="32" w="32" h="16" xo="128" yo="96" id="10040735" name="inst_0927690D" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilepipes" x="32" y="48" w="32" h="32" xo="128" yo="96" id="10040737" name="inst_F159A276" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilepipes" x="320" y="112" w="32" h="32" xo="128" yo="96" id="10040738" name="inst_14332BED" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilepipes" x="320" y="96" w="32" h="16" xo="128" yo="96" id="10040740" name="inst_172C9FFB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="320" y="160" w="32" h="32" xo="96" yo="384" id="10040741" name="inst_4D7BC81A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnewer" x="288" y="160" w="32" h="32" xo="96" yo="384" id="10040741" name="inst_4D7BC81A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

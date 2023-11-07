@@ -7,7 +7,7 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>1</bbox_left>
+  <bbox_left>0</bbox_left>
   <bbox_right>14</bbox_right>
   <bbox_top>0</bbox_top>
   <bbox_bottom>16</bbox_bottom>
@@ -21,5 +21,6 @@
   <height>17</height>
   <frames>
     <frame index="0">images\spr_mario_small_jump_0.png</frame>
+    <frame index="1">images\spr_mario_small_jump_1.png</frame>
   </frames>
 </sprite>

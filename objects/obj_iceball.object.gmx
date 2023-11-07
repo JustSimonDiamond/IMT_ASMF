@@ -108,7 +108,7 @@ if other.hardness &lt; 2
             sprite_index = other.sprite_index
             event_user(15)
         }
-        audio_play_sound(snd_magic,0,0)
+        audio_play_sound(snd_iceball_freeze,0,0)
         instance_destroy()
     }
 }
@@ -116,6 +116,30 @@ if other.hardness &lt; 2
 //Get killed
 if other.hardness &lt; 100
     event_user(0)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_lava">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destruir si toca la lava
+event_user(0)
 </string>
           </argument>
         </arguments>
@@ -139,7 +163,7 @@ if other.hardness &lt; 100
           <argument>
             <kind>1</kind>
             <string>///Destroy iceball
-audio_play_sound(snd_bump,0,0)
+audio_play_sound(snd_iceball_destroy,0,0)
 instance_create(x-8,y,obj_smoke)
 instance_destroy()
 </string>

@@ -59,7 +59,7 @@
     <instance objName="obj_brick" x="256" y="112" name="inst_6A0F1D20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick" x="240" y="112" name="inst_FA099C6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="0" y="176" name="inst_517E119A" locked="0" code="" scaleX="24" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelmanager" x="0" y="0" name="inst_E98A6DC6" locked="0" code="levelmusic = snd_hammerbattle" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelmanager" x="0" y="0" name="inst_E98A6DC6" locked="0" code="levelmusic = snd_hammerbattle&#xA;disablehud = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sledgebro" x="256" y="144" name="inst_91B5CC48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="64" y="144" name="inst_60AA52E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

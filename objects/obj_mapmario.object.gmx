@@ -54,11 +54,11 @@ returny = ds_map_find_value(global.worldmap,"returny")
 //Change Mario's sprite to the one corresponding with the current powerup
 if global.player = 0
 {
-    sprite_index = scr_mariomap()
+    sprite_index = scr_mariomap();
 }
 else if global.player = 1
 {
-    sprite_index = spr_mapluigi
+    sprite_index = scr_luigimap();
 }
 
 //Sprite animation speed
@@ -805,7 +805,14 @@ else if inventory = 1
 audio_play_sound(snd_retrieve,0,0)
 
 //Update the sprite
-sprite_index = scr_mariomap()
+if global.player = 0
+{
+ sprite_index = scr_mariomap();
+}
+else if global.player = 1
+{
+ sprite_index = scr_luigimap();
+}
 
 //Go back to the normal state
 ready = 0

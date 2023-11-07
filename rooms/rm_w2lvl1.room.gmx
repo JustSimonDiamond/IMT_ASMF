@@ -1652,7 +1652,6 @@
     <tile bgName="bg_tilesetnew" x="1792" y="304" w="16" h="16" xo="480" yo="128" id="10029165" name="inst_CBCBE605" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1808" y="304" w="16" h="16" xo="480" yo="128" id="10029166" name="inst_309FDA56" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1824" y="304" w="16" h="16" xo="480" yo="128" id="10029167" name="inst_D1A8E428" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnew" x="1440" y="304" w="16" h="16" xo="448" yo="128" id="10029168" name="inst_7765C919" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1360" y="256" w="16" h="16" xo="464" yo="128" id="10029169" name="inst_DB2DBD83" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1376" y="256" w="16" h="16" xo="480" yo="128" id="10029170" name="inst_7B8955E8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1392" y="256" w="16" h="16" xo="480" yo="128" id="10029171" name="inst_23030CC2" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2538,6 +2537,7 @@
     <tile bgName="bg_tilesetnew" x="1584" y="368" w="16" h="16" xo="96" yo="0" id="10044978" name="inst_D02985A7" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1648" y="352" w="16" h="16" xo="96" yo="0" id="10044979" name="inst_CEAF00B1" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="1568" y="352" w="16" h="16" xo="64" yo="0" id="10044980" name="inst_F0446B4B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_tilesetnew" x="1440" y="304" w="16" h="16" xo="480" yo="128" id="10046570" name="inst_D4EF8A0F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

@@ -59,6 +59,8 @@ isflashing = 0
 
 //Horizontal facing direction
 direct = 1
+
+blend_star = c_white
 </string>
           </argument>
         </arguments>
@@ -721,7 +723,7 @@ if(instance_exists(obj_invincibility))
     repeat(2)
     {
         draw_set_blend_mode(bm_add);
-        draw_sprite_ext(sprite_index,image_index,round(x),round(y),obj_playerparent.direct,1,0,blend_star,obj_playerparent.image_alpha);
+        draw_sprite_ext(sprite_index,image_index,round(x),round(y),direct,1,0,blend_star,image_alpha);
         draw_set_blend_mode(bm_normal);
     };
 };

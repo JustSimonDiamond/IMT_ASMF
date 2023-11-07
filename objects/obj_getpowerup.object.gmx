@@ -96,9 +96,9 @@ if sprite_index = spr_tanookisuit
 
 //If it is a life, get it right away
 if sprite_index = spr_1up
-    with obj_mario instance_create(x-8,y+16,obj_1up)
+    with obj_playerparent instance_create(x-8,y+16,obj_1up)
 else if sprite_index = spr_3upmoon
-    with obj_mario instance_create(x-8,y+16,obj_3upmoon)
+    with obj_playerparent instance_create(x-8,y+16,obj_3upmoon)
 
 //Otherwise
 else

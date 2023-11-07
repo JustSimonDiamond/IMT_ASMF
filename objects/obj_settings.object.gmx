@@ -100,11 +100,12 @@ for(var i = 0; i &lt; 3; i++)
 //Reset text alignment
 draw_set_halign(fa_left)
 
+{
+ draw_text(2,2,"VOLVER: ctrl O x")
+}
+
 //Reset alpha
 draw_set_alpha(1)
-{
- draw_text(2,2,"Volver: Ctrl o X")
-}
 </string>
           </argument>
         </arguments>
