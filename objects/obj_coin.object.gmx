@@ -34,6 +34,44 @@ image_speed = 0.15
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_mario_pipe">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collect the coin
+
+//Play the coin sound
+audio_play_sound(snd_coin,0,0)
+
+//Increment coins
+global.coins++
+
+//Get 100 points
+with instance_create(x,y,obj_score_hidden_new) event_user(1)
+
+//Create sparkles
+instance_create(x+8,y-8,obj_sparkletrail)
+
+//Destroy
+instance_destroy()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_blockparent">
       <action>
         <libid>1</libid>
@@ -95,6 +133,46 @@ instance_create(x+8,y-8,obj_sparkletrail)
 
 //Destroy
 instance_destroy()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Agarra la moneda
+if instance_exists(obj_cursor)
+{
+    //Play the coin sound
+    audio_play_sound(snd_coin,0,0)
+
+    //Increment coins
+    global.coins++
+
+    //Get 100 points
+    with instance_create(x,y,obj_score_hidden_new) event_user(1)
+
+    //Create sparkles
+    instance_create(x+8,y-8,obj_sparkletrail)
+
+    //Destroy
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>

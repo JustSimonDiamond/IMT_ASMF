@@ -153,56 +153,6 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_holdparent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Eat held items
-if hunger = 0
-and other.object_index != obj_spring_timed
-and other.object_index != obj_spring_blue
-{
-
-    //Item eaten
-    hunger = 1
-
-    //Move tongue back
-    ready = 1
-
-    //Put it in Yoshi's mouth
-    obj_yoshi.inmouth = other.object_index
-
-    //Remember its sprite
-    obj_yoshi.mouthsprite = other.sprite_index
-
-    //Food sprite
-    foodsprite = other.sprite_index
-
-    //Food offset
-    foodoffset = 8
-
-    //Destroy food
-    with other instance_destroy()
-
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_enemyparent">
       <action>
         <libid>1</libid>
@@ -328,6 +278,56 @@ if hunger = 0
 
     //Remember powerup eaten
     powerup = other.object_index
+
+    //Destroy food
+    with other instance_destroy()
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_holdparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Eat held items
+if hunger = 0
+and other.object_index != obj_spring_timed
+and other.object_index != obj_spring_blue
+{
+
+    //Item eaten
+    hunger = 1
+
+    //Move tongue back
+    ready = 1
+
+    //Put it in Yoshi's mouth
+    obj_yoshi.inmouth = other.object_index
+
+    //Remember its sprite
+    obj_yoshi.mouthsprite = other.sprite_index
+
+    //Food sprite
+    foodsprite = other.sprite_index
+
+    //Food offset
+    foodoffset = 8
 
     //Destroy food
     with other instance_destroy()

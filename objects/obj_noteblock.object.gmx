@@ -201,6 +201,9 @@ if ready = 0
         //Move up
         vspeed = -2
         alarm[0] = 4
+        
+        with (instance_create(bbox_left,bbox_top,obj_note)) motion_set(135,1);
+        with (instance_create(bbox_right,bbox_top,obj_note)) motion_set(45,1);
 
     }
 
@@ -214,14 +217,15 @@ if ready = 0
         //Move down
         vspeed = 2
         alarm[2] = 4
-
-        //Play a bump sound
-        audio_play_sound(snd_bump,0,0)
+        
+        with (instance_create(bbox_left,bbox_top,obj_note)) motion_set(135,1);
+        with (instance_create(bbox_right,bbox_top,obj_note)) motion_set(45,1);
 
         //Make Mario bounce
         event_user(1)
 
     }
+    
 
 }
 </string>
@@ -255,8 +259,14 @@ with obj_playerparent
     vspeed = -5.2
 
     //Play the spring sound if Mario bounces high
-    if jumpnow = 1
-        audio_play_sound(snd_spring,0,0)
+    if (jumpnow = 1)
+    {
+        audio_play_sound(snd_noteblock_b,0,0);
+    }
+    else
+    {
+        audio_play_sound(snd_noteblock,0,0);
+    }
 
 }
 </string>

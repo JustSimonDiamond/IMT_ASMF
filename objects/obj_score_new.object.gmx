@@ -28,10 +28,13 @@
             <string>///New Score Sistem
 
 //Go up
-vspeed = -3
+vspeed = -2
 
 //Slow down
 friction = 0.05
+
+//Image Alpha
+image_alpha = 1
 </string>
           </argument>
         </arguments>
@@ -55,8 +58,36 @@ friction = 0.05
           <argument>
             <kind>1</kind>
             <string>///Destroy when the speed is 0
-if vspeed = 0
-    instance_destroy()
+if (vspeed) == 0 {
+    image_alpha -= 0.05
+    if (image_alpha) == 0
+        instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="21">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///10 seconds
+global.timer += 10
+sprite_index = spr_10sec
 </string>
           </argument>
         </arguments>
@@ -80,16 +111,10 @@ if vspeed = 0
           <argument>
             <kind>1</kind>
             <string>///3up
-if lives &gt; 998
-{
-    lives = 999
-    sprite_index = spr_3uppts
-    audio_play_sound(snd_1up,0,0)
-}
-else
-lives+= 3
+lives += 3;
 sprite_index = spr_3uppts
 audio_play_sound(snd_3up,0,0)
+
 </string>
           </argument>
         </arguments>
@@ -113,16 +138,10 @@ audio_play_sound(snd_3up,0,0)
           <argument>
             <kind>1</kind>
             <string>///1up
-if lives &gt; 998
-{
-    lives = 999
-    sprite_index = spr_1uppts
-    audio_play_sound(snd_1up,0,0)
-}
-else
-lives++
-sprite_index = spr_1uppts
-audio_play_sound(snd_1up,0,0)
+lives += 1;
+sprite_index = spr_1uppts;
+audio_play_sound(snd_1up,0,0);
+
 </string>
           </argument>
         </arguments>

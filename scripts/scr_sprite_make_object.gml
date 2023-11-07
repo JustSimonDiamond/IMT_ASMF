@@ -60,6 +60,10 @@ switch argument2
         return instance_create(argument0,argument1,obj_supercrown)
     case spr_goldtan:
         return instance_create(argument0,argument1,obj_goldtan)
+    case spr_eyesflower:
+        return instance_create(argument0,argument1,obj_eyesflower)
+    case spr_superbell:
+        return instance_create(argument0,argument1,obj_superbell)
     case spr_hatch:
         return instance_create(argument0,argument1,obj_hatch)
     case spr_hatch_r:

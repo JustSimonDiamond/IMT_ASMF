@@ -38,6 +38,8 @@ image_speed = 0.15
 
 //Make engine noises
 alarm[0] = 15
+
+canflip = false;
 </string>
           </argument>
         </arguments>

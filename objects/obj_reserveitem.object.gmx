@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///Reserve item
 
+//Secuencia
+sequence = 0
+
 //Play reserve sound
 audio_play_sound(snd_reserve,0,0)
 
@@ -41,6 +44,48 @@ alarm[0] = 4
 
 //Leaf check
 alarm[1] = 1
+
+//Item check
+alarm[2] = 1
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item check
+
+switch (sprite_index) {
+
+    //Set 'Power Up' sequence
+    case (spr_fireflower):
+    case (spr_iceflower):
+    case (spr_superflower): {
+    
+        sequence = 2; 
+        break;
+    }
+        
+    //Set 'Transform' sequence
+    default: 
+        sequence = 4; break;
+}
 </string>
           </argument>
         </arguments>
@@ -64,14 +109,11 @@ alarm[1] = 1
           <argument>
             <kind>1</kind>
             <string>///Do not animate this powerups
-
-//Do not animate leaf
-if sprite_index = spr_leaf
-    image_speed = 0
-
-//Do not animate tanooki leaf
-if sprite_index = spr_tanookisuit
-    image_speed = 0
+if (sprite_index = spr_leaf 
+or sprite_index = spr_tanookisuit 
+or sprite_index = spr_superbell) {
+ image_speed = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -135,11 +177,17 @@ if sprite_index = spr_mushroom
 
     //Become big if small
     if global.powerup = cs_small
+    {
+        audio_play_sound(snd_powerup,0,0);
         global.powerup = cs_big
-
+        with instance_create(0,0,obj_mario_transform) sequence = 0;
+    }
     //Otherwise, reserve a mushroom
     else if global.reserveitem = cs_small
-        global.reserveitem = cs_small
+    {
+        audio_play_sound(snd_retrieve,0,0);
+        global.reserveitem = cs_big
+    }
 
 
 }
@@ -158,15 +206,27 @@ else
         global.reserveitem = global.powerup
 
     //Get the new powerup
-    global.powerup = scr_sprite_get_constant(sprite_index)
-
-
+    if (global.powerup != scr_sprite_get_constant(sprite_index))
+    {
+        global.powerup = scr_sprite_get_constant(sprite_index);
+        with instance_create(0,0,obj_mario_transform){ 
+        
+            sequence = other.sequence;
+            if (other.sequence != 4){
+                audio_play_sound(snd_powerup,0,0);
+            }
+            else {
+            
+                audio_play_sound(snd_transform,0,0);
+            }      
+        
+        }
+    }
+    else {
+    
+        audio_play_sound(snd_retrieve,0,0);
+    }
 }
-
-instance_create(obj_playerparent.x,obj_playerparent.y+8,obj_statuesmoke)
-
-//Play reserve item sound
-audio_play_sound(snd_retrieve,0,0)
 
 //Destroy
 instance_destroy()

@@ -93,6 +93,62 @@ instance_destroy()
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_galoomba_hold">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Kill both
+if (hspeed != 0 or held = 1)
+{
+    scr_musicalscale(id,other.id,1)
+    with other event_user(0)
+    event_user(0)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_fireball">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Matar al huevón
+audio_play_sound(snd_kick,0,0)
+with instance_create(other.x,other.y,obj_score_new) event_user(2)
+with other event_user(0)
+event_user(0)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_enemyparent">
       <action>
         <libid>1</libid>
@@ -145,6 +201,7 @@ with instance_create(round(x+8),round(y+16),obj_enemy_dead)
 {
     sprite_index = spr_galoomba
     image_index = other.image_index
+    canflip = true;
 }
 
 //Destroy

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-5</depth>
   <persistent>0</persistent>
-  <parentName>obj_physicsparent</parentName>
+  <parentName>obj_playerparent_clear</parentName>
   <maskName>spr_bigmask</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -35,6 +35,10 @@ with obj_levelmanager
 {
     event_user(3)
     alarm[2] = 0
+    hudalpha = 0;
+    timeralpha = 0;
+    reservealpha = 0;
+    cantpause = 1;
 }
 
 //Remember whether a level or secret level was cleared
@@ -273,6 +277,20 @@ with obj_enemyparent
     instance_destroy()
 }
 
+//Destroy all holdables
+with obj_holdparent
+{
+    with instance_create(x,y,obj_smoke) sprite_index = spr_disapear
+    instance_destroy()
+}
+
+//Destroy all powerups
+with obj_powerupparent
+{
+    with instance_create(x,y,obj_smoke) sprite_index = spr_disapear
+    instance_destroy()
+}
+
 //When in the physics or countdown state
 if ready = 2
 or ready = 3
@@ -482,7 +500,7 @@ if global.powerup = cs_goldtan
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="25">
+    <event eventtype="5" enumb="32">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -499,19 +517,9 @@ if global.powerup = cs_goldtan
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Begin countdown state
-
-//Start the countdown if there is a time limit
-if global.timer &gt; 0
-    alarm[2] = 1
-else
-    alarm[3] = 1
-
-//Do not animate
-image_speed = 0
-
-//Use the correct image index
-image_index = 0
+            <string>///Irse al mapa
+scr_return()
+disablecontrols= 0
 </string>
           </argument>
         </arguments>

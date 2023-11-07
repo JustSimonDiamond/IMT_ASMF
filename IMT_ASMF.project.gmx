@@ -3,9 +3,77 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="109" name="datafiles">
-    <datafiles number="109" name="Screenshots">
-      <datafiles number="109" name="The 0,4 Development">
+  <datafiles number="114" name="datafiles">
+    <datafiles number="114" name="Screenshots">
+      <datafiles number="114" name="The 0,4 Development">
+        <datafile>
+          <name>AAAAAAAAAAAAA.JPG</name>
+          <exists>-1</exists>
+          <size>25527</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>AAAAAAAAAAAAA.JPG</filename>
+        </datafile>
+        <datafile>
+          <name>Recordatorio.JPG</name>
+          <exists>-1</exists>
+          <size>5749</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Recordatorio.JPG</filename>
+        </datafile>
+        <datafile>
+          <name>Asi que aqui es (punto sus-pensivo).png</name>
+          <exists>-1</exists>
+          <size>125257</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Asi que aqui es (punto sus-pensivo).png</filename>
+        </datafile>
+        <datafile>
+          <name>No te lo veas completo mano.jpg</name>
+          <exists>-1</exists>
+          <size>82025</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>No te lo veas completo mano.jpg</filename>
+        </datafile>
         <datafile>
           <name>It's Mario Time V0,5.png</name>
           <exists>-1</exists>
@@ -875,12 +943,31 @@
         </datafile>
       </datafiles>
     </datafiles>
+    <datafile>
+      <name>Si los juegos van lento, usa este programa.exe</name>
+      <exists>-1</exists>
+      <size>4422112</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Si los juegos van lento, usa este programa.exe</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Music">
       <sound>sound\snd_titlemusic</sound>
+      <sound>sound\snd_classicmap</sound>
       <sound>sound\snd_mapmusic</sound>
+      <sound>sound\snd_mapmusic2</sound>
       <sound>sound\snd_music_tutorial</sound>
       <sound>sound\snd_music_land</sound>
       <sound>sound\snd_music_under</sound>
@@ -902,6 +989,8 @@
       <sound>sound\snd_bossclear</sound>
       <sound>sound\snd_dead</sound>
       <sound>sound\snd_flagsong</sound>
+      <sound>sound\snd_smwclear</sound>
+      <sound>sound\snd_goalend</sound>
       <sound>sound\snd_gameover</sound>
       <sound>sound\snd_hurryup</sound>
       <sound>sound\snd_key</sound>
@@ -931,6 +1020,7 @@
       <sound>sound\snd_countend</sound>
       <sound>sound\snd_enterstage</sound>
       <sound>sound\snd_inventory</sound>
+      <sound>sound\snd_openinventory</sound>
       <sound>sound\snd_message</sound>
       <sound>sound\snd_move</sound>
       <sound>sound\snd_openpath</sound>
@@ -945,6 +1035,7 @@
     <sounds name="Action">
       <sounds name="Kick">
         <sound>sound\snd_kick</sound>
+        <sound>sound\snd_kick1</sound>
         <sound>sound\snd_kick2</sound>
         <sound>sound\snd_kick3</sound>
         <sound>sound\snd_kick4</sound>
@@ -972,6 +1063,7 @@
       <sound>sound\snd_loseyoshi</sound>
       <sound>sound\snd_pickup</sound>
       <sound>sound\snd_rain</sound>
+      <sound>sound\snd_scratch</sound>
       <sound>sound\snd_shatter</sound>
       <sound>sound\snd_skid</sound>
       <sound>sound\snd_spin</sound>
@@ -985,7 +1077,15 @@
       <sound>sound\snd_thunder</sound>
       <sound>sound\snd_starstart</sound>
       <sound>sound\snd_hurtwarp</sound>
+      <sound>sound\snd_transform</sound>
+      <sound>sound\snd_noteblock</sound>
+      <sound>sound\snd_noteblock_b</sound>
       <sound>sound\snd_warp</sound>
+      <sound>sound\snd_clearpipe_start</sound>
+      <sound>sound\snd_clearpipe_in</sound>
+      <sound>sound\snd_clearpipe_pop</sound>
+      <sound>sound\snd_propeller_fly</sound>
+      <sound>sound\snd_propeller_down</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_blargg</sound>
@@ -1015,547 +1115,597 @@
       <sound>sound\snd_sprout</sound>
       <sound>sound\snd_superspring</sound>
       <sound>sound\snd_yoshi</sound>
+      <sound>sound\snd_goal</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_404</sprite>
-    <sprites name="SM2DW DX">
+    <sprites name="Main">
       <sprites name="Characters">
         <sprites name="Mario">
-          <sprites name="Small">
-            <sprite>sprites\spr_mario_small_idle</sprite>
-            <sprite>sprites\spr_mario_small_walk</sprite>
-            <sprite>sprites\spr_mario_small_jump</sprite>
-            <sprite>sprites\spr_mario_small_spin</sprite>
-            <sprite>sprites\spr_mario_small_duck</sprite>
-            <sprite>sprites\spr_mario_small_run</sprite>
-            <sprite>sprites\spr_mario_small_skid</sprite>
-            <sprite>sprites\spr_mario_small_walljump</sprite>
-            <sprite>sprites\spr_mario_small_climb</sprite>
-            <sprite>sprites\spr_mario_small_swim</sprite>
-            <sprite>sprites\spr_mario_small_hold</sprite>
-            <sprite>sprites\spr_mario_small_carry</sprite>
-            <sprite>sprites\spr_mario_small_goal</sprite>
-            <sprite>sprites\spr_mario_small_warp</sprite>
-            <sprite>sprites\spr_mario_small_slide</sprite>
-            <sprite>sprites\spr_mario_small_kick</sprite>
-            <sprite>sprites\spr_mario_small_ride</sprite>
-            <sprite>sprites\spr_mario_small_dead</sprite>
-            <sprite>sprites\spr_mario_small_win</sprite>
+          <sprites name="Powerups">
+            <sprites name="Small">
+              <sprite>sprites\spr_mario_small_idle</sprite>
+              <sprite>sprites\spr_mario_small_walk</sprite>
+              <sprite>sprites\spr_mario_small_jump</sprite>
+              <sprite>sprites\spr_mario_small_spin</sprite>
+              <sprite>sprites\spr_mario_small_duck</sprite>
+              <sprite>sprites\spr_mario_small_run</sprite>
+              <sprite>sprites\spr_mario_small_skid</sprite>
+              <sprite>sprites\spr_mario_small_walljump</sprite>
+              <sprite>sprites\spr_mario_small_climb</sprite>
+              <sprite>sprites\spr_mario_small_swim</sprite>
+              <sprite>sprites\spr_mario_small_hold</sprite>
+              <sprite>sprites\spr_mario_small_carry</sprite>
+              <sprite>sprites\spr_mario_small_goal</sprite>
+              <sprite>sprites\spr_mario_small_warp</sprite>
+              <sprite>sprites\spr_mario_small_slide</sprite>
+              <sprite>sprites\spr_mario_small_kick</sprite>
+              <sprite>sprites\spr_mario_small_ride</sprite>
+              <sprite>sprites\spr_mario_small_clear</sprite>
+              <sprite>sprites\spr_mario_small_pipe</sprite>
+            </sprites>
+            <sprites name="Small Alt">
+              <sprite>sprites\spr_mario_smalt_idle</sprite>
+              <sprite>sprites\spr_mario_smalt_walk</sprite>
+              <sprite>sprites\spr_mario_smalt_jump</sprite>
+              <sprite>sprites\spr_mario_smalt_duck</sprite>
+              <sprite>sprites\spr_mario_smalt_run</sprite>
+              <sprite>sprites\spr_mario_smalt_skid</sprite>
+            </sprites>
+            <sprites name="Big">
+              <sprite>sprites\spr_mario_big_idle</sprite>
+              <sprite>sprites\spr_mario_big_walk</sprite>
+              <sprite>sprites\spr_mario_big_jump</sprite>
+              <sprite>sprites\spr_mario_big_spin</sprite>
+              <sprite>sprites\spr_mario_big_run</sprite>
+              <sprite>sprites\spr_mario_big_skid</sprite>
+              <sprite>sprites\spr_mario_big_walljump</sprite>
+              <sprite>sprites\spr_mario_big_climb</sprite>
+              <sprite>sprites\spr_mario_big_swim</sprite>
+              <sprite>sprites\spr_mario_big_hold</sprite>
+              <sprite>sprites\spr_mario_big_carry</sprite>
+              <sprite>sprites\spr_mario_big_duck</sprite>
+              <sprite>sprites\spr_mario_big_goal</sprite>
+              <sprite>sprites\spr_mario_big_warp</sprite>
+              <sprite>sprites\spr_mario_big_slide</sprite>
+              <sprite>sprites\spr_mario_big_shoe</sprite>
+              <sprite>sprites\spr_mario_big_kick</sprite>
+              <sprite>sprites\spr_mario_big_ride</sprite>
+              <sprite>sprites\spr_mario_big_clear</sprite>
+              <sprite>sprites\spr_mario_big_pipe</sprite>
+            </sprites>
+            <sprites name="Big Alt">
+              <sprite>sprites\spr_mario_balt_idle</sprite>
+              <sprite>sprites\spr_mario_balt_walk</sprite>
+              <sprite>sprites\spr_mario_balt_jump</sprite>
+              <sprite>sprites\spr_mario_balt_run</sprite>
+            </sprites>
+            <sprites name="Fire">
+              <sprite>sprites\spr_mario_fire_idle</sprite>
+              <sprite>sprites\spr_mario_fire_walk</sprite>
+              <sprite>sprites\spr_mario_fire_jump</sprite>
+              <sprite>sprites\spr_mario_fire_spin</sprite>
+              <sprite>sprites\spr_mario_fire_run</sprite>
+              <sprite>sprites\spr_mario_fire_skid</sprite>
+              <sprite>sprites\spr_mario_fire_climb</sprite>
+              <sprite>sprites\spr_mario_fire_swim</sprite>
+              <sprite>sprites\spr_mario_fire_hold</sprite>
+              <sprite>sprites\spr_mario_fire_carry</sprite>
+              <sprite>sprites\spr_mario_fire_duck</sprite>
+              <sprite>sprites\spr_mario_fire_goal</sprite>
+              <sprite>sprites\spr_mario_fire_warp</sprite>
+              <sprite>sprites\spr_mario_fire_shoot</sprite>
+              <sprite>sprites\spr_mario_fire_slide</sprite>
+              <sprite>sprites\spr_mario_fire_shoe</sprite>
+              <sprite>sprites\spr_mario_fire_kick</sprite>
+              <sprite>sprites\spr_mario_fire_ride</sprite>
+              <sprite>sprites\spr_mario_fire_pipe</sprite>
+            </sprites>
+            <sprites name="Leaf">
+              <sprite>sprites\spr_mario_leaf_idle</sprite>
+              <sprite>sprites\spr_mario_leaf_walk</sprite>
+              <sprite>sprites\spr_mario_leaf_jump</sprite>
+              <sprite>sprites\spr_mario_leaf_spin</sprite>
+              <sprite>sprites\spr_mario_leaf_run</sprite>
+              <sprite>sprites\spr_mario_leaf_runjump</sprite>
+              <sprite>sprites\spr_mario_leaf_skid</sprite>
+              <sprite>sprites\spr_mario_leaf_climb</sprite>
+              <sprite>sprites\spr_mario_leaf_swim</sprite>
+              <sprite>sprites\spr_mario_leaf_hold</sprite>
+              <sprite>sprites\spr_mario_leaf_hold_jump</sprite>
+              <sprite>sprites\spr_mario_leaf_carry</sprite>
+              <sprite>sprites\spr_mario_leaf_duck</sprite>
+              <sprite>sprites\spr_mario_leaf_goal</sprite>
+              <sprite>sprites\spr_mario_leaf_warp</sprite>
+              <sprite>sprites\spr_mario_leaf_slide</sprite>
+              <sprite>sprites\spr_mario_leaf_shoe</sprite>
+              <sprite>sprites\spr_mario_leaf_kick</sprite>
+              <sprite>sprites\spr_mario_leaf_ride</sprite>
+              <sprite>sprites\spr_mario_leaf_attack</sprite>
+              <sprite>sprites\spr_mario_leaf_pipe</sprite>
+            </sprites>
+            <sprites name="Tanooki">
+              <sprite>sprites\spr_mario_tanooki_idle</sprite>
+              <sprite>sprites\spr_mario_tanooki_walk</sprite>
+              <sprite>sprites\spr_mario_tanooki_jump</sprite>
+              <sprite>sprites\spr_mario_tanooki_spin</sprite>
+              <sprite>sprites\spr_mario_tanooki_run</sprite>
+              <sprite>sprites\spr_mario_tanooki_runjump</sprite>
+              <sprite>sprites\spr_mario_tanooki_skid</sprite>
+              <sprite>sprites\spr_mario_tanooki_climb</sprite>
+              <sprite>sprites\spr_mario_tanooki_swim</sprite>
+              <sprite>sprites\spr_mario_tanooki_hold</sprite>
+              <sprite>sprites\spr_mario_tanooki_hold_jump</sprite>
+              <sprite>sprites\spr_mario_tanooki_carry</sprite>
+              <sprite>sprites\spr_mario_tanooki_duck</sprite>
+              <sprite>sprites\spr_mario_tanooki_goal</sprite>
+              <sprite>sprites\spr_mario_tanooki_warp</sprite>
+              <sprite>sprites\spr_mario_tanooki_slide</sprite>
+              <sprite>sprites\spr_mario_tanooki_shoe</sprite>
+              <sprite>sprites\spr_mario_tanooki_kick</sprite>
+              <sprite>sprites\spr_mario_tanooki_ride</sprite>
+              <sprite>sprites\spr_mario_tanooki_attack</sprite>
+              <sprite>sprites\spr_mario_tanooki_pipe</sprite>
+              <sprite>sprites\spr_statue</sprite>
+              <sprite>sprites\spr_statue_end</sprite>
+            </sprites>
+            <sprites name="Boomerang">
+              <sprite>sprites\spr_mario_boomerang_idle</sprite>
+              <sprite>sprites\spr_mario_boomerang_walk</sprite>
+              <sprite>sprites\spr_mario_boomerang_jump</sprite>
+              <sprite>sprites\spr_mario_boomerang_spin</sprite>
+              <sprite>sprites\spr_mario_boomerang_run</sprite>
+              <sprite>sprites\spr_mario_boomerang_skid</sprite>
+              <sprite>sprites\spr_mario_boomerang_climb</sprite>
+              <sprite>sprites\spr_mario_boomerang_swim</sprite>
+              <sprite>sprites\spr_mario_boomerang_hold</sprite>
+              <sprite>sprites\spr_mario_boomerang_carry</sprite>
+              <sprite>sprites\spr_mario_boomerang_duck</sprite>
+              <sprite>sprites\spr_mario_boomerang_goal</sprite>
+              <sprite>sprites\spr_mario_boomerang_warp</sprite>
+              <sprite>sprites\spr_mario_boomerang_shoot</sprite>
+              <sprite>sprites\spr_mario_boomerang_slide</sprite>
+              <sprite>sprites\spr_mario_boomerang_shoe</sprite>
+              <sprite>sprites\spr_mario_boomerang_kick</sprite>
+              <sprite>sprites\spr_mario_boomerang_ride</sprite>
+              <sprite>sprites\spr_mario_boomerang_pipe</sprite>
+            </sprites>
+            <sprites name="Propeller">
+              <sprite>sprites\spr_mario_propeller_idle</sprite>
+              <sprite>sprites\spr_mario_propeller_walk</sprite>
+              <sprite>sprites\spr_mario_propeller_jump</sprite>
+              <sprite>sprites\spr_mario_propeller_run</sprite>
+              <sprite>sprites\spr_mario_propeller_skid</sprite>
+              <sprite>sprites\spr_mario_propeller_climb</sprite>
+              <sprite>sprites\spr_mario_propeller_swim</sprite>
+              <sprite>sprites\spr_mario_propeller_hold</sprite>
+              <sprite>sprites\spr_mario_propeller_carry</sprite>
+              <sprite>sprites\spr_mario_propeller_duck</sprite>
+              <sprite>sprites\spr_mario_propeller_goal</sprite>
+              <sprite>sprites\spr_mario_propeller_warp</sprite>
+              <sprite>sprites\spr_mario_propeller_slide</sprite>
+              <sprite>sprites\spr_mario_propeller_shoe</sprite>
+              <sprite>sprites\spr_mario_propeller_kick</sprite>
+              <sprite>sprites\spr_mario_propeller_ride</sprite>
+              <sprite>sprites\spr_mario_propeller_fly</sprite>
+              <sprite>sprites\spr_mario_propeller_slow</sprite>
+              <sprite>sprites\spr_mario_propeller_pipe</sprite>
+            </sprites>
+            <sprites name="Gold Tanooki (To fix)">
+              <sprite>sprites\spr_mario_goldtan_idle</sprite>
+              <sprite>sprites\spr_mario_goldtan_walk</sprite>
+              <sprite>sprites\spr_mario_goldtan_jump</sprite>
+              <sprite>sprites\spr_mario_goldtan_spin</sprite>
+              <sprite>sprites\spr_mario_goldtan_run</sprite>
+              <sprite>sprites\spr_mario_goldtan_runjump</sprite>
+              <sprite>sprites\spr_mario_goldtan_skid</sprite>
+              <sprite>sprites\spr_mario_goldtan_climb</sprite>
+              <sprite>sprites\spr_mario_goldtan_swim</sprite>
+              <sprite>sprites\spr_mario_goldtan_hold</sprite>
+              <sprite>sprites\spr_mario_goldtan_carry</sprite>
+              <sprite>sprites\spr_mario_goldtan_duck</sprite>
+              <sprite>sprites\spr_mario_goldtan_goal</sprite>
+              <sprite>sprites\spr_mario_goldtan_warp</sprite>
+              <sprite>sprites\spr_mario_goldtan_slide</sprite>
+              <sprite>sprites\spr_mario_goldtan_shoe</sprite>
+              <sprite>sprites\spr_mario_goldtan_kick</sprite>
+              <sprite>sprites\spr_mario_goldtan_ride</sprite>
+              <sprite>sprites\spr_mario_goldtan_attack</sprite>
+            </sprites>
+            <sprites name="Ice">
+              <sprite>sprites\spr_mario_ice_idle</sprite>
+              <sprite>sprites\spr_mario_ice_walk</sprite>
+              <sprite>sprites\spr_mario_ice_jump</sprite>
+              <sprite>sprites\spr_mario_ice_spin</sprite>
+              <sprite>sprites\spr_mario_ice_run</sprite>
+              <sprite>sprites\spr_mario_ice_skid</sprite>
+              <sprite>sprites\spr_mario_ice_climb</sprite>
+              <sprite>sprites\spr_mario_ice_swim</sprite>
+              <sprite>sprites\spr_mario_ice_hold</sprite>
+              <sprite>sprites\spr_mario_ice_carry</sprite>
+              <sprite>sprites\spr_mario_ice_duck</sprite>
+              <sprite>sprites\spr_mario_ice_goal</sprite>
+              <sprite>sprites\spr_mario_ice_warp</sprite>
+              <sprite>sprites\spr_mario_ice_shoot</sprite>
+              <sprite>sprites\spr_mario_ice_slide</sprite>
+              <sprite>sprites\spr_mario_ice_kick</sprite>
+              <sprite>sprites\spr_mario_ice_ride</sprite>
+              <sprite>sprites\spr_mario_ice_shoe</sprite>
+              <sprite>sprites\spr_mario_ice_pipe</sprite>
+            </sprites>
+            <sprites name="Super">
+              <sprite>sprites\spr_mario_super_idle</sprite>
+              <sprite>sprites\spr_mario_super_walk</sprite>
+              <sprite>sprites\spr_mario_super_jump</sprite>
+              <sprite>sprites\spr_mario_super_spin</sprite>
+              <sprite>sprites\spr_mario_super_run</sprite>
+              <sprite>sprites\spr_mario_super_skid</sprite>
+              <sprite>sprites\spr_mario_super_climb</sprite>
+              <sprite>sprites\spr_mario_super_swim</sprite>
+              <sprite>sprites\spr_mario_super_hold</sprite>
+              <sprite>sprites\spr_mario_super_carry</sprite>
+              <sprite>sprites\spr_mario_super_duck</sprite>
+              <sprite>sprites\spr_mario_super_goal</sprite>
+              <sprite>sprites\spr_mario_super_warp</sprite>
+              <sprite>sprites\spr_mario_super_shoot</sprite>
+              <sprite>sprites\spr_mario_super_slide</sprite>
+              <sprite>sprites\spr_mario_super_shoe</sprite>
+              <sprite>sprites\spr_mario_super_kick</sprite>
+              <sprite>sprites\spr_mario_super_ride</sprite>
+              <sprite>sprites\spr_mario_super_pipe</sprite>
+            </sprites>
+            <sprites name="Pyre (To fix)">
+              <sprite>sprites\spr_mario_pyre_idle</sprite>
+              <sprite>sprites\spr_mario_pyre_walk</sprite>
+              <sprite>sprites\spr_mario_pyre_jump</sprite>
+              <sprite>sprites\spr_mario_pyre_run</sprite>
+              <sprite>sprites\spr_mario_pyre_runjump</sprite>
+              <sprite>sprites\spr_mario_pyre_skid</sprite>
+              <sprite>sprites\spr_mario_pyre_climb</sprite>
+              <sprite>sprites\spr_mario_pyre_swim</sprite>
+              <sprite>sprites\spr_mario_pyre_hold</sprite>
+              <sprite>sprites\spr_mario_pyre_carry</sprite>
+              <sprite>sprites\spr_mario_pyre_duck</sprite>
+              <sprite>sprites\spr_mario_pyre_goal</sprite>
+              <sprite>sprites\spr_mario_pyre_warp</sprite>
+              <sprite>sprites\spr_mario_pyre_shoot</sprite>
+              <sprite>sprites\spr_mario_pyre_slide</sprite>
+              <sprite>sprites\spr_mario_pyre_kick</sprite>
+              <sprite>sprites\spr_mario_pyre_ride</sprite>
+            </sprites>
+            <sprites name="Bee (To fix)">
+              <sprite>sprites\spr_mario_bee_idle</sprite>
+              <sprite>sprites\spr_mario_bee_walk</sprite>
+              <sprite>sprites\spr_mario_bee_jump</sprite>
+              <sprite>sprites\spr_mario_bee_run</sprite>
+              <sprite>sprites\spr_mario_bee_skid</sprite>
+              <sprite>sprites\spr_mario_bee_climb</sprite>
+              <sprite>sprites\spr_mario_bee_swim</sprite>
+              <sprite>sprites\spr_mario_bee_hold</sprite>
+              <sprite>sprites\spr_mario_bee_carry</sprite>
+              <sprite>sprites\spr_mario_bee_duck</sprite>
+              <sprite>sprites\spr_mario_bee_goal</sprite>
+              <sprite>sprites\spr_mario_bee_warp</sprite>
+              <sprite>sprites\spr_mario_bee_slide</sprite>
+              <sprite>sprites\spr_mario_bee_kick</sprite>
+              <sprite>sprites\spr_mario_bee_ride</sprite>
+            </sprites>
+            <sprites name="Penguin">
+              <sprite>sprites\spr_mario_penguin_idle</sprite>
+              <sprite>sprites\spr_mario_penguin_walk</sprite>
+              <sprite>sprites\spr_mario_penguin_jump</sprite>
+              <sprite>sprites\spr_mario_penguin_run</sprite>
+              <sprite>sprites\spr_mario_penguin_skid</sprite>
+              <sprite>sprites\spr_mario_penguin_climb</sprite>
+              <sprite>sprites\spr_mario_penguin_swim</sprite>
+              <sprite>sprites\spr_mario_penguin_swim2</sprite>
+              <sprite>sprites\spr_mario_penguin_swim3</sprite>
+              <sprite>sprites\spr_mario_penguin_hold</sprite>
+              <sprite>sprites\spr_mario_penguin_carry</sprite>
+              <sprite>sprites\spr_mario_penguin_duck</sprite>
+              <sprite>sprites\spr_mario_penguin_goal</sprite>
+              <sprite>sprites\spr_mario_penguin_warp</sprite>
+              <sprite>sprites\spr_mario_penguin_shoot</sprite>
+              <sprite>sprites\spr_mario_penguin_shoot2</sprite>
+              <sprite>sprites\spr_mario_penguin_slide</sprite>
+              <sprite>sprites\spr_mario_penguin_shoe</sprite>
+              <sprite>sprites\spr_mario_penguin_kick</sprite>
+              <sprite>sprites\spr_mario_penguin_ride</sprite>
+              <sprite>sprites\spr_mario_penguin_pipe</sprite>
+            </sprites>
+            <sprites name="Squirrel (To fix)">
+              <sprite>sprites\spr_mario_squirrel_idle</sprite>
+              <sprite>sprites\spr_mario_squirrel_walk</sprite>
+              <sprite>sprites\spr_mario_squirrel_jump</sprite>
+              <sprite>sprites\spr_mario_squirrel_run</sprite>
+              <sprite>sprites\spr_mario_squirrel_runjump</sprite>
+              <sprite>sprites\spr_mario_squirrel_skid</sprite>
+              <sprite>sprites\spr_mario_squirrel_climb</sprite>
+              <sprite>sprites\spr_mario_squirrel_swim</sprite>
+              <sprite>sprites\spr_mario_squirrel_hold</sprite>
+              <sprite>sprites\spr_mario_squirrel_carry</sprite>
+              <sprite>sprites\spr_mario_squirrel_duck</sprite>
+              <sprite>sprites\spr_mario_squirrel_goal</sprite>
+              <sprite>sprites\spr_mario_squirrel_warp</sprite>
+              <sprite>sprites\spr_mario_squirrel_slide</sprite>
+              <sprite>sprites\spr_mario_squirrel_kick</sprite>
+              <sprite>sprites\spr_mario_squirrel_ride</sprite>
+              <sprite>sprites\spr_mario_squirrel_float</sprite>
+            </sprites>
+            <sprites name="Hammer (To fix)">
+              <sprite>sprites\spr_mario_hammer_idle</sprite>
+              <sprite>sprites\spr_mario_hammer_walk</sprite>
+              <sprite>sprites\spr_mario_hammer_jump</sprite>
+              <sprite>sprites\spr_mario_hammer_run</sprite>
+              <sprite>sprites\spr_mario_hammer_runjump</sprite>
+              <sprite>sprites\spr_mario_hammer_skid</sprite>
+              <sprite>sprites\spr_mario_hammer_climb</sprite>
+              <sprite>sprites\spr_mario_hammer_swim</sprite>
+              <sprite>sprites\spr_mario_hammer_hold</sprite>
+              <sprite>sprites\spr_mario_hammer_carry</sprite>
+              <sprite>sprites\spr_mario_hammer_duck</sprite>
+              <sprite>sprites\spr_mario_hammer_goal</sprite>
+              <sprite>sprites\spr_mario_hammer_warp</sprite>
+              <sprite>sprites\spr_mario_hammer_shoot</sprite>
+              <sprite>sprites\spr_mario_hammer_slide</sprite>
+              <sprite>sprites\spr_mario_hammer_kick</sprite>
+              <sprite>sprites\spr_mario_hammer_ride</sprite>
+            </sprites>
+            <sprites name="Frog (Don't Add)">
+              <sprite>sprites\spr_mario_frog_walk</sprite>
+              <sprite>sprites\spr_mario_frog_jump</sprite>
+              <sprite>sprites\spr_mario_frog_climb</sprite>
+              <sprite>sprites\spr_mario_frog_swim</sprite>
+              <sprite>sprites\spr_mario_frog_swim2</sprite>
+              <sprite>sprites\spr_mario_frog_swim3</sprite>
+              <sprite>sprites\spr_mario_frog_hold</sprite>
+              <sprite>sprites\spr_mario_frog_carry</sprite>
+              <sprite>sprites\spr_mario_frog_goal</sprite>
+              <sprite>sprites\spr_mario_frog_warp</sprite>
+              <sprite>sprites\spr_mario_frog_slide</sprite>
+              <sprite>sprites\spr_mario_frog_kick</sprite>
+              <sprite>sprites\spr_mario_frog_ride</sprite>
+            </sprites>
+            <sprites name="Bomb">
+              <sprite>sprites\spr_mario_bomb_walk</sprite>
+              <sprite>sprites\spr_mario_bomb_jump</sprite>
+              <sprite>sprites\spr_mario_bomb_run</sprite>
+              <sprite>sprites\spr_mario_bomb_runjump</sprite>
+              <sprite>sprites\spr_mario_bomb_skid</sprite>
+              <sprite>sprites\spr_mario_bomb_climb</sprite>
+              <sprite>sprites\spr_mario_bomb_swim</sprite>
+              <sprite>sprites\spr_mario_bomb_hold</sprite>
+              <sprite>sprites\spr_mario_bomb_carry</sprite>
+              <sprite>sprites\spr_mario_bomb_duck</sprite>
+              <sprite>sprites\spr_mario_bomb_goal</sprite>
+              <sprite>sprites\spr_mario_bomb_warp</sprite>
+              <sprite>sprites\spr_mario_bomb_shoot</sprite>
+              <sprite>sprites\spr_mario_bomb_slide</sprite>
+              <sprite>sprites\spr_mario_bomb_kick</sprite>
+              <sprite>sprites\spr_mario_bomb_ride</sprite>
+            </sprites>
+            <sprites name="Carrot">
+              <sprite>sprites\spr_mario_carrot_walk</sprite>
+              <sprite>sprites\spr_mario_carrot_jump</sprite>
+              <sprite>sprites\spr_mario_carrot_run</sprite>
+              <sprite>sprites\spr_mario_carrot_runjump</sprite>
+              <sprite>sprites\spr_mario_carrot_skid</sprite>
+              <sprite>sprites\spr_mario_carrot_climb</sprite>
+              <sprite>sprites\spr_mario_carrot_swim</sprite>
+              <sprite>sprites\spr_mario_carrot_hold</sprite>
+              <sprite>sprites\spr_mario_carrot_carry</sprite>
+              <sprite>sprites\spr_mario_carrot_duck</sprite>
+              <sprite>sprites\spr_mario_carrot_goal</sprite>
+              <sprite>sprites\spr_mario_carrot_warp</sprite>
+              <sprite>sprites\spr_mario_carrot_slide</sprite>
+              <sprite>sprites\spr_mario_carrot_kick</sprite>
+              <sprite>sprites\spr_mario_carrot_ride</sprite>
+            </sprites>
+            <sprites name="Ninja">
+              <sprite>sprites\spr_mario_ninja_walk</sprite>
+              <sprite>sprites\spr_mario_ninja_jump</sprite>
+              <sprite>sprites\spr_mario_ninja_run</sprite>
+              <sprite>sprites\spr_mario_ninja_runjump</sprite>
+              <sprite>sprites\spr_mario_ninja_skid</sprite>
+              <sprite>sprites\spr_mario_ninja_climb</sprite>
+              <sprite>sprites\spr_mario_ninja_swim</sprite>
+              <sprite>sprites\spr_mario_ninja_hold</sprite>
+              <sprite>sprites\spr_mario_ninja_carry</sprite>
+              <sprite>sprites\spr_mario_ninja_duck</sprite>
+              <sprite>sprites\spr_mario_ninja_goal</sprite>
+              <sprite>sprites\spr_mario_ninja_warp</sprite>
+              <sprite>sprites\spr_mario_ninja_shoot</sprite>
+              <sprite>sprites\spr_mario_ninja_slide</sprite>
+              <sprite>sprites\spr_mario_ninja_kick</sprite>
+              <sprite>sprites\spr_mario_ninja_ride</sprite>
+              <sprite>sprites\spr_mario_ninja_wallclimb</sprite>
+            </sprites>
+            <sprites name="Shell">
+              <sprite>sprites\spr_mario_shell_walk</sprite>
+              <sprite>sprites\spr_mario_shell_jump</sprite>
+              <sprite>sprites\spr_mario_shell_run</sprite>
+              <sprite>sprites\spr_mario_shell_runjump</sprite>
+              <sprite>sprites\spr_mario_shell_skid</sprite>
+              <sprite>sprites\spr_mario_shell_climb</sprite>
+              <sprite>sprites\spr_mario_shell_swim</sprite>
+              <sprite>sprites\spr_mario_shell_hold</sprite>
+              <sprite>sprites\spr_mario_shell_carry</sprite>
+              <sprite>sprites\spr_mario_shell_duck</sprite>
+              <sprite>sprites\spr_mario_shell_goal</sprite>
+              <sprite>sprites\spr_mario_shell_warp</sprite>
+              <sprite>sprites\spr_mario_shell_slide</sprite>
+              <sprite>sprites\spr_mario_shell_kick</sprite>
+              <sprite>sprites\spr_mario_shell_ride</sprite>
+              <sprite>sprites\spr_mario_shell_ducking</sprite>
+              <sprite>sprites\spr_inshell</sprite>
+            </sprites>
+            <sprites name="Wall Jump (Don't Add)">
+              <sprite>sprites\spr_mario_walljump_walk</sprite>
+              <sprite>sprites\spr_mario_walljump_jump</sprite>
+              <sprite>sprites\spr_mario_walljump_run</sprite>
+              <sprite>sprites\spr_mario_walljump_runjump</sprite>
+              <sprite>sprites\spr_mario_walljump_skid</sprite>
+              <sprite>sprites\spr_mario_walljump_climb</sprite>
+              <sprite>sprites\spr_mario_walljump_swim</sprite>
+              <sprite>sprites\spr_mario_walljump_hold</sprite>
+              <sprite>sprites\spr_mario_walljump_carry</sprite>
+              <sprite>sprites\spr_mario_walljump_duck</sprite>
+              <sprite>sprites\spr_mario_walljump_goal</sprite>
+              <sprite>sprites\spr_mario_walljump_warp</sprite>
+              <sprite>sprites\spr_mario_walljump_slide</sprite>
+              <sprite>sprites\spr_mario_walljump_kick</sprite>
+              <sprite>sprites\spr_mario_walljump_ride</sprite>
+            </sprites>
+            <sprites name="Cloud">
+              <sprite>sprites\spr_mario_cloud_walk</sprite>
+              <sprite>sprites\spr_mario_cloud_jump</sprite>
+              <sprite>sprites\spr_mario_cloud_run</sprite>
+              <sprite>sprites\spr_mario_cloud_runjump</sprite>
+              <sprite>sprites\spr_mario_cloud_skid</sprite>
+              <sprite>sprites\spr_mario_cloud_climb</sprite>
+              <sprite>sprites\spr_mario_cloud_swim</sprite>
+              <sprite>sprites\spr_mario_cloud_hold</sprite>
+              <sprite>sprites\spr_mario_cloud_carry</sprite>
+              <sprite>sprites\spr_mario_cloud_duck</sprite>
+              <sprite>sprites\spr_mario_cloud_goal</sprite>
+              <sprite>sprites\spr_mario_cloud_warp</sprite>
+              <sprite>sprites\spr_mario_cloud_slide</sprite>
+              <sprite>sprites\spr_mario_cloud_kick</sprite>
+              <sprite>sprites\spr_mario_cloud_ride</sprite>
+            </sprites>
+            <sprites name="Rock">
+              <sprite>sprites\spr_mario_rock_walk</sprite>
+              <sprite>sprites\spr_mario_rock_jump</sprite>
+              <sprite>sprites\spr_mario_rock_run</sprite>
+              <sprite>sprites\spr_mario_rock_runjump</sprite>
+              <sprite>sprites\spr_mario_rock_skid</sprite>
+              <sprite>sprites\spr_mario_rock_climb</sprite>
+              <sprite>sprites\spr_mario_rock_swim</sprite>
+              <sprite>sprites\spr_mario_rock_hold</sprite>
+              <sprite>sprites\spr_mario_rock_carry</sprite>
+              <sprite>sprites\spr_mario_rock_duck</sprite>
+              <sprite>sprites\spr_mario_rock_goal</sprite>
+              <sprite>sprites\spr_mario_rock_warp</sprite>
+              <sprite>sprites\spr_mario_rock_slide</sprite>
+              <sprite>sprites\spr_mario_rock_kick</sprite>
+              <sprite>sprites\spr_mario_rock_ride</sprite>
+              <sprite>sprites\spr_mario_rock_roll</sprite>
+            </sprites>
+            <sprites name="Swooper">
+              <sprite>sprites\spr_mario_swooper_walk</sprite>
+              <sprite>sprites\spr_mario_swooper_jump</sprite>
+              <sprite>sprites\spr_mario_swooper_run</sprite>
+              <sprite>sprites\spr_mario_swooper_runjump</sprite>
+              <sprite>sprites\spr_mario_swooper_skid</sprite>
+              <sprite>sprites\spr_mario_swooper_climb</sprite>
+              <sprite>sprites\spr_mario_swooper_swim</sprite>
+              <sprite>sprites\spr_mario_swooper_hold</sprite>
+              <sprite>sprites\spr_mario_swooper_carry</sprite>
+              <sprite>sprites\spr_mario_swooper_duck</sprite>
+              <sprite>sprites\spr_mario_swooper_goal</sprite>
+              <sprite>sprites\spr_mario_swooper_warp</sprite>
+              <sprite>sprites\spr_mario_swooper_slide</sprite>
+              <sprite>sprites\spr_mario_swooper_kick</sprite>
+              <sprite>sprites\spr_mario_swooper_ride</sprite>
+              <sprite>sprites\spr_mario_swooper_flap</sprite>
+            </sprites>
+            <sprites name="Karate (Don't add)">
+              <sprite>sprites\spr_mario_karate_walk</sprite>
+              <sprite>sprites\spr_mario_karate_jump</sprite>
+              <sprite>sprites\spr_mario_karate_run</sprite>
+              <sprite>sprites\spr_mario_karate_runjump</sprite>
+              <sprite>sprites\spr_mario_karate_skid</sprite>
+              <sprite>sprites\spr_mario_karate_climb</sprite>
+              <sprite>sprites\spr_mario_karate_swim</sprite>
+              <sprite>sprites\spr_mario_karate_hold</sprite>
+              <sprite>sprites\spr_mario_karate_carry</sprite>
+              <sprite>sprites\spr_mario_karate_duck</sprite>
+              <sprite>sprites\spr_mario_karate_goal</sprite>
+              <sprite>sprites\spr_mario_karate_warp</sprite>
+              <sprite>sprites\spr_mario_karate_slide</sprite>
+              <sprite>sprites\spr_mario_karate_kick</sprite>
+              <sprite>sprites\spr_mario_karate_ride</sprite>
+              <sprite>sprites\spr_mario_karate_melee</sprite>
+            </sprites>
+            <sprites name="Crown">
+              <sprite>sprites\spr_mario_crown_walk</sprite>
+              <sprite>sprites\spr_mario_crown_jump</sprite>
+              <sprite>sprites\spr_mario_crown_run</sprite>
+              <sprite>sprites\spr_mario_crown_runjump</sprite>
+              <sprite>sprites\spr_mario_crown_skid</sprite>
+              <sprite>sprites\spr_mario_crown_climb</sprite>
+              <sprite>sprites\spr_mario_crown_swim</sprite>
+              <sprite>sprites\spr_mario_crown_hold</sprite>
+              <sprite>sprites\spr_mario_crown_carry</sprite>
+              <sprite>sprites\spr_mario_crown_duck</sprite>
+              <sprite>sprites\spr_mario_crown_goal</sprite>
+              <sprite>sprites\spr_mario_crown_warp</sprite>
+              <sprite>sprites\spr_mario_crown_slide</sprite>
+              <sprite>sprites\spr_mario_crown_kick</sprite>
+              <sprite>sprites\spr_mario_crown_ride</sprite>
+              <sprite>sprites\spr_mario_crown_fall</sprite>
+              <sprite>sprites\spr_mario_crown_float</sprite>
+            </sprites>
+            <sprites name="Cat (To fix)">
+              <sprite>sprites\spr_mario_cat_idle</sprite>
+              <sprite>sprites\spr_mario_cat_duck</sprite>
+              <sprite>sprites\spr_mario_cat_walk</sprite>
+              <sprite>sprites\spr_mario_cat_run</sprite>
+              <sprite>sprites\spr_mario_cat_jump</sprite>
+              <sprite>sprites\spr_mario_cat_spin</sprite>
+              <sprite>sprites\spr_mario_cat_skid</sprite>
+              <sprite>sprites\spr_mario_cat_hold</sprite>
+              <sprite>sprites\spr_mario_cat_kick</sprite>
+              <sprite>sprites\spr_mario_cat_climb</sprite>
+              <sprite>sprites\spr_mario_cat_climb2</sprite>
+              <sprite>sprites\spr_mario_cat_walljump</sprite>
+              <sprite>sprites\spr_mario_cat_attack</sprite>
+              <sprite>sprites\spr_mario_cat_attack2</sprite>
+              <sprite>sprites\spr_mario_cat_swim</sprite>
+              <sprite>sprites\spr_mario_cat_slide</sprite>
+              <sprite>sprites\spr_mario_cat_goal</sprite>
+              <sprite>sprites\spr_mario_cat_warp</sprite>
+              <sprite>sprites\spr_mario_cat_pipe</sprite>
+            </sprites>
           </sprites>
-          <sprites name="Small Alt">
-            <sprite>sprites\spr_mario_smalt_idle</sprite>
-            <sprite>sprites\spr_mario_smalt_walk</sprite>
-            <sprite>sprites\spr_mario_smalt_jump</sprite>
-            <sprite>sprites\spr_mario_smalt_duck</sprite>
-            <sprite>sprites\spr_mario_smalt_run</sprite>
-            <sprite>sprites\spr_mario_smalt_skid</sprite>
-            <sprite>sprites\spr_mario_smalt_win</sprite>
+          <sprites name="Special">
+            <sprites name="Win">
+              <sprite>sprites\spr_mario_small_win</sprite>
+              <sprite>sprites\spr_mario_big_win</sprite>
+              <sprite>sprites\spr_mario_fire_win</sprite>
+              <sprite>sprites\spr_mario_leaf_win</sprite>
+              <sprite>sprites\spr_mario_tanooki_win</sprite>
+              <sprite>sprites\spr_mario_boomerang_win</sprite>
+              <sprite>sprites\spr_mario_propeller_win</sprite>
+              <sprite>sprites\spr_mario_ice_win</sprite>
+              <sprite>sprites\spr_mario_super_win</sprite>
+              <sprite>sprites\spr_mario_bee_win</sprite>
+              <sprite>sprites\spr_mario_penguin_win</sprite>
+              <sprite>sprites\spr_mario_cat_win</sprite>
+            </sprites>
+            <sprites name="Dead">
+              <sprite>sprites\spr_mario_small_dead</sprite>
+              <sprite>sprites\spr_mario_big_dead</sprite>
+              <sprite>sprites\spr_mario_fire_dead</sprite>
+              <sprite>sprites\spr_mario_leaf_dead</sprite>
+              <sprite>sprites\spr_mario_tanooki_dead</sprite>
+              <sprite>sprites\spr_mario_boomerang_dead</sprite>
+              <sprite>sprites\spr_mario_propeller_dead</sprite>
+              <sprite>sprites\spr_mario_goldtan_dead</sprite>
+              <sprite>sprites\spr_mario_ice_dead</sprite>
+              <sprite>sprites\spr_mario_super_dead</sprite>
+              <sprite>sprites\spr_mario_bee_dead</sprite>
+              <sprite>sprites\spr_mario_penguin_dead</sprite>
+              <sprite>sprites\spr_mario_cat_dead</sprite>
+            </sprites>
+            <sprite>sprites\spr_mario_grow</sprite>
+            <sprite>sprites\spr_mario_shrink</sprite>
+            <sprite>sprites\spr_mario_powerup</sprite>
+            <sprite>sprites\spr_mario_powerdown</sprite>
+            <sprite>sprites\spr_mario_transform</sprite>
+            <sprite>sprites\spr_mario_pull</sprite>
           </sprites>
-          <sprites name="Big">
-            <sprite>sprites\spr_mario_big_idle</sprite>
-            <sprite>sprites\spr_mario_big_walk</sprite>
-            <sprite>sprites\spr_mario_big_jump</sprite>
-            <sprite>sprites\spr_mario_big_spin</sprite>
-            <sprite>sprites\spr_mario_big_run</sprite>
-            <sprite>sprites\spr_mario_big_skid</sprite>
-            <sprite>sprites\spr_mario_big_walljump</sprite>
-            <sprite>sprites\spr_mario_big_climb</sprite>
-            <sprite>sprites\spr_mario_big_swim</sprite>
-            <sprite>sprites\spr_mario_big_hold</sprite>
-            <sprite>sprites\spr_mario_big_carry</sprite>
-            <sprite>sprites\spr_mario_big_duck</sprite>
-            <sprite>sprites\spr_mario_big_goal</sprite>
-            <sprite>sprites\spr_mario_big_warp</sprite>
-            <sprite>sprites\spr_mario_big_slide</sprite>
-            <sprite>sprites\spr_mario_big_shoe</sprite>
-            <sprite>sprites\spr_mario_big_kick</sprite>
-            <sprite>sprites\spr_mario_big_ride</sprite>
-            <sprite>sprites\spr_mario_big_dead</sprite>
-            <sprite>sprites\spr_mario_big_win</sprite>
-          </sprites>
-          <sprites name="Big Alt">
-            <sprite>sprites\spr_mario_balt_idle</sprite>
-            <sprite>sprites\spr_mario_balt_walk</sprite>
-            <sprite>sprites\spr_mario_balt_jump</sprite>
-            <sprite>sprites\spr_mario_balt_run</sprite>
-          </sprites>
-          <sprites name="Fire">
-            <sprite>sprites\spr_mario_fire_idle</sprite>
-            <sprite>sprites\spr_mario_fire_walk</sprite>
-            <sprite>sprites\spr_mario_fire_jump</sprite>
-            <sprite>sprites\spr_mario_fire_spin</sprite>
-            <sprite>sprites\spr_mario_fire_run</sprite>
-            <sprite>sprites\spr_mario_fire_skid</sprite>
-            <sprite>sprites\spr_mario_fire_climb</sprite>
-            <sprite>sprites\spr_mario_fire_swim</sprite>
-            <sprite>sprites\spr_mario_fire_hold</sprite>
-            <sprite>sprites\spr_mario_fire_carry</sprite>
-            <sprite>sprites\spr_mario_fire_duck</sprite>
-            <sprite>sprites\spr_mario_fire_goal</sprite>
-            <sprite>sprites\spr_mario_fire_warp</sprite>
-            <sprite>sprites\spr_mario_fire_shoot</sprite>
-            <sprite>sprites\spr_mario_fire_slide</sprite>
-            <sprite>sprites\spr_mario_fire_shoe</sprite>
-            <sprite>sprites\spr_mario_fire_kick</sprite>
-            <sprite>sprites\spr_mario_fire_ride</sprite>
-            <sprite>sprites\spr_mario_fire_dead</sprite>
-            <sprite>sprites\spr_mario_fire_win</sprite>
-          </sprites>
-          <sprites name="Leaf">
-            <sprite>sprites\spr_mario_leaf_idle</sprite>
-            <sprite>sprites\spr_mario_leaf_walk</sprite>
-            <sprite>sprites\spr_mario_leaf_jump</sprite>
-            <sprite>sprites\spr_mario_leaf_fall</sprite>
-            <sprite>sprites\spr_mario_leaf_spin</sprite>
-            <sprite>sprites\spr_mario_leaf_run</sprite>
-            <sprite>sprites\spr_mario_leaf_runjump</sprite>
-            <sprite>sprites\spr_mario_leaf_skid</sprite>
-            <sprite>sprites\spr_mario_leaf_climb</sprite>
-            <sprite>sprites\spr_mario_leaf_swim</sprite>
-            <sprite>sprites\spr_mario_leaf_hold</sprite>
-            <sprite>sprites\spr_mario_leaf_carry</sprite>
-            <sprite>sprites\spr_mario_leaf_duck</sprite>
-            <sprite>sprites\spr_mario_leaf_goal</sprite>
-            <sprite>sprites\spr_mario_leaf_warp</sprite>
-            <sprite>sprites\spr_mario_leaf_slide</sprite>
-            <sprite>sprites\spr_mario_leaf_shoe</sprite>
-            <sprite>sprites\spr_mario_leaf_kick</sprite>
-            <sprite>sprites\spr_mario_leaf_ride</sprite>
-            <sprite>sprites\spr_mario_leaf_attack</sprite>
-            <sprite>sprites\spr_mario_leaf_dead</sprite>
-            <sprite>sprites\spr_mario_leaf_win</sprite>
-          </sprites>
-          <sprites name="Tanooki">
-            <sprite>sprites\spr_mario_tanooki_idle</sprite>
-            <sprite>sprites\spr_mario_tanooki_walk</sprite>
-            <sprite>sprites\spr_mario_tanooki_jump</sprite>
-            <sprite>sprites\spr_mario_tanooki_fall</sprite>
-            <sprite>sprites\spr_mario_tanooki_spin</sprite>
-            <sprite>sprites\spr_mario_tanooki_run</sprite>
-            <sprite>sprites\spr_mario_tanooki_runjump</sprite>
-            <sprite>sprites\spr_mario_tanooki_skid</sprite>
-            <sprite>sprites\spr_mario_tanooki_climb</sprite>
-            <sprite>sprites\spr_mario_tanooki_swim</sprite>
-            <sprite>sprites\spr_mario_tanooki_hold</sprite>
-            <sprite>sprites\spr_mario_tanooki_carry</sprite>
-            <sprite>sprites\spr_mario_tanooki_duck</sprite>
-            <sprite>sprites\spr_mario_tanooki_goal</sprite>
-            <sprite>sprites\spr_mario_tanooki_warp</sprite>
-            <sprite>sprites\spr_mario_tanooki_slide</sprite>
-            <sprite>sprites\spr_mario_tanooki_shoe</sprite>
-            <sprite>sprites\spr_mario_tanooki_kick</sprite>
-            <sprite>sprites\spr_mario_tanooki_ride</sprite>
-            <sprite>sprites\spr_mario_tanooki_attack</sprite>
-            <sprite>sprites\spr_mario_tanooki_dead</sprite>
-            <sprite>sprites\spr_mario_tanooki_win</sprite>
-            <sprite>sprites\spr_statue</sprite>
-            <sprite>sprites\spr_statue_end</sprite>
-          </sprites>
-          <sprites name="Boomerang">
-            <sprite>sprites\spr_mario_boomerang_idle</sprite>
-            <sprite>sprites\spr_mario_boomerang_walk</sprite>
-            <sprite>sprites\spr_mario_boomerang_jump</sprite>
-            <sprite>sprites\spr_mario_boomerang_spin</sprite>
-            <sprite>sprites\spr_mario_boomerang_run</sprite>
-            <sprite>sprites\spr_mario_boomerang_skid</sprite>
-            <sprite>sprites\spr_mario_boomerang_climb</sprite>
-            <sprite>sprites\spr_mario_boomerang_swim</sprite>
-            <sprite>sprites\spr_mario_boomerang_hold</sprite>
-            <sprite>sprites\spr_mario_boomerang_carry</sprite>
-            <sprite>sprites\spr_mario_boomerang_duck</sprite>
-            <sprite>sprites\spr_mario_boomerang_goal</sprite>
-            <sprite>sprites\spr_mario_boomerang_warp</sprite>
-            <sprite>sprites\spr_mario_boomerang_shoot</sprite>
-            <sprite>sprites\spr_mario_boomerang_slide</sprite>
-            <sprite>sprites\spr_mario_boomerang_shoe</sprite>
-            <sprite>sprites\spr_mario_boomerang_kick</sprite>
-            <sprite>sprites\spr_mario_boomerang_ride</sprite>
-            <sprite>sprites\spr_mario_boomerang_win</sprite>
-            <sprite>sprites\spr_mario_boomerang_dead</sprite>
-          </sprites>
-          <sprites name="Propeller">
-            <sprite>sprites\spr_mario_propeller_idle</sprite>
-            <sprite>sprites\spr_mario_propeller_walk</sprite>
-            <sprite>sprites\spr_mario_propeller_jump</sprite>
-            <sprite>sprites\spr_mario_propeller_run</sprite>
-            <sprite>sprites\spr_mario_propeller_skid</sprite>
-            <sprite>sprites\spr_mario_propeller_climb</sprite>
-            <sprite>sprites\spr_mario_propeller_swim</sprite>
-            <sprite>sprites\spr_mario_propeller_hold</sprite>
-            <sprite>sprites\spr_mario_propeller_carry</sprite>
-            <sprite>sprites\spr_mario_propeller_duck</sprite>
-            <sprite>sprites\spr_mario_propeller_goal</sprite>
-            <sprite>sprites\spr_mario_propeller_warp</sprite>
-            <sprite>sprites\spr_mario_propeller_slide</sprite>
-            <sprite>sprites\spr_mario_propeller_shoe</sprite>
-            <sprite>sprites\spr_mario_propeller_kick</sprite>
-            <sprite>sprites\spr_mario_propeller_ride</sprite>
-            <sprite>sprites\spr_mario_propeller_fly</sprite>
-            <sprite>sprites\spr_mario_propeller_slow</sprite>
-            <sprite>sprites\spr_mario_propeller_win</sprite>
-            <sprite>sprites\spr_mario_propeller_dead</sprite>
-          </sprites>
-          <sprites name="Gold Tanooki (To fix)">
-            <sprite>sprites\spr_mario_goldtan_idle</sprite>
-            <sprite>sprites\spr_mario_goldtan_walk</sprite>
-            <sprite>sprites\spr_mario_goldtan_jump</sprite>
-            <sprite>sprites\spr_mario_goldtan_fall</sprite>
-            <sprite>sprites\spr_mario_goldtan_spin</sprite>
-            <sprite>sprites\spr_mario_goldtan_run</sprite>
-            <sprite>sprites\spr_mario_goldtan_runjump</sprite>
-            <sprite>sprites\spr_mario_goldtan_skid</sprite>
-            <sprite>sprites\spr_mario_goldtan_climb</sprite>
-            <sprite>sprites\spr_mario_goldtan_swim</sprite>
-            <sprite>sprites\spr_mario_goldtan_hold</sprite>
-            <sprite>sprites\spr_mario_goldtan_carry</sprite>
-            <sprite>sprites\spr_mario_goldtan_duck</sprite>
-            <sprite>sprites\spr_mario_goldtan_goal</sprite>
-            <sprite>sprites\spr_mario_goldtan_warp</sprite>
-            <sprite>sprites\spr_mario_goldtan_slide</sprite>
-            <sprite>sprites\spr_mario_goldtan_shoe</sprite>
-            <sprite>sprites\spr_mario_goldtan_kick</sprite>
-            <sprite>sprites\spr_mario_goldtan_ride</sprite>
-            <sprite>sprites\spr_mario_goldtan_attack</sprite>
-            <sprite>sprites\spr_mario_goldtan_dead</sprite>
-          </sprites>
-          <sprites name="Ice">
-            <sprite>sprites\spr_mario_ice_idle</sprite>
-            <sprite>sprites\spr_mario_ice_walk</sprite>
-            <sprite>sprites\spr_mario_ice_jump</sprite>
-            <sprite>sprites\spr_mario_ice_spin</sprite>
-            <sprite>sprites\spr_mario_ice_run</sprite>
-            <sprite>sprites\spr_mario_ice_skid</sprite>
-            <sprite>sprites\spr_mario_ice_climb</sprite>
-            <sprite>sprites\spr_mario_ice_swim</sprite>
-            <sprite>sprites\spr_mario_ice_hold</sprite>
-            <sprite>sprites\spr_mario_ice_carry</sprite>
-            <sprite>sprites\spr_mario_ice_duck</sprite>
-            <sprite>sprites\spr_mario_ice_goal</sprite>
-            <sprite>sprites\spr_mario_ice_warp</sprite>
-            <sprite>sprites\spr_mario_ice_shoot</sprite>
-            <sprite>sprites\spr_mario_ice_slide</sprite>
-            <sprite>sprites\spr_mario_ice_kick</sprite>
-            <sprite>sprites\spr_mario_ice_ride</sprite>
-            <sprite>sprites\spr_mario_ice_shoe</sprite>
-            <sprite>sprites\spr_mario_ice_dead</sprite>
-            <sprite>sprites\spr_mario_ice_win</sprite>
-          </sprites>
-          <sprites name="Super">
-            <sprite>sprites\spr_mario_super_idle</sprite>
-            <sprite>sprites\spr_mario_super_walk</sprite>
-            <sprite>sprites\spr_mario_super_jump</sprite>
-            <sprite>sprites\spr_mario_super_spin</sprite>
-            <sprite>sprites\spr_mario_super_run</sprite>
-            <sprite>sprites\spr_mario_super_skid</sprite>
-            <sprite>sprites\spr_mario_super_climb</sprite>
-            <sprite>sprites\spr_mario_super_swim</sprite>
-            <sprite>sprites\spr_mario_super_hold</sprite>
-            <sprite>sprites\spr_mario_super_carry</sprite>
-            <sprite>sprites\spr_mario_super_duck</sprite>
-            <sprite>sprites\spr_mario_super_goal</sprite>
-            <sprite>sprites\spr_mario_super_warp</sprite>
-            <sprite>sprites\spr_mario_super_shoot</sprite>
-            <sprite>sprites\spr_mario_super_slide</sprite>
-            <sprite>sprites\spr_mario_super_shoe</sprite>
-            <sprite>sprites\spr_mario_super_kick</sprite>
-            <sprite>sprites\spr_mario_super_ride</sprite>
-            <sprite>sprites\spr_mario_super_dead</sprite>
-            <sprite>sprites\spr_mario_super_win</sprite>
-          </sprites>
-          <sprites name="Pyre (To fix)">
-            <sprite>sprites\spr_mario_pyre_idle</sprite>
-            <sprite>sprites\spr_mario_pyre_walk</sprite>
-            <sprite>sprites\spr_mario_pyre_jump</sprite>
-            <sprite>sprites\spr_mario_pyre_run</sprite>
-            <sprite>sprites\spr_mario_pyre_runjump</sprite>
-            <sprite>sprites\spr_mario_pyre_skid</sprite>
-            <sprite>sprites\spr_mario_pyre_climb</sprite>
-            <sprite>sprites\spr_mario_pyre_swim</sprite>
-            <sprite>sprites\spr_mario_pyre_hold</sprite>
-            <sprite>sprites\spr_mario_pyre_carry</sprite>
-            <sprite>sprites\spr_mario_pyre_duck</sprite>
-            <sprite>sprites\spr_mario_pyre_goal</sprite>
-            <sprite>sprites\spr_mario_pyre_warp</sprite>
-            <sprite>sprites\spr_mario_pyre_shoot</sprite>
-            <sprite>sprites\spr_mario_pyre_slide</sprite>
-            <sprite>sprites\spr_mario_pyre_kick</sprite>
-            <sprite>sprites\spr_mario_pyre_ride</sprite>
-          </sprites>
-          <sprites name="Bee (To fix)">
-            <sprite>sprites\spr_mario_bee_idle</sprite>
-            <sprite>sprites\spr_mario_bee_walk</sprite>
-            <sprite>sprites\spr_mario_bee_jump</sprite>
-            <sprite>sprites\spr_mario_bee_run</sprite>
-            <sprite>sprites\spr_mario_bee_runjump</sprite>
-            <sprite>sprites\spr_mario_bee_skid</sprite>
-            <sprite>sprites\spr_mario_bee_climb</sprite>
-            <sprite>sprites\spr_mario_bee_swim</sprite>
-            <sprite>sprites\spr_mario_bee_hold</sprite>
-            <sprite>sprites\spr_mario_bee_carry</sprite>
-            <sprite>sprites\spr_mario_bee_duck</sprite>
-            <sprite>sprites\spr_mario_bee_goal</sprite>
-            <sprite>sprites\spr_mario_bee_warp</sprite>
-            <sprite>sprites\spr_mario_bee_slide</sprite>
-            <sprite>sprites\spr_mario_bee_kick</sprite>
-            <sprite>sprites\spr_mario_bee_ride</sprite>
-          </sprites>
-          <sprites name="Penguin">
-            <sprite>sprites\spr_mario_penguin_idle</sprite>
-            <sprite>sprites\spr_mario_penguin_walk</sprite>
-            <sprite>sprites\spr_mario_penguin_jump</sprite>
-            <sprite>sprites\spr_mario_penguin_run</sprite>
-            <sprite>sprites\spr_mario_penguin_skid</sprite>
-            <sprite>sprites\spr_mario_penguin_climb</sprite>
-            <sprite>sprites\spr_mario_penguin_swim</sprite>
-            <sprite>sprites\spr_mario_penguin_swim2</sprite>
-            <sprite>sprites\spr_mario_penguin_swim3</sprite>
-            <sprite>sprites\spr_mario_penguin_hold</sprite>
-            <sprite>sprites\spr_mario_penguin_carry</sprite>
-            <sprite>sprites\spr_mario_penguin_duck</sprite>
-            <sprite>sprites\spr_mario_penguin_goal</sprite>
-            <sprite>sprites\spr_mario_penguin_warp</sprite>
-            <sprite>sprites\spr_mario_penguin_shoot</sprite>
-            <sprite>sprites\spr_mario_penguin_shoot2</sprite>
-            <sprite>sprites\spr_mario_penguin_slide</sprite>
-            <sprite>sprites\spr_mario_penguin_shoe</sprite>
-            <sprite>sprites\spr_mario_penguin_kick</sprite>
-            <sprite>sprites\spr_mario_penguin_ride</sprite>
-            <sprite>sprites\spr_mario_penguin_win</sprite>
-          </sprites>
-          <sprites name="Squirrel (To fix)">
-            <sprite>sprites\spr_mario_squirrel_idle</sprite>
-            <sprite>sprites\spr_mario_squirrel_walk</sprite>
-            <sprite>sprites\spr_mario_squirrel_jump</sprite>
-            <sprite>sprites\spr_mario_squirrel_run</sprite>
-            <sprite>sprites\spr_mario_squirrel_runjump</sprite>
-            <sprite>sprites\spr_mario_squirrel_skid</sprite>
-            <sprite>sprites\spr_mario_squirrel_climb</sprite>
-            <sprite>sprites\spr_mario_squirrel_swim</sprite>
-            <sprite>sprites\spr_mario_squirrel_hold</sprite>
-            <sprite>sprites\spr_mario_squirrel_carry</sprite>
-            <sprite>sprites\spr_mario_squirrel_duck</sprite>
-            <sprite>sprites\spr_mario_squirrel_goal</sprite>
-            <sprite>sprites\spr_mario_squirrel_warp</sprite>
-            <sprite>sprites\spr_mario_squirrel_slide</sprite>
-            <sprite>sprites\spr_mario_squirrel_kick</sprite>
-            <sprite>sprites\spr_mario_squirrel_ride</sprite>
-            <sprite>sprites\spr_mario_squirrel_float</sprite>
-          </sprites>
-          <sprites name="Hammer (To fix)">
-            <sprite>sprites\spr_mario_hammer_walk</sprite>
-            <sprite>sprites\spr_mario_hammer_jump</sprite>
-            <sprite>sprites\spr_mario_hammer_run</sprite>
-            <sprite>sprites\spr_mario_hammer_runjump</sprite>
-            <sprite>sprites\spr_mario_hammer_skid</sprite>
-            <sprite>sprites\spr_mario_hammer_climb</sprite>
-            <sprite>sprites\spr_mario_hammer_swim</sprite>
-            <sprite>sprites\spr_mario_hammer_hold</sprite>
-            <sprite>sprites\spr_mario_hammer_carry</sprite>
-            <sprite>sprites\spr_mario_hammer_duck</sprite>
-            <sprite>sprites\spr_mario_hammer_goal</sprite>
-            <sprite>sprites\spr_mario_hammer_warp</sprite>
-            <sprite>sprites\spr_mario_hammer_shoot</sprite>
-            <sprite>sprites\spr_mario_hammer_slide</sprite>
-            <sprite>sprites\spr_mario_hammer_kick</sprite>
-            <sprite>sprites\spr_mario_hammer_ride</sprite>
-          </sprites>
-          <sprites name="Frog (Not Add)">
-            <sprite>sprites\spr_mario_frog_walk</sprite>
-            <sprite>sprites\spr_mario_frog_jump</sprite>
-            <sprite>sprites\spr_mario_frog_climb</sprite>
-            <sprite>sprites\spr_mario_frog_swim</sprite>
-            <sprite>sprites\spr_mario_frog_swim2</sprite>
-            <sprite>sprites\spr_mario_frog_swim3</sprite>
-            <sprite>sprites\spr_mario_frog_hold</sprite>
-            <sprite>sprites\spr_mario_frog_carry</sprite>
-            <sprite>sprites\spr_mario_frog_goal</sprite>
-            <sprite>sprites\spr_mario_frog_warp</sprite>
-            <sprite>sprites\spr_mario_frog_slide</sprite>
-            <sprite>sprites\spr_mario_frog_kick</sprite>
-            <sprite>sprites\spr_mario_frog_ride</sprite>
-          </sprites>
-          <sprites name="Bomb">
-            <sprite>sprites\spr_mario_bomb_walk</sprite>
-            <sprite>sprites\spr_mario_bomb_jump</sprite>
-            <sprite>sprites\spr_mario_bomb_run</sprite>
-            <sprite>sprites\spr_mario_bomb_runjump</sprite>
-            <sprite>sprites\spr_mario_bomb_skid</sprite>
-            <sprite>sprites\spr_mario_bomb_climb</sprite>
-            <sprite>sprites\spr_mario_bomb_swim</sprite>
-            <sprite>sprites\spr_mario_bomb_hold</sprite>
-            <sprite>sprites\spr_mario_bomb_carry</sprite>
-            <sprite>sprites\spr_mario_bomb_duck</sprite>
-            <sprite>sprites\spr_mario_bomb_goal</sprite>
-            <sprite>sprites\spr_mario_bomb_warp</sprite>
-            <sprite>sprites\spr_mario_bomb_shoot</sprite>
-            <sprite>sprites\spr_mario_bomb_slide</sprite>
-            <sprite>sprites\spr_mario_bomb_kick</sprite>
-            <sprite>sprites\spr_mario_bomb_ride</sprite>
-          </sprites>
-          <sprites name="Carrot">
-            <sprite>sprites\spr_mario_carrot_walk</sprite>
-            <sprite>sprites\spr_mario_carrot_jump</sprite>
-            <sprite>sprites\spr_mario_carrot_run</sprite>
-            <sprite>sprites\spr_mario_carrot_runjump</sprite>
-            <sprite>sprites\spr_mario_carrot_skid</sprite>
-            <sprite>sprites\spr_mario_carrot_climb</sprite>
-            <sprite>sprites\spr_mario_carrot_swim</sprite>
-            <sprite>sprites\spr_mario_carrot_hold</sprite>
-            <sprite>sprites\spr_mario_carrot_carry</sprite>
-            <sprite>sprites\spr_mario_carrot_duck</sprite>
-            <sprite>sprites\spr_mario_carrot_goal</sprite>
-            <sprite>sprites\spr_mario_carrot_warp</sprite>
-            <sprite>sprites\spr_mario_carrot_slide</sprite>
-            <sprite>sprites\spr_mario_carrot_kick</sprite>
-            <sprite>sprites\spr_mario_carrot_ride</sprite>
-          </sprites>
-          <sprites name="Ninja">
-            <sprite>sprites\spr_mario_ninja_walk</sprite>
-            <sprite>sprites\spr_mario_ninja_jump</sprite>
-            <sprite>sprites\spr_mario_ninja_run</sprite>
-            <sprite>sprites\spr_mario_ninja_runjump</sprite>
-            <sprite>sprites\spr_mario_ninja_skid</sprite>
-            <sprite>sprites\spr_mario_ninja_climb</sprite>
-            <sprite>sprites\spr_mario_ninja_swim</sprite>
-            <sprite>sprites\spr_mario_ninja_hold</sprite>
-            <sprite>sprites\spr_mario_ninja_carry</sprite>
-            <sprite>sprites\spr_mario_ninja_duck</sprite>
-            <sprite>sprites\spr_mario_ninja_goal</sprite>
-            <sprite>sprites\spr_mario_ninja_warp</sprite>
-            <sprite>sprites\spr_mario_ninja_shoot</sprite>
-            <sprite>sprites\spr_mario_ninja_slide</sprite>
-            <sprite>sprites\spr_mario_ninja_kick</sprite>
-            <sprite>sprites\spr_mario_ninja_ride</sprite>
-            <sprite>sprites\spr_mario_ninja_wallclimb</sprite>
-          </sprites>
-          <sprites name="Shell">
-            <sprite>sprites\spr_mario_shell_walk</sprite>
-            <sprite>sprites\spr_mario_shell_jump</sprite>
-            <sprite>sprites\spr_mario_shell_run</sprite>
-            <sprite>sprites\spr_mario_shell_runjump</sprite>
-            <sprite>sprites\spr_mario_shell_skid</sprite>
-            <sprite>sprites\spr_mario_shell_climb</sprite>
-            <sprite>sprites\spr_mario_shell_swim</sprite>
-            <sprite>sprites\spr_mario_shell_hold</sprite>
-            <sprite>sprites\spr_mario_shell_carry</sprite>
-            <sprite>sprites\spr_mario_shell_duck</sprite>
-            <sprite>sprites\spr_mario_shell_goal</sprite>
-            <sprite>sprites\spr_mario_shell_warp</sprite>
-            <sprite>sprites\spr_mario_shell_slide</sprite>
-            <sprite>sprites\spr_mario_shell_kick</sprite>
-            <sprite>sprites\spr_mario_shell_ride</sprite>
-            <sprite>sprites\spr_mario_shell_ducking</sprite>
-            <sprite>sprites\spr_inshell</sprite>
-          </sprites>
-          <sprites name="Wall Jump (Not Add)">
-            <sprite>sprites\spr_mario_walljump_walk</sprite>
-            <sprite>sprites\spr_mario_walljump_jump</sprite>
-            <sprite>sprites\spr_mario_walljump_run</sprite>
-            <sprite>sprites\spr_mario_walljump_runjump</sprite>
-            <sprite>sprites\spr_mario_walljump_skid</sprite>
-            <sprite>sprites\spr_mario_walljump_climb</sprite>
-            <sprite>sprites\spr_mario_walljump_swim</sprite>
-            <sprite>sprites\spr_mario_walljump_hold</sprite>
-            <sprite>sprites\spr_mario_walljump_carry</sprite>
-            <sprite>sprites\spr_mario_walljump_duck</sprite>
-            <sprite>sprites\spr_mario_walljump_goal</sprite>
-            <sprite>sprites\spr_mario_walljump_warp</sprite>
-            <sprite>sprites\spr_mario_walljump_slide</sprite>
-            <sprite>sprites\spr_mario_walljump_kick</sprite>
-            <sprite>sprites\spr_mario_walljump_ride</sprite>
-          </sprites>
-          <sprites name="Cloud">
-            <sprite>sprites\spr_mario_cloud_walk</sprite>
-            <sprite>sprites\spr_mario_cloud_jump</sprite>
-            <sprite>sprites\spr_mario_cloud_run</sprite>
-            <sprite>sprites\spr_mario_cloud_runjump</sprite>
-            <sprite>sprites\spr_mario_cloud_skid</sprite>
-            <sprite>sprites\spr_mario_cloud_climb</sprite>
-            <sprite>sprites\spr_mario_cloud_swim</sprite>
-            <sprite>sprites\spr_mario_cloud_hold</sprite>
-            <sprite>sprites\spr_mario_cloud_carry</sprite>
-            <sprite>sprites\spr_mario_cloud_duck</sprite>
-            <sprite>sprites\spr_mario_cloud_goal</sprite>
-            <sprite>sprites\spr_mario_cloud_warp</sprite>
-            <sprite>sprites\spr_mario_cloud_slide</sprite>
-            <sprite>sprites\spr_mario_cloud_kick</sprite>
-            <sprite>sprites\spr_mario_cloud_ride</sprite>
-          </sprites>
-          <sprites name="Rock">
-            <sprite>sprites\spr_mario_rock_walk</sprite>
-            <sprite>sprites\spr_mario_rock_jump</sprite>
-            <sprite>sprites\spr_mario_rock_run</sprite>
-            <sprite>sprites\spr_mario_rock_runjump</sprite>
-            <sprite>sprites\spr_mario_rock_skid</sprite>
-            <sprite>sprites\spr_mario_rock_climb</sprite>
-            <sprite>sprites\spr_mario_rock_swim</sprite>
-            <sprite>sprites\spr_mario_rock_hold</sprite>
-            <sprite>sprites\spr_mario_rock_carry</sprite>
-            <sprite>sprites\spr_mario_rock_duck</sprite>
-            <sprite>sprites\spr_mario_rock_goal</sprite>
-            <sprite>sprites\spr_mario_rock_warp</sprite>
-            <sprite>sprites\spr_mario_rock_slide</sprite>
-            <sprite>sprites\spr_mario_rock_kick</sprite>
-            <sprite>sprites\spr_mario_rock_ride</sprite>
-            <sprite>sprites\spr_mario_rock_roll</sprite>
-          </sprites>
-          <sprites name="Swooper">
-            <sprite>sprites\spr_mario_swooper_walk</sprite>
-            <sprite>sprites\spr_mario_swooper_jump</sprite>
-            <sprite>sprites\spr_mario_swooper_run</sprite>
-            <sprite>sprites\spr_mario_swooper_runjump</sprite>
-            <sprite>sprites\spr_mario_swooper_skid</sprite>
-            <sprite>sprites\spr_mario_swooper_climb</sprite>
-            <sprite>sprites\spr_mario_swooper_swim</sprite>
-            <sprite>sprites\spr_mario_swooper_hold</sprite>
-            <sprite>sprites\spr_mario_swooper_carry</sprite>
-            <sprite>sprites\spr_mario_swooper_duck</sprite>
-            <sprite>sprites\spr_mario_swooper_goal</sprite>
-            <sprite>sprites\spr_mario_swooper_warp</sprite>
-            <sprite>sprites\spr_mario_swooper_slide</sprite>
-            <sprite>sprites\spr_mario_swooper_kick</sprite>
-            <sprite>sprites\spr_mario_swooper_ride</sprite>
-            <sprite>sprites\spr_mario_swooper_flap</sprite>
-          </sprites>
-          <sprites name="Karate">
-            <sprite>sprites\spr_mario_karate_walk</sprite>
-            <sprite>sprites\spr_mario_karate_jump</sprite>
-            <sprite>sprites\spr_mario_karate_run</sprite>
-            <sprite>sprites\spr_mario_karate_runjump</sprite>
-            <sprite>sprites\spr_mario_karate_skid</sprite>
-            <sprite>sprites\spr_mario_karate_climb</sprite>
-            <sprite>sprites\spr_mario_karate_swim</sprite>
-            <sprite>sprites\spr_mario_karate_hold</sprite>
-            <sprite>sprites\spr_mario_karate_carry</sprite>
-            <sprite>sprites\spr_mario_karate_duck</sprite>
-            <sprite>sprites\spr_mario_karate_goal</sprite>
-            <sprite>sprites\spr_mario_karate_warp</sprite>
-            <sprite>sprites\spr_mario_karate_slide</sprite>
-            <sprite>sprites\spr_mario_karate_kick</sprite>
-            <sprite>sprites\spr_mario_karate_ride</sprite>
-            <sprite>sprites\spr_mario_karate_melee</sprite>
-          </sprites>
-          <sprites name="Crown">
-            <sprite>sprites\spr_mario_crown_walk</sprite>
-            <sprite>sprites\spr_mario_crown_jump</sprite>
-            <sprite>sprites\spr_mario_crown_run</sprite>
-            <sprite>sprites\spr_mario_crown_runjump</sprite>
-            <sprite>sprites\spr_mario_crown_skid</sprite>
-            <sprite>sprites\spr_mario_crown_climb</sprite>
-            <sprite>sprites\spr_mario_crown_swim</sprite>
-            <sprite>sprites\spr_mario_crown_hold</sprite>
-            <sprite>sprites\spr_mario_crown_carry</sprite>
-            <sprite>sprites\spr_mario_crown_duck</sprite>
-            <sprite>sprites\spr_mario_crown_goal</sprite>
-            <sprite>sprites\spr_mario_crown_warp</sprite>
-            <sprite>sprites\spr_mario_crown_slide</sprite>
-            <sprite>sprites\spr_mario_crown_kick</sprite>
-            <sprite>sprites\spr_mario_crown_ride</sprite>
-            <sprite>sprites\spr_mario_crown_fall</sprite>
-            <sprite>sprites\spr_mario_crown_float</sprite>
-          </sprites>
-          <sprite>sprites\spr_mario_pull</sprite>
           <sprite>sprites\spr_smallmask</sprite>
           <sprite>sprites\spr_bigmask</sprite>
         </sprites>
@@ -1602,9 +1752,9 @@
           <sprite>sprites\spr_femaleblock</sprite>
         </sprites>
         <sprite>sprites\spr_brick</sprite>
-        <sprite>sprites\spr_rock</sprite>
         <sprite>sprites\spr_brick_under</sprite>
         <sprite>sprites\spr_brick_ghost</sprite>
+        <sprite>sprites\spr_rock</sprite>
         <sprite>sprites\spr_bluebrick</sprite>
         <sprite>sprites\spr_bluebrick_th</sprite>
         <sprite>sprites\spr_redbrick</sprite>
@@ -1653,6 +1803,9 @@
           <sprite>sprites\spr_galoomba_parachute</sprite>
           <sprite>sprites\spr_kuribohead</sprite>
           <sprite>sprites\spr_koopa</sprite>
+          <sprite>sprites\spr_beachkoopa</sprite>
+          <sprite>sprites\spr_beachkoopa_walk</sprite>
+          <sprite>sprites\spr_koopa_sq</sprite>
           <sprite>sprites\spr_shell</sprite>
           <sprite>sprites\spr_shell_down</sprite>
           <sprite>sprites\spr_koopa_red</sprite>
@@ -1988,16 +2141,20 @@
             <sprite>sprites\spr_acorn_outline</sprite>
             <sprite>sprites\spr_bee_outline</sprite>
             <sprite>sprites\spr_pyre_outline</sprite>
+            <sprite>sprites\spr_eyes_outline</sprite>
+            <sprite>sprites\spr_superbell_outline</sprite>
           </sprites>
           <sprite>sprites\spr_1up</sprite>
           <sprite>sprites\spr_poison</sprite>
           <sprite>sprites\spr_rotten</sprite>
+          <sprite>sprites\spr_rotten_dr</sprite>
           <sprite>sprites\spr_mushroom</sprite>
           <sprite>sprites\spr_fireflower</sprite>
           <sprite>sprites\spr_leaf</sprite>
           <sprite>sprites\spr_tanookisuit</sprite>
           <sprite>sprites\spr_goldtan</sprite>
           <sprite>sprites\spr_boomerangflower</sprite>
+          <sprite>sprites\spr_superbell</sprite>
           <sprite>sprites\spr_iceflower</sprite>
           <sprite>sprites\spr_propellershroom</sprite>
           <sprite>sprites\spr_hammersuit</sprite>
@@ -2006,6 +2163,7 @@
           <sprite>sprites\spr_beeshroom</sprite>
           <sprite>sprites\spr_acorn</sprite>
           <sprite>sprites\spr_pyreflower</sprite>
+          <sprite>sprites\spr_eyesflower</sprite>
           <sprite>sprites\spr_star</sprite>
           <sprite>sprites\spr_frogsuit</sprite>
           <sprite>sprites\spr_bombshroom</sprite>
@@ -2132,6 +2290,19 @@
         <sprite>sprites\spr_frozenenemy_wide</sprite>
       </sprites>
       <sprites name="Special">
+        <sprites name="Goal">
+          <sprite>sprites\spr_flagpole</sprite>
+          <sprite>sprites\spr_flag</sprite>
+          <sprite>sprites\spr_flag_secret</sprite>
+          <sprite>sprites\spr_incastle</sprite>
+          <sprite>sprites\spr_goal</sprite>
+          <sprite>sprites\spr_goal_b</sprite>
+          <sprite>sprites\spr_goalgate</sprite>
+          <sprite>sprites\spr_goalgate_secret</sprite>
+          <sprite>sprites\spr_midwaygate</sprite>
+          <sprite>sprites\spr_midwaygate_b</sprite>
+          <sprite>sprites\spr_midwaygate_tape</sprite>
+        </sprites>
         <sprites name="Effects">
           <sprites name="Score">
             <sprite>sprites\spr_10pts</sprite>
@@ -2145,13 +2316,16 @@
             <sprite>sprites\spr_8000pts</sprite>
             <sprite>sprites\spr_1uppts</sprite>
             <sprite>sprites\spr_3uppts</sprite>
+            <sprite>sprites\spr_10sec</sprite>
           </sprites>
           <sprite>sprites\spr_smoke</sprite>
+          <sprite>sprites\spr_smoke_c</sprite>
           <sprite>sprites\spr_skidsmoke</sprite>
           <sprite>sprites\spr_statuesmoke</sprite>
           <sprite>sprites\spr_castlesmoke</sprite>
           <sprite>sprites\spr_landsmoke</sprite>
           <sprite>sprites\spr_runsmoke</sprite>
+          <sprite>sprites\spr_splash_lava</sprite>
           <sprite>sprites\spr_spinstar</sprite>
           <sprite>sprites\spr_sparkles</sprite>
           <sprite>sprites\spr_bubble</sprite>
@@ -2162,15 +2336,11 @@
           <sprite>sprites\spr_lavasplash</sprite>
           <sprite>sprites\spr_cinder</sprite>
           <sprite>sprites\spr_rain</sprite>
+          <sprite>sprites\spr_note</sprite>
         </sprites>
         <sprite>sprites\spr_checkpoint</sprite>
         <sprite>sprites\spr_flag_bowser</sprite>
         <sprite>sprites\spr_flag_mario</sprite>
-        <sprite>sprites\spr_flagpole</sprite>
-        <sprite>sprites\spr_flag</sprite>
-        <sprite>sprites\spr_flag_secret</sprite>
-        <sprite>sprites\spr_incastle</sprite>
-        <sprite>sprites\spr_incastle_backup</sprite>
         <sprite>sprites\spr_explosion</sprite>
         <sprite>sprites\spr_toad</sprite>
         <sprite>sprites\spr_chest</sprite>
@@ -2187,9 +2357,8 @@
         <sprite>sprites\spr_switch_yellow</sprite>
         <sprite>sprites\spr_switch_green</sprite>
       </sprites>
-      <sprite>sprites\spr_ludwignew</sprite>
     </sprites>
-    <sprites name="Pixel Things">
+    <sprites name="Pixel Battle Time">
       <sprites name="Characters">
         <sprites name="Mario">
           <sprite>sprites\spr_px_mario_idle</sprite>
@@ -2246,6 +2415,14 @@
         <sprites name="Night / Under">
           <sprite>sprites\spr_px_brick_under</sprite>
           <sprite>sprites\spr_px_rock_under</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Items">
+        <sprites name="Powerups">
+          <sprite>sprites\spr_px_1upshroom</sprite>
+          <sprite>sprites\spr_px_mushroom</sprite>
+          <sprite>sprites\spr_px_fireflower</sprite>
+          <sprite>sprites\spr_px_starman</sprite>
         </sprites>
       </sprites>
       <sprites name="Enemies">
@@ -2309,6 +2486,7 @@
         <sprite>sprites\spr_mapmario_swooper</sprite>
         <sprite>sprites\spr_mapmario_karate</sprite>
         <sprite>sprites\spr_mapmario_crown</sprite>
+        <sprite>sprites\spr_mapmario_cat</sprite>
       </sprites>
       <sprites name="Map Luigi">
         <sprite>sprites\spr_mapluigi_big</sprite>
@@ -2336,6 +2514,7 @@
         <sprite>sprites\spr_mapmario_dead_kick</sprite>
         <sprite>sprites\spr_mapmario_dead_idle</sprite>
       </sprites>
+      <sprite>sprites\spr_worldparent</sprite>
       <sprite>sprites\spr_mapyoshi</sprite>
       <sprite>sprites\spr_mapyoshi_r</sprite>
       <sprite>sprites\spr_mapyoshi_y</sprite>
@@ -2348,15 +2527,20 @@
       <sprite>sprites\spr_levelbeat</sprite>
       <sprite>sprites\spr_maplock</sprite>
       <sprite>sprites\spr_maphills</sprite>
+      <sprite>sprites\spr_maphouse</sprite>
       <sprite>sprites\spr_mapfort</sprite>
+      <sprite>sprites\spr_mapfort_a</sprite>
+      <sprite>sprites\spr_mapcastle</sprite>
+      <sprite>sprites\spr_mapcastle_a</sprite>
+      <sprite>sprites\spr_mapairship</sprite>
       <sprite>sprites\spr_start</sprite>
       <sprite>sprites\spr_mushhouse</sprite>
-      <sprite>sprites\spr_worldparent</sprite>
       <sprite>sprites\spr_mapcard</sprite>
       <sprite>sprites\spr_mapbro</sprite>
       <sprite>sprites\spr_mapfbro</sprite>
       <sprite>sprites\spr_mapbbro</sprite>
       <sprite>sprites\spr_mapsbro</sprite>
+      <sprite>sprites\spr_mapghost</sprite>
       <sprite>sprites\spr_mapswitch_r</sprite>
       <sprite>sprites\spr_mapswitch_b</sprite>
       <sprite>sprites\spr_mapswitch_y</sprite>
@@ -2381,11 +2565,14 @@
       <sprite>sprites\spr_islope_l</sprite>
       <sprite>sprites\spr_islope_sr</sprite>
       <sprite>sprites\spr_islope_sl</sprite>
+      <sprite>sprites\spr_mask32x8</sprite>
+      <sprite>sprites\spr_mask8x32</sprite>
       <sprite>sprites\spr_mask48x16</sprite>
       <sprite>sprites\spr_mask16x32</sprite>
       <sprite>sprites\spr_mask32x16</sprite>
       <sprite>sprites\spr_mask32x32</sprite>
       <sprite>sprites\spr_mask64x64</sprite>
+      <sprite>sprites\spr_shellmask</sprite>
       <sprite>sprites\spr_linemask</sprite>
       <sprite>sprites\spr_stopblock</sprite>
       <sprite>sprites\spr_24mask</sprite>
@@ -2393,13 +2580,19 @@
       <sprite>sprites\spr_sparkmask</sprite>
       <sprite>sprites\spr_spinmask</sprite>
       <sprite>sprites\spr_stompmask</sprite>
+      <sprite>sprites\spr_screenmask</sprite>
     </sprites>
     <sprites name="Special">
+      <sprite>sprites\spr_logo</sprite>
       <sprite>sprites\spr_manager</sprite>
       <sprite>sprites\spr_courseclear</sprite>
       <sprite>sprites\spr_toobad</sprite>
       <sprite>sprites\spr_warptop</sprite>
       <sprite>sprites\spr_warpsides</sprite>
+      <sprite>sprites\spr_pipetop</sprite>
+      <sprite>sprites\spr_pipebottom</sprite>
+      <sprite>sprites\spr_pipeleft</sprite>
+      <sprite>sprites\spr_piperight</sprite>
       <sprite>sprites\spr_titlescreen</sprite>
       <sprite>sprites\spr_pause</sprite>
       <sprite>sprites\spr_messagebox</sprite>
@@ -2407,6 +2600,7 @@
       <sprite>sprites\spr_timeup</sprite>
       <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_disapear</sprite>
+      <sprite>sprites\spr_cursor</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
     <sprite>sprites\spr_down</sprite>
@@ -2421,10 +2615,12 @@
       <sprite>sprites\imokpeople</sprite>
       <sprite>sprites\sprite1223</sprite>
       <sprite>sprites\usobruh</sprite>
+      <sprite>sprites\nice</sprite>
+      <sprite>sprites\whythefuck</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <backgrounds name="SM2DW DX">
+    <backgrounds name="Main">
       <backgrounds name="Level Backgrounds">
         <background>background\bg_classic</background>
         <background>background\bg_clouds</background>
@@ -2441,6 +2637,7 @@
         <background>background\bg_starrynight_2</background>
         <background>background\bg_toadhouse</background>
         <background>background\bg_bonus</background>
+        <background>background\bg_smbremaster</background>
       </backgrounds>
       <backgrounds name="Level Foregrounds">
         <background>background\fg_trees</background>
@@ -2457,7 +2654,7 @@
         <background>background\bg_tileforest</background>
       </backgrounds>
     </backgrounds>
-    <backgrounds name="Pixel Things">
+    <backgrounds name="Pixel Battle Time">
       <backgrounds name="BG">
         <background>background\bg_px_overworld</background>
         <background>background\bg_px_underground</background>
@@ -2471,12 +2668,25 @@
     <backgrounds name="Map Tiles">
       <background>background\bg_maptileset</background>
       <background>background\bg_mappaints</background>
-      <background>background\bg_mapplains</background>
+      <background>background\bg_mapground</background>
+      <background>background\bg_mapground_dec</background>
       <background>background\bg_mapdesert</background>
+      <background>background\bg_mapdesert_dec</background>
+      <background>background\bg_mapdesert_gri</background>
+      <background>background\bg_mapunder</background>
+      <background>background\bg_mapunder_dec</background>
+      <background>background\bg_mapunder_gri</background>
+      <background>background\bg_mapsky</background>
+      <background>background\bg_mapsky_dec</background>
+      <background>background\bg_mapforest</background>
+      <background>background\bg_mapforest_dec</background>
+      <background>background\bg_mapforest_gri</background>
+      <background>background\bg_mapvolcano</background>
+      <background>background\bg_mapvolcano_dec</background>
     </backgrounds>
-    <background>background\bg_title</background>
     <background>background\bg_logo</background>
     <background>background\bg_dissaclaimer</background>
+    <background>background\bg_englishit</background>
     <background>background\bg_aniwater1</background>
     <background>background\bg_aniwater2</background>
     <background>background\bg_aniwater3</background>
@@ -2486,7 +2696,7 @@
     <path>paths\pth_bubbles</path>
   </paths>
   <scripts name="scripts">
-    <scripts name="SM2DW DX">
+    <scripts name="Main">
       <scripts name="Characters">
         <scripts name="Mario">
           <script>scripts\scr_marioidle.gml</script>
@@ -2502,6 +2712,7 @@
           <script>scripts\scr_marioswim2.gml</script>
           <script>scripts\scr_marioswim3.gml</script>
           <script>scripts\scr_mariohold.gml</script>
+          <script>scripts\scr_mariohold2.gml</script>
           <script>scripts\scr_mariocarry.gml</script>
           <script>scripts\scr_marioduck.gml</script>
           <script>scripts\scr_mariogoal.gml</script>
@@ -2512,7 +2723,9 @@
           <script>scripts\scr_mariokick.gml</script>
           <script>scripts\scr_marioride.gml</script>
           <script>scripts\scr_mariodead.gml</script>
+          <script>scripts\scr_marioclear.gml</script>
           <script>scripts\scr_mariowin.gml</script>
+          <script>scripts\scr_marioclearpipe.gml</script>
         </scripts>
         <scripts name="Luigi">
           <script>scripts\scr_luigiidle.gml</script>
@@ -2540,9 +2753,35 @@
           <script>scripts\scr_luigidead.gml</script>
           <script>scripts\scr_luigiwin.gml</script>
         </scripts>
+        <script>scripts\scr_walk.gml</script>
+        <script>scripts\scr_hold.gml</script>
+        <script>scripts\scr_run.gml</script>
+        <script>scripts\scr_ride.gml</script>
         <script>scripts\scr_mariomap.gml</script>
         <script>scripts\scr_luigimap.gml</script>
       </scripts>
+      <script>scripts\scr_init_globals.gml</script>
+      <script>scripts\scr_musicalscale.gml</script>
+      <script>scripts\scr_stompscale.gml</script>
+      <script>scripts\scr_save.gml</script>
+      <script>scripts\scr_load.gml</script>
+      <script>scripts\scr_canpull.gml</script>
+      <script>scripts\scr_canhold.gml</script>
+      <script>scripts\scr_return.gml</script>
+      <script>scripts\scr_constant_get_sprite.gml</script>
+      <script>scripts\scr_sprite_get_constant.gml</script>
+      <script>scripts\scr_sprite_make_object.gml</script>
+      <script>scripts\scr_outlineitem.gml</script>
+    </scripts>
+    <scripts name="Pixel Battle Time">
+      <scripts name="Characters">
+        <script>scripts\scr_px_walk.gml</script>
+        <script>scripts\scr_px_run.gml</script>
+        <script>scripts\scr_px_jump.gml</script>
+        <script>scripts\scr_px_skid.gml</script>
+      </scripts>
+      <script>scripts\scr_px_init_globals.gml</script>
+      <script>scripts\scr_px_player_retrieve.gml</script>
     </scripts>
     <scripts name="Utility">
       <script>scripts\outside_view.gml</script>
@@ -2551,19 +2790,11 @@
       <script>scripts\turn_towards_direction.gml</script>
       <script>scripts\audio_playstop_sound.gml</script>
       <script>scripts\player_retrieve.gml</script>
+      <script>scripts\draw_circle_colour_precise.gml</script>
     </scripts>
-    <script>scripts\scr_init_globals.gml</script>
-    <script>scripts\scr_save.gml</script>
-    <script>scripts\scr_load.gml</script>
-    <script>scripts\scr_musicalscale.gml</script>
-    <script>scripts\scr_canpull.gml</script>
-    <script>scripts\scr_canhold.gml</script>
-    <script>scripts\scr_return.gml</script>
-    <script>scripts\scr_constant_get_sprite.gml</script>
-    <script>scripts\scr_sprite_get_constant.gml</script>
-    <script>scripts\scr_sprite_make_object.gml</script>
-    <script>scripts\scr_outlineitem.gml</script>
-    <script>scripts\scr_titleplayer.gml</script>
+    <scripts name="Random">
+      <script>scripts\random_title.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\sha_hq2x.shader</shader>
@@ -2573,7 +2804,7 @@
   </shaders>
   <objects name="objects">
     <object>objects\obj_persistent</object>
-    <objects name="SM2DW DX">
+    <objects name="Main">
       <objects name="Main">
         <objects name="Characters">
           <object>objects\obj_mario</object>
@@ -2588,6 +2819,8 @@
         <object>objects\obj_flagpole</object>
         <object>objects\obj_flagpole_secret</object>
         <object>objects\obj_incastle</object>
+        <object>objects\obj_goalgate</object>
+        <object>objects\obj_goalgate_secret</object>
         <object>objects\obj_course_clear</object>
       </objects>
       <objects name="Blocks">
@@ -2622,8 +2855,10 @@
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_under</object>
         <object>objects\obj_brick_ghost</object>
+        <object>objects\obj_ligmaballz</object>
         <object>objects\obj_rock</object>
         <object>objects\obj_rock_forest</object>
+        <object>objects\obj_rock_castle</object>
         <object>objects\obj_bluebrick</object>
         <object>objects\obj_redbrick</object>
         <object>objects\obj_greenbrick</object>
@@ -2656,12 +2891,14 @@
           <object>objects\obj_galoomba_parachute</object>
           <object>objects\obj_shoegoomba</object>
           <object>objects\obj_koopa</object>
-          <object>objects\obj_koopa_red</object>
-          <object>objects\obj_koopa_hyper</object>
           <object>objects\obj_parakoopa</object>
-          <object>objects\obj_parakoopa_red</object>
-          <object>objects\obj_parakoopa_hyper</object>
           <object>objects\obj_jumpingkoopa</object>
+          <object>objects\obj_beachkoopa</object>
+          <object>objects\obj_koopa_red</object>
+          <object>objects\obj_parakoopa_red</object>
+          <object>objects\obj_beachkoopa_red</object>
+          <object>objects\obj_koopa_hyper</object>
+          <object>objects\obj_parakoopa_hyper</object>
           <object>objects\obj_rex</object>
           <object>objects\obj_spike</object>
           <object>objects\obj_hoopster</object>
@@ -2873,6 +3110,28 @@
           <object>objects\obj_skullraft</object>
         </objects>
         <objects name="Collectables">
+          <objects name="Powerups">
+            <object>objects\obj_1up</object>
+            <object>objects\obj_poison</object>
+            <object>objects\obj_rotten</object>
+            <object>objects\obj_mushroom</object>
+            <object>objects\obj_fireflower</object>
+            <object>objects\obj_leaf</object>
+            <object>objects\obj_tanookileaf</object>
+            <object>objects\obj_goldtan</object>
+            <object>objects\obj_boomerangflower</object>
+            <object>objects\obj_hammersuit</object>
+            <object>objects\obj_superbell</object>
+            <object>objects\obj_iceflower</object>
+            <object>objects\obj_superflower</object>
+            <object>objects\obj_beeshroom</object>
+            <object>objects\obj_penguinsuit</object>
+            <object>objects\obj_propelleridle</object>
+            <object>objects\obj_acorn</object>
+            <object>objects\obj_pyreflower</object>
+            <object>objects\obj_eyesflower</object>
+            <object>objects\obj_star</object>
+          </objects>
           <object>objects\obj_coin</object>
           <object>objects\obj_multicoin</object>
           <object>objects\obj_coinbag</object>
@@ -2938,70 +3197,76 @@
       </objects>
       <objects name="Special">
         <objects name="Parents">
-          <object>objects\obj_playerparent</object>
-          <object>objects\obj_physicsparent</object>
-          <object>objects\obj_powerupparent</object>
-          <object>objects\obj_enemyparent</object>
-          <object>objects\obj_deactenemyparent</object>
-          <object>objects\obj_subconenemyparent</object>
-          <object>objects\obj_bossparent</object>
-          <object>objects\obj_blockparent</object>
-          <object>objects\obj_grayblockparent</object>
-          <object>objects\obj_pullparent</object>
-          <object>objects\obj_carryparent</object>
-          <object>objects\obj_holdparent</object>
-          <object>objects\obj_slopeparent</object>
+          <objects name="Player / NPC">
+            <objects name="Holders">
+              <object>objects\obj_pullparent</object>
+              <object>objects\obj_carryparent</object>
+              <object>objects\obj_holdparent</object>
+            </objects>
+            <object>objects\obj_playerparent</object>
+            <object>objects\obj_playerparent_clear</object>
+            <object>objects\obj_physicsparent</object>
+            <object>objects\obj_powerupparent</object>
+            <object>objects\obj_enemyparent</object>
+            <object>objects\obj_deactenemyparent</object>
+            <object>objects\obj_subconenemyparent</object>
+            <object>objects\obj_bossparent</object>
+            <object>objects\obj_projectileparent</object>
+          </objects>
+          <objects name="Block">
+            <object>objects\obj_blockparent</object>
+            <object>objects\obj_grayblockparent</object>
+          </objects>
           <object>objects\obj_deactivation</object>
+          <object>objects\obj_warpparent</object>
         </objects>
         <objects name="Do Not Use">
           <objects name="Mario">
-            <object>objects\obj_deadmario</object>
-            <object>objects\obj_deadfall</object>
-            <object>objects\obj_deadlava</object>
-            <object>objects\obj_goalmario</object>
-            <object>objects\obj_clearmario</object>
-            <object>objects\obj_warpnoteblock</object>
-            <object>objects\obj_doormario</object>
+            <objects name="Attacks">
+              <object>objects\obj_spinner</object>
+              <object>objects\obj_statue</object>
+              <object>objects\obj_dropdown</object>
+              <object>objects\obj_rockroller</object>
+              <object>objects\obj_karateattack</object>
+            </objects>
+            <objects name="Warps">
+              <object>objects\obj_warpnoteblock</object>
+              <object>objects\obj_doormario</object>
+            </objects>
+            <objects name="Goal">
+              <object>objects\obj_goalmario</object>
+              <object>objects\obj_clearmario</object>
+              <object>objects\obj_goalmario_smw</object>
+            </objects>
+            <objects name="Dead">
+              <object>objects\obj_deadmario</object>
+              <object>objects\obj_deadfall</object>
+              <object>objects\obj_deadlava</object>
+            </objects>
+            <object>objects\obj_mario_transform</object>
+            <object>objects\obj_mario_pipe</object>
             <object>objects\obj_puller</object>
             <object>objects\obj_wallrunner</object>
             <object>objects\obj_slider</object>
-            <object>objects\obj_spinner</object>
-            <object>objects\obj_statue</object>
-            <object>objects\obj_rockroller</object>
-            <object>objects\obj_karateattack</object>
-            <object>objects\obj_toobad</object>
           </objects>
           <objects name="Powerup">
             <objects name="Pickup">
-              <object>objects\obj_1up</object>
-              <object>objects\obj_poison</object>
-              <object>objects\obj_rotten</object>
-              <object>objects\obj_mushroom</object>
-              <object>objects\obj_fireflower</object>
-              <object>objects\obj_leaf</object>
+              <object>objects\obj_leaf_pickup</object>
               <object>objects\obj_tanookisuit</object>
-              <object>objects\obj_goldtan</object>
-              <object>objects\obj_boomerangflower</object>
-              <object>objects\obj_hammersuit</object>
-              <object>objects\obj_frogsuit</object>
-              <object>objects\obj_bombshroom</object>
-              <object>objects\obj_iceflower</object>
-              <object>objects\obj_superflower</object>
-              <object>objects\obj_carrot</object>
-              <object>objects\obj_ninjasuit</object>
-              <object>objects\obj_beeshroom</object>
-              <object>objects\obj_blueshell</object>
-              <object>objects\obj_penguinsuit</object>
               <object>objects\obj_propellershroom</object>
-              <object>objects\obj_walljumpshroom</object>
-              <object>objects\obj_acorn</object>
-              <object>objects\obj_cloudflower</object>
-              <object>objects\obj_rockshroom</object>
-              <object>objects\obj_pyreflower</object>
-              <object>objects\obj_swoopersuit</object>
-              <object>objects\obj_karatesuit</object>
-              <object>objects\obj_supercrown</object>
-              <object>objects\obj_star</object>
+              <objects name="Not Today, Thank You">
+                <object>objects\obj_frogsuit</object>
+                <object>objects\obj_bombshroom</object>
+                <object>objects\obj_carrot</object>
+                <object>objects\obj_ninjasuit</object>
+                <object>objects\obj_blueshell</object>
+                <object>objects\obj_walljumpshroom</object>
+                <object>objects\obj_rockshroom</object>
+                <object>objects\obj_cloudflower</object>
+                <object>objects\obj_swoopersuit</object>
+                <object>objects\obj_karatesuit</object>
+                <object>objects\obj_supercrown</object>
+              </objects>
             </objects>
             <objects name="Rides">
               <object>objects\obj_hatch</object>
@@ -3012,6 +3277,7 @@
               <object>objects\obj_yoshifire</object>
               <object>objects\obj_kuriboshoe</object>
               <object>objects\obj_getshoe</object>
+              <object>objects\obj_kuriboshoe_lost</object>
             </objects>
             <object>objects\obj_powerupsprout</object>
             <object>objects\obj_reserveitem</object>
@@ -3027,6 +3293,7 @@
             <object>objects\obj_cloud</object>
             <object>objects\obj_pyreball</object>
             <object>objects\obj_invincibility</object>
+            <object>objects\obj_taninvincible</object>
             <object>objects\obj_starman_trail</object>
             <objects name="Effects">
               <object>objects\obj_score_new</object>
@@ -3039,6 +3306,7 @@
               <object>objects\obj_bubble</object>
               <object>objects\obj_sparkletrail</object>
               <object>objects\obj_rain</object>
+              <object>objects\obj_note</object>
             </objects>
           </objects>
           <objects name="Enemy">
@@ -3135,13 +3403,12 @@
           <objects name="Item">
             <objects name="Blocks">
               <object>objects\obj_blockcoin</object>
+              <object>objects\obj_blockcoin2</object>
               <object>objects\obj_beanstalk</object>
               <object>objects\obj_vinewarp</object>
               <object>objects\obj_coinchain</object>
               <object>objects\obj_thrownbrick</object>
               <object>objects\obj_shard</object>
-              <object>objects\obj_shard_under</object>
-              <object>objects\obj_shard_ghost</object>
             </objects>
             <objects name="Platforms">
               <object>objects\obj_arrowplatform_move</object>
@@ -3181,7 +3448,26 @@
         <object>objects\obj_warpmapscreen</object>
       </objects>
     </objects>
+    <objects name="Pixel Battle Time">
+      <object>objects\obj_px_persistent</object>
+      <objects name="Main">
+        <objects name="Characters">
+          <object>objects\obj_px_mario</object>
+        </objects>
+        <object>objects\obj_px_lvlmanager</object>
+        <object>objects\obj_px_spawn</object>
+      </objects>
+      <objects name="Special">
+        <objects name="Parents">
+          <object>objects\obj_px_parplayer</object>
+        </objects>
+      </objects>
+    </objects>
     <objects name="Collision">
+      <objects name="Parents">
+        <object>objects\obj_platformparent</object>
+        <object>objects\obj_slopeparent</object>
+      </objects>
       <object>objects\obj_solid</object>
       <object>objects\obj_solidtop</object>
       <object>objects\obj_climb</object>
@@ -3200,6 +3486,7 @@
       <object>objects\obj_islope_sl</object>
       <object>objects\obj_fillwater</object>
       <object>objects\obj_stopblock</object>
+      <object>objects\obj_tilehider</object>
     </objects>
     <objects name="World Map">
       <objects name="Parents">
@@ -3207,17 +3494,19 @@
         <object>objects\obj_panelparent</object>
       </objects>
       <objects name="Special">
+        <object>objects\obj_mapghost</object>
         <object>objects\obj_inventoryprev</object>
       </objects>
       <object>objects\obj_mapmario</object>
       <object>objects\obj_lock</object>
       <object>objects\obj_levelpanel</object>
+      <object>objects\obj_levelhouse</object>
+      <object>objects\obj_levelfort</object>
       <object>objects\obj_levelcastle</object>
       <object>objects\obj_mushhouse</object>
       <object>objects\obj_start</object>
       <object>objects\obj_mapcoin</object>
       <object>objects\obj_maphills</object>
-      <object>objects\obj_roulettelevel</object>
       <object>objects\obj_mapbro</object>
       <object>objects\obj_mappipe</object>
       <object>objects\obj_palace_red</object>
@@ -3225,6 +3514,8 @@
       <object>objects\obj_palace_yellow</object>
       <object>objects\obj_palace_green</object>
       <object>objects\obj_saver</object>
+      <object>objects\obj_worlditems</object>
+      <object>objects\obj_mapmusicchanger</object>
     </objects>
     <objects name="Warp">
       <object>objects\obj_warptop</object>
@@ -3235,17 +3526,31 @@
       <object>objects\obj_warproom</object>
       <object>objects\obj_warpcannon</object>
       <object>objects\obj_giantwarpcannon</object>
+      <object>objects\obj_line_h</object>
+      <object>objects\obj_line_v</object>
+      <object>objects\obj_pipetop</object>
+      <object>objects\obj_pipebottom</object>
+      <object>objects\obj_pipeleft</object>
+      <object>objects\obj_piperight</object>
     </objects>
     <objects name="Special">
       <objects name="Main">
+        <objects name="Title eyecandy">
+          <object>objects\obj_titlecannon</object>
+          <object>objects\obj_titlebomb</object>
+          <object>objects\obj_titleboom</object>
+        </objects>
         <object>objects\obj_titlemario</object>
         <object>objects\obj_classicscroll</object>
         <object>objects\obj_autoscroll</object>
         <object>objects\obj_bganimator</object>
         <object>objects\obj_stormmaker</object>
+        <object>objects\obj_cursor</object>
+        <object>objects\obj_hud</object>
       </objects>
       <objects name="Menu">
         <object>objects\obj_logo</object>
+        <object>objects\obj_gotologo</object>
         <object>objects\obj_gototitle</object>
         <object>objects\obj_titlescreen</object>
         <object>objects\obj_settings</object>
@@ -3253,6 +3558,13 @@
         <object>objects\obj_pausemap</object>
         <object>objects\obj_pausemenu</object>
         <object>objects\obj_savemenu</object>
+        <object>objects\obj_wannago</object>
+      </objects>
+      <objects name="Transitions">
+        <object>objects\obj_fadein</object>
+        <object>objects\obj_fadeout</object>
+        <object>objects\obj_curtainin</object>
+        <object>objects\obj_curtainout</object>
       </objects>
       <objects name="Testing Objects">
         <object>objects\obj_logomario</object>
@@ -3262,10 +3574,19 @@
         <object>objects\obj_logotoadette</object>
         <object>objects\obj_gameover_mario</object>
       </objects>
+      <objects name="Goals">
+        <object>objects\obj_fadegoal</object>
+        <object>objects\obj_curtaingoal</object>
+        <object>objects\obj_goalgate_front</object>
+        <object>objects\obj_goalgate_tape</object>
+        <object>objects\obj_goalgate_tape_b</object>
+      </objects>
       <object>objects\obj_gameover</object>
       <object>objects\obj_mariostart</object>
       <object>objects\obj_hammerstart</object>
       <object>objects\obj_timeup</object>
+      <object>objects\obj_courseclear</object>
+      <object>objects\obj_toobad</object>
       <object>objects\obj_roulettemanager</object>
       <object>objects\obj_cardmanager</object>
       <object>objects\obj_card</object>
@@ -3284,7 +3605,7 @@
     <object>objects\obj_cclockwiseb</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_dissaclaimer</room>
+    <room>rooms\rm_disclaimer</room>
     <room>rooms\rm_logo</room>
     <room>rooms\rm_title</room>
     <room>rooms\rm_saves</room>
@@ -3292,13 +3613,12 @@
     <rooms name="Adventure Mode">
       <rooms name="World Map">
         <room>rooms\rm_worldmap</room>
-        <room>rooms\rm_worldmapdev</room>
       </rooms>
       <rooms name="Tutorial">
         <room>rooms\rm_tutorial</room>
         <room>rooms\rm_tutorialold</room>
       </rooms>
-      <rooms name="Bluethier Originals World 1">
+      <rooms name="Originals 1">
         <room>rooms\rm_w1lvl1</room>
         <room>rooms\rm_w1lvl2</room>
         <room>rooms\rm_w1lvl2houses</room>
@@ -3308,7 +3628,7 @@
         <room>rooms\rm_w1lvl4</room>
         <room>rooms\rm_w1lvl5</room>
       </rooms>
-      <rooms name="Bluethier Originals World 2">
+      <rooms name="Originals 2">
         <room>rooms\rm_w2lvl1</room>
         <room>rooms\rm_w2lvl2</room>
         <room>rooms\rm_w2lvl2sub</room>
@@ -3317,8 +3637,58 @@
         <room>rooms\rm_w2lvl4sub</room>
         <room>rooms\rm_w2lvl5</room>
       </rooms>
-      <rooms name="BT Originals 3">
+      <rooms name="Originals 3">
         <room>rooms\rm_w3lvl1</room>
+      </rooms>
+      <room>rooms\rm_testroom</room>
+      <rooms name="Special">
+        <room>rooms\rm_castlefinal1</room>
+        <room>rooms\rm_checkpoint</room>
+        <room>rooms\rm_mappipearea</room>
+        <room>rooms\rm_mappipearea2</room>
+      </rooms>
+      <rooms name="Champions Road">
+        <room>rooms\rm_championsroad</room>
+        <room>rooms\rm_championsroad_a</room>
+      </rooms>
+    </rooms>
+    <rooms name="Pixel Battle Time">
+      <room>rooms\rm_px_day</room>
+    </rooms>
+    <rooms name="Hello Mario Engine">
+      <rooms name="Cedar Hills">
+        <room>rooms\rm_cedarhills</room>
+        <room>rooms\rm_cedarhills_sky</room>
+        <room>rooms\rm_cedarhills_bonus</room>
+      </rooms>
+      <rooms name="Pipes at Dusk">
+        <room>rooms\rm_pipesatdusk</room>
+        <room>rooms\rm_pipesatdusk_cave</room>
+        <room>rooms\rm_pipesatdusk_snow</room>
+        <room>rooms\rm_pipesatdusk_water</room>
+      </rooms>
+      <rooms name="Wild Sands">
+        <room>rooms\rm_wildsands</room>
+        <room>rooms\rm_wildsands_cave</room>
+        <room>rooms\rm_wildsands_secret</room>
+        <room>rooms\rm_wildsands_sky</room>
+      </rooms>
+      <rooms name="Fort Hello">
+        <room>rooms\rm_forthello</room>
+        <room>rooms\rm_forthello_boomboom</room>
+        <room>rooms\rm_forthello_larry</room>
+        <room>rooms\rm_forthello_morton</room>
+        <room>rooms\rm_forthello_wendy</room>
+        <room>rooms\rm_forthello_iggy</room>
+        <room>rooms\rm_forthello_roy</room>
+        <room>rooms\rm_forthello_lemmy</room>
+        <room>rooms\rm_forthello_ludwig</room>
+        <room>rooms\rm_forthello_birdo</room>
+        <room>rooms\rm_forthello_mouser</room>
+        <room>rooms\rm_forthello_reznor</room>
+        <room>rooms\rm_forthello_classicbowser</room>
+        <room>rooms\rm_forthello_tobowser</room>
+        <room>rooms\rm_forthello_bowser</room>
       </rooms>
       <rooms name="Special">
         <room>rooms\rm_poweruptest</room>
@@ -3331,40 +3701,37 @@
         <room>rooms\rm_switchpalace_blue</room>
         <room>rooms\rm_switchpalace_yellow</room>
         <room>rooms\rm_switchpalace_green</room>
-        <room>rooms\rm_mappipearea</room>
         <room>rooms\rm_gameover</room>
-        <room>rooms\rm_castlefinal1</room>
-        <room>rooms\rm_checkpoint</room>
       </rooms>
-      <room>rooms\rm_testroom</room>
     </rooms>
-    <rooms name="VS Mode">
-      <room>rooms\rm_px_day</room>
-    </rooms>
-    <rooms name="Cedar Hills">
-      <room>rooms\rm_cedarhills</room>
-      <room>rooms\rm_cedarhills_sky</room>
-      <room>rooms\rm_cedarhills_bonus</room>
-    </rooms>
-    <rooms name="Fort Hello">
-      <room>rooms\rm_forthello</room>
-      <room>rooms\rm_forthello_boomboom</room>
-      <room>rooms\rm_forthello_larry</room>
-      <room>rooms\rm_forthello_morton</room>
-      <room>rooms\rm_forthello_wendy</room>
-      <room>rooms\rm_forthello_iggy</room>
-      <room>rooms\rm_forthello_roy</room>
-      <room>rooms\rm_forthello_lemmy</room>
-      <room>rooms\rm_forthello_ludwig</room>
-      <room>rooms\rm_forthello_birdo</room>
-      <room>rooms\rm_forthello_mouser</room>
-      <room>rooms\rm_forthello_reznor</room>
-      <room>rooms\rm_forthello_classicbowser</room>
-      <room>rooms\rm_forthello_tobowser</room>
-      <room>rooms\rm_forthello_bowser</room>
+    <rooms name="Titlescreens">
+      <room>rooms\rm_title1</room>
+      <room>rooms\rm_title2</room>
+      <room>rooms\rm_title3</room>
     </rooms>
   </rooms>
-  <constants number="48">
+  <constants number="49">
+    <constant name="cs_rotten">-29</constant>
+    <constant name="cs_beanstalk">-28</constant>
+    <constant name="cs_propellerblock">-27</constant>
+    <constant name="cs_eswitch">-26</constant>
+    <constant name="cs_pswitch">-25</constant>
+    <constant name="cs_superspring">-24</constant>
+    <constant name="cs_spring">-23</constant>
+    <constant name="cs_key">-22</constant>
+    <constant name="cs_star">-21</constant>
+    <constant name="cs_poison">-20</constant>
+    <constant name="cs_3up">-19</constant>
+    <constant name="cs_1up">-18</constant>
+    <constant name="cs_jugemushoe">-17</constant>
+    <constant name="cs_dossunshoe">-16</constant>
+    <constant name="cs_baburushoe">-15</constant>
+    <constant name="cs_kuriboshoe">-14</constant>
+    <constant name="cs_blueyoshi">-13</constant>
+    <constant name="cs_yellowyoshi">-12</constant>
+    <constant name="cs_redyoshi">-11</constant>
+    <constant name="cs_greenyoshi">-10</constant>
+    <constant name="cs_coin">-1</constant>
     <constant name="cs_small">0</constant>
     <constant name="cs_big">1</constant>
     <constant name="cs_fire">2</constant>
@@ -3392,27 +3759,7 @@
     <constant name="cs_crown">24</constant>
     <constant name="cs_goldtan">25</constant>
     <constant name="cs_eyes">26</constant>
-    <constant name="cs_coin">-1</constant>
-    <constant name="cs_greenyoshi">-10</constant>
-    <constant name="cs_redyoshi">-11</constant>
-    <constant name="cs_yellowyoshi">-12</constant>
-    <constant name="cs_blueyoshi">-13</constant>
-    <constant name="cs_kuriboshoe">-14</constant>
-    <constant name="cs_baburushoe">-15</constant>
-    <constant name="cs_dossunshoe">-16</constant>
-    <constant name="cs_jugemushoe">-17</constant>
-    <constant name="cs_1up">-18</constant>
-    <constant name="cs_3up">-19</constant>
-    <constant name="cs_poison">-20</constant>
-    <constant name="cs_star">-21</constant>
-    <constant name="cs_key">-22</constant>
-    <constant name="cs_spring">-23</constant>
-    <constant name="cs_superspring">-24</constant>
-    <constant name="cs_pswitch">-25</constant>
-    <constant name="cs_eswitch">-26</constant>
-    <constant name="cs_propellerblock">-27</constant>
-    <constant name="cs_beanstalk">-28</constant>
-    <constant name="cs_rotten">-29</constant>
+    <constant name="cs_cat">27</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -37,6 +37,8 @@ gravity = 0.0825;
 
 //Action
 action = "sprout";
+
+sequence = 4;
 </string>
           </argument>
         </arguments>
@@ -215,6 +217,29 @@ else if (action = "left") {
         hspeed = 0;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_blockparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///No heredar este evento
 </string>
           </argument>
         </arguments>

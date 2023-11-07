@@ -44,6 +44,8 @@ image_speed = 0.15
 
 //Spit out spike balls
 alarm[0] = 100
+
+canflip = false;
 </string>
           </argument>
         </arguments>

@@ -59,7 +59,9 @@ alarm[0] = 10
 alarm[1] = 15
 
 //Walk animation
-alarm[2] = 7
+alarm[2] = 
+
+canflip = false;
 </string>
           </argument>
         </arguments>

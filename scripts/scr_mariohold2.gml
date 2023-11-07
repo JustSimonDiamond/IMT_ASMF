@@ -11,5 +11,4 @@ switch global.powerup
 {
     case cs_leaf: return spr_mario_leaf_hold_jump
     case cs_tanooki: return spr_mario_tanooki_hold_jump
-    case cs_goldtan: return spr_mario_goldtan_hold_jump
 }

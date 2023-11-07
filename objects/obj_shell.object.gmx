@@ -42,6 +42,12 @@ hitpoint = 0
 //Whether the shell will harm Mario
 harmmario = 0
 
+//Offset sprite
+offset = 0;
+
+//Is there a Koopa inside?
+koopainside = false;
+
 //Become vulnerable
 alarm[0] = 1
 
@@ -50,6 +56,97 @@ kicked = 1
 
 //Become kickable
 alarm[2] = 1
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Convertirse en un Koopa (U otra mierda, quien sabe)
+
+//Cambia esta wea dependiendo del indice de sprite
+switch(sprite_index) {
+    
+    //Koopa verde (Al revés)
+    case(spr_shell_down): {
+        instance_create(x+8,y,obj_koopa);
+    } break;
+        
+    //Koopa rojo
+    case(spr_shell_red): {
+        instance_create(x+8,y,obj_koopa_red);
+    } break;
+        
+    //Koopa rojo (Al revés)
+    case(spr_shell_red_down): {
+        instance_create(x+8,y,obj_koopa_red);
+    } break;
+        
+    //Buzzy Beetle
+    case(spr_shell_buzzy): { 
+        instance_create(x+8,y,obj_buzzybeetle);
+    } break;
+        
+    //Buzzy Beetle (Al revés)
+    case(spr_shell_buzzy_down): { 
+        instance_create(x+8,y,obj_buzzybeetle);
+    } break;
+        
+    //Spiny (Al revés)
+    case(spr_spiny_dead): { 
+        instance_create(x+8,y,obj_spiny);
+    } break;
+        
+    //Koopa verde
+    default: {
+        instance_create(x+8,y,obj_koopa);
+    } break;
+}
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Sacudir
+if offset = 1
+    offset = -1
+else
+    offset = 1
+alarm[3] = 2
 </string>
           </argument>
         </arguments>
@@ -171,6 +268,12 @@ event_user(3)
 //Floor collisions
 event_user(4)
 
+//Manao
+if ((hspeed) == 0
+&amp;&amp; (koopainside))
+    alarm[3] = 270;
+    alarm[4] = 300;
+
 //If the direction changed
 if hspeed != prevhspeed
 {
@@ -261,7 +364,10 @@ and (other.stompstyle = 0 or other.bbox_bottom &gt;= bbox_top-vspeed+5)
         if other.bbox_bottom &gt;= bbox_top-vspeed+5
         and scr_canhold()
         {
-            with instance_create(x,y,obj_shell_held) sprite_index = other.sprite_index
+            with instance_create(x,y,obj_shell_held) {
+                sprite_index = other.sprite_index
+                koopainside = other.koopainside
+            }
             instance_destroy()
         }
 
@@ -388,6 +494,7 @@ instance_destroy()
             <kind>1</kind>
             <string>///Shell stomping
 with instance_create(x,y,obj_shell) sprite_index = other.sprite_index
+audio_play_sound(snd_kick,0,0)
 
 //Destroy
 instance_destroy()
@@ -418,6 +525,30 @@ with instance_create(round(x),round(y+16),obj_enemy_dead) sprite_index = other.s
 
 //Destroy
 instance_destroy()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw shell
+draw_sprite_ext(sprite_index,image_index,x+offset,y,1,1,0,c_white,1);
 </string>
           </argument>
         </arguments>

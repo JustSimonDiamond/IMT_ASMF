@@ -44,9 +44,16 @@ audio_play_sound(snd_pause,0,0)
 menu_choice = 0
 
 //Menu text
-menu[0] = "Continuar"
-menu[1] = "Volver al mapa"
-menu[2] = "Ir al titulo"
+if global.lang = 1 {
+    menu[0] = "Continuar"
+    menu[1] = "Volver al mapa"
+    menu[2] = "Ir al titulo"
+}
+else {
+    menu[0] = "Continue"
+    menu[1] = "Back to Map"
+    menu[2] = "Go to Title"
+}
 </string>
           </argument>
         </arguments>
@@ -131,7 +138,10 @@ draw_rectangle(view_xview[0],view_yview[0],view_xview[0]+view_wview[0],view_yvie
 draw_set_color(c_white)
 
 //Draw the box
-draw_sprite_ext(spr_pause,1,view_xview[0]+192,view_yview[0]+108,1,1,0,c_white,1.0)
+draw_sprite_ext(spr_pause,1,view_xview[0]+192,view_yview[0]+108,1,1,0,c_white,1)
+
+//Dibujar el reloj
+draw_text(view_xview[0]+16,view_yview[0]+2,string_add_zeros(current_hour,2)+":"+string_add_zeros(current_minute,2))
 
 //Iterate over the menu items
 for(var i = 0; i &lt; 3; i++)
@@ -279,7 +289,8 @@ else
         scr_init_globals()
 
         //Go to the title screen
-        room_goto(rm_title)
+        if (instance_number(obj_fadein) == 0)
+            with (instance_create(0,0,obj_fadein)) target = random_title()
 
     }
 

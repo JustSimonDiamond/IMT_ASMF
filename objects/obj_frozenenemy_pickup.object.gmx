@@ -111,26 +111,22 @@ if held = 1
 audio_play_sound(snd_bump,0,0)
 audio_play_sound(snd_shatter,0,0)
 
-//Make shards
-with instance_create(x,y-16,obj_shard)
-{
+//Create shards
+with (instance_create(x+8,y+8,obj_shard)) {
     sprite_index = spr_shard_th
-    direction = 45
+    motion_set(45, 6);
 }
-with instance_create(x,y-16,obj_shard)
-{
+with (instance_create(x+8,y+8,obj_shard)) {
     sprite_index = spr_shard_th
-    direction = 60
+    motion_set(60, 6);
 }
-with instance_create(x,y-16,obj_shard)
-{
+with (instance_create(x+8,y+8,obj_shard)) {
     sprite_index = spr_shard_th
-    direction = 120
+    motion_set(120, 6);
 }
-with instance_create(x,y-16,obj_shard)
-{
+with (instance_create(x+8,y+8,obj_shard)) {
     sprite_index = spr_shard_th
-    direction = 135
+    motion_set(135, 6);
 }
 
 //Destroy

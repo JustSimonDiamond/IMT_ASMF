@@ -38,6 +38,7 @@ with obj_playerparent
 
         //Play a super spring sound
         audio_play_sound(snd_superspring,0,0)
+        audio_play_sound(snd_noteblock_b,0,0);
 
         //Jump extra high
         vspeed = -6.7
@@ -46,7 +47,10 @@ with obj_playerparent
 
     //Otherwise, jump normally
     else
+    {
+        audio_play_sound(snd_noteblock,0,0);
         vspeed = -5.2
+    }
 
 }
 </string>

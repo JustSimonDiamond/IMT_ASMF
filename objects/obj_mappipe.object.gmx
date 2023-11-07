@@ -40,6 +40,7 @@
 pipetype = 0
 destx = 0
 desty = 0
+myroom = rm_mappipearea
 
 //Was this pipe just entered
 if ds_map_exists(global.worldmap,string(id))
@@ -54,7 +55,12 @@ if ds_map_exists(global.worldmap,string(id))
 }
 
 //Name to display
-levelname = "tuberia"
+if global.lang = 1 {
+    levelname = "tuberia de transporte"
+}
+else {
+    levelname = "warp pipe"
+}
 
 //Able to enter
 ready = 0
@@ -132,7 +138,8 @@ ds_map_replace(global.worldmap,string(id),1)
 global.mariostart = 1
 
 //Go to the pipe area
-room_goto(rm_mappipearea)
+if (instance_number(obj_curtainout) == 0)
+    with (instance_create(x+8,y+4,obj_curtainout)) target = other.myroom;
 </string>
           </argument>
         </arguments>

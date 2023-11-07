@@ -44,6 +44,8 @@ gravity_direction = 90
 
 //Swoop down
 alarm[0] = 200
+
+canflip = false;
 </string>
           </argument>
         </arguments>

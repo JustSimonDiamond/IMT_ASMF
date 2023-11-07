@@ -28,7 +28,7 @@
             <string>///Tanooki statue
 
 //Play a magical sound
-audio_play_sound(snd_magic,0,0)
+audio_play_sound(snd_transform,0,0)
 
 shake = 0
 

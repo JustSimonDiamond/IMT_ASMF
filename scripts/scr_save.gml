@@ -66,5 +66,9 @@ for(var i = 0; i < 16; i++)
     file_text_writeln(file)
 }
 
+//Map Music
+file_text_write_string(file,base64_encode(string(global.mapmusic)))
+file_text_writeln(file)
+
 //Close the file
 file_text_close(file)

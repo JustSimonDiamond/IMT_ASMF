@@ -55,7 +55,7 @@ image_speed = 0
 
 //If no chest is open and Mario is above this one
 if obj_mushtoad.ready = 0
-and place_meeting(x,y,obj_mario)
+and place_meeting(x,y,obj_playerparent)
 {
 
     //Open the chest visually
@@ -65,10 +65,10 @@ and place_meeting(x,y,obj_mario)
     obj_mushtoad.ready = 1
 
     //Tell Toad to kick Mario out
-    obj_mushtoad.alarm[1] = 200
+    obj_mushtoad.alarm[1] = 480
 
     //Stop the music before getting kicked out
-    obj_levelmanager.alarm[1] = 199
+    obj_levelmanager.alarm[1] = 479
 
     //Get the powerup
     powerup = instance_create(x+8,y,obj_getpowerup)

@@ -48,8 +48,8 @@ else
 }
 
 //Load the return variables
-returnx = ds_map_find_value(global.worldmap,"returnx")
-returny = ds_map_find_value(global.worldmap,"returny")
+returnx = ds_map_find_value(global.worldmap,"mapx")
+returny = ds_map_find_value(global.worldmap,"mapy")
 
 //Change Mario's sprite to the one corresponding with the current powerup
 if global.player = 0
@@ -85,7 +85,7 @@ and global.clear = 0
     move_towards_point(returnx,returny,1)
 
     //Play the spin sound
-    alarm[4] = 1
+    //alarm[4] = 1
 
     //Set the correct state for this action
     ready = 2
@@ -118,6 +118,7 @@ global.pswitch = 0
 global.star = 0
 global.onoffblock = 0
 global.died = 0
+global.pmeter = 0
 
 //Prevent shoes from being taken between levels
 if global.yoshi = 2
@@ -151,7 +152,7 @@ if global.powerup = cs_goldtan
           <argument>
             <kind>1</kind>
             <string>///Stop the music
-audio_stop_sound(snd_mapmusic)
+audio_stop_sound(global.mapmusic);
 </string>
           </argument>
         </arguments>
@@ -177,6 +178,7 @@ audio_stop_sound(snd_mapmusic)
             <string>///Mario's sound as he skids towards his previous location
 if ready = 2
     audio_play_sound(snd_tailspin,1,1)
+
 </string>
           </argument>
         </arguments>
@@ -200,7 +202,10 @@ if ready = 2
           <argument>
             <kind>1</kind>
             <string>///Play the world map music
-audio_play_sound(snd_mapmusic,99,1)
+if not audio_is_playing(global.mapmusic)
+{
+    audio_play_sound(global.mapmusic,99,1);
+}
 </string>
           </argument>
         </arguments>
@@ -447,7 +452,7 @@ and round(y) = returny
 {
 
     //Stop the sound
-    audio_stop_sound(snd_tailspin)
+    //audio_stop_sound(snd_tailspin)
 
     //Change to the event state
     ready = 1
@@ -604,7 +609,7 @@ else if ready = 0
             audio_play_sound(snd_inventory,0,0)
 
             //Set the event state
-            ready = 1
+            ready = 3
 
             //Open the inventory
             inventory = 1
@@ -782,6 +787,44 @@ else if inventory = 1
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_mapmusicchanger">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Si se choca con el objeto de cambio de música
+if ready = 0
+{
+    //Si la música no es la misma que la del objeto
+    if global.mapmusic != other.mapmusic
+    {
+        //Detener la música
+        audio_stop_sound(global.mapmusic);
+    
+        //Cambiar el valor global de la música
+        global.mapmusic = other.mapmusic;
+    
+        //Y reproducir la nueva música
+        alarm[3] = 1;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -843,25 +886,60 @@ inventory = 0
             <kind>1</kind>
             <string>///Qué pasa cuando Mario entra a un nivel
 
-//Save Mario's current location
+//Guardar la posición actual del objeto
 ds_map_replace(global.worldmap,"mapx",x)
 ds_map_replace(global.worldmap,"mapy",y)
 
+//Detener a Mario
+ready = 3
+
 //Stop the music
-audio_stop_sound(snd_mapmusic)
+audio_stop_sound(global.mapmusic);
 
 //Play the enter level sound
-audio_play_sound(snd_enterstage,0,0)
+mappipe = place_meeting(x,y,obj_mappipe)
+if (!mappipe)
+{
+    audio_play_sound(snd_enterstage,0,0);
 
-//Mario's voice
-if global.player = 0
-{
-    audio_play_sound(snd_letsgo,0,0)
+    //Mario's voice
+    if (global.player = 0)
+    {
+        audio_play_sound(snd_letsgo,0,0);
+    }
+    else if (global.player = 1)
+    {
+        audio_play_sound(snd_luigi_letsgo,0,0);
+    }
 }
-else if global.player = 1
+else
 {
-    audio_play_sound(snd_luigi_letsgo,0,0)
+    audio_play_sound(snd_warp,0,0);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Crear un efecto culero
+instance_create(0,0,obj_fadeout)
 </string>
           </argument>
         </arguments>
@@ -924,12 +1002,13 @@ else if global.yoshi = 1
 //Draw the HUD box
 if global.player = 0
 {
-    draw_sprite_ext(spr_mapscreenbox,inventory,view_xview[0]+32,view_yview[0]+186,1,1,0,c_white,0.7)
+ draw_sprite_ext(spr_mapscreenbox,inventory,view_xview[0]+32,view_yview[0]+186,1,1,0,c_white,0.7);
 }
 else if global.player = 1
 {
-    draw_sprite_ext(spr_mapscreenbox_luigi,inventory,view_xview[0]+32,view_yview[0]+186,1,1,0,c_white,0.7)
+ draw_sprite_ext(spr_mapscreenbox_luigi,inventory,view_xview[0]+32,view_yview[0]+186,1,1,0,c_white,0.7);
 }
+
 
 //If the inventory is not opened up
 if inventory = 0
@@ -978,12 +1057,16 @@ else
     }
     
     //Usar un sprite de orillas si el objeto de reserva no está seleccionado
-    if boxselection = 16
-        if global.reserveitem != cs_small
-            draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,1)
-    else
-        if global.reserveitem != cs_small
-            draw_sprite_ext(scr_outlineitem(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,1)
+    if boxselection = 16 {
+        if global.reserveitem != cs_small {
+            draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,1);
+        }
+    }
+    else {
+        if global.reserveitem != cs_small {
+            draw_sprite_ext(scr_outlineitem(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,1);
+        }
+    }
 }
 </string>
           </argument>
@@ -1008,15 +1091,26 @@ else
           <argument>
             <kind>1</kind>
             <string>///Menú de pausa
-if not keyboard_check(vk_alt)
+
+//Si este objeto ya está funcionando como es debido
+if ready = 0
 {
 
-    //Crea el menú de pausa
-    instance_create(0,0,obj_pausemap)
+    //...y el alt no está presionado
+    if not keyboard_check(vk_alt)
+    {
+        
+        //Guardar la posición actual del objeto
+        ds_map_replace(global.worldmap,"mapx",x)
+        ds_map_replace(global.worldmap,"mapy",y)
 
-    //Suelta a la tecla espacio
-    keyboard_clear(vk_enter)
+        //Crear el menú de pausa
+        instance_create(0,0,obj_pausemap);
 
+        //Suelta al enter
+        keyboard_clear(vk_enter);
+
+    }
 }
 </string>
           </argument>

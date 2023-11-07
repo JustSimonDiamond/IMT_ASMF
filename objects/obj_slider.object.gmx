@@ -42,6 +42,7 @@ with obj_playerparent
 //Inherit Mario's horizontal speed and direction
 hspeed = obj_playerparent.hspeed
 direct = obj_playerparent.direct
+prevhspeed = obj_playerparent.hspeed
 
 //Prevent skidding
 audio_stop_sound(snd_skid)
@@ -264,7 +265,7 @@ else
         {
 
             //Move upwards
-            vspeed = -3
+            vspeed = -5
 
             //Switch to the jump state
             state = 2

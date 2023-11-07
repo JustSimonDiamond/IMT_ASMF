@@ -70,6 +70,7 @@
     <instance objName="obj_solid" x="184" y="176" name="inst_B0C837B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="264" y="176" name="inst_3B51F769" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="344" y="176" name="inst_27E7C392" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_logo" x="48" y="23" name="inst_998970DE" locked="0" code="scale = 0.25&#xA;" scaleX="0.25" scaleY="0.25" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnewest" x="0" y="192" w="16" h="16" xo="1168" yo="1856" id="10040947" name="inst_5E74F941" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -28,10 +28,10 @@
             <string>///A preview of the world map inventory
 
 //Play the inventory sound
-audio_play_sound(snd_inventory,0,0)
+audio_play_sound(snd_openinventory,0,0)
 
 //A hack... Because this inherits from obj_mapmario, and we want it to show the inventory
-ready = 1
+ready = 3
 inventory = 1
 
 //Select the last item
@@ -39,7 +39,11 @@ boxselection = global.inventory[0]
 
 if instance_exists(obj_levelmanager)
 {
- obj_levelmanager.disablehud = 1;
+ with (obj_levelmanager) {
+    hudalpha = 0
+    reservealpha = 0
+    timeralpha = 0
+ }
 }
 </string>
           </argument>
@@ -64,6 +68,91 @@ if instance_exists(obj_levelmanager)
           <argument>
             <kind>1</kind>
             <string>///Disable world map Mario's logic
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Dibuja a Mario, a Yoshi y al HUD del mapa
+
+//Draw the HUD box
+draw_sprite_ext(spr_mapscreenbox,inventory,view_xview[0]+32,view_yview[0]+186,1,1,0,c_white,0.7)
+
+//If the inventory is not opened up
+if inventory = 0
+{
+
+    //Set the draw alpha
+    draw_set_alpha(0.7)
+
+    //Set the font
+    draw_set_font(global.font)
+
+    //Draw the name of the panel Mario is on
+    draw_text(view_xview[0]+164,view_yview[0]+197,mytext)
+
+    //Set the font
+    draw_set_font(global.wdigits)
+
+    //Draw the lives
+    draw_text(view_xview[0]+64,view_yview[0]+198,string_format(lives,2,0))
+
+    //Draw the score
+    draw_text(view_xview[0]+97,view_yview[0]+198,string_add_zeros(score,7))
+
+    //Draw the reserve item
+    if global.reserveitem != cs_small
+        draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,0.7)
+
+    //Reset the draw alpha
+    draw_set_alpha(1)
+
+}
+
+//Si el inventario está abierto
+else
+{
+    
+    //Iterate over the inventory items
+    for(var i = 1; i &lt;= global.inventory[0]; i++)
+    {
+        
+        //Usar un sprite de orillas si este objeto no está seleccionado
+        if boxselection = i
+            draw_sprite_ext(scr_constant_get_sprite(global.inventory[i]),0,view_xview[0]+39+(i-1)*19,view_yview[0]+193,1,1,0,c_white,1)
+        else
+            draw_sprite_ext(scr_outlineitem(global.inventory[i]),0,view_xview[0]+39+(i-1)*19,view_yview[0]+193,1,1,0,c_white,1)
+    }
+    
+    //Usar un sprite de orillas si el objeto de reserva no está seleccionado
+    if boxselection = 16 {
+        if global.reserveitem != cs_small {
+            draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,1);
+        }
+    }
+    else {
+        if global.reserveitem != cs_small {
+            draw_sprite_ext(scr_outlineitem(global.reserveitem),0,view_xview[0]+330,view_yview[0]+193,1,1,0,c_white,1);
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

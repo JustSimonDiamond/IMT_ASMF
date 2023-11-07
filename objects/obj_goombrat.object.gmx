@@ -41,6 +41,8 @@ alarm[10] = 2
 
 //Animate
 image_speed = 0.15
+
+canflip = true;
 </string>
           </argument>
         </arguments>
@@ -120,7 +122,7 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Draw Goombrat
-draw_sprite_ext(sprite_index,image_index,round(x),y,direct,1,0,c_white,1)
+draw_sprite_ext(sprite_index,image_index,round(x),round(y)+8,direct,1,0,c_white,1)
 </string>
           </argument>
         </arguments>

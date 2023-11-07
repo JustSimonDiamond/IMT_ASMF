@@ -44,6 +44,8 @@ hardness = 99
 
 //How vulnerable is this enemy to Mario?
 stomp = 2
+
+canflip = false;
 </string>
           </argument>
         </arguments>

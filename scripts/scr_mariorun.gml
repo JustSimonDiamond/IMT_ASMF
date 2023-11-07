@@ -35,4 +35,5 @@ switch global.powerup
     case cs_karate: return spr_mario_karate_run
     case cs_crown: return spr_px_peach_run
     case cs_goldtan: return spr_mario_goldtan_run
+    case cs_cat: return spr_mario_cat_run
 }

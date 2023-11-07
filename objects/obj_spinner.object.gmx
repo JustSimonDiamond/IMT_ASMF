@@ -27,29 +27,62 @@
             <kind>1</kind>
             <string>///A tail spin
 
-//Play the spin sound
-audio_play_sound(snd_tailspin,0,0)
-
-//Animate
-image_speed = 0.3
-
-//Use the tanooki spin sprite if Mario is in a tanooki suit
-if global.player = 0
-{
-    if global.powerup = cs_tanooki
-        sprite_index = spr_mario_tanooki_attack
+//Check powerup
+switch (global.powerup) {
     
-    if global.powerup = cs_goldtan
-        sprite_index = spr_mario_goldtan_attack
-}
-else if global.player = 1
-{
-    if global.powerup = cs_tanooki
-        sprite_index = spr_mario_tanooki_attack
+    //Cat
+    case (cs_cat): {
     
-    if global.powerup = cs_goldtan
-        sprite_index = spr_mario_goldtan_attack
+        //Play 'Scratch' sound
+        audio_play_sound(snd_scratch, 0, false);
+        
+        //Set the speed
+        image_speed = 0.2;
+        
+        //Set the sprite
+        sprite_index = spr_mario_cat_attack2;        
+    } break;
+    
+    //Tanooki
+    case (cs_tanooki): {
+    
+        //Play 'Spin' sound
+        audio_play_sound(snd_tailspin, 0, false);
+        
+        //Set the speed
+        image_speed = 0.3;
+        
+        //Set the sprite
+        sprite_index = spr_mario_tanooki_attack;
+    } break;
+    
+    //Gold Tanooki
+    case (cs_goldtan): {
+    
+        //Play 'Spin' sound
+        audio_play_sound(snd_tailspin, 0, false);
+        
+        //Set the speed
+        image_speed = 0.3;
+        
+        //Set the sprite
+        sprite_index = spr_mario_goldtan_attack;
+    } break;
+    
+    //Default
+    default: {
+        
+        //Play 'Spin' sound
+        audio_play_sound(snd_tailspin, 0, false);
+        
+        //Set the speed
+        image_speed = 0.3;
+        
+        //Set the sprite
+        sprite_index = spr_mario_leaf_attack;
+    } break;
 }
+
 //Make Mario invisible
 obj_playerparent.visible = 0
 
@@ -107,7 +140,7 @@ with bumper instance_destroy()
             <kind>1</kind>
             <string>///Snap to Mario if he exists and is in the right suit
 if instance_exists(obj_playerparent)
-and (global.powerup = cs_leaf or global.powerup = cs_tanooki or global.powerup = cs_goldtan)
+and (global.powerup = cs_leaf or global.powerup = cs_tanooki or global.powerup = cs_goldtan or global.powerup = cs_cat)
 {
     x = obj_playerparent.x
     y = obj_playerparent.y

@@ -25,14 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///It's Mario Time's persistent object
-
-//How the screen is fading
-//0: From black, 1: To black
-mode = 0
-
-//How much the screen is faded
-done = 0
+            <string>///Objeto Persistente de It's Mario Time
 
 //Screenshot of the game, if it exists
 back = -1
@@ -45,6 +38,10 @@ showfps = 0
 
 //Declare global variables
 scr_init_globals()
+
+//Idioma
+//0: Inglés. 1 = Español
+global.lang = 0
 
 //Item that is being carried between rooms
 global.carrieditem = noone
@@ -64,14 +61,11 @@ global.acecoins = ds_map_create()
 //Data structure for storing the state of the world map
 global.worldmap = ds_map_create()
 
-//Data structure for storing the state of the card minigame
-global.cardgame = ds_map_create()
-
 //Font for dialog boxes
 global.messagefont = font_add_sprite_ext(spr_messagefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~",0,0)
 
 //Font for small letters
-global.font = font_add_sprite_ext(spr_spritefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~",1,-1)
+global.font = font_add_sprite_ext(spr_spritefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",1,-1)
 
 //Font for white digits
 global.wdigits = font_add_sprite_ext(spr_numbers,"0123456789",0,0)
@@ -91,8 +85,6 @@ keyboard_set_map(ord('Z'),vk_shift)
 //Make the x key do everything the control key does
 keyboard_set_map(ord('X'),vk_control)
 
-keyboard_set_map(ord('C'),vk_tab)
-
 //Handle gamepad support
 gamepad = gamepad_is_connected(0)
 
@@ -107,7 +99,6 @@ math_set_epsilon(0.00001)
 
 //Disable application surface automatic drawing
 application_surface_draw_enable(0)
-
 </string>
           </argument>
         </arguments>
@@ -231,7 +222,8 @@ window_center()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Deactivate everything
+            <string>///Deactivate everything (Not Working)
+/*
 instance_deactivate_all(1)
 
 //Make sure Mario Start! is active
@@ -258,8 +250,8 @@ instance_activate_object(obj_mariostart)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Stop fading to black
-
+            <string>///Stop fading to black (Not Working)
+/*
 //Set mode to fade from black
 mode = 0
 
@@ -419,6 +411,35 @@ if gamepad
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Permite varias acciones en juego
+
+//No permitir que las vidas se vayan al demonio
+if (lives &gt; 999)
+    lives = 999;
+    
+//Lo mismo, pero con el puntaje
+if (score &gt; 9999990)
+    score = 9999990;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="5" enumb="18">
       <action>
@@ -448,7 +469,9 @@ else if keyboard_check_pressed(ord('R'))
 {
     audio_stop_all()
     scr_init_globals()
-    room_goto(rm_dissaclaimer)
+    if (instance_number(obj_fadein) == 0)
+        with (instance_create(0,0,obj_fadein)) target = rm_disclaimer;
+    message = ""
 }
 
 //Fullscreen (Handled by GM: Studio)
@@ -518,70 +541,12 @@ else if keyboard_check_pressed(ord('3'))
 else
 {
     if alarm[3] &lt; 1
-        message = "alt PRESIONADO";
+        message = "alt PRESSED";
     exit
 }
 
 //Reset the message
 alarm[3] = 60
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="15">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Vsync
-vsync = !vsync
-if vsync
-    message = "VSYNC ENCENDIDO"
-else
-    message = "VSYNC APAGADO"
-event_user(1)
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="14">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Fullscreen
-fullscreen = !fullscreen
-if fullscreen
-    message = "PANTALLA CONMPLETA"
-else
-    message = "PROGRAMA EN VENTANA"
-event_user(1)
 </string>
           </argument>
         </arguments>
@@ -750,8 +715,9 @@ if os_type = os_android or os_type = os_ios
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Fade the screen to black
+            <string>///Fade the screen to black (Not Working)
 
+/*
 //If this event was called manually
 if mode = 0
 {
@@ -794,8 +760,8 @@ alarm[0] = 30
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Prepare to fade to black
-
+            <string>///Prepare to fade to black (Not Working)
+/*
 //Fade to black
 mode = 1
 
@@ -826,9 +792,10 @@ alarm[1] = 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Fade the screen to black, unless you just opened up the game
-if mode = 1
-    event_user(0)
+            <string>///Fade the screen to black, unless you just opened up the game (Not Working)
+
+//if mode = 1
+  //  event_user(0)
 
 //Set up on screen controls
 if os_type = os_android or os_type = os_ios
@@ -858,7 +825,7 @@ if os_type = os_android or os_type = os_ios
             <string>///Save Fullscreen + Filtering + VSync Settings
 
 //Open the file
-var file = file_text_open_write("Settings.dat")
+var file = file_text_open_write("config.dat")
 
 //Save fullscreen settings
 file_text_write_string(file,string(fullscreen))
@@ -870,6 +837,14 @@ file_text_writeln(file)
 
 //Save vsync settings
 file_text_write_string(file,string(vsync))
+file_text_writeln(file)
+
+//Save language settings
+file_text_write_string(file,string(global.lang))
+file_text_writeln(file)
+
+//Guardar este valor para saber si el juego se corre por primera vez
+file_text_write_string(file,string(global.firstplay))
 
 //Close the file
 file_text_close(file)
@@ -896,11 +871,11 @@ file_text_close(file)
           <argument>
             <kind>1</kind>
             <string>///Load Fullscreen + Filtering + VSync Settings
-if file_exists("Settings.dat")
+if file_exists("config.dat")
 {
 
     //Open the file
-    var file = file_text_open_read("Settings.dat")
+    var file = file_text_open_read("config.dat")
 
     //Set fullscreen mode based on the read value
     fullscreen = real(file_text_read_string(file))
@@ -912,7 +887,15 @@ if file_exists("Settings.dat")
 
     //Set vsync based on the read value
     vsync = real(file_text_read_string(file))
-
+    file_text_readln(file)
+    
+    //Set language based on the read value
+    global.lang = real(file_text_read_string(file))
+    file_text_readln(file)
+    
+    //Establecer que ya se jugó antes
+    global.firstplay = real(file_text_read_string(file))
+    
     //Close the file
     file_text_close(file)
 
@@ -924,12 +907,10 @@ else
     fullscreen = 0
 
     //Filtering is off if the shaders fail to compile
-    if not shader_is_compiled(sha_hq2x)
-    or not shader_is_compiled(sha_hq4x)
-        filter = 1
+    filter = 1
 
     //Set the default to HQ4X only if the screen is big enough to fit it
-    else if display_get_width() &gt;= 1536
+    if display_get_width() &gt;= 1536
     and display_get_height() &gt;= 864
         filter = 2
     else
@@ -937,7 +918,12 @@ else
 
     //VSync is off by default
     vsync = 0
-
+    
+    //Language
+    global.lang = 0
+    
+    //Esta es la primera vez que se juega
+    global.firstplay = 1
 }
 
 //Apply loaded settings
@@ -974,7 +960,6 @@ if filter = 0
 //HQ2X Filtering
 else if filter = 1
 {
-//    shader_set(sha_hq2x)
     draw_surface_stretched(application_surface,0,0,view_wview[0]*2,view_hview[0]*2)
     shader_reset()
 }
@@ -982,14 +967,14 @@ else if filter = 1
 //HQ4X Filtering
 else if filter = 2
 {
-//    shader_set(sha_hq4x)
     draw_surface_stretched(application_surface,0,0,view_wview[0]*4,view_hview[0]*4)
     shader_reset()
 }
 
 draw_enable_alphablend(1)
 
-//Fades the screen to and from black
+//Fades the screen to and from black (Not Working)
+/*
 if done &lt; 1
 {
 

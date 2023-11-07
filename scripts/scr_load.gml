@@ -69,5 +69,9 @@ for(var i = 0; i < 16; i++)
     file_text_readln(file)
 }
 
+//Map Music
+global.mapmusic = real(base64_decode(file_text_read_string(file)))
+file_text_readln(file)
+
 //Close the file
 file_text_close(file)

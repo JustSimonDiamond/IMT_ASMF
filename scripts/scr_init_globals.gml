@@ -90,4 +90,8 @@ global.pipetype = 0
 for(var i=0; i<16; i++)
     global.inventory[i] = 0
     
-global.mute = 0
+//P-Meter
+global.pmeter = 0
+
+//WorldMap Music
+global.mapmusic = snd_mapmusic;

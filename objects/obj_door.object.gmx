@@ -76,7 +76,8 @@ if mywarp
         }
 
         //Go to the set room
-        room_goto(myroom)
+        if (instance_number(obj_fadein) == 0)
+            with (instance_create(0,0,obj_fadein)) target = other.myroom;
 
     }
 
@@ -91,11 +92,11 @@ else
 
     //If the position change exists, create Mario at that position
     if mywarp
-        instance_create(mywarp.postx+8,mywarp.posty,obj_player)
+        player_retrieve(mywarp.postx+8,mywarp.posty)
 
     //Otherwise, have Mario come out the same door
     else
-        instance_create(x+8,y-16,obj_player)
+        player_retrieve(x+8,y-16)
 
     //Remember if something is being held
     obj_playerparent.holding = obj_doormario.holding
@@ -110,8 +111,62 @@ else
     //Get rid of door Mario
     with obj_doormario instance_destroy()
 
-    //Fade the screen
-    with obj_persistent event_user(0)
+    //Fade in the screen
+    if (instance_number(obj_fadein) == 0)
+        with (instance_create(0,0,obj_fadein)) target = room_next(room)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Let Mario in the door
+
+//If Mario is on the door, not jumping, and visible
+if (keyboard_check(vk_up)
+and place_meeting(x,y,obj_playerparent)
+and obj_playerparent.state != 2
+and visible = 1)
+{
+
+    //Play the door sound
+    audio_play_sound(snd_door,0,0)
+
+    //Animate
+    image_speed = 0.15
+
+    //Create a door Mario
+    instance_create(x+8,y-16,obj_doormario)
+
+    //Get rid of the real Mario
+    with obj_playerparent {
+    
+        //Recordar el objeto agarrado
+        global.shallihold = holding
+        
+        //Y destruir
+        instance_destroy();
+    }
+
+    //Mario enters the door after 55 frames
+    alarm[0] = 55
 
 }
 </string>
@@ -169,52 +224,6 @@ if image_index &lt; 4
 
 //Draw the door on top
 draw_sprite(sprite_index,image_index,x,y)
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Let Mario in the door
-
-//If Mario is on the door, not jumping, and visible
-if place_meeting(x,y,obj_playerparent)
-and obj_playerparent.state != 2
-and visible = 1
-{
-
-    //Play the door sound
-    audio_play_sound(snd_door,0,0)
-
-    //Animate
-    image_speed = 0.15
-
-    //Create a door Mario
-    instance_create(x+8,y-16,obj_doormario)
-
-    //Get rid of the real Mario
-    with obj_playerparent instance_destroy()
-
-    //Mario enters the door after 55 frames
-    alarm[0] = 55
-
-}
 </string>
           </argument>
         </arguments>

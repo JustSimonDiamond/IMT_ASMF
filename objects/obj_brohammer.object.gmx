@@ -28,13 +28,15 @@
             <string>///Enemy hammers
 
 //Animate
-image_speed = 0.3
+image_speed = 0
 
 //Gravity
 gravity = 0.2
 
 //Move up
 vspeed = -4.5
+
+image_angle = 0
 </string>
           </argument>
         </arguments>
@@ -64,6 +66,9 @@ if y &gt; view_yview[0] + view_hview[0]
 //Correct facing direction
 if hspeed &lt; 0
     image_xscale = -1
+
+//Angle shit
+image_angle -= 10*hspeed
 </string>
           </argument>
         </arguments>

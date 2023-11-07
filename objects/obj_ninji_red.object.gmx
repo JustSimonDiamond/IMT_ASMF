@@ -44,6 +44,8 @@ alarm[0] = 50
 
 //Count hops
 hopcount = 0
+
+canflip = true;
 </string>
           </argument>
         </arguments>
@@ -152,7 +154,7 @@ if instance_exists(obj_mario)
           <argument>
             <kind>1</kind>
             <string>///Draw Red Ninji
-draw_sprite_ext(sprite_index,image_index,round(x),y,direct,1,0,c_white,1)
+draw_sprite_ext(sprite_index,image_index,round(x),y+8,direct,1,0,c_white,1)
 </string>
           </argument>
         </arguments>

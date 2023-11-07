@@ -41,6 +41,8 @@ image_speed = 0.15
 
 //Move up
 vspeed = -0.75
+
+canflip = false;
 </string>
           </argument>
         </arguments>

@@ -27,20 +27,14 @@
             <kind>1</kind>
             <string>///Shards of a shattered block
 
-//Gravity
-gravity = 0.3
-
-//Move fast
-speed = 3
-
-//Animate
-image_speed = 0.5
+//Animar
+image_speed = 0.15
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -57,8 +51,20 @@ image_speed = 0.5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy
-instance_destroy()
+            <string>///Shard logic
+
+//Destroy if outside the view
+if (outside_view()) {
+
+    instance_destroy();
+    exit;
+}
+
+//Set gravity
+gravity = 0.2;
+
+//Cap horizontal speed
+hspeed = 1*sign(hspeed);
 </string>
           </argument>
         </arguments>

@@ -108,25 +108,21 @@ and place_meeting(x,y-obj_playerparent.vspeed*2.5,obj_playerparent)
 {
     with obj_playerparent event_user(1)
     audio_play_sound(snd_break,0,0)
-    with instance_create(x+8,y,obj_shard)
-    {
+    with (instance_create(x+8,y+8,obj_shard)) {
         sprite_index = spr_shard_y
-        direction = 45
+        motion_set(45, 6);
     }
-    with instance_create(x+8,y,obj_shard)
-    {
+    with (instance_create(x+8,y+8,obj_shard)) {
         sprite_index = spr_shard_y
-        direction = 60
+        motion_set(60, 6);
     }
-    with instance_create(x,y,obj_shard)
-    {
+    with (instance_create(x+8,y+8,obj_shard)) {
         sprite_index = spr_shard_y
-        direction = 120
+        motion_set(120, 6);
     }
-    with instance_create(x,y,obj_shard)
-    {
+    with (instance_create(x+8,y+8,obj_shard)) {
         sprite_index = spr_shard_y
-        direction = 135
+        motion_set(135, 6);
     }
     with instance_create(x,y,obj_score_hidden_new) event_user(0)
     instance_destroy()

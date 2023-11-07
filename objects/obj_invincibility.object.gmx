@@ -131,6 +131,46 @@ if(instance_exists(obj_spinner))
     blur.image_blend=image_blend;
     obj_spinner.blend_star = image_blend;
 };
+if instance_exists(obj_dropdown)
+{
+    blur=instance_create(obj_dropdown.x,obj_dropdown.y,obj_starman_trail)
+    blur.image_speed = 0;
+    blur.sprite_index=obj_dropdown.sprite_index;
+    blur.image_index=0;
+    blur.image_xscale=obj_playerparent.direct;
+    blur.image_blend=image_blend;
+    obj_dropdown.blend_star = image_blend;
+};
+if(instance_exists(obj_puller))
+{
+    blur=instance_create(obj_puller.x,obj_puller.y,obj_starman_trail)
+    blur.image_speed = 0;
+    blur.sprite_index=obj_puller.sprite_index;
+    blur.image_index=0;
+    blur.image_xscale=obj_playerparent.direct;
+    blur.image_blend=image_blend;
+    obj_puller.blend_star = image_blend;
+};
+if(instance_exists(obj_doormario))
+{
+    blur=instance_create(obj_doormario.x,obj_doormario.y,obj_starman_trail)
+    blur.image_speed = 0;
+    blur.sprite_index=obj_doormario.sprite_index;
+    blur.image_index=0;
+    blur.image_xscale=obj_doormario.image_xscale;
+    blur.image_blend=image_blend;
+    obj_doormario.blend_star = image_blend;
+};
+if(instance_exists(obj_mario_pipe))
+{
+    blur=instance_create(obj_mario_pipe.x,obj_mario_pipe.y,obj_starman_trail)
+    blur.image_speed = 0;
+    blur.sprite_index=obj_mario_pipe.sprite_index;
+    blur.image_index=0;
+    blur.image_xscale=obj_mario_pipe.image_xscale;
+    blur.image_blend=image_blend;
+    obj_mario_pipe.blend_star = image_blend;
+};
 };
 alarm[3] = 9; //5
 </string>
@@ -229,8 +269,7 @@ with obj_levelmanager
 with obj_playerparent
 {
     isflashing = 0
-    invincible = 1
-    event_user(6)
+    alarm[3] = 5
 }
 //Destroy
 instance_destroy()

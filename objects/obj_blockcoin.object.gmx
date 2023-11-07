@@ -31,13 +31,13 @@
 global.coins++
 
 //Animate
-image_speed = 0.15
+image_speed = 0.175
 
 //Go up
 vspeed = -4
 
 //Gravity
-gravity = 0.125
+gravity = 0.2
 
 //Play a coin sound
 audio_play_sound(snd_coin,0,0)

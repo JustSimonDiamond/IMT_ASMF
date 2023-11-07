@@ -161,9 +161,13 @@ if beaten = 0
             <string>///Enters the level
 
 //If no checkpoint was gotten, just enter normally
-if cpoint = noone
-    room_goto(myroom)
-
+if cpoint = noone {
+    if (instance_number(obj_curtainout) == 0) {
+    
+        with (instance_create(x+8,y+4,obj_curtainout)) 
+            target = other.myroom;
+    }
+}
 //If a checkpoint was reached
 else
 {
@@ -172,8 +176,11 @@ else
     global.checkpoint = cpoint
 
     //Go to the checkpoint room
-    room_goto(global.checkpointroom)
-
+    if (instance_number(obj_curtainout) == 0) {
+    
+        with (instance_create(x+8,y+4,obj_curtainout)) 
+            target = global.chechpointroom;
+    }
 }
 </string>
           </argument>

@@ -98,14 +98,19 @@ alarm[1] = 1
 //If this is a leaf, replace with a real leaf
 if sprite_index = spr_leaf
 {
-    instance_create(xstart,ystart,obj_leaf)
-    exit
+    instance_create(xstart,ystart,obj_leaf_pickup)
 }
 //If this is a tanooki leaf, replace with a real tanooki leaf
-if sprite_index = spr_tanookisuit
+else if sprite_index = spr_tanookisuit
 {
     instance_create(xstart,ystart,obj_tanookisuit)
 }
+else if sprite_index = spr_superbell
+{
+    audio_play_sound(snd_sprout,0,0);
+    with instance_create(xstart,ystart,obj_superbell) vspeed = -5;
+}
+
 //Otherwise
 else
 {

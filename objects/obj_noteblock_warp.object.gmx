@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Hidden Warp Note Block
+            <string>///Warp Note Block
 
 /*
 **  This item uses creation code!
@@ -74,7 +74,8 @@ with obj_playerparent
     {
 
         //Play the spring sound
-        audio_play_sound(snd_spring,0,0)
+        audio_play_sound(snd_noteblock_b,0,0)
+        audio_play_sound(snd_sprout,0,0)
 
         //Create a note block warp Mario, and inherit direction and holding variables
         with instance_create(obj_playerparent.x,obj_playerparent.y,obj_warpnoteblock)
@@ -89,6 +90,10 @@ with obj_playerparent
         //Destroy
         instance_destroy()
 
+    }
+    else
+    {
+        audio_play_sound(snd_noteblock,0,0);
     }
 
 }

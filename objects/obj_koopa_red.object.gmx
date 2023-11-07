@@ -124,7 +124,10 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Turn into a shell
-with instance_create(x-8,y,obj_shell) sprite_index = spr_shell_red
+with instance_create(x-8,y,obj_shell) {
+    sprite_index = spr_shell_red
+    koopainside = true;
+}
 
 //Destroy
 instance_destroy()

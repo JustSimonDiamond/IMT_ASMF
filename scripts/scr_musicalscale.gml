@@ -18,7 +18,7 @@ switch argument0.hitpoint
 
     //200 Points
     case 0:
-        if argument2 audio_play_sound(snd_kick,0,0)
+        if argument2 audio_play_sound(snd_kick1,0,0)
             with scoreobject event_user(2)
         break
 

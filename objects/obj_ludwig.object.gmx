@@ -36,6 +36,12 @@ stomp = 5
 //How many hits before this boss dies
 hitpoints = 3
 
+//Pelota hugu
+hitball = 8
+
+//A este enemigo le hacen daño los proyectiles
+ballscanhurt = true;
+
 //Facing direction
 direct = -1
 
@@ -193,6 +199,9 @@ if ready = 0
 
 //Change sprite
 sprite_index = spr_ludwig_jump
+
+//Colisión con el jugador
+stomp = 2
 
 //Animate
 image_speed = 0.15
@@ -369,7 +378,7 @@ ready = 1
 
 //Become invulnerable
 hardness = 99
-stomp = 2
+stomp = -1
 
 //Jump at Mario
 alarm[0] = 60

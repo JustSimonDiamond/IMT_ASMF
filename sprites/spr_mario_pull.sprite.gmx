@@ -7,7 +7,7 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>4</bbox_left>
+  <bbox_left>1</bbox_left>
   <bbox_right>23</bbox_right>
   <bbox_top>3</bbox_top>
   <bbox_bottom>31</bbox_bottom>
@@ -46,5 +46,33 @@
     <frame index="23">images\spr_mario_pull_23.png</frame>
     <frame index="24">images\spr_mario_pull_24.png</frame>
     <frame index="25">images\spr_mario_pull_25.png</frame>
+    <frame index="26">images\spr_mario_pull_26.png</frame>
+    <frame index="27">images\spr_mario_pull_27.png</frame>
+    <frame index="28">images\spr_mario_pull_28.png</frame>
+    <frame index="29">images\spr_mario_pull_29.png</frame>
+    <frame index="30">images\spr_mario_pull_30.png</frame>
+    <frame index="31">images\spr_mario_pull_31.png</frame>
+    <frame index="32">images\spr_mario_pull_32.png</frame>
+    <frame index="33">images\spr_mario_pull_33.png</frame>
+    <frame index="34">images\spr_mario_pull_34.png</frame>
+    <frame index="35">images\spr_mario_pull_35.png</frame>
+    <frame index="36">images\spr_mario_pull_36.png</frame>
+    <frame index="37">images\spr_mario_pull_37.png</frame>
+    <frame index="38">images\spr_mario_pull_38.png</frame>
+    <frame index="39">images\spr_mario_pull_39.png</frame>
+    <frame index="40">images\spr_mario_pull_40.png</frame>
+    <frame index="41">images\spr_mario_pull_41.png</frame>
+    <frame index="42">images\spr_mario_pull_42.png</frame>
+    <frame index="43">images\spr_mario_pull_43.png</frame>
+    <frame index="44">images\spr_mario_pull_44.png</frame>
+    <frame index="45">images\spr_mario_pull_45.png</frame>
+    <frame index="46">images\spr_mario_pull_46.png</frame>
+    <frame index="47">images\spr_mario_pull_47.png</frame>
+    <frame index="48">images\spr_mario_pull_48.png</frame>
+    <frame index="49">images\spr_mario_pull_49.png</frame>
+    <frame index="50">images\spr_mario_pull_50.png</frame>
+    <frame index="51">images\spr_mario_pull_51.png</frame>
+    <frame index="52">images\spr_mario_pull_52.png</frame>
+    <frame index="53">images\spr_mario_pull_53.png</frame>
   </frames>
 </sprite>

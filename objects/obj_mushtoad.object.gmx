@@ -34,6 +34,16 @@ ready = 0
 
 //Greet Mario
 alarm[0] = 35
+
+//
+if instance_exists(obj_playerparent) {
+    if obj_playerparent.x &lt; x
+        image_xscale = 1
+    else
+        image_xscale = -1
+}
+else
+    image_xscale = 1
 </string>
           </argument>
         </arguments>
@@ -81,7 +91,14 @@ scr_return()
           <argument>
             <kind>1</kind>
             <string>///Greet Mario with a message
-with instance_create(0,0,obj_messagebox) varmsg = "Elige una caja, su contenido te ayudara en el camino"
+with instance_create(0,0,obj_messagebox) {
+    if global.lang = 1 {
+        varmsg = "Elige una caja, su contenido te ayudara en el camino"
+    }
+    else {
+        varmsg = "Select a box, its content will help you in the way"
+    }
+}
 </string>
           </argument>
         </arguments>

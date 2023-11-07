@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-2</depth>
   <persistent>0</persistent>
-  <parentName>obj_physicsparent</parentName>
+  <parentName>obj_projectileparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -76,46 +76,6 @@ if gravity = 0
     vspeed = -2.5
     y--
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_enemyparent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Freeze enemies
-if other.hardness &lt; 2
-{
-    with other
-    {
-        with instance_create(round(x-sprite_xoffset),round(y-sprite_yoffset),obj_enemy_frozen)
-        {
-            sprite_index = other.sprite_index
-            event_user(15)
-        }
-        audio_play_sound(snd_iceball_freeze,0,0)
-        instance_destroy()
-    }
-}
-
-//Get killed
-if other.hardness &lt; 100
-    event_user(0)
 </string>
           </argument>
         </arguments>

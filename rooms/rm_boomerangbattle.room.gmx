@@ -61,7 +61,7 @@
     <instance objName="obj_brick" x="240" y="112" name="inst_731B442A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick" x="288" y="112" name="inst_4B9DB4D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="0" y="176" name="inst_D9CBD770" locked="0" code="" scaleX="24" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelmanager" x="0" y="0" name="inst_EBF53814" locked="0" code="levelmusic = snd_hammerbattle&#xA;disablehud = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelmanager" x="0" y="0" name="inst_EBF53814" locked="0" code="levelmusic = snd_hammerbattle&#xA;hudalpha = 0;&#xA;reservealpha = 0.7;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boomerangbro" x="224" y="80" name="inst_9635E9A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boomerangbro" x="272" y="144" name="inst_B0D4910F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="64" y="144" name="inst_3D64C765" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

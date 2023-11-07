@@ -249,14 +249,14 @@
     <instance objName="obj_solid" x="4144" y="0" name="inst_72F0CBBF" locked="0" code="" scaleX="1" scaleY="25" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="4048" y="384" name="inst_182F25A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_hidden" x="4128" y="336" name="inst_4AA0FC46" locked="0" code="sprout = cs_ice&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="4128" y="320" name="inst_CB374BD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="4128" y="336" name="inst_CB374BD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3904" y="368" name="inst_BE4F2DF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3936" y="368" name="inst_D4A3EB37" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3968" y="368" name="inst_407876FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4000" y="368" name="inst_19935AEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="3984" y="384" name="inst_DAD5E8FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warproom" x="4048" y="384" name="inst_E4B4630C" locked="0" code="myroom = rm_forthello_ludwig&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block" x="4016" y="32" name="inst_7197574B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="4016" y="32" name="inst_7197574B" locked="0" code="sprout = cs_1up&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4112" y="64" name="inst_7983CA82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="4064" y="64" name="inst_9FC3218B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="3920" y="64" name="inst_0A6D68DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -267,6 +267,8 @@
     <instance objName="obj_clock" x="3136" y="336" name="inst_79E4164B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_clock" x="3168" y="336" name="inst_01591AE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_multicoin" x="3200" y="352" name="inst_DF85ED8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock_castle" x="288" y="0" name="inst_4DA0958C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_hidden" x="288" y="256" name="inst_E9691ABB" locked="0" code="sprout = cs_beanstalk&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnewer" x="16" y="336" w="16" h="16" xo="64" yo="384" id="10024164" name="inst_92F8C5EA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

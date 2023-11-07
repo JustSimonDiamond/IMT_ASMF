@@ -38,6 +38,8 @@ image_speed = 0.15
 
 //Start moving
 alarm[0] = 2
+
+canflip = false;
 </string>
           </argument>
         </arguments>

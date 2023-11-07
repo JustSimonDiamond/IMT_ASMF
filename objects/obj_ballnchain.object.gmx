@@ -50,6 +50,8 @@ stomp = 2
 
 //Do not animate
 image_speed = 0
+
+canflip = false;
 </string>
           </argument>
         </arguments>

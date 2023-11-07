@@ -29,6 +29,13 @@
 
 //Animate
 image_speed = 0.15
+
+//0 = Big to small
+//1 = Small to big
+//2 = Powerup
+//3 = Powerdown
+//4 = Transform
+sequence = 2;
 </string>
           </argument>
         </arguments>
@@ -68,16 +75,28 @@ and global.reserveitem = cs_small
 
 //Otherwise, if Mario has a powerup, put that in reserve
 else if global.powerup &gt; cs_big
+{
     global.reserveitem = global.powerup
+}
+if (global.powerup != scr_sprite_get_constant(sprite_index)) {
 
-//Get the new powerup
-global.powerup = scr_sprite_get_constant(sprite_index)
-
-//Create smoke
-instance_create(obj_playerparent.x,obj_playerparent.y+8,obj_statuesmoke)
-
-//Play powerup sound
-audio_play_sound(snd_powerup,0,0)
+    //Give out the correct powerup
+    global.powerup = scr_sprite_get_constant(sprite_index);
+    
+    //Perform animation sequence and play sound
+    with (instance_create(0,0,obj_mario_transform)) {
+    
+        sequence = other.sequence;
+        if (other.sequence != 4)
+            audio_play_sound(snd_powerup, 0, false);
+        else
+            audio_play_sound(snd_transform, 0, false);
+    }
+}
+else
+{
+    audio_play_sound(snd_powerup,0,0);
+}
 
 //Destroy
 instance_destroy()

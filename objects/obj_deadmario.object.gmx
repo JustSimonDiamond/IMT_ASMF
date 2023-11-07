@@ -26,10 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///NOOOOOOOOOOOOOO
-if instance_exists(self)
-{
- event_user(0)
-}
+
 //Use the death sprite
 if global.player = 0
 {
@@ -44,6 +41,10 @@ with obj_levelmanager
 {
     event_user(3)
     alarm[2] = 0
+    cantpause = 1
+    hudalpha = 0
+    timeralpha = 0
+    reservealpha = 0
 }
 
 //Decrement lives
@@ -58,7 +59,7 @@ alarm[0] = 60
 //Play the death song
 audio_play_sound(snd_dead,1,0)
 
-obj_levelmanager.disablehud = 1;
+event_user(0)
 </string>
           </argument>
         </arguments>
@@ -83,11 +84,6 @@ obj_levelmanager.disablehud = 1;
             <kind>1</kind>
             <string>///Return to the world map
 scr_return()
-if instance_exists (obj_toobad)
-    with (obj_toobad)
-        instance_destroy()
-else
-    exit
 </string>
           </argument>
         </arguments>
@@ -151,6 +147,30 @@ if vspeed &gt; 4
     vspeed = 4
     gravity = 0
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Irse al mapa
+scr_return()
 </string>
           </argument>
         </arguments>

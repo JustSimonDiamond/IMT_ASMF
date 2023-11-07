@@ -34,5 +34,6 @@ switch global.powerup
     case cs_karate: return spr_mapmario_karate
     case cs_crown: return spr_mapmario_crown
     case cs_goldtan: return spr_mapmario_leaf
+    case cs_cat: return spr_mapmario_cat
     default: return spr_404
 }

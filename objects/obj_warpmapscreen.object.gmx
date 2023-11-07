@@ -37,6 +37,11 @@
 //Remember the approprite pipetype variable
 global.pipetype = pipetype
 
+//Parar la musiquita de mierda
+if (instance_exists(obj_levelmanager)) {
+    with (obj_levelmanager) event_perform(ev_alarm,1);
+}
+
 //Return to the world map
 scr_return()
 </string>

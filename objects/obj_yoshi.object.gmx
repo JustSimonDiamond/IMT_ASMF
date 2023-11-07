@@ -56,6 +56,8 @@ flying = 0
 //Flying animation
 flyanim = 1
 
+playersprite = scr_marioride()
+
 //If an item was carried over
 if global.carrieditem != noone
 {
@@ -555,6 +557,35 @@ else
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Animación del jugador
+if instance_exists(obj_playerparent)
+{
+    if licking = 1
+        playersprite = 1;
+    else
+        playersprite = 0;
+    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="7" enumb="11">
       <action>
@@ -740,7 +771,7 @@ if instance_exists(obj_playerparent)
     draw_sprite_ext(sprite_index,image_index,round(x),y,obj_playerparent.direct,1,0,c_white,1)
 
     //Draw Mario
-    draw_sprite_ext(scr_marioride(),0,round(x)-5*obj_playerparent.direct,y-9,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
+    draw_sprite_ext(scr_marioride(),playersprite,round(x)-5*obj_playerparent.direct,y-9,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
 
     //Super Star
     if(instance_exists(obj_invincibility)){

@@ -40,6 +40,107 @@ titlepunch = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cambiar Sprite
+switch (titlepunch) {
+
+    //Fuego
+    case(1): {
+        sprite_index = spr_mario_fire_idle;
+    } break;
+    
+    //Hoja
+    case(2): {
+        sprite_index = spr_mario_leaf_idle;
+    } break;
+    
+    //Tanooki
+    case(3): {
+        sprite_index = spr_mario_tanooki_idle;
+    } break;
+    
+    //Boomerang
+    case(4): {
+        sprite_index = spr_mario_boomerang_idle;
+    } break;
+    
+    //Helice
+    case(5): {
+        sprite_index = spr_mario_propeller_idle;
+    } break;
+    
+    //Hielo
+    case(6): {
+        sprite_index = spr_mario_ice_idle;
+    } break;
+    
+    //Super Ball
+    case(7): {
+        sprite_index = spr_mario_super_idle;
+    } break;
+    
+    //Abeja
+    case(8): {
+        sprite_index = spr_mario_bee_idle;
+    } break;
+    
+    //Pingüino
+    case(9): {
+        sprite_index = spr_mario_penguin_idle;
+    } break;
+    
+    //Gato
+    case(10): {
+        sprite_index = spr_mario_cat_idle;
+    } break;
+    
+    //Super Fuego
+    case(11): {
+        sprite_index = spr_mario_pyre_idle;
+    } break;
+    
+    //Martillo
+    case(12): {
+        sprite_index = spr_mario_hammer_idle;
+    } break;
+    
+    //Pequeño
+    case(13): {
+        sprite_index = spr_mario_small_idle
+    } break;
+    
+    //Reiniciar
+    case(14): {
+        titlepunch = 0;
+        sprite_index = spr_mario_balt_idle;
+    } break;
+    
+    //Por defecto
+    default: {
+        sprite_index = spr_mario_big_idle;
+    } break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="32">
       <action>
         <libid>1</libid>
@@ -58,56 +159,16 @@ titlepunch = 0;
           <argument>
             <kind>1</kind>
             <string>///Change skin (Testing)
-
 if disable = 1
 {
  exit;
 }
-
-/*
-if disable = 0
+else
 {
- if global.player = 0
- {
-  global.player = 1
-  sprite_index = scr_titleplayer()
-  audio_play_sound(snd_stomp,0,0)
-  keyboard_clear(vk_space)
- }
- else if global.player = 1
- {
-  global.player = 0
-  sprite_index = scr_titleplayer()
-  audio_play_sound(snd_stomp,0,0)
-  keyboard_clear(vk_space)
- }
+ audio_play_sound(snd_stomp,0,0)
+ titlepunch++;
+ event_user(0);
 }
-*/
-
-if disable = 0
-{
- if titlepunch &gt; 9
- {
-  sprite_index = spr_mario_big_idle
-  audio_play_sound(snd_stomp,0,0)  
-  titlepunch = 0
-  keyboard_clear(vk_space);
-  exit;
- }
- if titlepunch = 9
- {
-  sprite_index = spr_mario_balt_idle
-  audio_play_sound(snd_stomp,0,0)
-  keyboard_clear(vk_space);
-  exit;
- }
- if titlepunch &lt; 9
- {
-  titlepunch += 1
-  keyboard_clear(vk_space);
- }
-}
-
 </string>
           </argument>
         </arguments>

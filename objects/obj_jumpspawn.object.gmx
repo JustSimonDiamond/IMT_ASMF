@@ -74,7 +74,7 @@ if y &lt; ystart
 {
 
     //Create an upward moving Mario
-    with instance_create(x,y,obj_player) vspeed = -6
+    with player_retrieve(x,y) vspeed = -6
 
     //Destroy
     instance_destroy()
@@ -103,32 +103,28 @@ if y &lt; ystart
           <argument>
             <kind>1</kind>
             <string>///Check if Mario is holding or carrying something
-if global.player = 0
-    //If Mario is carrying something, use the carry sprite
-    if global.shallihold = 1
-    {
-    sprite_index = scr_mariocarry()
-    image_index = 2
-    }
 
-    //If Mario is holding something, use the hold sprite
-    else if global.shallihold = 2
-    {
-    sprite_index = scr_mariohold()
+//If Mario is carrying something, use the carry sprite
+if global.shallihold = 1
+{
+    if (global.player) == 0
+        sprite_index = scr_mariocarry();
+    else if (global.player) == 1
+        sprite_index = scr_luigicarry();
     image_index = 2
-    }
+}
 
-else if global.player = 1
-    if global.shallihold = 1
-    {
-    sprite_index = scr_luigicarry()
+//If Mario is holding something, use the hold sprite
+else if global.shallihold = 2
+{
+    if (global.player) == 0
+        sprite_index = scr_mariohold();
+    else if (global.player) == 1
+        sprite_index = scr_luigihold();
+ 
     image_index = 2
-    }
-    else if global.shallihold = 2
-    {
-    sprite_index = scr_luigihold()
-    image_index = 2
-    }
+}
+
 </string>
           </argument>
         </arguments>

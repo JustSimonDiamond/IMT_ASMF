@@ -28,105 +28,17 @@
             <string>///An overpowered simp that fight with turtles and its friendzoned by a prustitute princess
 event_inherited()
 
-global.player = 0
+//Player
+global.player = 0;
 
-blend_star = c_white;
+//Walk Speed
+walkspeed = 1.3;
 
-//Mario's current state
-//0: Stand, 1: Walk, 2: Jump, 3: Climb, 4: Wall Climb/Jump
-state = 0
+//Run Speed
+runspeed = 2.7;
 
-//Mario's direction
-//-1: Left, 1: Right
-direct = 1
-
-//Whether Mario is holding something
-//0: Nothing, 1: Overhead, 2: On Front 3: Can't Hold Stuff
-holding = 0
-
-//Variable jump state
-//0: Can Jump, 1: Variable Jump, 2: No Variable Jump
-jumpnow = 0
-
-//Is Mario skidding?
-skidnow = 0
-
-//Is Mario swimming?
-isswim = 0
-
-//Is Mario ducking?
-isduck = 0
-
-//Is Mario invincible?
-//0: Normal, 1: Invincible, -1: Phase through
-invincible = 0
-
-//Is Mario smacking a net?
-netsmack = 0
-
-//Is Mario kicking something?
-iamkicking = 0
-
-//Is Mario spin jumping?
-stompstyle = 0
-
-//Is Mario on a slippery surface?
-isslip = 0
-
-//Is Mario's controls disabled?
-disablecontrols = 0
-
-//Is carrot/bee Mario floating?
-isfloating = 0
-
-//Is the float sound effect playing?
-floatnow = 0
-
-//How much longer can bee/crown Mario fly/float?
-powerupfly = 0
-
-//Did Mario wall jump?
-walljump = 0
-
-//Did squirrel Mario propel upwards yet?
-squirrelpropel = 0
-
-//Did Mario double jump?
-doublejump = 0
-
-//Is Mario firing a projectile?
-firing = 0
-
-//Is leaf/tanooki Mario wiggling his tail?
-wiggle = 0
-
-//What direction is frog/penguin Mario swimming in?
-swimtype = 0
-
-//Is frog/penguin Mario's swim sound effect looping?
-noisy = 0
-
-//Is Mario flashing?
-isflashing = 0
-
-//How many consecutive stomps has Mario made?
-hitpoint = 0
-
-//State delay variable
-statedelay = 0
-
-//Handles Mario's skid smoke
-alarm[5] = 8
-
-//Handles Mario's underwater bubbles
-alarm[9] = 24 + random(96)
-
-//Did Mario carry something over from another room?
-if global.shallihold &gt; 0
-{
-    holding = global.shallihold
-    global.shallihold = 0
-}
+//Maxium Run Speed
+fullrunspeed = 3.5;
 </string>
           </argument>
         </arguments>
@@ -149,7 +61,7 @@ if global.shallihold &gt; 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Handles powerup specific projectiles, tail spinning, and statue morphing
+            <string>///Handles powerup specific projectiles, cat scratching, tail spinning, and statue morphing
 if disablecontrols = 0
 and holding = 0
 and stompstyle = 0
@@ -160,6 +72,21 @@ and stompstyle = 0
     and not instance_exists(obj_spinner)
     and keyboard_check(vk_down)
         instance_create(x,y,obj_statue)
+        
+    //Cat
+    else if (global.powerup == cs_cat)
+    &amp;&amp; (keyboard_check(vk_down))
+    &amp;&amp; (global.yoshi == 0)
+    &amp;&amp; (state == 2)
+    &amp;&amp; (vspeed &gt; 0)
+    &amp;&amp; (instance_number(obj_spinner) == 0)
+    &amp;&amp; (instance_number(obj_dropdown) &lt; 1) {
+    
+        //Create drop down
+        with (instance_create(x,y,obj_dropdown))
+            image_xscale = 1*sign(other.direct);
+    }
+
 
     //If Mario is not ducking
     else if isduck = 0
@@ -182,7 +109,7 @@ and stompstyle = 0
         }
 
         //Tail Spin
-        else if (global.powerup = cs_leaf or global.powerup = cs_tanooki or global.powerup = cs_goldtan)
+        else if (global.powerup = cs_leaf or global.powerup = cs_tanooki or global.powerup = cs_goldtan or global.powerup = cs_cat)
         and not instance_exists(obj_spinner)
             instance_create(x,y,obj_spinner)
 
@@ -361,30 +288,6 @@ alarm[8] = 10
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Reset holding variable
-holding = 0
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -413,7 +316,8 @@ if isduck = 0
 {
 
     //Select Mask
-    if global.powerup = cs_small
+    if (global.powerup = cs_small)
+    || (global.powerup = cs_crown)
         mask_index = spr_smallmask
     else
         mask_index = spr_bigmask
@@ -428,6 +332,7 @@ if isduck = 0
     or global.powerup = cs_penguin
     or global.powerup = cs_boomerang
     or global.powerup = cs_pyre
+    or global.powerup = cs_eyes
     {
         if firing &gt; 0
             firing--
@@ -436,19 +341,13 @@ if isduck = 0
         firing = 0
 
     //Tail Wiggling
-    if global.powerup = cs_leaf
+    if (global.powerup = cs_leaf
     or global.powerup = cs_tanooki
-    or global.powerup = cs_goldtan
+    or global.powerup = cs_goldtan)
     {
         if state = 2
         and stompstyle = 0
         {
-            if global.powerup = cs_leaf
-                sprite_index = spr_mario_leaf_fall;
-            else if global.powerup = cs_tanooki
-                sprite_index = spr_mario_tanooki_fall;
-            else if global.powerup = cs_goldtan
-                sprite_index = spr_mario_goldtan_fall;
             if wiggle &gt; 1
                 wiggle--
             if wiggle &gt; 12
@@ -503,7 +402,7 @@ if isduck = 0
         {
 
             //Animate based on horizontal speed
-            image_speed = abs(hspeed/7.5)
+            image_speed = abs(hspeed/6)
 
             //Frog Mario only walks
             if global.powerup = cs_frog
@@ -526,7 +425,7 @@ if isduck = 0
             {
 
                 //Run only when P-Meter is full
-                if obj_levelmanager.pmeter &lt; 6
+                if global.pmeter &lt; 6
                     sprite_index = scr_mariowalk()
                 else
                     sprite_index = scr_mariorun()
@@ -622,7 +521,7 @@ if isduck = 0
                 }
                 //Squirrel Mario floating
                 if global.powerup = cs_squirrel
-                and (squirrelpropel = 1 or (vspeed &gt; 0 and keyboard_check(vk_shift)))
+                and (squirrelpropel = 1 or (vspeed &gt; 0 and (keyboard_check(vk_shift))))
                 {
                     sprite_index = spr_mario_squirrel_float
                     if vspeed &lt; 0
@@ -648,29 +547,62 @@ if isduck = 0
                 else if global.powerup = cs_crown
                 and vspeed &gt;= 0
                 {
-                    image_speed = 0.15
                     if vspeed &gt; 0
-                        sprite_index = spr_mario_crown_fall
+                    {
+                        sprite_index = spr_px_peach_jump
+                        image_index = 0
+                    }
                     else
-                        sprite_index = spr_mario_crown_float
+                    {
+                        sprite_index = spr_px_peach_jump
+                        image_index = 1
+                    }
                 }
 
                 //Run only when P-Meter is full
-                else if obj_levelmanager.pmeter &lt; 6
+                else if global.pmeter &lt; 6
                 {
                     sprite_index = scr_mariojump()
                     if vspeed &gt; 0
-                        image_index = 1
+                    { 
+                        if (global.powerup = cs_leaf
+                        or global.powerup = cs_tanooki
+                        or global.powerup = cs_goldtan)
+                            image_index = 1+(wiggle/4)
+                        else
+                            image_index = 1
+                    }
                     else
-                        image_index = 0
+                    {
+                        if (global.powerup = cs_leaf
+                        or global.powerup = cs_tanooki
+                        or global.powerup = cs_goldtan)
+                            image_index = 0+(wiggle/4)
+                        else
+                            image_index = 0
+                    }
                 }
                 else
                 {
                     sprite_index = scr_mariorunjump()
                     if vspeed &gt; 0
-                        image_index = 1
+                    {
+                        if (global.powerup = cs_leaf 
+                        or global.powerup = cs_tanooki 
+                        or global.powerup = cs_goldtan)
+                            image_index = 0+(wiggle/4)
+                        else
+                            image_index = 1
+                    }
                     else
-                        image_index = 0
+                    {
+                        if (global.powerup = cs_leaf 
+                        or global.powerup = cs_tanooki 
+                        or global.powerup = cs_goldtan)
+                            image_index = 0+(wiggle/4)
+                        else
+                            image_index = 0
+                    }
                 }
 
             }
@@ -711,7 +643,7 @@ if isduck = 0
 
         //Walking State
         if state = 1
-            image_speed = abs(hspeed/7.5)
+            image_speed = abs(hspeed/6)
 
         //Jumping State
         if state = 2
@@ -719,8 +651,14 @@ if isduck = 0
             image_speed = 0
             if global.powerup = cs_small
                 image_index = 2
-            else
-                image_index = 3
+            else {
+                if ((global.powerup == cs_leaf)
+                || (global.powerup == cs_tanooki)
+                || (global.powerup == cs_goldtan)) 
+                    image_index = 0+(wiggle/4);
+                else
+                    image_index = 3
+            }
         }
 
         //Carrying an item above his head
@@ -729,7 +667,16 @@ if isduck = 0
 
         //Holding an item on front of him
         else if holding = 2
-            sprite_index = scr_mariohold()
+            {
+                //Usar el sprite de salto si se tienen los siguientes Powerups
+                if ((state == 2)
+                &amp;&amp; ((global.powerup == cs_leaf)
+                || (global.powerup == cs_tanooki)
+                || (global.powerup == cs_goldtan)))
+                    sprite_index = scr_mariohold2();
+                else
+                    sprite_index = scr_mariohold();
+            }
 
     }
 
@@ -762,7 +709,7 @@ if isduck = 0
         {
             sprite_index = scr_mariowalljump()
             if skidnow = 0
-            //and global.powerup != cs_squirrel
+            and global.powerup != cs_squirrel
             {
                 skidnow = 1
             }
@@ -785,7 +732,36 @@ else if isduck = 1
 
     //Default Ducking
     sprite_index = scr_marioduck()
-
+    
+    //No animar
+    image_speed = 0
+    
+    //Si se tienen estos poderes
+    if ((global.powerup = cs_leaf) 
+    || (global.powerup = cs_tanooki)
+    || (global.powerup = cs_goldtan)) {
+    
+        //Establecer el frame correcto
+        if (holding = 0)
+            image_index = 0+(wiggle/4);
+        else if (holding == 2)
+            image_index = 5+(wiggle/4);
+        else
+            image_index = 4
+        
+    }
+    else {
+        //Establecer el frame correcto
+        if (holding = 0)
+            image_index = 0;
+        else {
+    
+            if (holding == 2)
+                image_index = 2;
+            else
+                image_index = 1;
+        }
+    }
 }
 
 //Stop the skid sound effect

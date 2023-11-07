@@ -59,6 +59,7 @@
     <instance objName="obj_koopa_red" x="304" y="160" name="inst_B25F032E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidtop" x="256" y="176" name="inst_5962597E" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_titlemario" x="80" y="160" name="inst_2AA98D6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_logo" x="190" y="52" name="inst_413E9272" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnewer" x="16" y="176" w="16" h="16" xo="64" yo="400" id="10024143" name="inst_AD8C8313" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -121,7 +122,6 @@
     <tile bgName="bg_tilesetnew" x="288" y="208" w="16" h="16" xo="528" yo="16" id="10027147" name="inst_E1A1AFB9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="272" y="208" w="16" h="16" xo="528" yo="16" id="10027148" name="inst_E985AE2F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="256" y="208" w="16" h="16" xo="528" yo="16" id="10027149" name="inst_7B4CFD1C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_title" x="12" y="0" w="360" h="128" xo="0" yo="0" id="10017128" name="inst_42CEEDDD" depth="8" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

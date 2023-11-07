@@ -52,21 +52,11 @@ image_speed = 0.15
           <argument>
             <kind>1</kind>
             <string>///Collect the clock
-if global.timer &gt; 0
-{
- global.timer = 10
- audio_play_sound(snd_collect,0,0)
- with instance_create(x,y,obj_score_hidden_new) event_user(1)
- instance_create(x+8,y-8,obj_sparkletrail)
- instance_destroy()
-}
-else
-{
- audio_play_sound(snd_collect,0,0)
- with instance_create(x,y,obj_score_hidden_new) event_user(1)
- instance_create(x+8,y-8,obj_sparkletrail)
- instance_destroy()
-}
+global.timer = 10
+audio_play_sound(snd_collect,0,0)
+with instance_create(x,y,obj_score_hidden_new) event_user(1)
+instance_create(x+8,y-8,obj_sparkletrail)
+instance_destroy()
 </string>
           </argument>
         </arguments>

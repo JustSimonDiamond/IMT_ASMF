@@ -41,6 +41,8 @@ timeout = 600;
 
 //Whether the propeller suit is done flying
 ready = 0;
+
+sequence = 4;
 </string>
           </argument>
         </arguments>

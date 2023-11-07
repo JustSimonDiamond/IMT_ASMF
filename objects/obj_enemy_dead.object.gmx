@@ -31,13 +31,23 @@
 gravity = 0.2
 
 //Move up
-vspeed = -6
+vspeed = -4
 
 //Do not animate
 image_speed = 0
 
 //Flip sprite
 image_yscale = -1
+
+//Puede girar
+canflip = false
+
+//Moverse dependiendo de dónde esté el jugador
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x+8
+    hspeed = 1;
+else
+    hspeed = -1;
 </string>
           </argument>
         </arguments>
@@ -65,6 +75,10 @@ image_yscale = -1
 //Cap fall speed
 if vspeed &gt; 4
     vspeed = 4
+
+if canflip = true {
+    image_angle -= (16*sign(hspeed));
+}
 
 //Destroy outside room
 if bbox_top &gt; room_height

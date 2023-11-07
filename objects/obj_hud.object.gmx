@@ -91,11 +91,11 @@ alarm[5] = 7
 
 //Copiar todo el tiempo los valores del levelmanager
 if (instance_exists(obj_levelmanager)) {
-    a = obj_levelmanager;
-    hudalpha = a.hudalpha;
-    timeralpha = a.timeralpha;
-    reservealpha = a.reservealpha;
-    anim = a.anim;
+    myobj = obj_levelmanager;
+    hudalpha = myobj.hudalpha;
+    timeralpha = myobj.timeralpha;
+    reservealpha = myobj.reservealpha;
+    anim = myobj.anim;
 }
 </string>
           </argument>

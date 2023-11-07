@@ -16,7 +16,10 @@ switch global.powerup
     case cs_tanooki: return spr_mario_tanooki_dead
     case cs_boomerang: return spr_mario_boomerang_dead
     case cs_propeller: return spr_mario_propeller_dead
+    case cs_penguin: return spr_mario_penguin_dead
     case cs_ice: return spr_mario_ice_dead
+    case cs_bee: return spr_mario_bee_dead
     case cs_super: return spr_mario_super_dead
     case cs_goldtan: return spr_mario_goldtan_dead
+    case cs_cat: return spr_mario_cat_dead
 }

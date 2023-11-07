@@ -68,6 +68,7 @@ with instance_create(x-8,y-2,obj_shell)
 {
     vspeed = -3
     sprite_index = spr_shell_down
+    koopainside = true;
 }
 
 //Destroy
@@ -95,7 +96,7 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Turn into a shell
-instance_create(x-8,y,obj_shell)
+with (instance_create(x-8,y,obj_shell)) koopainside = true;
 
 //Destroy
 instance_destroy()
@@ -122,8 +123,9 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Koopa killing
-with instance_create(round(x-8),round(y+16),obj_enemy_dead) sprite_index = spr_shell
-
+with instance_create(round(x-8),round(y+16),obj_enemy_dead) {
+    sprite_index = spr_shell
+}
 //Destroy
 instance_destroy()
 </string>

@@ -125,7 +125,7 @@
     <instance objName="obj_solid" x="16" y="0" name="inst_75F525B5" locked="0" code="" scaleX="31" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="480" y="16" name="inst_16A744FC" locked="0" code="" scaleX="1" scaleY="31" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="16" y="496" name="inst_9E1BE881" locked="0" code="" scaleX="29" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelpanel" x="432" y="48" name="inst_537C5D46" locked="0" code="levelname = &quot;Nieve Abundante&quot;&#xA;myroom = rm_w3lvl1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelpanel" x="432" y="48" name="inst_537C5D46" locked="0" code="levelname = &quot;Abundancia Nevada&quot;&#xA;myroom = rm_w3lvl1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_saver" x="432" y="48" name="inst_908B2244" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

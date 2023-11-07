@@ -75,6 +75,7 @@
     <instance objName="obj_player" x="80" y="368" name="inst_DFFADBE7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
+    <tile bgName="bg_tilesetnewer" x="416" y="336" w="32" h="32" xo="368" yo="736" id="10047093" name="inst_11F16AA2" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tileset" x="0" y="0" w="16" h="16" xo="832" yo="112" id="10000397" name="inst_781055CA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewer" x="16" y="368" w="16" h="16" xo="64" yo="384" id="10024164" name="inst_92F8C5EA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnewer" x="32" y="368" w="16" h="16" xo="80" yo="384" id="10024165" name="inst_51FAF446" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -145,10 +146,6 @@
     <tile bgName="bg_tilesetnew" x="400" y="400" w="16" h="16" xo="144" yo="192" id="10029835" name="inst_5FC90969" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="416" y="400" w="16" h="16" xo="144" yo="192" id="10029836" name="inst_F057C673" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="432" y="400" w="16" h="16" xo="144" yo="192" id="10029837" name="inst_246444E5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="416" y="336" w="16" h="16" xo="368" yo="736" id="10029865" name="inst_B64124C5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="432" y="336" w="16" h="16" xo="384" yo="736" id="10029866" name="inst_5E1CE20E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="416" y="352" w="16" h="16" xo="368" yo="752" id="10029867" name="inst_0D77A9FE" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_tilesetnewer" x="432" y="352" w="16" h="16" xo="384" yo="752" id="10029868" name="inst_7B30F33F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="448" y="400" w="16" h="16" xo="144" yo="192" id="10031416" name="inst_BDB03B92" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="464" y="400" w="16" h="16" xo="144" yo="192" id="10031417" name="inst_D032FCFB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_tilesetnew" x="480" y="400" w="16" h="16" xo="144" yo="192" id="10031418" name="inst_1AD256F0" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -7,7 +7,7 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>4</bbox_left>
+  <bbox_left>5</bbox_left>
   <bbox_right>26</bbox_right>
   <bbox_top>1</bbox_top>
   <bbox_bottom>31</bbox_bottom>
@@ -27,5 +27,10 @@
     <frame index="4">images\spr_mario_penguin_run_4.png</frame>
     <frame index="5">images\spr_mario_penguin_run_5.png</frame>
     <frame index="6">images\spr_mario_penguin_run_6.png</frame>
+    <frame index="7">images\spr_mario_penguin_run_7.png</frame>
+    <frame index="8">images\spr_mario_penguin_run_8.png</frame>
+    <frame index="9">images\spr_mario_penguin_run_9.png</frame>
+    <frame index="10">images\spr_mario_penguin_run_10.png</frame>
+    <frame index="11">images\spr_mario_penguin_run_11.png</frame>
   </frames>
 </sprite>

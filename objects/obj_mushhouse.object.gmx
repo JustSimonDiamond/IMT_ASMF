@@ -74,7 +74,12 @@ else
     ready = 0
 
 //Name to display
-levelname = "casa toad"
+if global.lang = 1 {
+    levelname = "casa toad"
+}
+else {
+    levelname = "toad house"
+}
 </string>
           </argument>
         </arguments>
@@ -106,7 +111,8 @@ global.prize = powerup
 global.mariostart = 1
 
 //Visit the mushroom house
-room_goto(rm_mushroomhouse)
+if (instance_number(obj_fadein) == 0)
+    with (instance_create(0,0,obj_fadein)) target = rm_mushroomhouse;
 </string>
           </argument>
         </arguments>

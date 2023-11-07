@@ -31,8 +31,12 @@
 image_speed = 0.15
 
 //Name to display
-levelname = "inicio"
-
+if global.lang = 1 {
+    levelname = "inicio"
+}
+else {
+    levelname = "start"
+}
 //You can't enter here!
 ready = 1
 </string>

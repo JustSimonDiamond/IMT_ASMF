@@ -3,7 +3,7 @@
   <spriteName>spr_titlescreen</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-11</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -40,9 +40,17 @@ alarm[0] = 120
 alarm[1] = 2
 
 //Menu text
-menu[0] = "Jugar"
-menu[1] = "Ajustes"
-menu[2] = "Salir"
+if global.lang = 1 {
+    menu[0] = "Jugar"
+    menu[1] = "Ajustes"
+    menu[2] = "Salir"
+}
+else {
+    menu[0] = "Play"
+    menu[1] = "Settings"
+    menu[2] = "Exit"
+}
+
 </string>
           </argument>
         </arguments>
@@ -100,6 +108,31 @@ if fade != 0
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Crear el efecto culero
+if (instance_number(obj_fadeout) == 0)
+    instance_create(0,0,obj_fadeout)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -120,7 +153,7 @@ if fade != 0
             <string>///Draw the title screen
 
 //Draw the box
-draw_sprite_ext(spr_titlescreen,1,x,y,1,1,0,c_white,0.7)
+draw_sprite_ext(spr_titlescreen,-1,x,y,1,1,0,c_white,0.7)
 
 //Set the font
 draw_set_font(global.font)
@@ -140,7 +173,7 @@ if fade != 0
     **  use of the "Hello Mario Engine" somewhere
     **  else. Thank you. -Hello Fangaming
     */
-    draw_text(2,2,"IMT ASMF 0.4.0.6 ALPHA 1")
+    draw_text(2,2,"IMT ASMF 0.4.0.9 RELEASE")
 
 }
 
@@ -255,7 +288,8 @@ if menu_choice = 0
 {
     audio_stop_sound(snd_titlemusic)
     audio_play_sound(snd_correct,0,0)
-    room_goto(rm_saves)
+    if (instance_number(obj_fadein) == 0)
+        with (instance_create(0,0,obj_fadein)) target = rm_saves;
 }
 else if menu_choice = 1
 {
@@ -263,7 +297,7 @@ else if menu_choice = 1
 }
 else if menu_choice = 2
 {
-    game_end()
+    instance_create(0,0,obj_wannago)
 }
 </string>
           </argument>

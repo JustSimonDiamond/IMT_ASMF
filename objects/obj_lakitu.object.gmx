@@ -60,6 +60,8 @@ offsetnext = 0
 
 //Manage offset values
 alarm[1] = 10
+
+canflip = false;
 </string>
           </argument>
         </arguments>

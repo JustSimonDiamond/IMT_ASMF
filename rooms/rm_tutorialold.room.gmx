@@ -96,7 +96,7 @@
     <instance objName="obj_coin" x="496" y="320" name="inst_143416CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="512" y="304" name="inst_B4F578F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="432" y="352" name="inst_6561E4D9" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_messageblock" x="240" y="320" name="inst_5E599008" locked="0" code="varmsg = &quot;Hola! Bienvenido a It's Mario Time, un fangame de Super Mario. Esta es una version publica en desarrollo, si encuentras algun bug tanto minimo como letal puedes reportarlo en nuestro servidor de Discord, [Hekima]. Espero que disfrutes esta version&#xA;-Simon Diamond&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_messageblock" x="240" y="320" name="inst_5E599008" locked="0" code="if global.lang = 1 {&#xA;    varmsg = &quot;Mano, un webo de este tamano&quot;&#xA;}&#xA;else {&#xA;    varmsg = &quot;Ligma, ligma ballz&quot;&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_acecoin" x="1776" y="272" name="inst_AFDA8E10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_acecoin" x="1536" y="336" name="inst_C63B8623" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goombrat" x="1072" y="368" name="inst_5C0FBF04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

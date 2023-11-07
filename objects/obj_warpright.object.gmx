@@ -5,10 +5,10 @@
   <visible>0</visible>
   <depth>-2</depth>
   <persistent>0</persistent>
-  <parentName>obj_deactivation</parentName>
+  <parentName>obj_warpparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="5" enumb="37">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -27,17 +27,16 @@
             <kind>1</kind>
             <string>///Warp from the right
 if place_meeting(x+2,y,obj_playerparent)
+&amp;&amp; keyboard_check(vk_left)
 {
-
     //Play a warp sound
     audio_play_sound(snd_warp,0,0)
 
-    //Create a leftwards moving warp Mario
-    with instance_create(x+32,y,obj_warpmario) direction = 180
+    //Create a rightwards moving warp Mario
+    with instance_create(x+16,y,obj_warpmario) direction = 180
 
     //Destroy Mario
     with obj_playerparent instance_destroy()
-
 }
 </string>
           </argument>

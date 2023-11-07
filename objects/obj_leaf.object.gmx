@@ -25,24 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Leaf that came out from a block
+            <string>///Leaf
 
 //Do not animate
 image_speed = 0;
-image_index = 1;
+image_index = 0;
 
-//Set the vertical speed
-vspeed = -2.5;
-gravity = 0.0825;
-
-//Action
-action = "sprout";
+sequence = 4;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="4" ename="obj_blockparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -59,161 +54,11 @@ action = "sprout";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make it fall instantly.
-
-//Set the new action.
-action = "nright";
-alarm[0] = 5;
-
-//Set the depth
-depth = -1;
-    
-//Set the vertical speed.
-vspeed = 0;
-gravity = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Set the new action for the leaf.
-
-//If the leaf is about to float to the right.
-if (action == "nright") {
-
-    //Set the vertical speed.
-    hspeed = 0.5;
-    
-    //Set the new action.
-    action = "right";
-}
-
-//Otherwise, if the leaf is about to float to the left.
-else {
-
-    //Set the vertical speed.
-    hspeed = -0.5;
-    
-    //Sets a new action.
-    action = "left";
-}
-
-//Set the vertical speed.
-vspeed = 1.75;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Leaf logic
-
-//If the leaf is sprouting out from the block.
-if ((action = "sprout") &amp;&amp; (y &lt; ystart-36)) {
-
-    //Set the new action.
-    action = "nright";
-    alarm[0] = 5;
-    
-    //Set the depth
-    depth = -2;
-        
-    //Set the vertical speed.
-    vspeed = 0;
-    gravity = 0;
-}
-
-//Otherwise, if the leaf is floating to the right.
-else if (action = "right") {
-
-    //Set the frame.
-    image_index = 1;
-    
-    //Change direction
-    if (x &gt; xstart+16) {
-    
-        hspeed -= 0.0625;
-        vspeed -= 0.06;
-    }
-    else {
-    
-        hspeed += 0.06;
-        vspeed -= 0.08;
-    }
-    
-    //Set the new action
-    if (x &gt; xstart+32) {
-    
-        //Set the new action.
-        action = "nleft";
-        alarm[0] = 5;
-        
-        //Set the horizontal speed.
-        hspeed = 0;
-    }
-}
-
-//Otherwise, if the leaf is floating to the left.
-else if (action = "left") {
-
-    //Set the frame.
-    image_index = 2;
-    
-    //Change direction
-    if (x &lt; xstart+16) {
-    
-        hspeed += 0.0625;
-        vspeed -= 0.06;
-    }
-    else {
-    
-        hspeed -= 0.06;
-        vspeed -= 0.08;
-    }
-    
-    //Set the new action
-    if (x &lt; xstart) {
-    
-        //Set the new action.
-        action = "nright";
-        alarm[0] = 5;
-        
-        //Set the horizontal speed.
-        hspeed = 0;
-    }
+            <string>///Bumped by a block
+if (other.vspeed &lt; 0)
+{
+    instance_create(x,y,obj_leaf_pickup);
+    instance_destroy();
 }
 </string>
           </argument>

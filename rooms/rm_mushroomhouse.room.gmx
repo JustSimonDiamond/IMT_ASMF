@@ -32,8 +32,8 @@
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bg_toadhouse" x="0" y="-150" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="-1" foreground="0" name="fg_toadhouse" x="-25" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
-    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -55,9 +55,9 @@
     <instance objName="obj_chest" x="176" y="144" name="inst_5198A7D1" locked="0" code="type = 0&#xA;if global.prize[0] = -1&#xA;    instance_destroy()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chest" x="224" y="144" name="inst_0F6574FF" locked="0" code="type = 2&#xA;if global.prize[2] = -1&#xA;    instance_destroy()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mushtoad" x="320" y="144" name="inst_23AA0A2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelmanager" x="0" y="0" name="inst_EB12CABE" locked="0" code="levelmusic = snd_mush_house&#xA;disablehud = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solidtop" x="0" y="176" name="inst_3A203CB8" locked="0" code="" scaleX="24" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelmanager" x="0" y="0" name="inst_EB12CABE" locked="0" code="levelmusic = snd_mush_house&#xA;hudalpha = 0;&#xA;reservealpha = 0.7;&#xA;timeralpha = 0&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="64" y="144" name="inst_83F2BF51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="176" name="inst_A5A1104A" locked="0" code="" scaleX="24" scaleY="3" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnewest" x="0" y="176" w="16" h="16" xo="592" yo="384" id="10033061" name="inst_F80E093D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

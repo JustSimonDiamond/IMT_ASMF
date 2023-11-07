@@ -36,6 +36,8 @@ stomp = 0
 //Facing direction
 direct = -1
 
+canflip = true;
+
 //Start walking towards Mario
 alarm[10] = 2
 
@@ -91,7 +93,7 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>///Draw Goomba
-draw_sprite_ext(sprite_index,image_index,round(x),y,direct,1,0,c_white,1)
+draw_sprite_ext(sprite_index,image_index,round(x),round(y)+9,direct,1,0,c_white,1)
 </string>
           </argument>
         </arguments>

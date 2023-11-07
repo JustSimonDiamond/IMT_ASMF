@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Mario entering a door
 
+//Efecto estrella
 blend_star = c_white;
 
 //Use the warp sprite
@@ -50,7 +51,12 @@ myitem = noone
 //Whether the held item is offset
 offset = 0
 
-blend_star = c_white
+//Esta mierda ay como la odio
+if (instance_exists(obj_levelmanager)) {
+    myobj = obj_levelmanager
+    if (myobj.switchon) &gt; 0
+        global.pswitch = myobj.alarm[10]
+}
 </string>
           </argument>
         </arguments>

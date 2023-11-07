@@ -34,7 +34,7 @@ instance_create(x,y,obj_slope_sr)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_mario">
+    <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -62,12 +62,12 @@ and other.disablecontrols = 0
 {
 
     //If Mario is running right and there is a solid wall there, wall run up
-    if other.hspeed &gt; 2.9
+    if other.hspeed &gt; other.runspeed-0.1
     and position_meeting(x+24,y-8,obj_solid)
         instance_create(x,y-32,obj_wallrunner)
 
     //Otherwise, if Mario is runnung left and there is a downward wall there and no floor, run down
-    else if other.hspeed &lt; -2.9
+    else if other.hspeed &lt; other.runspeed-0.1
     and position_meeting(x+8,y+24,obj_solid)
     and not position_meeting(x-8,y+24,obj_solidtop)
         with instance_create(x-16,y+16,obj_wallrunner)

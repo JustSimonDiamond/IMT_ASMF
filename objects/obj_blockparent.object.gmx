@@ -55,7 +55,8 @@ mysolid = instance_create(x,y,obj_solid)
           <argument>
             <kind>1</kind>
             <string>///Destroy the solid
-with mysolid instance_destroy()
+if (instance_exists(mysolid))
+    with (mysolid) instance_destroy();
 </string>
           </argument>
         </arguments>

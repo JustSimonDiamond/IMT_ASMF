@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Too Bad! - Descer
+            <string>///Objeto robado de UniMaker 
 x = 187;
 if instance_exists(obj_deadfall)
 {

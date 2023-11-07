@@ -135,7 +135,8 @@ if visible = 1
     if place_meeting(x,y,obj_playerparent)
     {
         
-        room_goto(rm_castlefinal1)
+        if (instance_number(obj_fadein) == 0)
+            with (instance_create(0,0,obj_fadein)) target = rm_castlefinal1;
         
         /*Dissapear
         visible = 0

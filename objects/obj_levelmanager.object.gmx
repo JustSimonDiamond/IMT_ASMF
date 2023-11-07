@@ -65,16 +65,28 @@ alarm[6] = 3
 //P-Switch is off
 switchon = 0
 
-//P-Meter state
-pmeter = 0
+pmeter = global.pmeter
 
 //P-Meter slowdown
 slowdown = 0
 
-disablehud = 0;
+//Can the player pause the game?
+cantpause = 0;
+
+//The general HUD's alpha
+hudalpha = 0.7;
+
+//The HUD's timer alpha
+timeralpha = hudalpha;
+
+//The HUD's reserve item alpha
+reservealpha = hudalpha;
 
 //Enable P-Meter
 alarm[7] = 15
+
+//Create the HUD
+instance_create(0,0,obj_hud)
 </string>
           </argument>
         </arguments>
@@ -200,7 +212,7 @@ if switchon = 1
 
 //If Mario is no longer fast enough, and on the ground
 if instance_exists(obj_playerparent)
-and abs(obj_playerparent.hspeed) &lt;= 2.8
+and abs(obj_playerparent.hspeed) &lt;= obj_playerparent.runspeed-0.2
 and obj_playerparent.state &lt; 2
 {
 
@@ -208,7 +220,7 @@ and obj_playerparent.state &lt; 2
     audio_stop_sound(snd_pmeter)
 
     //Make the P-Meter not maxed out
-    pmeter = 5
+    global.pmeter = 5
 
     //Continue the P-Meter loop
     alarm[7] = 15
@@ -216,14 +228,14 @@ and obj_playerparent.state &lt; 2
 }
 
 //Otherwise, if the P-Meter is still maxed out
-else if pmeter &gt; 5
+else if global.pmeter &gt; 5
 {
 
     //Flash between frames 6 and 7
-    if pmeter = 6
-        pmeter = 7
+    if global.pmeter = 6
+        global.pmeter = 7
     else
-        pmeter = 6
+        global.pmeter = 6
 
     //Continue flashing
     alarm[9] = 7
@@ -252,12 +264,12 @@ else if pmeter &gt; 5
           <argument>
             <kind>1</kind>
             <string>///End the P-Meter flight time
-if pmeter &gt; 5
+if global.pmeter &gt; 5
 {
 
     //If Mario is still running, keep the meter on
     if instance_exists(obj_playerparent)
-    and abs(obj_playerparent.hspeed) &gt; 2.8
+    and abs(obj_playerparent.hspeed) &gt; obj_playerparent.runspeed-0.2
     and obj_playerparent.state &lt; 2
         alarm[8] = 100
 
@@ -269,7 +281,7 @@ if pmeter &gt; 5
         audio_stop_sound(snd_pmeter)
 
         //Make the P-Meter not maxed out
-        pmeter = 5
+        global.pmeter = 5
 
         //Continue the P-Meter loop
         alarm[7] = 15
@@ -306,20 +318,20 @@ if instance_exists(obj_playerparent)
 {
 
     //If Mario is running fast enough
-    if abs(obj_playerparent.hspeed) &gt; 2.8
+    if abs(obj_playerparent.hspeed) &gt; obj_playerparent.runspeed-0.2
     and obj_playerparent.state = 1
     {
 
         //Increment the P-Meter if it is not maxed out
-        if pmeter &lt; 6
-            pmeter++
+        if global.pmeter &lt; 6
+            global.pmeter++
 
     }
 
     //If Mario is too slow, or not running, and the P-Meter is not too low, decrement slowly
-    else if pmeter &gt; 0
+    else if global.pmeter &gt; 0
     and slowdown = 2
-        pmeter--
+        global.pmeter--
 
     //Slow down decrements
     slowdown++
@@ -331,11 +343,11 @@ if instance_exists(obj_playerparent)
 }
 
 //Otherwise, decrement the P-Meter
-else if pmeter &gt; 0
-    pmeter--
+else if global.pmeter &gt; 0
+    global.pmeter--
 
 //If the P-Meter is maxed out
-if pmeter = 6
+if global.pmeter = 6
 {
 
     //Play that annoying sound
@@ -576,7 +588,7 @@ audio_stop_sound(levelmusic)
             <kind>1</kind>
             <string>///Loop the music
 if not audio_is_playing(levelmusic)
-and musicdisabled = 0
+if musicdisabled = 0
 and switchon = 0
 {
 
@@ -627,13 +639,24 @@ else if instance_exists(obj_playerparent)
     y = obj_playerparent.y+16
 }
 
+//Follow Pipe Mario if he exists
+else if instance_exists(obj_mario_pipe)
+{
+    x = obj_mario_pipe.x
+    y = obj_mario_pipe.y+16
+}
+
 //Follow goal Mario if he exists
 else if instance_exists(obj_goalmario)
 {
     x = obj_goalmario.x
     y = obj_goalmario.y+16
 }
-
+else if instance_exists(obj_playerparent_clear)
+{
+    x = obj_playerparent_clear.x
+    y = obj_playerparent_clear.y+16
+}
 //Follow warp Mario if he exists
 else if instance_exists(obj_warpmario)
 {
@@ -666,6 +689,9 @@ y = round(y)
 
 //Horizontal parallax scrolling for layer 0 backgrounds
 background_x[0] = view_xview[0]/2
+
+//Horizontal parallax scrolling for layer 1 backgrounds
+background_x[1] = view_xview[0]/3
 
 //Vertical parallax scrolling for layer 0 backgrounds if needed
 if background_height[0] &lt; room_height
@@ -741,6 +767,11 @@ if global.coins &gt; 99
         with instance_create(x-8,y,obj_score_new) event_user(9)
 
 }
+
+//AAAAAAAA
+if (audio_is_playing(snd_switchsong))
+and (switchon) == 0
+    audio_stop_sound(snd_switchsong)
 
 //Make the screen shake if thwomp sound plays
 if not audio_is_playing(snd_thwomp)
@@ -1037,13 +1068,17 @@ if global.mariostart = 0
         event_user(0)
 
         //Create a new Mario at the desired location
-        instance_create(global.checkpoint.x+8,global.checkpoint.y+16,obj_player)
-
+        player_retrieve(global.checkpoint.x+8,global.checkpoint.y+16)
     }
 
     //Create the Mario Start! effect
-    instance_create(0,0,obj_mariostart)
+    instance_create(view_xview[0],view_yview[0],obj_mariostart)
 
+}
+else {
+
+    //Fade out
+    instance_create(0,0,obj_fadeout);
 }
 
 //If position changing is enabled
@@ -1055,7 +1090,7 @@ if global.postchange != -1
 
     //Create the desired object at the desired location
     if global.postchange = 0
-        instance_create(global.postx,global.posty,obj_player)
+        player_retrieve(global.postx,global.posty)
     else if global.postchange = 1
         instance_create(global.postx,global.posty,obj_warpmario)
     else if global.postchange = 2
@@ -1176,89 +1211,10 @@ if global.star &gt; 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw the HUD
-if disablehud = 2
-{
- draw_set_alpha(0.7)
- draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+175,1,1,0,c_white,0.7)
- if global.reserveitem = cs_fire
- or global.reserveitem = cs_ice
- or global.reserveitem = cs_boomerang
- or global.reserveitem = cs_super
- or global.reserveitem = cs_hammer
- {
-  draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
- }
- else if global.reserveitem != cs_small
- {
-  draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
- }
- draw_set_alpha(1)
- exit;
-}
-if disablehud = 1
-{
- exit;
-}
-//Set the font
-draw_set_font(global.grdigits)
+            <string>///Dibujarlo
 
-//Set the draw alpha
-draw_set_alpha(0.7)
-
-//Draw the HUD bar
-draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+175,1,1,0,c_white,0.7)
-
-//Draw the lives
-if global.player = 0
-{
- draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7);
-}
-else if global.player = 1
-{
- draw_sprite_ext(spr_luigihud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7);
-}
-else
-{
- draw_sprite_ext(spr_noplayerhud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,0.7);
-}
-draw_text(view_xview[0]+40,view_yview[0]+8,string_format(lives,2,0))
-
-//Draw the score
-draw_text(view_xview[0]+275,view_yview[0]+30,string_add_zeros(score,7))
-
-//Draw the coin count
-draw_set_font(global.cdigits)
-draw_sprite_ext(spr_coinhud,0,view_xview[0]+20,view_yview[0]+35,1,1,0,c_white,0.7)
-draw_text(view_xview[0]+37,view_yview[0]+33,string_add_zeros(global.coins,2))
-//Draw the time
-draw_set_font(global.grdigits)
-draw_sprite_ext(spr_timehud,0,view_xview[0]+310,view_yview[0]+12,1,1,0,c_white,0.7)
-draw_text(view_xview[0]+330,view_yview[0]+10,string_add_zeros(global.timer,3))
-
-//Draw the P-Meter
-if global.powerup = cs_leaf
-or global.powerup = cs_tanooki
-or global.powerup = cs_goldtan
-{
- draw_sprite_ext(spr_pmeter,pmeter,view_xview[0]+16,view_yview[0]+204,1,1,0,c_white,0.7);
-}
-//Draw the reserve items
-if global.reserveitem = cs_fire
-or global.reserveitem = cs_ice
-or global.reserveitem = cs_boomerang
-or global.reserveitem = cs_super
-or global.reserveitem = cs_hammer
-{
- draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
-}
-else if global.reserveitem != cs_small
-{
- draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,0.7);
-}
-
-//Reset the draw alpha
-draw_set_alpha(1)
+//Hacer nada, porque ya existe un objeto individual para el HUD y los fondos con parallax
+//ya son controlados en el evento End Step
 </string>
           </argument>
         </arguments>
@@ -1283,6 +1239,7 @@ draw_set_alpha(1)
             <kind>1</kind>
             <string>///Pause the game
 if not keyboard_check(vk_alt)
+and cantpause = 0
 {
 
     //Create the pause menu

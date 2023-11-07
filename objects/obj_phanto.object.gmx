@@ -47,6 +47,8 @@ else
 
 //Chase mode
 chasemode = 0
+
+canflip = false;
 </string>
           </argument>
         </arguments>

@@ -31,12 +31,15 @@
 with obj_spinner instance_destroy()
 
 //Stop Mario's horizontal movement, make him invisible, and disable his controls
-with obj_mario
+with obj_playerparent
 {
     hspeed = 0
     visible = 0
     disablecontrols = 1
 }
+
+frame = 0
+alarm[1] = 1
 
 blend_star = c_white;
 </string>
@@ -62,11 +65,36 @@ blend_star = c_white;
           <argument>
             <kind>1</kind>
             <string>///If Mario exists, make him visible and enable controls
-with obj_mario
+with obj_playerparent
 {
     visible = 1
     disablecontrols = 0
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cambiar Frame
+frame = !frame
+alarm[1] = 7
 </string>
           </argument>
         </arguments>
@@ -90,7 +118,7 @@ with obj_mario
           <argument>
             <kind>1</kind>
             <string>///Finish lifting an item
-if instance_exists(obj_mario)
+if instance_exists(obj_playerparent)
 {
 
     //Play pick up sound
@@ -132,11 +160,11 @@ if instance_exists(obj_mario)
           <argument>
             <kind>1</kind>
             <string>///Snap to Mario if he is still there pulling the item
-if instance_exists(obj_mario)
-and place_meeting(obj_mario.x,obj_mario.y+4,pulled)
+if instance_exists(obj_playerparent)
+and place_meeting(obj_playerparent.x,obj_playerparent.y+4,pulled)
 {
-    x = obj_mario.x
-    y = obj_mario.y
+    x = obj_playerparent.x
+    y = obj_playerparent.y
 }
 
 //Otherwise, destroy
@@ -175,7 +203,7 @@ if pulled.isheavy = 1
 //Otherwise, take less time
 else
 {
-    alarm[0] = 20
+    alarm[0] = 30
 }
 </string>
           </argument>
@@ -203,7 +231,7 @@ else
 if instance_exists(obj_playerparent)
 {
     //Draw Mario
-    draw_sprite_ext(spr_mario_pull,global.powerup,round(x),y,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
+    draw_sprite_ext(spr_mario_pull,(global.powerup*2)+frame,round(x),y,obj_playerparent.direct,1,0,c_white,obj_playerparent.image_alpha)
 
     //Draw Mario (Super Star)
     if(instance_exists(obj_invincibility))

@@ -175,7 +175,7 @@ if (charge == 1) {
 //Face towards the player
 if (!instance_exists(obj_playerparent))
 || (obj_playerparent.x &lt; x)
-    xscale = -1;
+    xscale = 1;
 else
     xscale = 1;
 </string>
@@ -205,13 +205,15 @@ else
 //Destroy if star Mario touches it
 if instance_exists(obj_invincibility)
 {
-    instance_create(x,y,obj_smoke)
-    instance_destroy()
+    audio_play_sound(snd_kick,0,0);
+    with instance_create(x-8,y,obj_score_new) event_user(5);
+    instance_create(x-8,y,obj_smoke);
+    instance_destroy();
+    exit;
 }
 
 //Otherwise, hurt Mario
-else
-    with other event_user(0)
+with other event_user(0)
 
 //Destroy if Mario is not a statue
 if not instance_exists(obj_statue)
@@ -242,6 +244,7 @@ if not instance_exists(obj_statue)
 
 vspeed = -3;
 y--;
+audio_play_sound(snd_jump,0,0)
 </string>
           </argument>
         </arguments>
@@ -310,6 +313,31 @@ if ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right+hspeed,bbox_top+4
             <string>///Ignore enemies
 
 exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw rotten shroom
+
+draw_sprite_ext(spr_rotten_dr, -1, round(x), round(y)+17, xscale2 * xscale, yscale2, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

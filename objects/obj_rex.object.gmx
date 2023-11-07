@@ -41,6 +41,8 @@ alarm[10] = 2
 
 //Animate
 image_speed = 0.15
+
+canflip = false;
 </string>
           </argument>
         </arguments>

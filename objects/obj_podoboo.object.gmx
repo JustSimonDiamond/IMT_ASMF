@@ -41,6 +41,8 @@ gravity = 0.4
 
 //State variable
 ready = 0
+
+canflip = false;
 </string>
           </argument>
         </arguments>

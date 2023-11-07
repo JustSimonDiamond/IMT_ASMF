@@ -91,19 +91,19 @@ if held = 0
 {
 
     //If Mario exists
-    if instance_exists(obj_mario)
+    if instance_exists(obj_playerparent)
     {
 
         //Snap to position
-        x = obj_mario.x-sprite_width/2+sprite_xoffset
-        y = obj_mario.y+6
+        x = obj_playerparent.x-sprite_width/2+sprite_xoffset
+        y = obj_playerparent.y+6
 
         //Make sure Mario is carrying
-        obj_mario.holding = 1
+        obj_playerparent.holding = 1
 
         ///Throw items
         if keyboard_check_pressed(vk_control)
-        and obj_mario.disablecontrols = 0
+        and obj_playerparent.disablecontrols = 0
         {
 
             //No longer being held
@@ -113,7 +113,7 @@ if held = 0
             audio_play_sound(snd_throw,0,0)
 
             //Reset holding variable
-            obj_mario.alarm[0] = 2
+            obj_playerparent.alarm[0] = 2
 
             //Gravity
             gravity = 0.25
@@ -325,7 +325,7 @@ and other.hardness &lt; 99
           <argument>
             <kind>1</kind>
             <string>///Default thrown event
-hspeed = obj_mario.hspeed+2*obj_mario.direct
+hspeed = obj_playerparent.hspeed+2*obj_playerparent.direct
 vspeed = 0
 </string>
           </argument>

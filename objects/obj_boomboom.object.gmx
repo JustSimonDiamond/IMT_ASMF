@@ -36,6 +36,12 @@ stomp = 5
 //How many hits before this boss dies
 hitpoints = 3
 
+//Pelota hugu
+hitball = 8
+
+//A este enemigo le hacen daño los proyectiles
+ballscanhurt = true;
+
 //Facing direction
 direct = -1
 
@@ -75,8 +81,8 @@ sprite_index = spr_boomboom
 image_speed = 0.15
 
 //Go after Mario
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
     hspeed = -1
 else
     hspeed = 1
@@ -171,8 +177,8 @@ vspeed = -3
 y--
 
 //Jump towards Mario
-if not instance_exists(obj_mario)
-or obj_mario.x &lt; x
+if not instance_exists(obj_playerparent)
+or obj_playerparent.x &lt; x
     hspeed = -1
 else
     hspeed = 1
@@ -202,6 +208,9 @@ else
 
 //Change sprite
 sprite_index = spr_boomboom_misc
+
+//eeeee
+stomp = 2
 
 //Use appropriate image index
 image_speed = 0
@@ -304,7 +313,7 @@ ready = 1
 
 //Become invulnerable
 hardness = 99
-stomp = 2
+stomp = -1
 
 //Prepare to jump at Mario
 alarm[0] = 60

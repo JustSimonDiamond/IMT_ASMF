@@ -44,6 +44,8 @@ direct = -1
 
 //Did the goomba land?
 ready = 0
+
+canflip = false;
 </string>
           </argument>
         </arguments>
@@ -187,8 +189,8 @@ if ready = 0
     image_speed = 0
 
     //Look towards Mario
-    if not instance_exists(obj_mario)
-    or obj_mario.x &lt; x
+    if not instance_exists(obj_playerparent)
+    or obj_playerparent.x &lt; x
         image_xscale = -1
     else
         image_xscale = 1
