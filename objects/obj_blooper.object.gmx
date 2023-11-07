@@ -33,17 +33,14 @@ hardness = 0
 //How vulnerable is this enemy to Mario?
 stomp = 0
 
+//Facing direction
+direct = 1;
+
+//Whether the blooper is swimming
+ready = 0;
+
 //Animate
-image_speed = 0.15
-
-//Gravity
-gravity = 0.15
-
-//Friction
-friction = 0.01
-
-//State
-ready = 0
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -67,7 +64,8 @@ ready = 0
           <argument>
             <kind>1</kind>
             <string>///Able to lunge at Mario again
-ready = 0
+
+ready = 0;
 </string>
           </argument>
         </arguments>
@@ -90,11 +88,108 @@ ready = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Finish lunging at Mario
-gravity = 0.15
-friction = 0.01
-hspeed = hspeed/2
-alarm[1] = 40
+            <string>///Sink slowly
+
+//Set the gravity
+gravity = 0.05;
+
+//Stop vertical speed
+vspeed = 0;
+
+//Stop horizontal speed
+hspeed = 0;
+
+//Allow blooper to swim up again.
+alarm[1] = 40;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Animate
+
+//Inherit event
+event_inherited();
+
+//Animate blooper
+if (vspeed &lt; 0)
+    image_single = 0;
+else
+    image_single = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Blooper logic
+
+//If the player does exist
+if (instance_exists(obj_playerparent)) {
+
+    //If the blooper can swim upwards and the player is above
+    if (!ready) 
+    &amp;&amp; (y &gt; obj_playerparent.y) {
+    
+        //Swim upwards.
+        ready = 1;
+        
+        //Set gravity
+        gravity = 0;
+        
+        //Sink slowly
+        alarm[0] = 40;
+        
+        //Find Mario
+        if (obj_playerparent.x &gt; x)             
+            motion_set(45,1.5);
+        else            
+            motion_set(135,1.5);
+    }
+}
+
+//Default wall collisions.
+event_user(3);
+
+//Default floor / ceiling collisions.
+event_user(4);
+
+//Cap vertical speed
+if (vspeed &gt; 0.5)
+    vspeed = 0.5;
 </string>
           </argument>
         </arguments>
@@ -117,59 +212,70 @@ alarm[1] = 40
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Special floor/ceiling collisions
+            <string>///Default floor collision
 
-//Bounce off floors
-if vspeed &gt; 0
-{
-    if collision_rectangle(bbox_left+2,bbox_bottom,bbox_right-2,bbox_bottom+1,obj_solidtop,0,0)
-    or collision_rectangle(bbox_left+2,bbox_bottom,bbox_right-2,bbox_bottom+1,obj_slopeparent,0,0)
-        vspeed = -0.5
+//When moving down
+if (vspeed &gt;= 0) {
+
+    //Check for a semisolid below
+    var semisolid = collision_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_bottom+vspeed,obj_solidtop,0,0);
+    
+    //If the semisolid exists, snap above it.
+    if (semisolid)
+    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
+    &amp;&amp; (!collision_rectangle(x-1,bbox_bottom,x+1,bbox_bottom+4,obj_slopeparent,1,0))
+        y = semisolid.bbox_top-16;
 }
 
-//Bounce off ceilings
-else if vspeed &lt; 0
-and collision_rectangle(bbox_left+2,bbox_top-1,bbox_right-2,bbox_top,obj_solid,0,0)
-    vspeed = 0.5
+//Embed the NPC into the slope to ensure correct slope physics.
+if (collision_rectangle(x-1,bbox_bottom,x+1,bbox_bottom+4,obj_slopeparent,1,0)) 
+&amp;&amp; (!collision_rectangle(x-1,bbox_bottom-4,x+1,bbox_bottom-4,obj_slopeparent,1,0)) 
+&amp;&amp; (vspeed == 0) {
 
-//Cap fall speed
-if vspeed &gt; 1
-    vspeed = 1
+    if (!collision_rectangle(x-1,bbox_bottom,x+1,bbox_bottom+5,obj_solidtop,0,0))
+        y += 4;
+}
+    
+//Handle slope collision
+if (vspeed &gt; -0.85)
+&amp;&amp; ((collision_rectangle(x-1,bbox_bottom-4,x+1,bbox_bottom,obj_slopeparent,1,0))
+&amp;&amp; (!collision_rectangle(x-1,bbox_bottom-8,x+1,bbox_bottom-8,obj_slopeparent,1,0))) {
 
-//Lunge at Mario when below him
-if ready = 0
-and instance_exists(obj_mario)
-and y &gt; obj_mario.y
-{
+    //Stay embed on the slope.
+    while (collision_rectangle(x-1,bbox_bottom-4,x+1,bbox_bottom,obj_slopeparent,1,0))
+        y--;
+}
 
-    //Can't lunge again
-    ready = 1
+//Check for floor objects
+if ((collision_rectangle(bbox_left,bbox_bottom+1,bbox_right,bbox_bottom+1,obj_solidtop,0,0))
+&amp;&amp; (!collision_rectangle(bbox_left,bbox_bottom-4,bbox_right,bbox_bottom-4,obj_solidtop,0,0)))
+|| (collision_rectangle(x-1,bbox_bottom+1,x+1,bbox_bottom+1,obj_slopeparent,1,0)) {
 
-    //Disable gravity
-    gravity = 0
-
-    //Disable friction
-    friction = 0
-
-    //Go after Mario
-    if obj_mario.x &lt; x+8
-        hspeed = -1
-    else
-        hspeed = 1
-
-    //Move up
-    vspeed = -2
-
-    //Finish lunge
-    alarm[0] = 20
-
+    //Stop vertical movement
+    gravity = 0;
+    if (vspeed &gt; 0)
+        vspeed = 0;
+}
+else if (ready == 0)
+    gravity = 0.05;
+    
+//If the player is moving up
+if (vspeed &lt; 0)
+&amp;&amp; ((collision_rectangle(bbox_left+1,bbox_top+vspeed-1,bbox_right-1,bbox_top-1,obj_solid,1,0))) {
+    
+    //Prevent the NPC from getting stuck on a ceiling.
+    while (collision_rectangle(bbox_left+1,bbox_top,bbox_right-1,bbox_top,obj_solid,1,0))
+        y++;
+    
+    //Stop vertical speed
+    vspeed = 0;
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="0">
+    <event eventtype="7" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -186,8 +292,45 @@ and y &gt; obj_mario.y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy
-instance_destroy()
+            <string>///Default wall collision
+
+if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1.5,bbox_top+4,bbox_left,bbox_bottom-8,obj_solid,1,0)))
+|| ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right,bbox_top+4,bbox_right+1.5,bbox_bottom-8,obj_solid,1,0))) {
+
+    //Reverse horizontal speed
+    hspeed = 0;
+    
+    //Prevent getting embed on walls
+    while (collision_rectangle(bbox_left,bbox_top+4,bbox_left,bbox_bottom-8,obj_solid,1,0))
+        x += 1.5;
+    while (collision_rectangle(bbox_left,bbox_top+4,bbox_right,bbox_bottom-8,obj_solid,1,0))
+        x -= 1.5;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw enemy
+
+draw_sprite_ext(sprite_index, -1, round(x), y+1, direct, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

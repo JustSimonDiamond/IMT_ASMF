@@ -268,6 +268,7 @@
     <instance objName="obj_multicoin" x="3200" y="352" name="inst_DF85ED8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock_castle" x="288" y="0" name="inst_4DA0958C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_hidden" x="288" y="256" name="inst_E9691ABB" locked="0" code="sprout = cs_beanstalk&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_goldtan" x="208" y="320" name="inst_913F029D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnewer" x="16" y="336" w="16" h="16" xo="64" yo="384" id="10024164" name="inst_92F8C5EA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

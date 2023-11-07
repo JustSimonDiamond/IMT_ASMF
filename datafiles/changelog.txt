@@ -1,34 +1,59 @@
 [It's Mario Time: A Super Mario Fangame] Changelog
 
-
 V0.5 Release (0.5.?.?)
 
 	Añadidos 
 	
 +¡Mundo 3! 5 niveles totalmente nuevos.
 
++¡¿Mundo 4?! Cuatro niveles esta vez ¿Por qué no?
+
 +Si Mario está en un castillo y toca la bandera suena una canción diferente a la normal.
 
-+Se agregó una pantalla de inicio con el nivel "(Hola, Simon. Introduce un nivel sin obstáculos aquí)".
++Se agregó una nueva pantalla de inicio.
 
 +Se agregaron las tuberías transparentes en el WorldMap.
 
 +Se agregó de manera definitiva el cursor.
 
++Se agregó una pantalla de espera, aparece si dejas el juego sin actividad por mucho tiempo (Solo pasa en la pantalla de título)
+
++Ahora hay un objeto que te lleva directo al WorldMap sin necesidad de cruzar la bandera (Para salidas secretas)
+
++Se ha agregado de manera oficial el bloque del Tanooki Dorado 
+
++¡Mario Gato y Mario Tanooki Dorado se unen a la acción!
+
++Se agregaron los siguientes enemigos: Cat Goomba
+
++Se agregó el Bloque Reversible (Gray Block, GB 2) y la Moneda Gris (Gray Coin). La Gray Coin activa y desactiva al Gray Block (sólido / invisible)
+
++Se agregó una zona extra en el Mundo 2, añadiendo así el primer nivel secreto.
+
 	Arreglos
 	
+/Se cambió la canción del nivel 2-4 (Casa de Las Oscuridades) por la original de Super Mario 3D World, "Shifty Boo Mansion".
+
 /Nueva música en la pantalla de inicio.
 
 /Ahora cada uno de los tipos de monedas tienen su propio efecto de brillo.
 
 /Las puertas ya no trabajan con los objetos "warproom" y "postchange", ya que ahora se pueden configurar directamente desde el objeto.
 
+/Nueva música en el WorldMap.
+
+/Se cambió el panel sin nivel (Salida secreta del 2-4) por una tubería transparente.
+
+/Finalmente se arregló el bug de las variables "global.shallihold", "holding" y "global.shallicarry". Este mismo no permitía llevar objetos a otras rooms.
+
+/Se cambió la profundidad de los Power-Ups para que no atraviesen objetos random.
+
+/Se agregó el sprite "spr_goombrat_sq". Se usa cuando un Goombrat es aplastado.
+
 
 V0.4.1 Release (0.4.1.0)
 
 	Añadidos (Número de versión = Novedades olvidadas de esta misma)
-
-+Se agregó el Tanooki Dorado (0.4.0.7)
 
 +Se agregó a la Planta Pirómana (0.4.0.9)
 
@@ -52,11 +77,6 @@ V0.4.1 Release (0.4.1.0)
 
 #Se está ampliando la cantidad de niveles del juego.
 
-	Easter Eggs
-	
-_¿Debería conservar esos sprites? Las votaciones ya se hicieron...
-
-_Jaja, no te creas lo que ves en el código, hermano.
 
 
 V0.4 Release Hotfix (0.4.0.9)
@@ -95,8 +115,6 @@ V0.4 Release Hotfix (0.4.0.9)
 
 +Se agregó el efecto estrella de UniMaker
 
-+Se agregaron los Koopas de Playa (Los que aparecen al pisar un Koopa en Super Mario World)
-
 +Se agregó el texto "Course Clear" cuando Mario finaliza un nivel
 
 +Easter Eggs, pero... ¿En dónde?
@@ -129,3 +147,53 @@ V0.4 Release Hotfix (0.4.0.9)
 -En ésta versión, Yoshi no es conseguible en ninguno de los niveles originales
 
 -Ya no se pueden aplicar filtros como el HQ2X o el HQ4X
+
+
+
+(Recreación de lo que hubiera sido si hubiera agregado el Changelog en estos tiempos)
+
+
+
+V0.3 
+
+	Añadidos
+	
++¡Mundo 1! Niveles hechos a base de Super Mario Maker: World Engine.
+
++¡Mario Mapache y Mario Tanooki se unen a la acción!
+
++Se agregó al Goombrat.
+
+	Arreglos
+
+/Varios enemigos tienen nuevos sprites.
+
+/Algunos bloques tienen nuevos sprites.
+
+/El juego ya no crashea al abrir el inventario.
+
+	Eliminados
+	
+-Mario ya no tiene voces al hacer ciertas acciones.
+
+
+
+V0.2
+
+	Añadidos
+
++Se agregaron los sprites de Mario (Super Mario 2D World Deluxe) por ahora solo son para Mario, Super Mario y Mario de Fuego.
+
++Se agregó el sprite del Goomba.
+
+	Arreglos 
+	
+/Se cambió la música del WorldMap.
+
+
+
+V0.1
+
+	Añadidos
+	
++Todo. No sé qué pasó, pero el juego no abre.

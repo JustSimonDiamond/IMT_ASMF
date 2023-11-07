@@ -134,7 +134,7 @@ if (incastle)
             <string>///Return to the world map after the music is done playing
 if (audio_is_playing(snd_flagsong)
 || audio_is_playing(snd_bossclear))
-    alarm[0] = 1
+    alarm[3] = 1
 else {
     if global.firstplay = 1 {
         scr_init_globals()

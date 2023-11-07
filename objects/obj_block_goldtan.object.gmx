@@ -71,16 +71,17 @@ vspeed = 0
 y = ystart
 
 //Make an item come out, if there is one
-with instance_create(x,y,obj_powerupsprout) sprite_index = scr_constant_get_sprite(other.sprout)
+if (visible)
+    with (instance_create(x,y,obj_powerupsprout)) sprite_index = scr_constant_get_sprite(other.sprout);
     
 //Use the empty block sprite
-sprite_index = spr_qblock_empty
+sprite_index = spr_qblock_empty;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -98,6 +99,9 @@ sprite_index = spr_qblock_empty
           <argument>
             <kind>1</kind>
             <string>///Step
+
+//Heredar mierdas
+event_inherited();
 
 //Create a solid
 if (visible = true 

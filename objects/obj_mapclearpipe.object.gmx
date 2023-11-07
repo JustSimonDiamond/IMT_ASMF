@@ -36,8 +36,8 @@
 */
 
 //Default Values:
-destx = 0
-desty = 0
+destx = x
+desty = y
 
 //Was this pipe just entered
 if ds_map_exists(global.worldmap,string(id))

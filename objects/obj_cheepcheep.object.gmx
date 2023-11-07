@@ -179,17 +179,17 @@ if place_meeting(x,y,obj_swim)
         //If Mario is above, and there is no water or solids above
         if not place_meeting(x,y-40,obj_swim)
         and not place_meeting(x,y-40,obj_solid)
-        and instance_exists(obj_mario)
-        and obj_mario.x &gt; x-56
-        and obj_mario.x &lt; x+56
-        and obj_mario.y &lt; y-32
+        and instance_exists(obj_playerparent)
+        and obj_playerparent.x &gt; x-56
+        and obj_playerparent.x &lt; x+56
+        and obj_playerparent.y &lt; y-32
         {
 
             //Jump out of the water
             vspeed = -5
 
             //Jump towards Mario
-            if obj_mario.x &lt; x
+            if obj_playerparent.x &lt; x
                 hspeed = -0.5
             else
                 hspeed = 0.5
@@ -239,6 +239,7 @@ else
           <argument>
             <kind>1</kind>
             <string>///Draw Cheep Cheep
+
 draw_sprite_ext(sprite_index,image_index,round(x),y+offset,direct,1,0,c_white,1)
 </string>
           </argument>

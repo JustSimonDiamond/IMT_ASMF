@@ -176,6 +176,7 @@
     <instance objName="obj_rock_castle" x="832" y="272" name="inst_50D5AECA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock_castle" x="816" y="256" name="inst_6CED7CA2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock_castle" x="800" y="240" name="inst_FAE00C33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_goldtan" x="128" y="336" name="inst_1542043C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tilesetnew" x="0" y="400" w="16" h="16" xo="384" yo="80" id="10025749" name="inst_CF724D89" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

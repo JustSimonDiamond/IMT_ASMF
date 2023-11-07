@@ -20,6 +20,7 @@ switch global.powerup
     case cs_penguin: return spr_mario_penguin_pipe
     case cs_super: return spr_mario_super_pipe
     case cs_cat: return spr_mario_cat_pipe
+    case cs_goldtan: return spr_mario_goldtan_pipe
     default: return 0
     
 }

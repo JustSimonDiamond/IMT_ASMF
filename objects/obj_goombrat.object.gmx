@@ -95,7 +95,7 @@ event_user(6)
           <argument>
             <kind>1</kind>
             <string>///Goombrat flattening
-instance_create(round(x),y,obj_stomped)
+with (instance_create(round(x),y,obj_stomped)) sprite_index = spr_goombrat_sq
 
 //Destroy
 instance_destroy()

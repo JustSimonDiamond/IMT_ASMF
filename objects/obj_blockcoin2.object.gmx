@@ -30,6 +30,9 @@
 //Inherit create event
 event_inherited();
 
+//Is this object swimming?
+swimming = false;
+
 //Blink
 alarm[0] = 480;
 
@@ -145,6 +148,26 @@ image_speed = 0.065+abs(hspeed)/7.5;
 
 //Inherit event
 event_inherited();
+
+//Check for a water object
+var water = collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_top,obj_swim,0,0);
+
+//If the object is not underwater and makes contact with water
+if (water) 
+&amp;&amp; (!swimming) {
+
+    //Make the object go underwater
+    swimming = true;
+    
+    //Stop vertical movement
+    if (vspeed &gt; 0)
+        vspeed = 0;
+}
+
+//Otherwise, if the object is underwater and it's not underwater, end swimming.
+else if (!water) 
+&amp;&amp; (swimming)
+    swimming = false;
 </string>
           </argument>
         </arguments>
@@ -278,15 +301,29 @@ if ((collision_rectangle(bbox_left,bbox_bottom+1,bbox_right,bbox_bottom+1,obj_so
     else
         vspeed = 0;
 }
-else {   
+else {
+
+    //Set the gravity when not underwater
+    if (!swimming) {
     
-    //Gravity
-    gravity = 0.2;
+        //Gravity
+        gravity = 0.2;
         
-    //Cap vertical speed
-    if (vspeed &gt; 4)
-        vspeed = 4;
+        //Cap vertical speed
+        if (vspeed &gt; 4)
+            vspeed = 4;
+    }
     
+    //Otherwise, set the gravity when underwater
+    else {
+    
+        //Gravity
+        gravity = 0.05;
+        
+        //Cap vertical speed
+        if (vspeed &gt; 1)
+            vspeed = 1;
+    }
 }
 
 //If the player is moving up

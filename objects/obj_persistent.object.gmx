@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Objeto Persistente de It's Mario Time
 
-//Screenshot of the game, if it exists
+//Screenshot of the game, if it exists.
 back = -1
 
 //Message to display to the screen
@@ -35,6 +35,8 @@ message = ""
 
 //Whether to show the FPS
 showfps = 0
+
+testedition = true;
 
 //Declare global variables
 scr_init_globals()
@@ -55,6 +57,9 @@ global.carriedsprite = noone
 //Whether Mario should hold/carry an object
 global.shallihold = 0
 
+//Cat Climb Time (In seconds)
+global.cattime = 3;
+
 //The level music
 global.levelmusic = snd_gameover
 
@@ -65,7 +70,7 @@ global.acecoins = ds_map_create()
 global.worldmap = ds_map_create()
 
 //Font for dialog boxes
-global.messagefont = font_add_sprite_ext(spr_messagefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~",0,0)
+global.messagefont = font_add_sprite_ext(spr_messagefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",0,0)
 
 //Font for small letters
 global.font = font_add_sprite_ext(spr_spritefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",1,-1)
@@ -202,77 +207,8 @@ message = ""
           <argument>
             <kind>1</kind>
             <string>///Center the window
-window_center()
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Deactivate everything (Not Working)
-/*
-instance_deactivate_all(1)
 
-//Make sure Mario Start! is active
-instance_activate_object(obj_mariostart)
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Stop fading to black (Not Working)
-/*
-//Set mode to fade from black
-mode = 0
-
-//If Mario Start! does not exist
-if not instance_exists(obj_mariostart)
-{
-
-    //Begin fading from black
-    done = 0
-
-    //Activate everything
-    instance_activate_all()
-
-}
-
-//Delete the screenshot
-if background_exists(back)
-    background_delete(back)
+window_center();
 </string>
           </argument>
         </arguments>
@@ -701,83 +637,6 @@ if os_type = os_android or os_type = os_ios
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Fade the screen to black (Not Working)
-
-/*
-//If this event was called manually
-if mode = 0
-{
-
-    //Take a screenshot
-    back = background_create_from_surface(application_surface,0,0,view_wview[0],view_hview[0],0,0)
-
-    //Deactivate everything
-    instance_deactivate_all(1)
-
-}
-
-//Start fading
-done = 0
-
-//To black
-mode = 1
-
-//Make sure it stops when its done
-alarm[0] = 30
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Prepare to fade to black (Not Working)
-/*
-//Fade to black
-mode = 1
-
-//Take a screenshot
-back = background_create_from_surface(application_surface,0,0,view_wview[0],view_hview[0],0,0)
-
-//Set alarm to execute when the next room starts
-alarm[1] = 1
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
@@ -795,17 +654,13 @@ alarm[1] = 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Fade the screen to black, unless you just opened up the game (Not Working)
-
-//if mode = 1
-  //  event_user(0)
-
-//Set up on screen controls
+            <string>///Set up on screen controls
 if os_type = os_android or os_type = os_ios
     event_user(2)
     
 if (instance_number(obj_cursor) == 0)
     instance_create(0,0,obj_cursor);
+    
 </string>
           </argument>
         </arguments>
@@ -979,29 +834,6 @@ else if filter = 2
 
 draw_enable_alphablend(1)
 
-//Fades the screen to and from black (Not Working)
-/*
-if done &lt; 1
-{
-
-    //Increment fading
-    done += 1/30
-
-    //Fade from black
-    if mode = 0
-        draw_set_alpha(1-done)
-
-    //Fade to black
-    else
-        draw_set_alpha(done)
-
-    //Draw the fade
-    draw_set_color(c_black)
-    draw_rectangle(0,0,5000,5000,0)
-    draw_set_alpha(1)
-    draw_set_color(c_white)
-
-}
 </string>
           </argument>
         </arguments>
@@ -1025,7 +857,7 @@ if done &lt; 1
           <argument>
             <kind>1</kind>
             <string>///Draws the screenshot shown when fading to black
-if background_exists(back)
+if (background_exists(back))
 {
     draw_enable_alphablend(0)
     draw_background(back,view_xview[0],view_yview[0])
@@ -1036,27 +868,36 @@ if background_exists(back)
 draw_set_font(global.font)
 draw_text(view_xview[0],view_yview[0],message)
 
-//Show FPS
-if showfps
+//Marca de agua
+if (testedition)
 {
-    draw_set_halign(fa_right)
-    draw_text(view_xview[0]+view_wview[0]-2,view_yview[0]+206,""+string(fps))
-    draw_set_halign(fa_left)
+    draw_set_alpha(0.25);
+    draw_set_halign(fa_right);
+    draw_text(view_xview[0] + view_wview[0] - 2, view_yview[0] + 206, "TEST EDITION");
+    draw_set_alpha(1);
+    draw_set_halign(fa_left);
+}
+//Show FPS
+if (showfps)
+{
+    draw_set_halign(fa_left);
+    draw_text(view_xview[0] + 4, view_yview[0]+206, string(fps));
+    draw_set_halign(fa_left);
 }
 
 //Draw on screen controls
-if (os_type = os_android or os_type = os_ios)
-and (instance_exists(obj_levelmanager) or instance_exists(obj_mapmario) or instance_exists(obj_titlescreen))
+if (os_type = os_android || os_type = os_ios)
+&amp;&amp; (instance_exists(obj_levelmanager) || instance_exists(obj_mapmario) || instance_exists(obj_titlescreen))
 {
 
     //Set the font
-    draw_set_font(global.font)
+    draw_set_font(global.font);
 
     //Center the text
-    draw_set_halign(fa_center)
+    draw_set_halign(fa_center);
 
     //Set the aplha
-    draw_set_alpha(0.6)
+    draw_set_alpha(0.6);
 
     //Up
     draw_rectangle(view_xview[0]+34,view_yview[0]+118,view_xview[0]+34+31,view_yview[0]+118+31,0)

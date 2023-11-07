@@ -54,6 +54,12 @@ alarm[0] = 1
 //Whether the shell was kicked
 kicked = 1
 
+//Sacudir
+alarm[3] = 540;
+
+//Salir como Koopa
+alarm[4] = 600;
+
 //Become kickable
 alarm[2] = 1
 </string>
@@ -79,7 +85,9 @@ alarm[2] = 1
           <argument>
             <kind>1</kind>
             <string>///Convertirse en un Koopa (U otra mierda, quien sabe)
-
+if (koopainside
+&amp;&amp; !kicked) 
+{
 //Cambia esta wea dependiendo del indice de sprite
 switch(sprite_index) {
     
@@ -119,6 +127,7 @@ switch(sprite_index) {
     } break;
 }
 instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -142,11 +151,15 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Sacudir
-if offset = 1
-    offset = -1
-else
-    offset = 1
-alarm[3] = 2
+if (koopainside
+&amp;&amp; !kicked) 
+{
+    if (offset == 1)
+        offset = -1;
+    else
+        offset = 1;
+    alarm[3] = 2;
+}
 </string>
           </argument>
         </arguments>
@@ -268,14 +281,8 @@ event_user(3)
 //Floor collisions
 event_user(4)
 
-//Manao
-if ((hspeed) == 0
-&amp;&amp; (koopainside))
-    alarm[3] = 270;
-    alarm[4] = 300;
-
 //If the direction changed
-if hspeed != prevhspeed
+if (hspeed != prevhspeed)
 {
 
     //Play bump sound when inside view
@@ -295,6 +302,7 @@ if hspeed != prevhspeed
     with instance_create(x+prevhspeed+8+8*sign(prevhspeed),y+8,obj_smoke) sprite_index = spr_shellbump
 
 }
+
 </string>
           </argument>
         </arguments>

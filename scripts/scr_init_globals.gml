@@ -11,11 +11,17 @@
 //Player
 global.player = 0
 
+//Jugadores Locales
+global.localplayers = 1;
+
 //Time Limit
 global.timer = 0
 
 //Coins
 global.coins = 0
+
+//Personajes Desbloqueados
+global.unlockedcharacters = 0;
 
 //Lives
 lives = 5
@@ -121,6 +127,11 @@ for (var i = 0; i < 3; i++) {
 //Star Coins collected
 global.starcoins = 0;
 
-//Ni idea bro
+//Estrella Activada en el WorldMap
 global.mapstar = 0;
+
+//P-Wing Activado
 global.pwing = 0;
+
+//Bloque Reversible
+global.grayblockon = 1;

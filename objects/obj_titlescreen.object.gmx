@@ -82,7 +82,7 @@ else {
 if (!keyboard_check_pressed(vk_anykey)
 &amp;&amp; (!instance_exists(obj_settings)
 || !instance_exists(obj_wannago)))
-    instance_create(0,0,obj_shitscreen);
+    instance_create(192,0,obj_shitscreen);
 </string>
           </argument>
         </arguments>
@@ -135,6 +135,32 @@ if fade != 0
     fade -= 0.01
     alarm[0] = 1
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Solo paralizamos el sonido que es una mierda
+
+if (audio_is_playing(snd_hurryup))
+    audio_stop_sound(snd_hurryup);
 </string>
           </argument>
         </arguments>
@@ -205,7 +231,7 @@ if fade != 0
     **  use of the "Hello Mario Engine" somewhere
     **  else. Thank you. -Hello Fangaming
     */
-    draw_text(2,2,"IMT ASMF 0.5.0.0 DEVELOPER 1")
+    draw_text(2,2,"IMT ASMF 0.5.0.1 DEVELOPER 2")
 
 }
 
@@ -337,6 +363,31 @@ else if menu_choice = 2
     instance_create(0,0,obj_wannago);
 }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Intento
+
+alarm[2] += 60
 </string>
           </argument>
         </arguments>

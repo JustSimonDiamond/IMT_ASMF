@@ -77,8 +77,8 @@ if (alpha &gt; 1) {
     //Delete temp sprite
     if (background_exists(back)) then background_delete(back);
     
-    //Activate all instances
-    //instance_activate_all();
+    //Wao
+    instance_activate_all()
     
     //Go to the destination room
     room_goto(target);

@@ -119,6 +119,7 @@ global.star = 0
 global.onoffblock = 0
 global.died = 0
 global.pmeter = 0
+global.grayblockon = 1;
 
 //Prevent shoes from being taken between levels
 if global.yoshi = 2
@@ -442,6 +443,8 @@ speed = 0
           <argument>
             <kind>1</kind>
             <string>///Handles Mario's logic in the world map
+
+if (audio_is_playing(snd_hurryup)) then audio_stop_sound(snd_hurryup);
 
 //If Mario is death skidding, and reached his location
 if (ready == 2

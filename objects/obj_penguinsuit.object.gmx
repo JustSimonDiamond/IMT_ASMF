@@ -3,7 +3,7 @@
   <spriteName>spr_penguinsuit</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>2</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>obj_powerupparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -37,6 +37,8 @@ else
 //Image Speed
 image_speed = 0.15
 
+swimming = 0;
+
 sequence = 4;
 </string>
           </argument>
@@ -65,21 +67,31 @@ sequence = 4;
 //Default event
 event_inherited()
 
+if (place_meeting(x,y,obj_swim))
+    swimming = true;
+else
+    swimming = false;
+
 //Hop when on the ground
-if gravity = 0
+if (gravity = 0)
 {
 
     //Move up
-    vspeed = -2
+    vspeed = -2;
 
     //Boost jump
-    y--
+    y--;
 
 }
 
 //Less gravity
-else
-    gravity = 0.15
+else 
+{
+    if (swimming)
+        gravity = 0.075;
+    else
+        gravity = 0.15;
+}
 </string>
           </argument>
         </arguments>

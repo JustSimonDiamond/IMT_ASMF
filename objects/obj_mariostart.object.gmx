@@ -31,6 +31,9 @@
 image_speed = 0;
 image_index = 0+1;
 
+//Jugador Seleccionado
+player_selected = 0;
+
 //Deactivate first
 alarm[0] = 1;
 </string>
@@ -63,6 +66,10 @@ instance_create(0,0,obj_curtainin);
 //Re-activate everything
 instance_activate_all();
 
+//Habilitar a Mario
+if (instance_exists(obj_playerparent))
+    with (obj_playerparent) disablecontrols = 0;
+    
 //Destroy
 instance_destroy();
 </string>

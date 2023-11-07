@@ -115,6 +115,15 @@ if (global.debugmode == true) {
         audio_stop_all();
         room_goto(rm_tutorial);
     }
+    //Si no se ha jugado antes, pero quieres saltarte todo
+    if (global.firstplay == 1
+    &amp;&amp; keyboard_check(vk_control)) {
+    
+        //Pues, salir. Nimodo
+        global.firstplay = 0;
+        audio_stop_all();
+        room_goto(rm_logo);
+    }
 }
 </string>
           </argument>

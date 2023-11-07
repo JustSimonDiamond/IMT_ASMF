@@ -34,7 +34,7 @@ image_speed = 0
 held = 1
 
 //Force Mario to hold this
-with obj_playerparent holding = 2
+with (obj_playerparent) holding = 2
 
 //Number of kills
 hitpoint = 0
@@ -45,11 +45,14 @@ koopainside = false;
 //Shake variable
 offset = 0
 
+//Por si acaso
+inwall = false;
+
 //Shake
-alarm[0] = 270
+alarm[0] = 540
 
 //Convert into a koopa again
-alarm[1] = 300
+alarm[1] = 600
 </string>
           </argument>
         </arguments>
@@ -73,9 +76,11 @@ alarm[1] = 300
           <argument>
             <kind>1</kind>
             <string>///Convertirse en un Koopa (U otra mierda, quien sabe)
-if (koopainside) {
+if (koopainside) 
+{
 //Cambia esta wea dependiendo del indice de sprite
-switch(sprite_index) {
+switch(sprite_index) 
+{
     
     //Koopa verde (Al revés)
     case(spr_shell_down): {
@@ -137,12 +142,13 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Sacudir
-if (koopainside) {
-if offset = 1
-    offset = -1
-else
-    offset = 1
-alarm[0] = 2
+if (koopainside) 
+{
+    if (offset == 1)
+        offset = -1;
+    else
+        offset = 1;
+    alarm[0] = 2;
 }
 </string>
           </argument>
@@ -195,7 +201,145 @@ if other.hardness &lt; 99
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Throw as a shell
+            <string>///Default throw / kick event.
+
+//If 'Up' is pressed, throw it upwards.
+if (keyboard_check(vk_up)) {
+
+    //Play 'Kick' sound.
+    audio_play_sound(snd_kick, 0, false);
+    
+    //Create hit
+    with (instance_create(x,y,obj_smoke)) sprite_index = spr_spinthump;
+    
+    //If the item is not overlapping a solid.
+    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) 
+    {
+        
+        //Set the horizontal speed
+        hspeed = obj_playerparent.hspeed/2;
+        
+        //If the item is not in a water surface
+        if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_top,obj_swim,0,0))
+            vspeed = -7;
+            
+        //Otherwise
+        else {
+
+            vspeed = -3.5;
+            //swimming = true;
+        }
+        
+        with (instance_create(x,y,obj_shell))
+        {
+            sprite_index = other.sprite_index;   
+            koopainside = other.koopainside;
+            vspeed = other.vspeed;
+        }
+        
+        instance_destroy()
+    }
+    
+    //Otherwise, kill it
+    else {
+    
+        //Create dead object
+        with (instance_create(x,y,obj_enemy_dead)) {
+        
+            sprite_index = other.sprite_index;
+            image_xscale = other.image_xscale;
+        }
+    
+        //Get 100 points
+        with (instance_create(round(bbox_left+bbox_right)/2-8,y,obj_score_new)) event_user(1);
+        
+        //Destroy
+        instance_destroy();  
+    }
+}
+
+//Otherwise, if 'Down' is pressed.
+else if (keyboard_check(vk_down)) {
+    
+    //Check if the object is stuck on a solid and move it
+    if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
+    
+        //Move it to a safe position
+        inwall = true;
+        
+        //Stop it
+        hspeed = 0;
+    }
+    
+    //If there's not a slope in place...
+    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
+        hspeed = 0.5*obj_playerparent.direct;
+    
+    //Otherwise
+    else
+        vspeed = 0.1;    
+        
+    //Bro, si esto no te funciona entonces quítalo
+    with (instance_create(x,y,obj_shell)) 
+    {
+        sprite_index = other.sprite_index;
+        koopainside = other.koopainside;
+    }
+    instance_destroy();
+}
+
+//Otherwise, throw it to the side.
+else if (vspeed &gt;= 0) {
+        
+    //Play 'Kick' sound.
+    audio_play_sound(snd_kick, 0, false);
+
+    //Kill instantly if in contact with a solid
+    if (place_meeting(x,y,obj_solid)) {
+    
+        //Create dead object
+        with (instance_create(x,y,obj_enemy_dead)) {
+        
+            sprite_index = other.sprite_index;
+            image_xscale = other.image_xscale;
+        }
+    
+        //Get 100 points
+        with (instance_create(round(bbox_left+bbox_right)/2-8,y,obj_score_new)) event_user(1);
+        
+        //Destroy
+        instance_destroy();  
+    }
+    else {
+    
+        //Create moving shell
+        with (instance_create(x,y,obj_shell)) {
+                        
+            //Set the same sprite
+            sprite_index = other.sprite_index;
+            
+            //If a koopa is inside
+            koopainside = other.koopainside;    
+            
+            //Set the previous hspeed
+            prevhspeed = 2.7*sign(obj_playerparent.direct);
+            
+            //Set the horizontal speed based on the facing direction
+            hspeed = 2.7*sign(obj_playerparent.direct);                                       
+    
+            event_user(15)
+        }
+    }
+        
+    //Create hit
+    with (instance_create(x,y,obj_smoke)) sprite_index = spr_spinthump;
+    
+    //Destroy
+    instance_destroy();
+}
+
+/*
+///Throw as a shell
 
 //Slope fix
 while collision_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_bottom,obj_slopeparent,1,0)
@@ -213,6 +357,7 @@ audio_play_sound(snd_kick,0,0);
 
 //Destroy
 instance_destroy()
+*/
 </string>
           </argument>
         </arguments>
@@ -240,6 +385,31 @@ with instance_create(round(x),round(y+16),obj_enemy_dead) sprite_index = other.s
 
 //Destroy
 instance_destroy()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Dibujar
+
+draw_sprite_ext(sprite_index,image_index,x+offset,y,image_xscale,image_yscale,0,c_white,1)
 </string>
           </argument>
         </arguments>

@@ -139,6 +139,7 @@
     <instance objName="obj_block" x="1664" y="352" name="inst_757AB441" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="80" y="368" name="inst_E33B52EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tilehider" x="0" y="192" name="inst_C691B257" locked="0" code="" scaleX="13" scaleY="8" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_goldtan" x="224" y="336" name="inst_084F1404" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tileset" x="0" y="0" w="16" h="16" xo="832" yo="112" id="10000397" name="inst_781055CA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
