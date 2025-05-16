@@ -8,7 +8,7 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>8</bbox_left>
-  <bbox_right>127</bbox_right>
+  <bbox_right>128</bbox_right>
   <bbox_top>2</bbox_top>
   <bbox_bottom>29</bbox_bottom>
   <HTile>0</HTile>
@@ -21,5 +21,6 @@
   <height>32</height>
   <frames>
     <frame index="0">images\spr_timeup_0.png</frame>
+    <frame index="1">images\spr_timeup_1.png</frame>
   </frames>
 </sprite>

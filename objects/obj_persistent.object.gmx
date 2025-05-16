@@ -28,85 +28,92 @@
             <string>///Objeto Persistente de It's Mario Time
 
 //Screenshot of the game, if it exists.
-back = -1
+back = -1;
 
 //Message to display to the screen
-message = ""
+message = "";
 
 //Whether to show the FPS
-showfps = 0
+showfps = 0;
 
+//Is test edition on?
 testedition = true;
 
 //Declare global variables
-scr_init_globals()
+scr_init_globals();
 
 //Idioma
 //0: Inglés. 1 = Español
-global.lang = 0
+global.lang = 0;
 
 //Modo Debug
 global.debugmode = true;
 
 //Item that is being carried between rooms
-global.carrieditem = noone
+global.carrieditem = noone;
 
 //The sprite used by an item carried between rooms
-global.carriedsprite = noone
+global.carriedsprite = noone;
 
 //Whether Mario should hold/carry an object
-global.shallihold = 0
+global.shallihold = 0;
 
 //Cat Climb Time (In seconds)
 global.cattime = 3;
 
 //The level music
-global.levelmusic = snd_gameover
+global.levelmusic = snd_gameover;
 
 //Data structure for storing collected ace coins
-global.acecoins = ds_map_create()
+global.acecoins = ds_map_create();
 
 //Data structure for storing the state of the world map
-global.worldmap = ds_map_create()
+global.worldmap = ds_map_create();
 
 //Font for dialog boxes
-global.messagefont = font_add_sprite_ext(spr_messagefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",0,0)
+global.messagefont = font_add_sprite_ext(spr_messagefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",0,0);
 
 //Font for small letters
-global.font = font_add_sprite_ext(spr_spritefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",1,-1)
+global.font = font_add_sprite_ext(spr_spritefont,'!"'+"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¿",1,-1);
 
 //Font for white digits
-global.wdigits = font_add_sprite_ext(spr_numbers,"0123456789",0,0)
+global.wdigits = font_add_sprite_ext(spr_numbers,"0123456789",0,0);
 
 //Font for gold digits
-global.gdigits = font_add_sprite_ext(spr_numbersgold,"0123456789",0,0)
+global.gdigits = font_add_sprite_ext(spr_numbersgold,"0123456789",0,0);
 
 //Font for the coin digits
-global.cdigits = font_add_sprite_ext(spr_numberscoin,"0123456789",8,0)
+global.cdigits = font_add_sprite_ext(spr_numberscoin,"0123456789",8,0);
 
 //Font for the gray digits
-global.grdigits = font_add_sprite_ext(spr_numbersgray,"0123456789",8,0)
+global.grdigits = font_add_sprite_ext(spr_numbersgray,"0123456789",8,0);
+
+//Font for the score digits
+global.scoredigits = font_add_sprite_ext(spr_numbers_score,"0123456789",0,0);
 
 //Make the z key do everything the shift key does
-keyboard_set_map(ord('Z'),vk_shift)
+keyboard_set_map(ord('Z'),vk_shift);
 
 //Make the x key do everything the control key does
-keyboard_set_map(ord('X'),vk_control)
+keyboard_set_map(ord('X'),vk_control);
+
+//Make the c key do everything the a key does
+keyboard_set_map(ord('C'),ord('A'));
 
 //Handle gamepad support
-gamepad = gamepad_is_connected(0)
+gamepad = gamepad_is_connected(0);
 
 //Gamepad left stick
-leftstick[0] = 0
-leftstick[1] = 0
-leftstick[2] = 0
-leftstick[3] = 0
+leftstick[0] = 0;
+leftstick[1] = 0;
+leftstick[2] = 0;
+leftstick[3] = 0;
 
 //Set the epsilon value for floating point numbers
-math_set_epsilon(0.00001)
+math_set_epsilon(0.00001);
 
 //Disable application surface automatic drawing
-application_surface_draw_enable(0)
+application_surface_draw_enable(0);
 </string>
           </argument>
         </arguments>
@@ -132,10 +139,10 @@ application_surface_draw_enable(0)
             <string>///Because GM: Studio is buggy, delay applying settings
 
 //Apply fullscreen
-window_set_fullscreen(fullscreen)
+window_set_fullscreen(fullscreen);
 
 //Apply filtering and VSync
-event_user(1)
+event_user(1);
 </string>
           </argument>
         </arguments>
@@ -159,7 +166,8 @@ event_user(1)
           <argument>
             <kind>1</kind>
             <string>///Go to the title screen
-room_goto(rm_title)
+
+room_goto(rm_title);
 </string>
           </argument>
         </arguments>
@@ -183,7 +191,8 @@ room_goto(rm_title)
           <argument>
             <kind>1</kind>
             <string>///Reset the message
-message = ""
+
+message = "";
 </string>
           </argument>
         </arguments>
@@ -232,118 +241,118 @@ window_center();
           <argument>
             <kind>1</kind>
             <string>///Gamepad support
-if gamepad
+if (gamepad)
 {
 
     //Up on left stick
-    if leftstick[0] = 0
-    and gamepad_axis_value(0,gp_axislv) &lt;= -0.5
+    if (leftstick[0] == 0
+    &amp;&amp; (gamepad_axis_value(0,gp_axislv) &lt;= -0.5))
     {
-        leftstick[0] = 1
-        keyboard_key_press(vk_up)
+        leftstick[0] = 1;
+        keyboard_key_press(vk_up);
     }
-    else if leftstick[0] = 1
-    and gamepad_axis_value(0,gp_axislv) &gt; -0.5
+    else if (leftstick[0] = 1
+    &amp;&amp; (gamepad_axis_value(0,gp_axislv) &gt; -0.5))
     {
-        leftstick[0] = 0
-        keyboard_key_release(vk_up)
+        leftstick[0] = 0;
+        keyboard_key_release(vk_up);
     }
 
     //Down on left stick
-    if leftstick[1] = 0
-    and gamepad_axis_value(0,gp_axislv) &gt;= 0.5
+    if (leftstick[1] = 0
+    &amp;&amp; (gamepad_axis_value(0,gp_axislv) &gt;= 0.5))
     {
-        leftstick[1] = 1
-        keyboard_key_press(vk_down)
+        leftstick[1] = 1;
+        keyboard_key_press(vk_down);
     }
-    else if leftstick[1] = 1
-    and gamepad_axis_value(0,gp_axislv) &lt; 0.5
+    else if (leftstick[1] = 1
+    &amp;&amp; (gamepad_axis_value(0,gp_axislv) &lt; 0.5))
     {
-        leftstick[1] = 0
-        keyboard_key_release(vk_down)
+        leftstick[1] = 0;
+        keyboard_key_release(vk_down);
     }
 
     //Left on left stick
-    if leftstick[2] = 0
-    and gamepad_axis_value(0,gp_axislh) &lt;= -0.5
+    if (leftstick[2] = 0
+    &amp;&amp; (gamepad_axis_value(0,gp_axislh) &lt;= -0.5))
     {
-        leftstick[2] = 1
-        keyboard_key_press(vk_left)
+        leftstick[2] = 1;
+        keyboard_key_press(vk_left);
     }
-    else if leftstick[2] = 1
-    and gamepad_axis_value(0,gp_axislh) &gt; -0.5
+    else if (leftstick[2] = 1
+    &amp;&amp; (gamepad_axis_value(0,gp_axislh) &gt; -0.5))
     {
-        leftstick[2] = 0
-        keyboard_key_release(vk_left)
+        leftstick[2] = 0;
+        keyboard_key_release(vk_left);
     }
 
     //Right on left stick
-    if leftstick[3] = 0
-    and gamepad_axis_value(0,gp_axislh) &gt;= 0.5
+    if (leftstick[3] = 0
+    &amp;&amp; (gamepad_axis_value(0,gp_axislh) &gt;= 0.5))
     {
-        leftstick[3] = 1
-        keyboard_key_press(vk_right)
+        leftstick[3] = 1;
+        keyboard_key_press(vk_right);
     }
-    else if leftstick[3] = 1
-    and gamepad_axis_value(0,gp_axislh) &lt; 0.5
+    else if (leftstick[3] = 1
+    &amp;&amp; (gamepad_axis_value(0,gp_axislh) &lt; 0.5))
     {
-        leftstick[3] = 0
-        keyboard_key_release(vk_right)
+        leftstick[3] = 0;
+        keyboard_key_release(vk_right);
     }
 
     //Up on d-pad
-    if gamepad_button_check_pressed(0,gp_padu)
-        keyboard_key_press(vk_up)
-    else if gamepad_button_check_released(0,gp_padu)
-        keyboard_key_release(vk_up)
+    if (gamepad_button_check_pressed(0,gp_padu))
+        keyboard_key_press(vk_up);
+    else if (gamepad_button_check_released(0,gp_padu))
+        keyboard_key_release(vk_up);
 
     //Down on d-pad
-    if gamepad_button_check_pressed(0,gp_padd)
-        keyboard_key_press(vk_down)
-    else if gamepad_button_check_released(0,gp_padd)
-        keyboard_key_release(vk_down)
+    if (gamepad_button_check_pressed(0,gp_padd))
+        keyboard_key_press(vk_down);
+    else if (gamepad_button_check_released(0,gp_padd))
+        keyboard_key_release(vk_down);
 
     //Left on d-pad
-    if gamepad_button_check_pressed(0,gp_padl)
-        keyboard_key_press(vk_left)
-    else if gamepad_button_check_released(0,gp_padl)
-        keyboard_key_release(vk_left)
+    if (gamepad_button_check_pressed(0,gp_padl))
+        keyboard_key_press(vk_left);
+    else if (gamepad_button_check_released(0,gp_padl))
+        keyboard_key_release(vk_left);
 
     //Right on d-pad
-    if gamepad_button_check_pressed(0,gp_padr)
-        keyboard_key_press(vk_right)
-    else if gamepad_button_check_released(0,gp_padr)
-        keyboard_key_release(vk_right)
+    if (gamepad_button_check_pressed(0,gp_padr))
+        keyboard_key_press(vk_right);
+    else if (gamepad_button_check_released(0,gp_padr))
+        keyboard_key_release(vk_right);
 
     //A button
-    if gamepad_button_check_pressed(0,gp_face1)
-        keyboard_key_press(ord('Z'))
-    else if gamepad_button_check_released(0,gp_face1)
-        keyboard_key_release(ord('Z'))
+    if (gamepad_button_check_pressed(0,gp_face1))
+        keyboard_key_press(ord('Z'));
+    else if (gamepad_button_check_released(0,gp_face1))
+        keyboard_key_release(ord('Z'));
 
     //B button
-    if gamepad_button_check_pressed(0,gp_face2)
-        keyboard_key_press(vk_control)
-    else if gamepad_button_check_released(0,gp_face2)
-        keyboard_key_release(vk_control)
+    if (gamepad_button_check_pressed(0,gp_face2))
+        keyboard_key_press(vk_control);
+    else if (gamepad_button_check_released(0,gp_face2))
+        keyboard_key_release(vk_control);
 
     //X button
-    if gamepad_button_check_pressed(0,gp_face3)
-        keyboard_key_press(ord('X'))
-    else if gamepad_button_check_released(0,gp_face3)
-        keyboard_key_release(ord('X'))
+    if (gamepad_button_check_pressed(0,gp_face3))
+        keyboard_key_press(ord('X'));
+    else if (gamepad_button_check_released(0,gp_face3))
+        keyboard_key_release(ord('X'));
 
     //Start button
-    if gamepad_button_check_pressed(0,gp_start)
-        keyboard_key_press(vk_enter)
-    else if gamepad_button_check_released(0,gp_start)
-        keyboard_key_release(vk_enter)
+    if (gamepad_button_check_pressed(0,gp_start))
+        keyboard_key_press(vk_enter);
+    else if (gamepad_button_check_released(0,gp_start))
+        keyboard_key_release(vk_enter);
 
     //Select button
-    if gamepad_button_check_pressed(0,gp_select)
-        keyboard_key_press(vk_space)
-    else if gamepad_button_check_released(0,gp_select)
-        keyboard_key_release(vk_space)
+    if (gamepad_button_check_pressed(0,gp_select))
+        keyboard_key_press(vk_space);
+    else if (gamepad_button_check_released(0,gp_select))
+        keyboard_key_release(vk_space);
 
 }
 </string>
@@ -369,8 +378,8 @@ if gamepad
             <string>///Permite varias acciones en juego
 
 //No permitir que las vidas se vayan al demonio
-if (lives &gt; 999)
-    lives = 999;
+if (lives &gt; 99)
+    lives = 99;
     
 //Lo mismo, pero con el puntaje
 if (score &gt; 9999990)
@@ -400,92 +409,92 @@ if (score &gt; 9999990)
             <string>///Handle all of the hotkeys
 
 //Quit the game when ALT+F4 is pressed
-if keyboard_check_pressed(vk_f4)
-    game_end()
+if (keyboard_check_pressed(vk_f4))
+    game_end();
 
 //Restart the game when ALT+R is pressed
-else if keyboard_check_pressed(ord('R'))
+else if (keyboard_check_pressed(ord('R')))
 {
-    audio_stop_all()
-    scr_init_globals()
+    audio_stop_all();
+    scr_init_globals();
     if (instance_number(obj_fadein) == 0)
         with (instance_create(0,0,obj_fadein)) target = rm_disclaimer;
-    message = ""
+    message = "";
 }
 
 //Fullscreen (Handled by GM: Studio)
-else if keyboard_check_pressed(vk_enter)
+else if (keyboard_check_pressed(vk_enter))
 {
-    fullscreen = !fullscreen
-    if fullscreen
-        message = "PANTALLA COMPLETA"
+    fullscreen = !fullscreen;
+    if (fullscreen)
+        message = "FULLSCREEN ON";
     else
-        message = "PROGRAMA EN VENTANA"
-    event_user(1)
+        message = "WINDOWED PROGRAM";
+    event_user(1);
 }
 
 //Toggles VSync
-else if keyboard_check_pressed(ord('V'))
+else if (keyboard_check_pressed(ord('V')))
 {
-    vsync = !vsync
-    if vsync
-        message = "VSYNC ENCENDIDO"
+    vsync = !vsync;
+    if (vsync)
+        message = "VSYNC ON";
     else
-        message = "VSYNC APAGADO"
-    event_user(1)
+        message = "VSYNC OFF";
+    event_user(1);
 }
 
 //Toggles Gamepad
-else if keyboard_check_pressed(ord('G'))
+else if (keyboard_check_pressed(ord('G')))
 {
-    gamepad = !gamepad
-    if gamepad
-        message = "CONTROL ENCENDIDO"
+    gamepad = !gamepad;
+    if (gamepad)
+        message = "CONTROLLER CONNECTED";
     else
-        message = "CONTROL APAGADO"
-    event_user(1)
+        message = "CONTROLLER OFF";
+    event_user(1);
 }
 
 //Toggle FPS display
-else if keyboard_check_pressed(ord('F'))
+else if (keyboard_check_pressed(ord('F')))
 {
-    showfps = !showfps
+    showfps = !showfps;
 }
 
 //Turn off filtering if ALT+1 is pressed
-else if keyboard_check_pressed(ord('1'))
+else if (keyboard_check_pressed(ord('1')))
 {
-    filter = 0
-    message = "TAMANO X1"
-    event_user(1)
+    filter = 0;
+    message = "SIZE X1";
+    event_user(1);
 }
 
 //Turn on HQ2X filtering if ALT+2 is pressed
-else if keyboard_check_pressed(ord('2'))
+else if (keyboard_check_pressed(ord('2')))
 {
-    filter = 1
-    message = "TAMANO X2"
-    event_user(1)
+    filter = 1;
+    message = "SIZE X2";
+    event_user(1);
 }
 
 //Turn on HQ4X filtering if ALT+3 is pressed
-else if keyboard_check_pressed(ord('3'))
+else if (keyboard_check_pressed(ord('3')))
 {
-    filter = 2
-    message = "TAMANO X4"
-    event_user(1)
+    filter = 2;
+    message = "SIZE X4";
+    event_user(1);
 }
 
 //Show hotkey help
 else
 {
-    if alarm[3] &lt; 1
+    if (alarm[3] &lt; 1)
         message = "alt PRESSED";
-    exit
+    exit;
 }
 
 //Reset the message
-alarm[3] = 60
+alarm[3] = 60;
 </string>
           </argument>
         </arguments>
@@ -509,8 +518,9 @@ alarm[3] = 60
           <argument>
             <kind>1</kind>
             <string>///Delete on screen controls
+
 for(var i = 0; i &lt; array_length_1d(mobile_keys); i++)
-    virtual_key_delete(mobile_keys[i])
+    virtual_key_delete(mobile_keys[i]);
 </string>
           </argument>
         </arguments>
@@ -539,42 +549,40 @@ for(var i = 0; i &lt; array_length_1d(mobile_keys); i++)
 var s
 
 //Normal
-if filter = 0
-    s = 1
+if (filter == 0)
+    s = 1;
 
 //HQ2X
-else if filter = 1
-    s = 1
+else if (filter == 1)
+    s = 1;
 
 //HQ4X
-else if filter = 2
-    s = 1
+else if (filter == 2)
+    s = 1;
 
 //Up
-mobile_keys[0] = virtual_key_add(34*s,118*s,32*s,32*s,vk_up)
+mobile_keys[0] = virtual_key_add(34*s,118*s,32*s,32*s,vk_up);
 
 //Down
-mobile_keys[1] = virtual_key_add(34*s,182*s,32*s,32*s,vk_down)
+mobile_keys[1] = virtual_key_add(34*s,182*s,32*s,32*s,vk_down);
 
 //Left
-mobile_keys[2] = virtual_key_add(2*s,150*s,32*s,32*s,vk_left)
+mobile_keys[2] = virtual_key_add(2*s,150*s,32*s,32*s,vk_left);
 
 //Right
-mobile_keys[3] = virtual_key_add(66*s,150*s,32*s,32*s,vk_right)
+mobile_keys[3] = virtual_key_add(66*s,150*s,32*s,32*s,vk_right);
 
 //Jump
-mobile_keys[4] = virtual_key_add(350*s,150*s,32*s,32*s,vk_shift)
+mobile_keys[4] = virtual_key_add(350*s,150*s,32*s,32*s,vk_shift);
 
 //Run
-mobile_keys[5] = virtual_key_add(310*s,150*s,32*s,32*s,vk_control)
+mobile_keys[5] = virtual_key_add(310*s,150*s,32*s,32*s,vk_control);
 
 //Pause
-mobile_keys[6] = virtual_key_add(350*s,2*s,32*s,32*s,vk_enter)
+mobile_keys[6] = virtual_key_add(350*s,2*s,32*s,32*s,vk_enter);
 
 //Inventory
-mobile_keys[7] = virtual_key_add(2*s,2*s,32*s,32*s,vk_space)
-
-//mobile_keys[8] = virtual_key_add(2*s,2*s,32*s,32*s,vk_tab)
+mobile_keys[7] = virtual_key_add(2*s,2*s,32*s,32*s,vk_space);
 </string>
           </argument>
         </arguments>
@@ -603,34 +611,35 @@ mobile_keys[7] = virtual_key_add(2*s,2*s,32*s,32*s,vk_space)
 var s
 
 //Normal
-if filter = 0
-    s = 1
+if (filter == 0)
+    s = 1;
 
 //HQ2X
-else if filter = 1
-    s = 2
+else if (filter == 1)
+    s = 2;
 
 //HQ4X
-else if filter = 2
-    s = 4
+else if (filter == 2)
+    s = 4;
 
 //Reset display
-display_reset(0,vsync)
+display_reset(0,vsync);
 
 //Set up the window
-window_set_size(view_wview[0]*s,view_hview[0]*s)
+window_set_size(view_wview[0]*s,view_hview[0]*s);
 
 //Set up the display
-display_set_gui_size(view_wview[0]*s,view_hview[0]*s)
+display_set_gui_size(view_wview[0]*s,view_hview[0]*s);
 
 //Center the window
-alarm[2] = 1
+alarm[2] = 1;
 
 //Reset mobile controls
-if os_type = os_android or os_type = os_ios
+if (os_type = os_android 
+|| os_type = os_ios)
 {
-    event_user(3)
-    event_user(2)
+    event_user(3);
+    event_user(2);
 }
 </string>
           </argument>
@@ -655,8 +664,10 @@ if os_type = os_android or os_type = os_ios
           <argument>
             <kind>1</kind>
             <string>///Set up on screen controls
-if os_type = os_android or os_type = os_ios
-    event_user(2)
+
+if (os_type = os_android 
+|| os_type = os_ios)
+    event_user(2);
     
 if (instance_number(obj_cursor) == 0)
     instance_create(0,0,obj_cursor);
@@ -686,29 +697,29 @@ if (instance_number(obj_cursor) == 0)
             <string>///Save Fullscreen + Filtering + VSync Settings
 
 //Open the file
-var file = file_text_open_write("config.dat")
+var file = file_text_open_write("config.dat");
 
 //Save fullscreen settings
-file_text_write_string(file,string(fullscreen))
-file_text_writeln(file)
+file_text_write_string(file,string(fullscreen));
+file_text_writeln(file);
 
 //Save filtering settings
-file_text_write_string(file,string(filter))
-file_text_writeln(file)
+file_text_write_string(file,string(filter));
+file_text_writeln(file);
 
 //Save vsync settings
-file_text_write_string(file,string(vsync))
-file_text_writeln(file)
+file_text_write_string(file,string(vsync));
+file_text_writeln(file);
 
 //Save language settings
-file_text_write_string(file,string(global.lang))
-file_text_writeln(file)
+file_text_write_string(file,string(global.lang));
+file_text_writeln(file);
 
 //Guardar este valor para saber si el juego se corre por primera vez
-file_text_write_string(file,string(global.firstplay))
+file_text_write_string(file,string(global.firstplay));
 
 //Close the file
-file_text_close(file)
+file_text_close(file);
 </string>
           </argument>
         </arguments>
@@ -732,63 +743,63 @@ file_text_close(file)
           <argument>
             <kind>1</kind>
             <string>///Load Fullscreen + Filtering + VSync Settings
-if file_exists("config.dat")
+if (file_exists("config.dat"))
 {
 
     //Open the file
-    var file = file_text_open_read("config.dat")
+    var file = file_text_open_read("config.dat");
 
     //Set fullscreen mode based on the read value
-    fullscreen = real(file_text_read_string(file))
-    file_text_readln(file)
+    fullscreen = real(file_text_read_string(file));
+    file_text_readln(file);
 
     //Set filtering mode based on the read value
-    filter = real(file_text_read_string(file))
-    file_text_readln(file)
+    filter = real(file_text_read_string(file));
+    file_text_readln(file);
 
     //Set vsync based on the read value
-    vsync = real(file_text_read_string(file))
-    file_text_readln(file)
+    vsync = real(file_text_read_string(file));
+    file_text_readln(file);
     
     //Set language based on the read value
-    global.lang = real(file_text_read_string(file))
-    file_text_readln(file)
+    global.lang = real(file_text_read_string(file));
+    file_text_readln(file);
     
     //Establecer que ya se jugó antes
-    global.firstplay = real(file_text_read_string(file))
+    global.firstplay = real(file_text_read_string(file));
     
     //Close the file
-    file_text_close(file)
+    file_text_close(file);
 
 }
 else
 {
 
     //Fullscreen is off by default
-    fullscreen = 0
+    fullscreen = 0;
 
     //Filtering is off if the shaders fail to compile
-    filter = 1
+    filter = 1;
 
     //Set the default to HQ4X only if the screen is big enough to fit it
-    if display_get_width() &gt;= 1536
-    and display_get_height() &gt;= 864
-        filter = 2
+    if (display_get_width() &gt;= 1536
+    &amp;&amp; display_get_height() &gt;= 864)
+        filter = 2;
     else
-        filter = 1
+        filter = 1;
 
-    //VSync is off by default
-    vsync = 0
+    //VSync is on by default
+    vsync = 1
     
     //Language
-    global.lang = 0
+    global.lang = 0;
     
     //Esta es la primera vez que se juega
-    global.firstplay = 1
+    global.firstplay = 1;
 }
 
 //Apply loaded settings
-alarm[5] = 1
+alarm[5] = 1;
 </string>
           </argument>
         </arguments>
@@ -812,27 +823,28 @@ alarm[5] = 1
           <argument>
             <kind>1</kind>
             <string>///Deals with the application surface, filtering, and fading
-draw_enable_alphablend(0)
+
+draw_enable_alphablend(0);
 
 //No Filter
-if filter = 0
-    draw_surface(application_surface,0,0)
+if (filter == 0)
+    draw_surface(application_surface,0,0);
 
 //HQ2X Filtering
-else if filter = 1
+else if (filter == 1)
 {
-    draw_surface_stretched(application_surface,0,0,view_wview[0]*2,view_hview[0]*2)
-    shader_reset()
+    draw_surface_stretched(application_surface,0,0,view_wview[0]*2,view_hview[0]*2);
+    shader_reset();
 }
 
 //HQ4X Filtering
-else if filter = 2
+else if (filter == 2)
 {
-    draw_surface_stretched(application_surface,0,0,view_wview[0]*4,view_hview[0]*4)
-    shader_reset()
+    draw_surface_stretched(application_surface,0,0,view_wview[0]*4,view_hview[0]*4);
+    shader_reset();
 }
 
-draw_enable_alphablend(1)
+draw_enable_alphablend(1);
 
 </string>
           </argument>
@@ -859,14 +871,14 @@ draw_enable_alphablend(1)
             <string>///Draws the screenshot shown when fading to black
 if (background_exists(back))
 {
-    draw_enable_alphablend(0)
-    draw_background(back,view_xview[0],view_yview[0])
-    draw_enable_alphablend(1)
+    draw_enable_alphablend(0);
+    draw_background(back,view_xview[0],view_yview[0]);
+    draw_enable_alphablend(1);
 }
 
 //Display messages
-draw_set_font(global.font)
-draw_text(view_xview[0],view_yview[0],message)
+draw_set_font(global.font);
+draw_text(view_xview[0],view_yview[0],message);
 
 //Marca de agua
 if (testedition)
@@ -900,38 +912,38 @@ if (os_type = os_android || os_type = os_ios)
     draw_set_alpha(0.6);
 
     //Up
-    draw_rectangle(view_xview[0]+34,view_yview[0]+118,view_xview[0]+34+31,view_yview[0]+118+31,0)
+    draw_rectangle(view_xview[0]+34,view_yview[0]+118,view_xview[0]+34+31,view_yview[0]+118+31,0);
 
     //Down
-    draw_rectangle(view_xview[0]+34,view_yview[0]+182,view_xview[0]+34+31,view_yview[0]+182+31,0)
+    draw_rectangle(view_xview[0]+34,view_yview[0]+182,view_xview[0]+34+31,view_yview[0]+182+31,0);
 
     //Left
-    draw_rectangle(view_xview[0]+2,view_yview[0]+150,view_xview[0]+2+31,view_yview[0]+150+31,0)
+    draw_rectangle(view_xview[0]+2,view_yview[0]+150,view_xview[0]+2+31,view_yview[0]+150+31,0);
 
     //Right
-    draw_rectangle(view_xview[0]+66,view_yview[0]+150,view_xview[0]+66+31,view_yview[0]+150+31,0)
+    draw_rectangle(view_xview[0]+66,view_yview[0]+150,view_xview[0]+66+31,view_yview[0]+150+31,0);
 
     //Jump
-    draw_rectangle(view_xview[0]+350,view_yview[0]+150,view_xview[0]+350+31,view_yview[0]+150+31,0)
-    draw_text(view_xview[0]+350+15,view_yview[0]+150+12,"A")
+    draw_rectangle(view_xview[0]+350,view_yview[0]+150,view_xview[0]+350+31,view_yview[0]+150+31,0);
+    draw_text(view_xview[0]+350+15,view_yview[0]+150+12,"A");
 
     //Run
-    draw_rectangle(view_xview[0]+310,view_yview[0]+150,view_xview[0]+310+31,view_yview[0]+150+31,0)
-    draw_text(view_xview[0]+310+15,view_yview[0]+150+12,"B")
+    draw_rectangle(view_xview[0]+310,view_yview[0]+150,view_xview[0]+310+31,view_yview[0]+150+31,0);
+    draw_text(view_xview[0]+310+15,view_yview[0]+150+12,"B");
 
     //Pause
-    draw_rectangle(view_xview[0]+350,view_yview[0]+2,view_xview[0]+350+31,view_yview[0]+2+31,0)
-    draw_text(view_xview[0]+350+15,view_yview[0]+2+12,"+")
+    draw_rectangle(view_xview[0]+350,view_yview[0]+2,view_xview[0]+350+31,view_yview[0]+2+31,0);
+    draw_text(view_xview[0]+350+15,view_yview[0]+2+12,"+");
 
     //Inventory
-    draw_rectangle(view_xview[0]+2,view_yview[0]+2,view_xview[0]+2+31,view_yview[0]+2+31,0)
-    draw_text(view_xview[0]+2+15,view_yview[0]+2+12,"-")
+    draw_rectangle(view_xview[0]+2,view_yview[0]+2,view_xview[0]+2+31,view_yview[0]+2+31,0);
+    draw_text(view_xview[0]+2+15,view_yview[0]+2+12,"-");
 
     //Reset text alignment
-    draw_set_halign(fa_left)
+    draw_set_halign(fa_left);
 
     //Reset alpha
-    draw_set_alpha(1)
+    draw_set_alpha(1);
 
 }
 </string>
@@ -957,8 +969,9 @@ if (os_type = os_android || os_type = os_ios)
           <argument>
             <kind>1</kind>
             <string>///Reset hotkey help
-if alarm[3] &lt; 1
-    message = ""
+
+if (alarm[3] &lt; 1)
+    message = "";
 </string>
           </argument>
         </arguments>

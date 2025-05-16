@@ -135,3 +135,9 @@ global.pwing = 0;
 
 //Bloque Reversible
 global.grayblockon = 1;
+
+//Beep Block State
+global.beepblockon = 1;
+
+//Modo vidas
+global.livesmode = 1;

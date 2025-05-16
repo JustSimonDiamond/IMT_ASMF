@@ -54,7 +54,7 @@
     <instance objName="obj_bganimator" x="0" y="0" name="inst_CCCE30CE" locked="0" code="anibg[0] = bg_aniwater1&#xA;anibg[1] = bg_aniwater2&#xA;anibg[2] = bg_aniwater3&#xA;anibg[3] = bg_aniwater2" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mapmario" x="112" y="80" name="inst_2953BC77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="176" y="80" name="inst_A01BD35C" locked="0" code="if global.lang = 1 {&#xA;    levelname = &quot;En el cielo&quot;&#xA;}&#xA;else {&#xA;    levelname = &quot;In the sky&quot;&#xA;}&#xA;myroom = rm_w1lvl1&#xA;levelid = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelpanel" x="176" y="176" name="inst_013E658D" locked="0" code="if global.lang = 1 {&#xA;    levelname = &quot;Ciudad Goomba&quot;&#xA;}&#xA;else {&#xA;    levelname = &quot;Goomba Bazar&quot;&#xA;}&#xA;myroom = rm_w1lvl2&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelpanel" x="176" y="176" name="inst_013E658D" locked="0" code="if global.lang = 1 {&#xA;    levelname = &quot;Ciudad Goomba&quot;&#xA;}&#xA;else {&#xA;    levelname = &quot;Goomba Bazar&quot;&#xA;}&#xA;myroom = rm_w1lvl2_og&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="208" y="272" name="inst_B50EA43D" locked="0" code="if global.lang = 1 {&#xA;    levelname = &quot;Es mejor abajo&quot;&#xA;}&#xA;else {&#xA;    levelname = &quot;It's better go down&quot;&#xA;}&#xA;myroom = rm_w1lvl3&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="368" y="144" name="inst_D384ED41" locked="0" code="if global.lang = 1 {&#xA;    levelname = &quot;Aereobalas&quot;&#xA;}&#xA;else {&#xA;    levelname = &quot;Flyin' Ships&quot;&#xA;}&#xA;myroom = rm_w1lvl4&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="176" y="496" name="inst_67778716" locked="0" code="if global.lang = 1 {&#xA;    levelname = &quot;El cielo, de nuevo&quot;&#xA;}&#xA;else {&#xA;    levelname = &quot;The sky, again&quot;&#xA;}&#xA;myroom = rm_w2lvl1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -80,7 +80,7 @@
     <instance objName="obj_mapcoin" x="80" y="80" name="inst_FC869950" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mapcoin" x="464" y="176" name="inst_1FF7D168" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mushhouse" x="464" y="208" name="inst_4C74206F" locked="0" code="powerup[0] = cs_leaf&#xA;powerup[1] = cs_fire&#xA;powerup[2] = cs_big&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_saver" x="464" y="208" name="inst_34E8539D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_saver" x="464" y="192" name="inst_34E8539D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mapmusicchanger" x="112" y="80" name="inst_49484FCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_worlditems" x="368" y="112" name="inst_55E86AF3" locked="0" code="sprite_index = spr_mapairship;&#xA;image_speed = 0.15;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="288" y="128" name="inst_33F22B91" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
@@ -206,6 +206,9 @@
     <instance objName="obj_solid" x="352" y="464" name="inst_9A48D5A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="352" y="480" name="inst_33159F79" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="512" y="464" name="inst_6125DE81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelpanel" x="208" y="1232" name="inst_C9490A32" locked="0" code="levelname = &quot;Worldmap Test&quot;&#xA;myroom = rm_worldtest&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_saver" x="208" y="1232" name="inst_3DF276D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_saver" x="432" y="464" name="inst_01993DC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_mapsky" x="160" y="64" w="48" h="48" xo="0" yo="0" id="10048994" name="inst_98EF1A08" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

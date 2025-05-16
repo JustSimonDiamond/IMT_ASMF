@@ -1211,6 +1211,8 @@
       <sound>sound\snd_propeller_down</sound>
       <sound>sound\snd_scatter</sound>
       <sound>sound\snd_scatter2</sound>
+      <sound>sound\snd_icicle_break</sound>
+      <sound>sound\snd_icicle_fall</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_blargg</sound>
@@ -1251,10 +1253,10 @@
           <sprites name="Powerups">
             <sprites name="Small">
               <sprite>sprites\spr_mario_small_idle</sprite>
+              <sprite>sprites\spr_mario_small_duck</sprite>
               <sprite>sprites\spr_mario_small_walk</sprite>
               <sprite>sprites\spr_mario_small_jump</sprite>
               <sprite>sprites\spr_mario_small_spin</sprite>
-              <sprite>sprites\spr_mario_small_duck</sprite>
               <sprite>sprites\spr_mario_small_run</sprite>
               <sprite>sprites\spr_mario_small_skid</sprite>
               <sprite>sprites\spr_mario_small_walljump</sprite>
@@ -1280,8 +1282,10 @@
             </sprites>
             <sprites name="Big">
               <sprite>sprites\spr_mario_big_idle</sprite>
+              <sprite>sprites\spr_mario_big_duck</sprite>
               <sprite>sprites\spr_mario_big_walk</sprite>
               <sprite>sprites\spr_mario_big_jump</sprite>
+              <sprite>sprites\spr_mario_big_runjump</sprite>
               <sprite>sprites\spr_mario_big_spin</sprite>
               <sprite>sprites\spr_mario_big_run</sprite>
               <sprite>sprites\spr_mario_big_skid</sprite>
@@ -1289,8 +1293,9 @@
               <sprite>sprites\spr_mario_big_climb</sprite>
               <sprite>sprites\spr_mario_big_swim</sprite>
               <sprite>sprites\spr_mario_big_hold</sprite>
+              <sprite>sprites\spr_mario_big_run_hold</sprite>
               <sprite>sprites\spr_mario_big_carry</sprite>
-              <sprite>sprites\spr_mario_big_duck</sprite>
+              <sprite>sprites\spr_mario_big_run_carry</sprite>
               <sprite>sprites\spr_mario_big_goal</sprite>
               <sprite>sprites\spr_mario_big_warp</sprite>
               <sprite>sprites\spr_mario_big_slide</sprite>
@@ -1796,6 +1801,7 @@
               <sprite>sprites\spr_mario_cat_warp</sprite>
               <sprite>sprites\spr_mario_cat_pipe</sprite>
             </sprites>
+            <sprite>sprites\spr_mario_misc</sprite>
           </sprites>
           <sprites name="Special">
             <sprites name="Win">
@@ -1852,6 +1858,10 @@
             <sprite>sprites\spr_luigi_big_walk</sprite>
             <sprite>sprites\spr_luigi_big_jump</sprite>
           </sprites>
+        </sprites>
+        <sprites name="Character Selection">
+          <sprite>sprites\spr_mario_select</sprite>
+          <sprite>sprites\spr_luigi_select</sprite>
         </sprites>
       </sprites>
       <sprites name="Blocks">
@@ -2273,7 +2283,7 @@
             <sprite>sprites\spr_acorn_outline</sprite>
             <sprite>sprites\spr_bee_outline</sprite>
             <sprite>sprites\spr_pyre_outline</sprite>
-            <sprite>sprites\spr_eyes_outline</sprite>
+            <sprite>sprites\spr_superice_outline</sprite>
             <sprite>sprites\spr_superbell_outline</sprite>
           </sprites>
           <sprite>sprites\spr_1up</sprite>
@@ -2295,7 +2305,7 @@
           <sprite>sprites\spr_beeshroom</sprite>
           <sprite>sprites\spr_acorn</sprite>
           <sprite>sprites\spr_pyreflower</sprite>
-          <sprite>sprites\spr_eyesflower</sprite>
+          <sprite>sprites\spr_supericeflower</sprite>
           <sprite>sprites\spr_star</sprite>
           <sprite>sprites\spr_frogsuit</sprite>
           <sprite>sprites\spr_bombshroom</sprite>
@@ -2325,6 +2335,11 @@
           <sprite>sprites\spr_movingrope</sprite>
           <sprite>sprites\spr_movingsaw</sprite>
           <sprite>sprites\spr_skullraft</sprite>
+          <sprite>sprites\spr_icicle</sprite>
+          <sprite>sprites\spr_icicle_appear</sprite>
+          <sprite>sprites\spr_icicle_static</sprite>
+          <sprite>sprites\spr_shard_icicle</sprite>
+          <sprite>sprites\spr_donut_appear</sprite>
         </sprites>
         <sprites name="Collectables">
           <sprite>sprites\spr_coin</sprite>
@@ -2408,6 +2423,7 @@
         <sprite>sprites\spr_numbersgold</sprite>
         <sprite>sprites\spr_numbersgray</sprite>
         <sprite>sprites\spr_numberscoin</sprite>
+        <sprite>sprites\spr_numbers_score</sprite>
       </sprites>
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
@@ -2477,6 +2493,10 @@
           <sprite>sprites\spr_rain</sprite>
           <sprite>sprites\spr_note</sprite>
           <sprite>sprites\spr_boltspark</sprite>
+          <sprite>sprites\spr_smoke_16</sprite>
+          <sprite>sprites\spr_smoke_32</sprite>
+          <sprite>sprites\spr_smoke_48</sprite>
+          <sprite>sprites\spr_smoke_64</sprite>
         </sprites>
         <sprite>sprites\spr_checkpoint</sprite>
         <sprite>sprites\spr_flag_bowser</sprite>
@@ -2606,7 +2626,7 @@
         <sprite>sprites\spr_mapmario_super</sprite>
         <sprite>sprites\spr_mapmario_bee</sprite>
         <sprite>sprites\spr_mapmario_pyre</sprite>
-        <sprite>sprites\spr_mapmario_eyes</sprite>
+        <sprite>sprites\spr_mapmario_superice</sprite>
         <sprite>sprites\spr_mapmario_penguin</sprite>
         <sprite>sprites\spr_mapmario_squirrel</sprite>
         <sprite>sprites\spr_mapmario_carrot</sprite>
@@ -2627,6 +2647,7 @@
         <sprite>sprites\spr_mapluigi_walk_2</sprite>
       </sprites>
       <sprites name="Map Mario New">
+        <sprite>sprites\spr_mapmario_mask</sprite>
         <sprite>sprites\spr_mapmario_idle_0</sprite>
         <sprite>sprites\spr_mapmario_walk_0</sprite>
         <sprite>sprites\spr_mapmario_jump_0</sprite>
@@ -2716,6 +2737,7 @@
       <sprite>sprites\spr_spinmask</sprite>
       <sprite>sprites\spr_stompmask</sprite>
       <sprite>sprites\spr_screenmask</sprite>
+      <sprite>sprites\spr_screenmask_w</sprite>
     </sprites>
     <sprites name="Special">
       <sprite>sprites\spr_logo</sprite>
@@ -2737,6 +2759,13 @@
       <sprite>sprites\spr_disapear</sprite>
       <sprite>sprites\spr_cursor</sprite>
     </sprites>
+    <sprites name="Test shit">
+      <sprite>sprites\spr_placeholder_up</sprite>
+      <sprite>sprites\spr_placeholder_down</sprite>
+      <sprite>sprites\spr_placeholder_left</sprite>
+      <sprite>sprites\spr_placeholder_right</sprite>
+      <sprite>sprites\spr_placeholder_numbers</sprite>
+    </sprites>
     <sprite>sprites\spr_up</sprite>
     <sprite>sprites\spr_down</sprite>
     <sprite>sprites\spr_left</sprite>
@@ -2753,6 +2782,7 @@
       <sprite>sprites\nice</sprite>
       <sprite>sprites\whythefuck</sprite>
       <sprite>sprites\manareyouokay</sprite>
+      <sprite>sprites\hibrohowareyou</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -2773,7 +2803,7 @@
         <background>background\bg_starrynight_2</background>
         <background>background\bg_toadhouse</background>
         <background>background\bg_bonus</background>
-        <background>background\bg_smbremaster</background>
+        <background>background\bg_smbr_ground</background>
       </backgrounds>
       <backgrounds name="Level Foregrounds">
         <background>background\fg_trees</background>
@@ -2826,8 +2856,8 @@
       <background>background\bg_mapspace_dec</background>
     </backgrounds>
     <background>background\bg_logo</background>
-    <background>background\bg_dissaclaimer</background>
-    <background>background\bg_englishit</background>
+    <background>background\bg_disclaimer</background>
+    <background>background\bg_disclaimer_spa</background>
     <background>background\bg_aniwater1</background>
     <background>background\bg_aniwater2</background>
     <background>background\bg_aniwater3</background>
@@ -2890,7 +2920,9 @@
             <script>scripts\scr_luigiswim2.gml</script>
             <script>scripts\scr_luigiswim3.gml</script>
             <script>scripts\scr_luigihold.gml</script>
+            <script>scripts\scr_luigihold2.gml</script>
             <script>scripts\scr_luigicarry.gml</script>
+            <script>scripts\scr_luigicarry2.gml</script>
             <script>scripts\scr_luigiduck.gml</script>
             <script>scripts\scr_luigigoal.gml</script>
             <script>scripts\scr_luigiwarp.gml</script>
@@ -2902,10 +2934,6 @@
             <script>scripts\scr_luigidead.gml</script>
             <script>scripts\scr_luigiwin.gml</script>
           </scripts>
-          <script>scripts\scr_walk.gml</script>
-          <script>scripts\scr_hold.gml</script>
-          <script>scripts\scr_run.gml</script>
-          <script>scripts\scr_ride.gml</script>
           <script>scripts\scr_mariomap.gml</script>
           <script>scripts\scr_luigimap.gml</script>
         </scripts>
@@ -2962,6 +2990,7 @@
           <object>objects\obj_luigi</object>
         </objects>
         <object>objects\obj_levelmanager</object>
+        <object>objects\obj_camera</object>
         <object>objects\obj_player</object>
         <object>objects\obj_warpmario</object>
         <object>objects\obj_jumpspawn</object>
@@ -3012,6 +3041,9 @@
         <object>objects\obj_rock_castle</object>
         <object>objects\obj_block_g</object>
         <object>objects\obj_block_g_2</object>
+        <object>objects\obj_beepblock_manager</object>
+        <object>objects\obj_beepblock</object>
+        <object>objects\obj_beepblock_2</object>
         <object>objects\obj_bluebrick</object>
         <object>objects\obj_redbrick</object>
         <object>objects\obj_greenbrick</object>
@@ -3283,7 +3315,7 @@
             <object>objects\obj_propelleridle</object>
             <object>objects\obj_acorn</object>
             <object>objects\obj_pyreflower</object>
-            <object>objects\obj_eyesflower</object>
+            <object>objects\obj_supericeflower</object>
             <object>objects\obj_star</object>
           </objects>
           <object>objects\obj_coin</object>
@@ -3326,6 +3358,9 @@
           <object>objects\obj_flippers_right</object>
           <object>objects\obj_fallingspike</object>
           <object>objects\obj_fallingice</object>
+          <object>objects\obj_icicle</object>
+          <object>objects\obj_icicle_static</object>
+          <object>objects\obj_icicle_shard</object>
         </objects>
         <objects name="Subcon">
           <object>objects\obj_veggie_small</object>
@@ -3372,6 +3407,7 @@
           <objects name="Block">
             <object>objects\obj_blockparent</object>
             <object>objects\obj_grayblockparent</object>
+            <object>objects\obj_donut_ticker</object>
           </objects>
           <object>objects\obj_deactivation</object>
           <object>objects\obj_warpparent</object>
@@ -3657,6 +3693,7 @@
         <object>objects\obj_inventoryprev</object>
       </objects>
       <object>objects\obj_mapmario</object>
+      <object>objects\obj_mapplayer</object>
       <object>objects\obj_lock</object>
       <object>objects\obj_levelpanel</object>
       <object>objects\obj_levelhouse</object>
@@ -3715,8 +3752,10 @@
         <object>objects\obj_gotologo</object>
         <object>objects\obj_gototitle</object>
         <object>objects\obj_titlescreen</object>
+        <object>objects\obj_titleselector</object>
         <object>objects\obj_settings</object>
         <object>objects\obj_saves</object>
+        <object>objects\obj_saveselector</object>
         <object>objects\obj_pausemap</object>
         <object>objects\obj_pausemenu</object>
         <object>objects\obj_savemenu</object>
@@ -3729,6 +3768,10 @@
         <object>objects\obj_curtainin</object>
         <object>objects\obj_curtainout</object>
         <object>objects\obj_darkin</object>
+        <object>objects\obj_fadein_w</object>
+        <object>objects\obj_fadeout_w</object>
+        <object>objects\obj_curtainin_w</object>
+        <object>objects\obj_curtainout_w</object>
       </objects>
       <objects name="Testing Objects">
         <object>objects\obj_logomario</object>
@@ -3776,6 +3819,7 @@
     <rooms name="Adventure Mode">
       <rooms name="World Map">
         <room>rooms\rm_worldmap</room>
+        <room>rooms\rm_worldtest</room>
       </rooms>
       <rooms name="Tutorial">
         <room>rooms\rm_tutorial</room>
@@ -3783,12 +3827,7 @@
       </rooms>
       <rooms name="Originals 1">
         <room>rooms\rm_w1lvl1</room>
-        <rooms name="Goomba Bazar">
-          <room>rooms\rm_w1lvl2</room>
-          <room>rooms\rm_w1lvl2houses</room>
-          <room>rooms\rm_w1lvl2sub</room>
-          <room>rooms\rm_w1lvl2final</room>
-        </rooms>
+        <room>rooms\rm_w1lvl2</room>
         <room>rooms\rm_w1lvl3</room>
         <room>rooms\rm_w1lvl4</room>
         <room>rooms\rm_w1lvl5</room>
@@ -3834,6 +3873,15 @@
       <rooms name="Champions Road">
         <room>rooms\rm_championsroad</room>
         <room>rooms\rm_championsroad_a</room>
+      </rooms>
+      <rooms name="Old Originals">
+        <room>rooms\rm_w1lvl1_og</room>
+        <rooms name="Goomba Bazar OG">
+          <room>rooms\rm_w1lvl2_og</room>
+          <room>rooms\rm_w1lvl2houses_og</room>
+          <room>rooms\rm_w1lvl2sub_og</room>
+          <room>rooms\rm_w1lvl2final_og</room>
+        </rooms>
       </rooms>
     </rooms>
     <rooms name="Pixel Battle Time">
@@ -3894,7 +3942,8 @@
       <room>rooms\rm_title3</room>
     </rooms>
   </rooms>
-  <constants number="51">
+  <constants number="52">
+    <constant name="cs_version">"v0.5.0.2 Developer 3"</constant>
     <constant name="cs_levels">24</constant>
     <constant name="cs_pwing">-30</constant>
     <constant name="cs_rotten">-29</constant>
@@ -3944,7 +3993,7 @@
     <constant name="cs_karate">23</constant>
     <constant name="cs_crown">24</constant>
     <constant name="cs_goldtan">25</constant>
-    <constant name="cs_eyes">26</constant>
+    <constant name="cs_superice">26</constant>
     <constant name="cs_cat">27</constant>
   </constants>
   <help>

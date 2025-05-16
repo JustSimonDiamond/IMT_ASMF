@@ -38,6 +38,9 @@ timeralpha = hudalpha;
 
 //The HUD's reserve item alpha
 reservealpha = hudalpha;
+
+//Need to draw the time count?
+drawtime = true;
 </string>
           </argument>
         </arguments>
@@ -90,13 +93,18 @@ alarm[5] = 7
             <string>///Lógica del HUD
 
 //Copiar todo el tiempo los valores del levelmanager
-if (instance_exists(obj_levelmanager)) {
+if (instance_exists(obj_levelmanager)) 
+{
     myobj = obj_levelmanager;
     hudalpha = myobj.hudalpha;
     timeralpha = myobj.timeralpha;
     reservealpha = myobj.reservealpha;
     anim = myobj.anim;
 }
+if (global.timer != 0)
+    drawtime = true;
+else
+    drawtime = false;
 </string>
           </argument>
         </arguments>
@@ -122,69 +130,79 @@ if (instance_exists(obj_levelmanager)) {
             <string>///Draws the HUD
 
 //Set the font
-draw_set_font(global.grdigits)
+draw_set_font(global.grdigits);
 
 //Set the draw alpha
-draw_set_alpha(hudalpha)
+draw_set_alpha(hudalpha);
 
 //Draw the HUD bar
-draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+175,1,1,0,c_white,reservealpha)
+draw_sprite_ext(spr_hudbar,0,view_xview[0]+15,view_yview[0]+175,1,1,0,c_white,reservealpha);
 
 //Draw the lives
-if global.player = 0
+if (global.livesmode)
 {
- draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,hudalpha);
+    if (global.player == 0)
+    {
+        draw_sprite_ext(spr_mariohud,0,view_xview[0]+15,view_yview[0]+30,1,1,0,c_white,hudalpha);
+    }
+    else if (global.player == 1)
+    {
+        draw_sprite_ext(spr_luigihud,0,view_xview[0]+15,view_yview[0]+30,1,1,0,c_white,hudalpha);
+    }
+    else
+    {
+        draw_sprite_ext(spr_noplayerhud,0,view_xview[0]+15,view_yview[0]+30,1,1,0,c_white,hudalpha);
+    }
+    draw_text(view_xview[0]+40,view_yview[0]+33,string_format(lives,2,0));
 }
-else if global.player = 1
-{
- draw_sprite_ext(spr_luigihud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,hudalpha);
-}
-else
-{
- draw_sprite_ext(spr_noplayerhud,0,view_xview[0]+15,view_yview[0]+5,1,1,0,c_white,hudalpha);
-}
-draw_text(view_xview[0]+40,view_yview[0]+8,string_format(lives,2,0))
-
 //Draw the score
-draw_set_alpha(timeralpha)
-draw_text(view_xview[0]+275,view_yview[0]+30,string_add_zeros(score,7))
-draw_set_alpha(hudalpha)
+draw_set_font(global.scoredigits)
+draw_set_alpha(timeralpha);
+if (drawtime)
+    draw_text(view_xview[0]+300,view_yview[0]+30,string_add_zeros(score,7));
+else
+    draw_text(view_xview[0]+300,view_yview[0]+7,string_add_zeros(score,7));
+draw_set_font(global.grdigits)
+draw_set_alpha(hudalpha);
 
 //Draw the coin count
-draw_set_font(global.cdigits)
-draw_sprite_ext(spr_coinhud,0,view_xview[0]+20,view_yview[0]+35,1,1,0,c_white,hudalpha)
-draw_text(view_xview[0]+37,view_yview[0]+33,string_add_zeros(global.coins,2))
+draw_set_font(global.cdigits);
+draw_sprite_ext(spr_coinhud,0,view_xview[0]+20,view_yview[0]+8,1,1,0,c_white,hudalpha);
+draw_text(view_xview[0]+40,view_yview[0]+7,string_add_zeros(global.coins,2));
 
 //Draw the time
-draw_set_alpha(timeralpha)
-draw_set_font(global.grdigits)
-draw_sprite_ext(spr_timehud,0,view_xview[0]+310,view_yview[0]+12,1,1,0,c_white,timeralpha)
-draw_text(view_xview[0]+330,view_yview[0]+10,string_add_zeros(global.timer,3))
-draw_set_alpha(hudalpha)
+draw_set_alpha(timeralpha);
+draw_set_font(global.grdigits);
+if (drawtime)
+{
+    draw_sprite_ext(spr_timehud, 0, view_xview[0]+300, view_yview[0]+9, 1, 1, 0, c_white, timeralpha);
+    draw_text(view_xview[0]+320, view_yview[0]+7, string_add_zeros(global.timer,3));
+}
+draw_set_alpha(hudalpha);
 
 //Draw the P-Meter
-if global.powerup = cs_leaf
-or global.powerup = cs_tanooki
-or global.powerup = cs_goldtan
+if (global.powerup == cs_leaf
+|| global.powerup == cs_tanooki
+|| global.powerup == cs_goldtan)
 {
- draw_sprite_ext(spr_pmeter,global.pmeter,view_xview[0]+16,view_yview[0]+204,1,1,0,c_white,hudalpha);
+    draw_sprite_ext(spr_pmeter,global.pmeter,view_xview[0]+16,view_yview[0]+204,1,1,0,c_white,hudalpha);
 }
 //Draw the reserve items
-if global.reserveitem = cs_fire
-or global.reserveitem = cs_ice
-or global.reserveitem = cs_boomerang
-or global.reserveitem = cs_super
-or global.reserveitem = cs_hammer
+if (global.reserveitem == cs_fire
+|| global.reserveitem == cs_ice
+|| global.reserveitem == cs_boomerang
+|| global.reserveitem == cs_super
+|| global.reserveitem == cs_hammer)
 {
- draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,reservealpha);
+    draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),anim,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,reservealpha);
 }
-else if global.reserveitem != cs_small
+else if (global.reserveitem != cs_small)
 {
- draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,reservealpha);
+    draw_sprite_ext(scr_constant_get_sprite(global.reserveitem),0,view_xview[0]+20,view_yview[0]+180,1,1,0,c_white,reservealpha);
 }
 
 //Reset the draw alpha
-draw_set_alpha(1)
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

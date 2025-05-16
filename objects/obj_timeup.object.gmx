@@ -29,6 +29,9 @@
 
 //Escala
 scale = 0;
+
+//No animar
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -56,6 +59,11 @@ scale = 0;
 scale += 0.1;
 if (scale &gt; 1)
     scale = 1;
+    
+if (global.lang == 1)
+    image_index = 1;
+else
+    image_index = 0;
 </string>
           </argument>
         </arguments>

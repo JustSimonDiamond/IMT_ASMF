@@ -13,7 +13,7 @@
 */
 
 //Open the file
-var file = file_text_open_read(argument0)
+var file = file_text_open_read(argument0);
 
 //Load the world map data structure
 ds_map_read(global.worldmap,file_text_read_string(file))

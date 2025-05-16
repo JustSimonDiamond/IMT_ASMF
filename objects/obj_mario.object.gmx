@@ -288,6 +288,100 @@ alarm[8] = 10
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create Mario's skid smoke
+if (global.pmeter &gt; 5 
+&amp;&amp; state == 1 
+&amp;&amp; enable_gravity == 1
+&amp;&amp; (sprite_index == scr_mariorun()
+|| sprite_index == scr_mariohold()
+|| sprite_index == scr_mariowalk()
+|| sprite_index == scr_marioride()))
+{
+    var smk_dir;
+    if (direct == 1)
+        smk_dir = -12;
+    else
+        smk_dir = 12;
+            
+    with (instance_create(x+smk_dir,y+28,obj_smoke))
+    {
+        sprite_index = spr_runsmoke;
+        image_speed = 0.20;
+        depth = -6;
+    }
+    alarm[5] = 8;
+}
+
+else if ((walljump == 1) &amp;&amp; (vspeed &gt; 0)) 
+{
+
+    //If Mario is small
+    if (global.powerup == cs_small) 
+    {
+        with (instance_create(x+5*sign(-direct), y+8, obj_smoke))
+            sprite_index = spr_smoke_c;
+    }
+    
+    //Otherwise, if Mario is not small
+    else 
+    {
+        with (instance_create(x+5*sign(-direct), y, obj_smoke))
+            sprite_index = spr_smoke_c;        
+    }
+    
+    //Repeat the process
+    alarm[5] = 4;
+}
+
+else
+{
+
+    if (skidnow == 1)
+    {
+        //If Mario is wall jumping, reverse where the smoke appears
+        if ((direct = 1 &amp;&amp; state != 4)
+        || (direct = -1 &amp;&amp; state = 4))
+        {
+            with (instance_create(x+1,y+24,obj_smoke))
+            {
+                sprite_index = spr_skidsmoke;
+                depth = -6;
+            }
+        }
+        else
+        {
+            with (instance_create(x-8,y+24,obj_smoke))
+            {
+                sprite_index = spr_skidsmoke;
+                depth = -6;
+            }
+        }
+
+    }
+    alarm[5] = 8;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -332,7 +426,7 @@ if (isduck == 0)
     || global.powerup == cs_penguin
     || global.powerup == cs_boomerang
     || global.powerup == cs_pyre
-    || global.powerup == cs_eyes)
+    || global.powerup == cs_superice)
     {
         if (firing &gt; 0)
             firing--;
@@ -834,12 +928,12 @@ else if isduck = 1
 }
 
 //Stop the skid sound effect
-if sprite_index != scr_marioskid()
-or sprite_index != scr_mariowalljump()
-and skidnow = 1
+if ((sprite_index != scr_marioskid()
+|| sprite_index != scr_mariowalljump())
+&amp;&amp; skidnow = 1)
 {
-    audio_stop_sound(snd_skid)
-    skidnow = 0
+    audio_stop_sound(snd_skid);
+    skidnow = 0;
 }
 </string>
           </argument>
@@ -867,14 +961,15 @@ and skidnow = 1
 
 //Draw Mario
 draw_sprite_ext(sprite_index,image_index,round(x),round(y),direct,1,0,c_white,image_alpha)
-if(instance_exists(obj_invincibility)){
-repeat(2){
-            
-    draw_set_blend_mode(bm_add);
-    draw_sprite_ext(sprite_index,image_index,round(x),round(y),direct,1,0,blend_star,image_alpha)
-    draw_set_blend_mode(bm_normal);
-};
-};
+if (instance_exists(obj_invincibility))
+{
+    repeat(2)
+    {
+        draw_set_blend_mode(bm_add);
+        draw_sprite_ext(sprite_index,image_index,round(x),round(y),direct,1,0,blend_star,image_alpha)
+        draw_set_blend_mode(bm_normal);
+    }
+}
 </string>
           </argument>
         </arguments>

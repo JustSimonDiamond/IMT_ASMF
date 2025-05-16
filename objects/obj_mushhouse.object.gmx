@@ -112,7 +112,7 @@ global.mariostart = 1
 
 //Visit the mushroom house
 if (instance_number(obj_curtainout) == 0)
-    with (instance_create(0,0,obj_curtainout)) target = rm_mushroomhouse;
+    with (instance_create(x,y,obj_curtainout)) target = rm_mushroomhouse;
 </string>
           </argument>
         </arguments>

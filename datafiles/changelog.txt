@@ -1,12 +1,44 @@
-[It's Mario Time: A Super Mario Fangame] Changelog
+[It's Mario Time: A Super Mario Fangame] 
 
-V0.5 Release (0.5.?.?)
+Este es un fangame (juego de fans para fans), por eso no está respaldado por Nintendo. La mayoría de los recursos utilizados son propiedad intelectual de Nintendo
+
+Creadores y aportadores
+
+Simón el Joyas (Creación, dirección y programación)
+Iscalo (Co-Creador y mantenimiento del servidor de Discord)
+Rollertrack (Sprites Beta de Mario)
+Enmanuel13 (Recolor de los sprites de los Koopalings)
+Mr Waffle
+AndrewXD
+Emi
+Airplane
+Random
+Galaxy Studios
+SB
+JoseVlogs
+
+Saludos especiales
+
+Nintendo
+Hello Fangaming
+Gatete Verde
+Franyer Farías
+Uber Studios
+
+
+[Changelog]
+
+V0.6
+
+	esta versión está en desarrollo
+
+V0.5 Recover Release (0.5.0.2)
 
 	Añadidos 
 	
-+¡Mundo 3! 5 niveles totalmente nuevos.
++¡Mundo 3!. 2 niveles totalmente nuevos (y uno sin terminar).
 
-+¡¿Mundo 4?! Cuatro niveles esta vez ¿Por qué no?
++El nivel 1 del primer mundo ha sido completamente remodelado.
 
 +Si Mario está en un castillo y toca la bandera suena una canción diferente a la normal.
 
@@ -20,9 +52,7 @@ V0.5 Release (0.5.?.?)
 
 +Ahora hay un objeto que te lleva directo al WorldMap sin necesidad de cruzar la bandera (Para salidas secretas)
 
-+Se ha agregado de manera oficial el bloque del Tanooki Dorado 
-
-+¡Mario Gato y Mario Tanooki Dorado se unen a la acción!
++¡Mario Gato se une a la acción!
 
 +Se agregaron los siguientes enemigos: Cat Goomba
 
@@ -49,6 +79,8 @@ V0.5 Release (0.5.?.?)
 /Se cambió la profundidad de los Power-Ups para que no atraviesen objetos random.
 
 /Se agregó el sprite "spr_goombrat_sq". Se usa cuando un Goombrat es aplastado.
+
+/Se cambió la manera en la que el jugador entra a una puerta, para asemejarse más a Super Mario World / Super Mario Maker.
 
 
 V0.4.1 Release (0.4.1.0)
@@ -117,7 +149,7 @@ V0.4 Release Hotfix (0.4.0.9)
 
 +Se agregó el texto "Course Clear" cuando Mario finaliza un nivel
 
-+Easter Eggs, pero... ¿En dónde?
++Easter Eggs, pero... ¿en dónde?
 
 	Arreglos
 
@@ -144,7 +176,7 @@ V0.4 Release Hotfix (0.4.0.9)
 
 	Eliminados
 
--En ésta versión, Yoshi no es conseguible en ninguno de los niveles originales
+-En esta versión, Yoshi no es conseguible en ninguno de los niveles originales
 
 -Ya no se pueden aplicar filtros como el HQ2X o el HQ4X
 

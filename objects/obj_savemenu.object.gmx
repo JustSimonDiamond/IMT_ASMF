@@ -194,34 +194,34 @@ if menu_choice &gt; 0
             <string>///Menu selection
 
 //Just play the correct sound for the third menu choice
-if menu_choice = 2
-    audio_play_sound(snd_correct,0,0)
+if (menu_choice == 2)
+    audio_play_sound(snd_correct,0,0);
 
 //Otherwise
 else
 {
 
     //Save the game
-    scr_save(global.file)
+    scr_save(global.file);
 
     //End the game if the second menu item is selected
-    if menu_choice = 1
+    if (menu_choice == 1)
     {
 
         //Stop all sounds
-        audio_stop_all()
+        audio_stop_all();
 
         //Re-initialise all variables
-        scr_init_globals()
+        scr_init_globals();
 
         //Go to the title screen
         if (instance_number(obj_fadein) == 0)
-            with instance_create(0,0,obj_fadein) target = random_title()
+            with instance_create(0,0,obj_fadein) target = random_title();
 
     }
 
     //Play the whistle sound
-    audio_play_sound(snd_save,0,0)
+    audio_play_sound(snd_save,0,0);
 
 }
 
@@ -230,10 +230,10 @@ if (instance_exists(obj_mapmario))
     obj_mapmario.ready = 0;
 
 //Clear the shift key press
-keyboard_clear(vk_shift)
+keyboard_clear(vk_shift);
 
 //Destroy
-instance_destroy()
+instance_destroy();
 </string>
           </argument>
         </arguments>

@@ -36,39 +36,43 @@
 */
 
 //Default Values:
-leveltime = 0
-levelmusic = 0
+leveltime = 0;
+levelmusic = 0;
 
 //Begin playing the music if you did not carry over a star/switch effect from a previous room
-if global.pswitch = 0
-and global.star = 0
-    alarm[0] = 2
+if (global.pswitch == 0
+&amp;&amp; global.star == 0)
+    alarm[0] = 2;
 
 //Make the view follow along
-view_object[0] = obj_levelmanager
+view_object[0] = obj_levelmanager;
+
+//Camera mode
+cammode = 0;
 
 //Music not disabled
-musicdisabled = 0
+musicdisabled = 0;
 
 //Animation variable
-anim = 0
+anim = 0;
 
 //Increment animation variable
-alarm[5] = 7
+alarm[5] = 7;
 
 //Barrier not enforced
-barrier = 1
+barrier = 1;
 
 //Enforce barrier
-alarm[6] = 3
+alarm[6] = 3;
 
 //P-Switch is off
-switchon = 0
+switchon = 0;
 
-pmeter = global.pmeter
+//P-Meter Value
+pmeter = global.pmeter;
 
 //P-Meter slowdown
-slowdown = 0
+slowdown = 0;
 
 //Can the player pause the game?
 cantpause = 0;
@@ -83,10 +87,12 @@ timeralpha = hudalpha;
 reservealpha = hudalpha;
 
 //Enable P-Meter
-alarm[7] = 15
+alarm[7] = 15;
 
 //Create the HUD
-instance_create(0,0,obj_hud)
+if (!instance_exists(obj_hud)) then instance_create(0,0,obj_hud);
+
+if (!instance_exists(obj_beepblock_manager)) then instance_create(0,0,obj_beepblock_manager)
 </string>
           </argument>
         </arguments>
@@ -625,63 +631,79 @@ and switchon = 0
             <kind>1</kind>
             <string>///Deals with various game logic stuff
 
-//Follow the autoscroll if it exists
-if instance_exists(obj_autoscroll)
+//In game's camera
+if (cammode == 1)
 {
-    x = obj_autoscroll.x
-    y = obj_autoscroll.y
+    //Follow the autoscroll if it exists
+    if (instance_exists(obj_camera))
+    {
+        x = obj_camera.x;
+        y = obj_camera.y;
+    }
 }
+else 
+{
+    //Follow the autoscroll if it exists
+    if (instance_exists(obj_autoscroll))
+    {
+        x = obj_autoscroll.x;
+        y = obj_autoscroll.y;
+    }
 
-//Follow Mario if he exists
-else if instance_exists(obj_playerparent)
-{
-    x = obj_playerparent.x
-    y = obj_playerparent.y+16
-}
+    //Follow Player if it exists
+    else if (instance_exists(obj_playerparent))
+    {
+        x = obj_playerparent.x;
+        y = obj_playerparent.y+16;
+    }
 
-//Follow Pipe Mario if he exists
-else if instance_exists(obj_mario_pipe)
-{
-    x = obj_mario_pipe.x
-    y = obj_mario_pipe.y+16
-}
+    //Follow Pipe Player if it exists
+    else if (instance_exists(obj_mario_pipe))
+    {
+        x = obj_mario_pipe.x;
+        y = obj_mario_pipe.y+16;
+    }
 
-//Follow goal Mario if he exists
-else if instance_exists(obj_goalmario)
-{
-    x = obj_goalmario.x
-    y = obj_goalmario.y+16
-}
-else if instance_exists(obj_playerparent_clear)
-{
-    x = obj_playerparent_clear.x
-    y = obj_playerparent_clear.y+16
-}
-//Follow warp Mario if he exists
-else if instance_exists(obj_warpmario)
-{
-    x = obj_warpmario.x
-    y = obj_warpmario.y+16
-}
+    //Follow goal Player if it exists
+    else if (instance_exists(obj_goalmario))
+    {
+        x = obj_goalmario.x;
+        y = obj_goalmario.y+16;
+    }
 
-//Follow jump spawn Mario if he exists
-else if instance_exists(obj_jumpspawn)
-{
-    x = obj_jumpspawn.x
-    y = obj_jumpspawn.y+16
-}
+    //Follow level clear Player if it exists
+    else if (instance_exists(obj_playerparent_clear))
+    {
+        x = obj_playerparent_clear.x;
+        y = obj_playerparent_clear.y+16;
+    }
 
-//Follow vine spawn Mario if he exists
-else if instance_exists(obj_vinespawn)
-{
-    x = obj_vinespawn.x
-    y = obj_vinespawn.y+16
-}
+    //Follow warp Player if it exists
+    else if (instance_exists(obj_warpmario))
+    {
+        x = obj_warpmario.x;
+        y = obj_warpmario.y+16;
+    }
 
-//Do not let the screen fall behind the classic scroll
-if instance_exists(obj_classicscroll)
-and x &lt; obj_classicscroll.x
-    x = obj_classicscroll.x
+    //Follow jump spawn Player if it exists
+    else if (instance_exists(obj_jumpspawn))
+    {
+        x = obj_jumpspawn.x;
+        y = obj_jumpspawn.y+16;
+    }
+
+    //Follow vine spawn Player if it exists
+    else if (instance_exists(obj_vinespawn))
+    {
+        x = obj_vinespawn.x;
+        y = obj_vinespawn.y+16;
+    }
+
+    //Do not let the screen fall behind the classic scroll
+    if (instance_exists(obj_classicscroll)
+    &amp;&amp; (x &lt; obj_classicscroll.x))
+        x = obj_classicscroll.x;
+}
 
 //Round position variables
 x = round(x)
@@ -1037,6 +1059,9 @@ if audio_is_playing(snd_pmeter)
             <kind>1</kind>
             <string>///Handles Mario Start, checkpoints, and other stuff
 
+//Creates the camera
+if (!instance_exists(obj_camera)) then instance_create(0,0,obj_camera);
+
 //If the music is not the same as the music used in the last room
 if global.levelmusic != levelmusic
 {
@@ -1216,10 +1241,37 @@ if global.star &gt; 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Dibujarlo
+            <string>///Don't draw the manager sprite
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clear the level
 
-//Hacer nada, porque ya existe un objeto individual para el HUD y los fondos con parallax
-//ya son controlados en el evento End Step
+if (global.debugmode)
+{
+    audio_stop_all();
+    global.clear = 1;
+    scr_return();
+}
 </string>
           </argument>
         </arguments>
@@ -1243,15 +1295,15 @@ if global.star &gt; 0
           <argument>
             <kind>1</kind>
             <string>///Pause the game
-if not keyboard_check(vk_alt)
-and cantpause = 0
+if ((!keyboard_check(vk_alt))
+&amp;&amp; cantpause == 0)
 {
 
     //Create the pause menu
-    instance_create(0,0,obj_pausemenu)
+    instance_create(0,0,obj_pausemenu);
 
     //Clear the enter key
-    keyboard_clear(vk_enter)
+    keyboard_clear(vk_enter);
 
 }
 </string>

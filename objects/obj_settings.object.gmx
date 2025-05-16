@@ -245,7 +245,7 @@ if menu_choice = 0
     {   
         with obj_persistent {
             filter = 1
-            message = "TAMANO X2"
+            message = "SIZE X2"
             alarm[5] = 1
         }
     }
@@ -255,7 +255,7 @@ if menu_choice = 0
     {
         with obj_persistent {
             filter = 2
-            message = "TAMANO X4"
+            message = "SIZE X4"
             alarm[5] = 1
         }
     }
@@ -265,7 +265,7 @@ if menu_choice = 0
     {
         with obj_persistent {
             filter = 0
-            message = "TAMANO X1"
+            message = "DEFAULT SIZE"
             alarm[5] = 1
         }
     }
@@ -280,9 +280,9 @@ else if menu_choice = 1
         //Vsync
         vsync = !vsync
         if vsync
-            message = "VSYNC ENCENDIDO"
+            message = "VSYNC ON"
         else
-            message = "VSYNC APAGADO"
+            message = "VSYNC OFF"
         event_user(1)
         alarm[3] = 120
     }

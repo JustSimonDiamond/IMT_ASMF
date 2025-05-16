@@ -84,9 +84,6 @@ and global.clear = 0
     //If so, make him move to the return location
     move_towards_point(returnx,returny,1)
 
-    //Play the spin sound
-    //alarm[4] = 1
-
     //Set the correct state for this action
     ready = 2
 
@@ -925,7 +922,12 @@ else {
           <argument>
             <kind>1</kind>
             <string>///Crear un efecto culero
-instance_create(0,0,obj_fadeout)
+if (room_last == rm_saves) {
+    instance_create(0,0,obj_fadeout_w);
+}
+else {
+    instance_create(0,0,obj_fadeout);
+}
 </string>
           </argument>
         </arguments>

@@ -100,16 +100,17 @@ if ((global.powerup == cs_cat) && (keyboard_check(vk_up))) {
 }
 
 //If Mario is just wall jumping, and not in the squirrel suit, slide down the wall
-else if global.powerup != cs_squirrel
-    vspeed = 1
+else if (global.powerup != cs_squirrel)
+    vspeed = 1;
 
 //Handle jumping
-if (keyboard_check_pressed(vk_shift)
+if ((keyboard_check_pressed(vk_shift)
+or (keyboard_check_pressed(ord('A'))))
 and disablecontrols == 0)
 {
 
     //Jump
-    vspeed = -3.75
+    vspeed = -3.75;
 
     //Esto
     if (keyboard_check(vk_up)
@@ -125,6 +126,8 @@ and disablecontrols == 0)
 
     //Switch to the jump state
     state = 2
+    
+    if (keyboard_check(ord('A'))) then stompstyle = 1;
 
     //Reverse direction if Mario is in the ninja suit
     if (global.powerup = cs_ninja)

@@ -12,14 +12,14 @@
 **  Purpose:
 **      Creates an object that the sprite represents at x,y.
 */
-switch argument2
+switch (argument2)
 {
-    case spr_mushroom:
-        return instance_create(argument0,argument1,obj_mushroom)
-    case spr_fireflower:
-        return instance_create(argument0,argument1,obj_fireflower)
-    case spr_hammersuit:
-        return instance_create(argument0,argument1,obj_hammersuit)
+    case (spr_mushroom):
+        return (instance_create(argument0,argument1,obj_mushroom));
+    case (spr_fireflower):
+        return (instance_create(argument0,argument1,obj_fireflower));
+    case (spr_hammersuit):
+        return (instance_create(argument0,argument1,obj_hammersuit));
     case spr_frogsuit:
         return instance_create(argument0,argument1,obj_frogsuit)
     case spr_bombshroom:
@@ -60,8 +60,8 @@ switch argument2
         return instance_create(argument0,argument1,obj_supercrown)
     case spr_goldtan:
         return instance_create(argument0,argument1,obj_goldtan)
-    case spr_eyesflower:
-        return instance_create(argument0,argument1,obj_eyesflower)
+    case spr_supericeflower:
+        return instance_create(argument0,argument1,obj_supericeflower)
     case spr_superbell:
         return instance_create(argument0,argument1,obj_superbell)
     case spr_hatch:

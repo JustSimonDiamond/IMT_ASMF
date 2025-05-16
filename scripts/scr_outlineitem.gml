@@ -22,7 +22,7 @@ switch argument0
     case cs_squirrel: return spr_acorn_outline
     case cs_bee: return spr_bee_outline
     case cs_pyre: return spr_pyre_outline
-    case cs_eyes: return spr_eyes_outline
+    case cs_superice: return spr_superice_outline
     case cs_cat: return spr_superbell_outline
     default: return spr_404
 }

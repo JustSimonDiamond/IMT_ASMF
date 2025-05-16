@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_cursor</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-999</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -26,13 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///El cursor del juego
-image_speed = 0
+
+cursor_sprite = sprite_index
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,32 +51,7 @@ image_speed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Este objeto se mueve hacia donde está el mouse
-action_move_to(mouse_x,mouse_y)
-
-//Cambiar Sprite
-switch (global.player) {
-    
-    //Luigi
-    case(1): {
-        image_index = 1
-    } break;
-    
-    //Peach
-    case(2): {
-        image_index = 2
-    } break;
-    
-    //Toad
-    case(3): {
-        image_index = 3
-    } break;
-    
-    //Mario
-    default: {
-        image_index = 0
-    } break;
-}
+            <string>///Draw Cursor
 </string>
           </argument>
         </arguments>

@@ -37,7 +37,7 @@ switch argument0
     case spr_karatesuit: return cs_karate
     case spr_supercrown: return cs_crown
     case spr_goldtan: return cs_goldtan
-    case spr_eyesflower: return cs_eyes
+    case spr_supericeflower: return cs_superice
     case spr_superbell: return cs_cat
     case spr_hatch: return cs_greenyoshi
     case spr_hatch_r: return cs_redyoshi

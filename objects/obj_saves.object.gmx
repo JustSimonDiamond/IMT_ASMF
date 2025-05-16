@@ -28,27 +28,29 @@
             <string>///The saves screen
 
 //The selected menu item
-menu_choice = 0
+menu_choice = 0;
 
 //Is this shit disabled?
-disable = 0
+disable = 0;
 
 //Play music
-alarm[1] = 2
+alarm[1] = 2;
 
 //Clear all data structures
-ds_map_clear(global.worldmap)
+ds_map_clear(global.worldmap);
 
 //Menu text
-if global.lang = 1 {
-    menu[0] = "Archivo A"
-    menu[1] = "Archivo B"
-    menu[2] = "Archivo C"
+if (global.lang == 1)
+{
+    menu[0] = "Archivo A";
+    menu[1] = "Archivo B";
+    menu[2] = "Archivo C";
 }
-else {
-    menu[0] = "Save A"
-    menu[1] = "Save B"
-    menu[2] = "Save C"
+else 
+{
+    menu[0] = "Save A";
+    menu[1] = "Save B";
+    menu[2] = "Save C";
 }
 </string>
           </argument>
@@ -73,7 +75,7 @@ else {
           <argument>
             <kind>1</kind>
             <string>///Play music
-audio_play_sound(snd_savemusic,99,1)
+audio_play_sound(snd_savemusic,99,1);
 </string>
           </argument>
         </arguments>
@@ -98,7 +100,7 @@ audio_play_sound(snd_savemusic,99,1)
             <kind>1</kind>
             <string>///Crear el efecto culero
 if (instance_number(obj_fadeout) == 0)
-    instance_create(0,0,obj_fadeout)
+    instance_create(0,0,obj_fadeout);
 </string>
           </argument>
         </arguments>
@@ -124,39 +126,39 @@ if (instance_number(obj_fadeout) == 0)
             <string>///Draw the saves screen
 
 //Draw the box
-draw_sprite_ext(spr_titlescreen,0,x,y,1,1,0,c_white,0.7)
+draw_sprite_ext(spr_titlescreen,0,x,y,1,1,0,c_white,0.7);
 
 //Set the font
-draw_set_font(global.font)
+draw_set_font(global.font);
 
 //Center the text
-draw_set_halign(fa_center)
+draw_set_halign(fa_center);
 
 //Set the aplha
-draw_set_alpha(0.7)
+draw_set_alpha(0.7);
 
 //Iterate over the menu items
 for(var i = 0; i &lt; 3; i++)
 {
 
     //Make the text gold if it is the selected one
-    if menu_choice = i
-        menu[i] = string_lower(menu[i])
+    if (menu_choice == i)
+        menu[i] = string_lower(menu[i]);
 
     //Otherwise, make the text white
     else
-        menu[i] = string_upper(menu[i])
+        menu[i] = string_upper(menu[i]);
 
     //Draw the text
-    draw_text(x,y-20+i*16,menu[i])
+    draw_text(x,y-20+i*16,menu[i]);
 
 }
 
 //Reset text alignment
-draw_set_halign(fa_left)
+draw_set_halign(fa_left);
 
 //Reset alpha
-draw_set_alpha(1)
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>
@@ -180,14 +182,13 @@ draw_set_alpha(1)
           <argument>
             <kind>1</kind>
             <string>///Select a lower menu item
-if (disable) == 0 {
-
-if menu_choice &lt; 2
+if (!disable)
 {
-    menu_choice++
-    audio_play_sound(snd_move,0,0)
-}
-
+    if (menu_choice &lt; 2)
+    {
+        menu_choice++;
+        audio_play_sound(snd_move,0,0);
+    }
 }
 </string>
           </argument>
@@ -212,14 +213,13 @@ if menu_choice &lt; 2
           <argument>
             <kind>1</kind>
             <string>///Select a higher menu item
-if (disable) == 0 {
-
-if menu_choice &gt; 0
+if (!disable)
 {
-    menu_choice--
-    audio_play_sound(snd_move,0,0)
-}
-
+    if (menu_choice &gt; 0)
+    {
+        menu_choice--;
+        audio_play_sound(snd_move,0,0);
+    }
 }
 </string>
           </argument>
@@ -244,12 +244,18 @@ if menu_choice &gt; 0
           <argument>
             <kind>1</kind>
             <string>///Go to the title screen
-if (disable) == 0 {
+if (!disable)
+{
 
-audio_stop_all()
+//Stop all audio
+audio_stop_all();
+
+//Go to the titlescreen
 if (instance_number(obj_fadein) == 0)
-    with (instance_create(0,0,obj_fadein)) target = random_title()
-keyboard_clear(vk_control)
+    with (instance_create(0,0,obj_fadein)) target = random_title();
+
+//Clear the Control key
+keyboard_clear(vk_control);
 
 }
 </string>
@@ -275,7 +281,8 @@ keyboard_clear(vk_control)
           <argument>
             <kind>1</kind>
             <string>///Load the selected file
-if (disable) == 0 {
+if (!disable) 
+{
 
 //Disable this shit
 disable = 1;
@@ -290,20 +297,20 @@ audio_play_sound(snd_letsplay,0,0)
 audio_stop_sound(snd_savemusic)
 
 //Figure out what save file is selected
-if menu_choice = 0
-    global.file = "SaveA.sav"
-else if menu_choice = 1
-    global.file = "SaveB.sav"
+if (menu_choice == 0)
+    global.file = "SaveA.sav";
+else if (menu_choice == 1)
+    global.file = "SaveB.sav";
 else
-    global.file = "SaveC.sav"
+    global.file = "SaveC.sav";
 
 //Load the selected save file
-if file_exists(global.file)
-    scr_load(global.file)
+if (file_exists(global.file))
+    scr_load(global.file);
 
 //Go to the world map
-if (instance_number(obj_curtainout) == 0)
-    with (instance_create(view_wview[0]/2,view_hview[0]/2,obj_curtainout)) target = rm_worldmap
+if (instance_number(obj_curtainout_w) == 0)
+    with (instance_create(view_wview[0]/2,view_hview[0]/2,obj_curtainout)) target = rm_worldmap;
     
 }
 </string>
